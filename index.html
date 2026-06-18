@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PELITA - Penerang Literasi Kesehatan Kita</title>
     <style>
-        /* --- RESET & BASE STYLE --- */
+        /* --- RESET & RESPONSIVE BASE (iOS/Android/Desktop Safe) --- */
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         body {
             background-color: #dcd5c1; 
@@ -22,7 +22,6 @@
 
         .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; }
         #slide1 { display: block; }
-
         .bg-game-image { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         /* --- SLIDE 1: PANEL BAWAH --- */
@@ -31,103 +30,79 @@
             background-color: #4a2e1b; border-top: 3px solid #dca658; 
             display: flex; justify-content: center; align-items: center; z-index: 10;
         }
-
         .btn-mulai {
-            width: 90%; height: 80%; 
-            background: linear-gradient(135deg, #a66e38, #7c5333); color: #fcf9ee;
-            border: 2px solid #f0dca8; font-size: clamp(16px, 3.5vw, 28px); 
+            width: 90%; height: 80%; background: linear-gradient(135deg, #a66e38, #7c5333); 
+            color: #fcf9ee; border: 2px solid #f0dca8; font-size: clamp(16px, 3.5vw, 28px); 
             font-weight: 900; letter-spacing: 2px; border-radius: 12px; cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.2s; text-transform: uppercase;
+            -webkit-appearance: none;
         }
         .btn-mulai:active { transform: scale(0.96); }
 
-        /* --- SLIDE 2: MENU DESA (UKURAN DIPERBAIKI BIAR PAS 100%) --- */
+        /* --- SLIDE 2: MENU DESA --- */
         .menu-labels-container {
             position: absolute; top: 44.5%; left: 26.5%; width: 47%; height: 5.5%;
             display: flex; justify-content: space-between; align-items: center; z-index: 10;
         }
         .btn-menu {
             width: 32%; height: 100%; background: transparent; color: #ffffff; 
-            /* Font dikecilkan sedikit dengan batasan ketat agar tidak keluar kotak */
-            font-size: clamp(6px, 1.1vw, 12px); 
-            font-weight: bold; border: none; cursor: pointer; font-family: inherit;
-            white-space: normal; line-height: 1.1; transition: 0.2s;
-            display: flex; justify-content: center; align-items: center; text-align: center;
+            font-size: clamp(6px, 1.1vw, 12px); font-weight: bold; border: none; 
+            cursor: pointer; font-family: inherit; white-space: normal; line-height: 1.1; 
+            transition: 0.2s; display: flex; justify-content: center; align-items: center; text-align: center;
         }
         .btn-menu:hover { transform: scale(1.1); text-shadow: 0 0 5px white; }
 
-        /* --- SLIDE 3 & 4: INFO LAYAR --- */
+        /* --- SLIDE INFO (CARA MAIN & RULES) --- */
         .info-screen {
-            width: 100%; height: 100%; padding: 30px; background-color: #f7f2e1; 
-            color: #3e2717; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            width: 100%; height: 100%; padding: 20px; background-color: #f7f2e1; 
+            color: #3e2717; display: flex; flex-direction: column; justify-content: flex-start; 
+            align-items: center; text-align: center; overflow-y: auto;
         }
-        .info-title { font-size: clamp(20px, 3.5vw, 30px); color: #4a2e1b; margin-bottom: 15px; border-bottom: 3px dashed #7c5333; }
-        .info-list { font-size: clamp(12px, 2vw, 16px); line-height: 1.5; max-width: 600px; text-align: left; margin-bottom: 20px; }
-        .info-list li { margin-bottom: 8px; }
         
-        .btn-kembali {
-            background: linear-gradient(135deg, #7c5333, #4a2e1b); color: #f0dca8;
-            border: 2px solid #f0dca8; padding: 10px 25px; font-size: clamp(14px, 2vw, 18px);
-            font-weight: bold; border-radius: 50px; cursor: pointer; transition: 0.2s;
+        /* Layout Karakter + Gelembung */
+        .character-header {
+            display: flex; align-items: flex-end; justify-content: center; 
+            margin-top: 10px; margin-bottom: 15px; width: 100%; max-width: 600px;
         }
-
-        /* --- SLIDE 5: PILIH KARAKTER --- */
-        .char-select-container {
-            display: flex; justify-content: center; gap: 30px; margin-top: 20px;
+        .info-portrait {
+            height: clamp(60px, 12vw, 100px); width: auto; object-fit: contain; margin-right: 15px;
+            animation: bounceIn 0.5s ease;
         }
-        .char-card {
-            background: #fff; border: 4px solid #4a2e1b; border-radius: 15px;
-            padding: 15px; text-align: center; cursor: pointer; transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); width: clamp(100px, 20vw, 180px);
-        }
-        .char-card:hover { transform: translateY(-10px); border-color: #dca658; }
-        /* Placeholder gambar karakter di layar pilih (Bisa ganti ukuran) */
-        .char-card img { width: 100%; height: auto; aspect-ratio: 1/1; object-fit: contain; background: #eee; border-radius: 10px; margin-bottom: 10px;}
-        .char-name { font-weight: bold; font-size: clamp(14px, 2vw, 18px); color: #4a2e1b; }
-
-        /* --- SLIDE 6: ANIMASI DIALOG BUBBLE --- */
-        .dialog-layout {
-            width: 100%; height: 100%; background: url('slide 2.png') center/cover;
-            position: relative; display: flex; align-items: flex-end; padding: 20px;
-        }
-        .dialog-box-container {
-            width: 100%; display: flex; align-items: flex-end; z-index: 20;
-        }
-        .dialog-portrait {
-            width: clamp(80px, 15vw, 150px); height: auto; object-fit: contain;
-            margin-right: 15px; transition: 0.3s;
-        }
-        .speech-bubble {
-            background: rgba(255, 255, 255, 0.95); border: 4px solid #4a2e1b;
-            border-radius: 20px 20px 20px 0; padding: 20px; flex-grow: 1;
-            position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        .cute-bubble {
+            background: #ffffff; border: 3px solid #dca658; border-radius: 20px 20px 20px 0; 
+            padding: 10px 15px; font-weight: bold; color: #4a2e1b; box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+            font-size: clamp(12px, 2vw, 16px); text-align: left; position: relative; max-width: 60%;
             animation: popBubble 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer; /* Memberi tahu user bisa diklik */
-        }
-        .bubble-name {
-            font-weight: 900; color: #a66e38; margin-bottom: 5px; 
-            font-size: clamp(14px, 2vw, 18px); text-transform: uppercase;
-        }
-        .bubble-text {
-            color: #333; font-size: clamp(12px, 2.2vw, 18px); line-height: 1.4; font-weight: bold;
-        }
-        .tap-indicator {
-            position: absolute; right: 15px; bottom: 10px; font-size: 12px; color: #999;
-            animation: blink 1s infinite;
         }
 
-        /* Keyframes Animasi */
-        @keyframes popBubble {
-            0% { transform: scale(0.8) translateY(20px); opacity: 0; }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
+        .info-title { font-size: clamp(18px, 3.5vw, 26px); color: #4a2e1b; margin-bottom: 10px; border-bottom: 3px dashed #7c5333; }
+        .info-list { font-size: clamp(12px, 2vw, 16px); line-height: 1.4; max-width: 600px; text-align: left; margin-bottom: 20px; padding: 0 20px;}
+        .info-list li { margin-bottom: 8px; }
+
+        /* Tombol Bawah Info */
+        .action-buttons {
+            display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; width: 100%;
         }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .btn-action {
+            background: linear-gradient(135deg, #7c5333, #4a2e1b); color: #f0dca8;
+            border: 2px solid #f0dca8; padding: 10px 20px; font-size: clamp(12px, 2vw, 16px);
+            font-weight: bold; border-radius: 50px; cursor: pointer; transition: 0.2s;
+            -webkit-appearance: none; text-transform: uppercase;
+        }
+        .btn-action:hover { transform: scale(1.05); }
+        .btn-action.btn-special {
+            background: linear-gradient(135deg, #dca658, #b87c32); color: #fff; border-color: #fff;
+        }
+
+        @keyframes popBubble { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        @keyframes bounceIn { 0% { transform: translateY(20px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
 
     </style>
 </head>
 <body>
 
     <audio id="soundKlik" src="slide 1 mulai.wav" preload="auto"></audio>
+    <audio id="soundWelcome" src="welcoming.wav" preload="auto"></audio>
 
     <div class="game-frame">
 
@@ -141,63 +116,45 @@
         <div id="slide2" class="slide">
             <img src="slide 2.png" alt="Slide 2" class="bg-game-image">
             <div class="menu-labels-container">
-                <button class="btn-menu" onclick="pindahSlide('slide3')">CARA MAIN</button>
-                <button class="btn-menu" onclick="pindahSlide('slide4')">RULES</button>
-                <button class="btn-menu" onclick="pindahSlide('slide5')">MULAI PETUALANGAN</button>
+                <button class="btn-menu" onclick="bukaSlideInfo('slide3')">CARA MAIN</button>
+                <button class="btn-menu" onclick="bukaSlideInfo('slide4')">RULES</button>
+                <button class="btn-menu" onclick="lanjutMulaiPetualangan()">MULAI PETUALANGAN</button>
             </div>
         </div>
 
         <div id="slide3" class="slide">
             <div class="info-screen">
+                <div class="character-header">
+                    <img id="imgCharCaraMain" src="nakula.png" class="info-portrait" alt="Karakter">
+                    <div id="teksCharCaraMain" class="cute-bubble">Halo! Ini cara mainnya ya!</div>
+                </div>
                 <h2 class="info-title">🧩 CARA MAIN</h2>
                 <ul class="info-list">
-                    <li>Ikuti 12 Misi Kesehatan pelajar.</li>
-                    <li>Pilih satu jawaban dari opsi yang tersedia.</li>
+                    <li>Ikuti 12 Misi Kesehatan pelajar di kehidupan sehari-hari.</li>
+                    <li>Baca setiap skenario cerita dengan saksama.</li>
+                    <li>Pilih satu jawaban yang paling tepat dari opsi yang tersedia.</li>
                 </ul>
-                <button class="btn-kembali" onclick="pindahSlide('slide2')">KEMBALI</button>
+                <div class="action-buttons">
+                    <button class="btn-action" onclick="pindahSlide('slide2')">⬅ KEMBALI</button>
+                </div>
             </div>
         </div>
 
         <div id="slide4" class="slide">
             <div class="info-screen">
+                <div class="character-header">
+                    <img id="imgCharRules" src="sadewa.png" class="info-portrait" alt="Karakter">
+                    <div id="teksCharRules" class="cute-bubble">Perhatikan aturan mainnya ya!</div>
+                </div>
                 <h2 class="info-title">⚖️ RULES</h2>
                 <ul class="info-list">
                     <li>Jawaban benar mendapat +1 bintang.</li>
-                    <li>Jawaban salah tidak mengurangi poin.</li>
+                    <li>Jawaban salah tidak akan mengurangi poinmu.</li>
+                    <li>Setiap selesai menjawab, baca penjelasan fakta medisnya.</li>
                 </ul>
-                <button class="btn-kembali" onclick="pindahSlide('slide2')">KEMBALI</button>
-            </div>
-        </div>
-
-        <div id="slide5" class="slide">
-            <div class="info-screen">
-                <h2 class="info-title">PILIH PENDAMPINGMU</h2>
-                <p>Siapa yang akan menemanimu di misi ini?</p>
-                <div class="char-select-container">
-                    <div class="char-card" onclick="mulaiDialog('Nakula')">
-                        <img src="nakula.png" alt="Nakula">
-                        <div class="char-name">TABIB NAKULA</div>
-                    </div>
-                    <div class="char-card" onclick="mulaiDialog('Sadewa')">
-                        <img src="sadewa.png" alt="Sadewa">
-                        <div class="char-name">DETEKTIF SADEWA</div>
-                    </div>
-                </div>
-                <br>
-                <button class="btn-kembali" onclick="pindahSlide('slide2')">KEMBALI</button>
-            </div>
-        </div>
-
-        <div id="slide6" class="slide">
-            <div class="dialog-layout">
-                <div class="dialog-box-container">
-                    <img id="charPortrait" src="nakula.png" alt="Karakter" class="dialog-portrait">
-                    
-                    <div class="speech-bubble" onclick="nextDialog()">
-                        <div id="charName" class="bubble-name">NAKULA</div>
-                        <div id="charText" class="bubble-text">Teks dialog akan muncul di sini...</div>
-                        <div class="tap-indicator">Klik untuk lanjut ▶</div>
-                    </div>
+                <div class="action-buttons">
+                    <button class="btn-action" onclick="pindahSlide('slide2')">⬅ KEMBALI</button>
+                    <button class="btn-action btn-special" onclick="lanjutMulaiPetualangan()">MULAI PETUALANGAN ▶</button>
                 </div>
             </div>
         </div>
@@ -205,68 +162,61 @@
     </div>
 
     <script>
-        // Fungsi Suara & Pindah Slide Dasar
-        function mainkanSuara() {
+        // Fungsi Suara Default (Klik Biasa)
+        function mainkanSuaraKlik() {
             const audio = document.getElementById("soundKlik");
             audio.currentTime = 0; audio.play().catch(e => console.log(e));
         }
 
+        // Fungsi Suara Welcome
+        function mainkanSuaraWelcome() {
+            const audio = document.getElementById("soundWelcome");
+            audio.currentTime = 0; audio.play().catch(e => console.log(e));
+        }
+
+        // Fungsi Navigasi Dasar
         function pindahSlide(targetId) {
-            mainkanSuara();
+            mainkanSuaraKlik();
             setTimeout(() => {
                 document.querySelectorAll('.slide').forEach(el => el.style.display = 'none');
                 document.getElementById(targetId).style.display = 'block';
             }, 300);
         }
 
-        // ====== SISTEM DIALOG ANIMASI ======
-        let dialogIndex = 0;
-        let karakterPilihan = "";
-        
-        // Naskah Percakapan Nakula & Sadewa (Bisa kamu ganti teksnya!)
-        const naskahDialog = [
-            { nama: "NAKULA", img: "nakula.png", teks: "Halo! Aku Tabib Nakula. Siap untuk misi kesehatan hari ini?" },
-            { nama: "SADEWA", img: "sadewa.png", teks: "Dan aku Detektif Sadewa! Kita harus hati-hati sama hoaks kesehatan, lho!" },
-            { nama: "NAKULA", img: "nakula.png", teks: "Ayo kita mulai petualangan pertama: Kasus Sakit Kepala di Sekolah!" }
-        ];
-
-        function mulaiDialog(pilihan) {
-            mainkanSuara();
-            karakterPilihan = pilihan; // Menyimpan karakter yang dipilih pemain
-            dialogIndex = 0; // Reset naskah dari awal
+        // Fungsi Buka Info (Dengan 50:50 Random Karakter)
+        function bukaSlideInfo(targetId) {
+            mainkanSuaraKlik();
             
+            // Logika 50:50 Randomizer
+            const isNakula = Math.random() < 0.5; // 50% persentase
+            
+            let imgSrc = isNakula ? "nakula.png" : "sadewa.png";
+            let pesan = "";
+
+            if(targetId === 'slide3') {
+                pesan = isNakula ? "Halo, aku Tabib Nakula! Perhatikan cara mainnya ya!" : "Hai, Detektif Sadewa di sini! Cek cara mainnya yuk!";
+                document.getElementById('imgCharCaraMain').src = imgSrc;
+                document.getElementById('teksCharCaraMain').innerText = pesan;
+            } else if (targetId === 'slide4') {
+                pesan = isNakula ? "Nakula ingatkan, baca rules-nya agar tidak salah jalan!" : "Sadewa pastikan kamu paham aturannya. Tidak ada poin minus kok!";
+                document.getElementById('imgCharRules').src = imgSrc;
+                document.getElementById('teksCharRules').innerText = pesan;
+            }
+
+            // Ganti Slide setelah suara klik selesai
             setTimeout(() => {
                 document.querySelectorAll('.slide').forEach(el => el.style.display = 'none');
-                document.getElementById('slide6').style.display = 'block';
-                tampilkanTeks();
+                document.getElementById(targetId).style.display = 'block';
             }, 300);
         }
 
-        function tampilkanTeks() {
-            const data = naskahDialog[dialogIndex];
-            const bubble = document.querySelector('.speech-bubble');
-            
-            // Mengganti Foto, Nama, dan Teks
-            document.getElementById('charPortrait').src = data.img;
-            document.getElementById('charName').innerText = data.nama;
-            document.getElementById('charText').innerText = data.teks;
-            
-            // Me-reset animasi gelembung agar pop-up lagi
-            bubble.style.animation = 'none';
-            bubble.offsetHeight; // trigger reflow
-            bubble.style.animation = 'popBubble 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-        }
-
-        function nextDialog() {
-            mainkanSuara();
-            dialogIndex++;
-            
-            if (dialogIndex < naskahDialog.length) {
-                tampilkanTeks();
-            } else {
-                // Jika naskah habis, masuk ke gameplay aslinya
-                alert("Dialog selesai! Masuk ke layar Game Chapter 1...");
-            }
+        // Fungsi Tombol Mulai Petualangan (Audio Beda)
+        function lanjutMulaiPetualangan() {
+            mainkanSuaraWelcome();
+            setTimeout(() => {
+                alert("Chapter 1 Siap Dimulai! (Di sini nanti masuk ke slide cerita 1)");
+                // document.getElementById('slideX').style.display = 'block';
+            }, 500);
         }
     </script>
 
