@@ -10,10 +10,12 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            /* Memastikan klik halus di perangkat Apple/iOS */
+            -webkit-tap-highlight-color: transparent; 
         }
 
         body {
-            background-color: #dcd5c1; /* Warna latar belakang luar game senada batik */
+            background-color: #dcd5c1; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,10 +28,10 @@
         .game-frame {
             position: relative;
             width: 95vw;
-            max-width: 900px; /* Jika lebar 900px, tinggi otomatis jadi 600px (Rasio 3:2) */
+            max-width: 900px; 
             aspect-ratio: 3 / 2;
             background-color: #fcf9ee;
-            border: 6px solid #4a2e1b; /* Bingkai kayu cokelat tua tebal */
+            border: 6px solid #4a2e1b; 
             border-radius: 16px;
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
             overflow: hidden;
@@ -42,15 +44,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            display: none; /* Sembunyikan semua secara default */
+            display: none; 
         }
 
-        /* Tampilkan Slide 1 di awal game */
         #slide1 {
             display: block;
         }
 
-        /* Gambar full memenuhi frame 3:2 */
         .bg-game-image {
             width: 100%;
             height: 100%;
@@ -58,46 +58,56 @@
             display: block;
         }
 
-        /* --- TOMBOL MENIMPA (OVERLAY) DI ATAS GAMBAR --- */
-        .overlay-container {
+        /* --- MASKING PANEL BAWAH (Menutupi Ikon & Teks Bawah) --- */
+        .bottom-panel {
             position: absolute;
-            bottom: 6%; /* Mengatur jarak dari bawah gambar */
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 18%; /* Ketinggian ini dijamin menutupi area ikon dan teks di gambar */
+            background-color: #4a2e1b; /* Warna panel cokelat tua */
+            border-top: 3px solid #dca658; /* Garis emas pemisah */
+            display: flex;
+            justify-content: center;
+            align-items: center;
             z-index: 10;
-            text-align: center;
+            padding: 10px;
         }
 
+        /* --- TOMBOL RAKSASA RESPONSITF --- */
         .btn-game {
-            background: linear-gradient(135deg, #7c5333, #4a2e1b);
-            color: #f0dca8;
+            width: 90%; /* Lebar menutupi panel */
+            height: 90%; /* Tinggi menutupi panel */
+            background: linear-gradient(135deg, #a66e38, #7c5333);
+            color: #fcf9ee;
             border: 2px solid #f0dca8;
-            padding: 12px 40px;
-            font-size: 18px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            border-radius: 50px;
+            /* Font responsif: Otomatis membesar di Desktop & pas di HP */
+            font-size: clamp(18px, 4vw, 32px); 
+            font-weight: 900;
+            letter-spacing: 2px;
+            border-radius: 12px;
             cursor: pointer;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
             transition: all 0.2s ease;
+            -webkit-appearance: none; /* Mencegah bug tampilan tombol di iOS */
+            text-transform: uppercase;
         }
 
         .btn-game:hover {
-            transform: scale(1.06);
-            background: linear-gradient(135deg, #91623d, #5c3a22);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            transform: scale(1.02);
+            background: linear-gradient(135deg, #c28244, #91623d);
         }
 
         .btn-game:active {
-            transform: scale(0.96);
+            transform: scale(0.98);
         }
 
         /* --- TAMPILAN SLIDE 2 (CARA MAIN & RULES) --- */
         .rules-screen {
             width: 100%;
             height: 100%;
-            padding: 40px;
-            background-color: #f7f2e1; /* Warna kertas kuno */
+            padding: 30px;
+            background-color: #f7f2e1; 
             color: #3e2717;
             display: flex;
             flex-direction: column;
@@ -106,28 +116,38 @@
             text-align: center;
         }
 
-        /* Catatan: Kalau kamu nanti punya gambar slide 2.png, 
-           kamu tinggal hapus isi class .rules-screen dan pakai tag <img> seperti slide 1 */
-
         .rules-title {
-            font-size: 28px;
+            font-size: clamp(22px, 4vw, 32px);
             color: #4a2e1b;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border-bottom: 3px dashed #7c5333;
             padding-bottom: 5px;
         }
 
         .rules-list {
             text-align: left;
-            font-size: 16px;
-            line-height: 1.6;
-            max-width: 650px;
-            margin-bottom: 30px;
+            font-size: clamp(14px, 2.5vw, 18px);
+            line-height: 1.5;
+            max-width: 700px;
+            margin-bottom: 25px;
+            padding: 0 20px;
         }
 
         .rules-list li {
-            margin-bottom: 10px;
-            list-style-position: inside;
+            margin-bottom: 12px;
+        }
+
+        /* Tombol lanjut di Slide 2 */
+        .btn-lanjut {
+            background: linear-gradient(135deg, #7c5333, #4a2e1b);
+            color: #f0dca8;
+            border: 2px solid #f0dca8;
+            padding: 12px 35px;
+            font-size: clamp(16px, 3vw, 22px);
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            -webkit-appearance: none;
         }
     </style>
 </head>
@@ -140,7 +160,7 @@
         <div id="slide1" class="slide">
             <img src="slide 1.png" alt="PELITA Slide 1" class="bg-game-image">
             
-            <div class="overlay-container">
+            <div class="bottom-panel">
                 <button class="btn-game" onclick="pindahKeSlide2()">MULAI PETUALANGAN</button>
             </div>
         </div>
@@ -149,14 +169,12 @@
             <div class="rules-screen">
                 <h2 class="rules-title">📜 CARA MAIN & ATURAN GAME</h2>
                 <ul class="rules-list">
-                    <li>Ikuti perjalanan kisah seru para pelajar dalam 12 Misi Kesehatan.</li>
-                    <li>Baca cerita dengan saksama di setiap chapternya.</li>
-                    <li>Pilih satu jawaban yang menurutmu paling tepat dari 2-3 pilihan yang tersedia.</li>
-                    <li>Dapatkan penjelasan ilmiah dan fakta medis instan setelah memilih.</li>
-                    <li>Kumpulkan bintang sebanyak-banyaknya! Jawaban benar mendapat +1 bintang.</li>
+                    <li>Ikuti 12 Misi Kesehatan pelajar sehari-hari.</li>
+                    <li>Pilih satu jawaban dari opsi yang tersedia di setiap cerita.</li>
+                    <li>Dapatkan penjelasan ilmiah dan cek faktanya langsung.</li>
+                    <li>Jawaban benar mendapat +1 bintang. Jawaban salah tidak mengurangi poin!</li>
                 </ul>
-                
-                <button class="btn-game" onclick="lanjutKeGame()">LANJUTKAN</button>
+                <button class="btn-lanjut" onclick="lanjutKeGame()">LANJUT KE CHAPTER 1</button>
             </div>
         </div>
 
@@ -164,25 +182,21 @@
 
     <script>
         function pindahKeSlide2() {
-            // 1. Ambil elemen audio dan jalankan suara klik
             const audio = document.getElementById("soundKlik");
-            
-            // Reset audio ke detik 0 (menghindari bug jika diklik berkali-kali)
             audio.currentTime = 0; 
             audio.play().catch(function(error) {
-                console.log("Audio play dicegah oleh browser sebelum interaksi penuh:", error);
+                console.log("Audio dicegah oleh browser:", error);
             });
 
-            // 2. Beri jeda 400ms agar efek suara "klik" terdengar dulu baru slide berganti
+            // Beri jeda 300ms agar efek suara terdengar
             setTimeout(function() {
                 document.getElementById("slide1").style.display = "none";
                 document.getElementById("slide2").style.display = "block";
-            }, 400);
+            }, 300);
         }
 
         function lanjutKeGame() {
-            alert("Sistem Misi 1-12 akan segera dimuat!");
-            // Nanti di sini kamu bisa tambah logika untuk masuk ke gameplay chapter 1
+            alert("Babak 1: Sakit Kepala di Sekolah. Segera Dimulai!");
         }
     </script>
 
