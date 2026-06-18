@@ -3,106 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PELITA - Penerang Literasi Kesehatan Kita</title>
+    <title>PELITA - Penerang Literasi Kesehatan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Sen:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* --- RESET & RESPONSIVE BASE --- */
+        /* --- RESET DASAR --- */
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         body {
-            background-color: #dcd5c1; 
-            display: flex; justify-content: center; align-items: center;
-            min-height: 100vh; font-family: 'Segoe UI', Tahoma, sans-serif; overflow: hidden;
+            background-color: #2c1e12; display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; font-family: 'Sen', sans-serif; overflow: hidden;
         }
 
-        /* --- CONTAINER UTAMA 3:2 --- */
+        /* --- KOTAK GAME (RASIO 3:2, RESPONSITF) --- */
         .game-frame {
-            position: relative; width: 95vw; max-width: 900px; aspect-ratio: 3 / 2;
-            background-color: #fcf9ee; border: 6px solid #4a2e1b; border-radius: 16px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4); overflow: hidden;
+            position: relative; width: 95vw; max-width: 1080px; aspect-ratio: 3 / 2;
+            background-color: #fcf9ee; border: 8px solid #4a2e1b; border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); overflow: hidden;
         }
 
         .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; }
         #slide1 { display: block; }
         .bg-game-image { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* --- SLIDE 1: PANEL BAWAH --- */
+        /* --- SLIDE 1: TOMBOL MULAI --- */
         .bottom-panel {
-            position: absolute; bottom: 0; left: 0; width: 100%; height: 18%; 
-            background-color: #4a2e1b; border-top: 3px solid #dca658; 
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 20%; 
+            background: linear-gradient(to top, #4a2e1b, #6b442a); border-top: 4px solid #dca658; 
             display: flex; justify-content: center; align-items: center; z-index: 10;
         }
         .btn-mulai {
-            width: 90%; height: 80%; background: linear-gradient(135deg, #a66e38, #7c5333); 
-            color: #fcf9ee; border: 2px solid #f0dca8; font-size: clamp(16px, 3.5vw, 28px); 
-            font-weight: 900; letter-spacing: 2px; border-radius: 12px; cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.2s; text-transform: uppercase;
-            -webkit-appearance: none;
+            width: 85%; height: 75%; background: linear-gradient(135deg, #dca658, #b87c32); 
+            color: #ffffff; border: 3px solid #ffffff; font-size: clamp(18px, 4vw, 36px); 
+            font-family: 'Poppins', sans-serif; font-weight: 900; letter-spacing: 3px; 
+            border-radius: 15px; cursor: pointer; box-shadow: 0 6px 0 #7c5333; transition: 0.1s;
         }
-        .btn-mulai:active { transform: scale(0.96); }
+        .btn-mulai:active { transform: translateY(4px); box-shadow: 0 2px 0 #7c5333; }
 
-        /* --- SLIDE 2: MENU DESA --- */
+        /* --- SLIDE 2: TULISAN PAPAN & MENU DESA --- */
+        .papan-desa {
+            position: absolute; top: 10%; left: 50%; transform: translateX(-50%);
+            width: 50%; text-align: center; pointer-events: none; z-index: 5;
+        }
+        .papan-text {
+            font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717;
+            font-size: clamp(12px, 2.5vw, 28px); line-height: 1.2; text-transform: uppercase;
+        }
+
         .menu-labels-container {
             position: absolute; top: 44.5%; left: 26.5%; width: 47%; height: 5.5%;
             display: flex; justify-content: space-between; align-items: center; z-index: 10;
         }
         .btn-menu {
             width: 32%; height: 100%; background: transparent; color: #ffffff; 
-            font-size: clamp(6px, 1.1vw, 12px); font-weight: bold; border: none; 
-            cursor: pointer; font-family: inherit; white-space: normal; line-height: 1.1; 
-            transition: 0.2s; display: flex; justify-content: center; align-items: center; text-align: center;
+            font-size: clamp(7px, 1.2vw, 14px); font-weight: bold; border: none; cursor: pointer; 
+            font-family: 'Poppins', sans-serif; text-align: center;
         }
-        .btn-menu:hover { transform: scale(1.1); text-shadow: 0 0 5px white; }
 
         /* --- SLIDE INFO (CARA MAIN & RULES) --- */
-        .info-screen {
-            width: 100%; height: 100%; padding: 20px; background-color: #f7f2e1; 
-            color: #3e2717; display: flex; flex-direction: column; justify-content: flex-start; 
-            align-items: center; text-align: center; overflow-y: auto;
+        .info-layout {
+            display: flex; width: 100%; height: 100%; background-color: #f7f2e1;
+            position: relative; padding: 30px; align-items: center;
         }
         
-        /* Layout Karakter + Gelembung (SUDAH DIPERBESAR) */
-        .character-header {
-            display: flex; align-items: flex-end; justify-content: center; 
-            margin-top: 10px; margin-bottom: 15px; width: 100%; max-width: 650px;
+        /* Teks di Kiri */
+        .text-content {
+            width: 50%; height: 100%; display: flex; flex-direction: column; 
+            justify-content: center; text-align: left; z-index: 5;
         }
-        
-        .info-portrait {
-            /* UKURAN KARAKTER JAUH LEBIH BESAR */
-            height: clamp(140px, 25vw, 200px); 
-            width: auto; object-fit: contain; margin-right: 20px;
-            animation: bounceIn 0.5s ease;
-            
-            /* Trik CSS Menghapus Background Hitam */
-            mix-blend-mode: screen; 
-            /* Kalau hasilnya jelek, hapus tulisan 'mix-blend-mode: screen;' di atas */
-        }
-        
-        .cute-bubble {
-            background: #ffffff; border: 3px solid #dca658; border-radius: 20px 20px 20px 0; 
-            padding: 12px 18px; font-weight: bold; color: #4a2e1b; box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
-            /* Ukuran font gelembung juga dibesarkan sedikit */
-            font-size: clamp(14px, 2.5vw, 18px); 
-            text-align: left; position: relative; max-width: 55%;
-            animation: popBubble 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .info-title { font-family: 'Poppins', sans-serif; font-size: clamp(22px, 3.5vw, 38px); color: #4a2e1b; margin-bottom: 15px; }
+        .info-list { font-size: clamp(14px, 2.2vw, 20px); line-height: 1.4; color: #3e2717; list-style: none; margin-bottom: 25px; font-weight: bold; }
+        .info-list li { margin-bottom: 12px; position: relative; padding-left: 25px; }
+        .info-list li::before { content: '◈'; position: absolute; left: 0; color: #dca658; }
+
+        /* Karakter Raksasa di Kanan */
+        .character-box-right {
+            position: absolute; right: 2%; bottom: 0; width: 45%; height: 95%;
+            display: flex; flex-direction: column; justify-content: flex-end; align-items: center; z-index: 2;
         }
 
-        .info-title { font-size: clamp(18px, 3.5vw, 26px); color: #4a2e1b; margin-bottom: 10px; border-bottom: 3px dashed #7c5333; }
-        .info-list { font-size: clamp(12px, 2vw, 16px); line-height: 1.4; max-width: 600px; text-align: left; margin-bottom: 20px; padding: 0 20px;}
-        .info-list li { margin-bottom: 8px; }
+        /* Gelembung Besar di Atas Kepala Karakter */
+        .speech-bubble-top {
+            background: #ffffff; border: 5px solid #4a2e1b; border-radius: 20px;
+            padding: 20px; width: 90%; margin-bottom: -10px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            animation: popBubble 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 10;
+            position: relative; text-align: left; /* Teks dibaca dari kiri normal */
+        }
+        /* Buntut Gelembung yang menunjuk ke karakter */
+        .speech-bubble-top::after {
+            content: ''; position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%);
+            border-width: 18px 15px 0 15px; border-style: solid; border-color: #4a2e1b transparent;
+        }
+        .bubble-text { 
+            font-weight: 900; font-size: clamp(14px, 2.2vw, 22px); color: #4a2e1b; line-height: 1.4;
+        }
 
-        /* Tombol Bawah Info */
-        .action-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; width: 100%; }
+        /* Gambar Karakter Ditebelin */
+        .info-portrait-large {
+            height: 60%; /* Raksasa! */
+            width: auto; object-fit: contain; mix-blend-mode: screen;
+            /* Efek bayangan biar karakter kelihatan tebal dan nyata */
+            filter: drop-shadow(4px 4px 10px rgba(0,0,0,0.6)) contrast(1.1);
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        /* Tombol Bawah Kiri */
+        .action-area { display: flex; gap: 10px; }
         .btn-action {
-            background: linear-gradient(135deg, #7c5333, #4a2e1b); color: #f0dca8;
-            border: 2px solid #f0dca8; padding: 10px 20px; font-size: clamp(12px, 2vw, 16px);
-            font-weight: bold; border-radius: 50px; cursor: pointer; transition: 0.2s;
-            -webkit-appearance: none; text-transform: uppercase;
+            padding: 12px 25px; border-radius: 50px; border: none; cursor: pointer;
+            font-family: 'Poppins', sans-serif; font-weight: bold; font-size: clamp(12px, 1.8vw, 16px);
+            transition: 0.2s; box-shadow: 0 4px 0 #2c1e12; text-transform: uppercase;
         }
-        .btn-action:hover { transform: scale(1.05); }
-        .btn-action.btn-special { background: linear-gradient(135deg, #dca658, #b87c32); color: #fff; border-color: #fff; }
+        .btn-back { background: #6b442a; color: #fff; }
+        .btn-next { background: #dca658; color: #fff; }
+        .btn-action:active { transform: translateY(4px); box-shadow: none; }
 
-        @keyframes popBubble { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        @keyframes bounceIn { 0% { transform: translateY(20px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
-
+        /* --- KEYFRAMES ANIMASI --- */
+        @keyframes slideInUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes popBubble { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     </style>
 </head>
 <body>
@@ -113,111 +129,110 @@
     <div class="game-frame">
 
         <div id="slide1" class="slide">
-            <img src="slide 1.png" alt="Slide 1" class="bg-game-image">
+            <img src="slide 1.png" class="bg-game-image" alt="Splash Screen">
             <div class="bottom-panel">
-                <button class="btn-mulai" onclick="pindahSlide('slide2')">MULAI PETUALANGAN</button>
+                <button class="btn-mulai" onclick="navigasi('slide2', 'klik')">MULAI PETUALANGAN</button>
             </div>
         </div>
 
         <div id="slide2" class="slide">
-            <img src="slide 2.png" alt="Slide 2" class="bg-game-image">
+            <img src="slide 2.png" class="bg-game-image" alt="Menu Utama">
+            
+            <div class="papan-desa">
+                <p class="papan-text">Selamat Datang di<br>Desa Pelita</p>
+            </div>
+
             <div class="menu-labels-container">
-                <button class="btn-menu" onclick="bukaSlideInfo('slide3')">CARA MAIN</button>
-                <button class="btn-menu" onclick="bukaSlideInfo('slide4')">RULES</button>
-                <button class="btn-menu" onclick="lanjutMulaiPetualangan()">MULAI PETUALANGAN</button>
+                <button class="btn-menu" onclick="bukaInfo('cara')">CARA MAIN</button>
+                <button class="btn-menu" onclick="bukaInfo('rules')">RULES</button>
+                <button class="btn-menu" onclick="navigasi('start', 'welcome')">MULAI PETUALANGAN</button>
             </div>
         </div>
 
-        <div id="slide3" class="slide">
-            <div class="info-screen">
-                <div class="character-header">
-                    <img id="imgCharCaraMain" src="nakula.png" class="info-portrait" alt="Karakter">
-                    <div id="teksCharCaraMain" class="cute-bubble">Halo! Ini cara mainnya ya!</div>
+        <div id="slideInfo" class="slide">
+            <div class="info-layout">
+                
+                <div class="text-content">
+                    <h2 id="infoTitle" class="info-title">CARA MAIN</h2>
+                    <ul id="infoList" class="info-list"></ul>
+                    <div class="action-area">
+                        <button class="btn-action btn-back" onclick="navigasi('slide2', 'klik')">KEMBALI</button>
+                        <button id="btnLanjutRules" class="btn-action btn-next" onclick="navigasi('start', 'welcome')">MULAI SEKARANG!</button>
+                    </div>
                 </div>
-                <h2 class="info-title">🧩 CARA MAIN</h2>
-                <ul class="info-list">
-                    <li>Ikuti 12 Misi Kesehatan pelajar di kehidupan sehari-hari.</li>
-                    <li>Baca setiap skenario cerita dengan saksama.</li>
-                    <li>Pilih satu jawaban yang paling tepat dari opsi yang tersedia.</li>
-                </ul>
-                <div class="action-buttons">
-                    <button class="btn-action" onclick="pindahSlide('slide2')">⬅ KEMBALI</button>
-                </div>
-            </div>
-        </div>
 
-        <div id="slide4" class="slide">
-            <div class="info-screen">
-                <div class="character-header">
-                    <img id="imgCharRules" src="sadewa.png" class="info-portrait" alt="Karakter">
-                    <div id="teksCharRules" class="cute-bubble">Perhatikan aturan mainnya ya!</div>
+                <div class="character-box-right">
+                    <div class="speech-bubble-top">
+                        <p id="bubbleText" class="bubble-text"></p>
+                    </div>
+                    <img id="charPortrait" src="nakula.png" class="info-portrait-large" alt="Karakter">
                 </div>
-                <h2 class="info-title">⚖️ RULES</h2>
-                <ul class="info-list">
-                    <li>Jawaban benar mendapat +1 bintang.</li>
-                    <li>Jawaban salah tidak akan mengurangi poinmu.</li>
-                    <li>Setiap selesai menjawab, baca penjelasan fakta medisnya.</li>
-                </ul>
-                <div class="action-buttons">
-                    <button class="btn-action" onclick="pindahSlide('slide2')">⬅ KEMBALI</button>
-                    <button class="btn-action btn-special" onclick="lanjutMulaiPetualangan()">MULAI PETUALANGAN ▶</button>
-                </div>
+
             </div>
         </div>
 
     </div>
 
     <script>
-        function mainkanSuaraKlik() {
-            const audio = document.getElementById("soundKlik");
-            audio.currentTime = 0; audio.play().catch(e => console.log(e));
-        }
+        const audioKlik = document.getElementById('soundKlik');
+        const audioWelcome = document.getElementById('soundWelcome');
 
-        function mainkanSuaraWelcome() {
-            const audio = document.getElementById("soundWelcome");
-            audio.currentTime = 0; audio.play().catch(e => console.log(e));
-        }
+        // Isi Teks
+        const content = {
+            cara: {
+                title: "🧩 CARA MAIN",
+                list: ["Ikuti 12 Misi Kesehatan.", "Pilih satu jawaban terbaik.", "Kumpulkan bintang tiap chapter!"],
+                bubbleNakula: "Aku Tabib Nakula! Baca cerita dengan teliti ya agar tidak salah pilih!",
+                bubbleSadewa: "Detektif Sadewa di sini! Gunakan logika untuk cari fakta medis!"
+            },
+            rules: {
+                title: "⚖️ ATURAN GAME",
+                list: ["Jawaban Benar = +1 Bintang.", "Jawaban Salah = 0 (Ga dikurangi).", "Bisa main di HP dan Laptop."],
+                bubbleNakula: "Jangan takut salah! Kita belajar sehat bersama-sama.",
+                bubbleSadewa: "Setiap misi punya tantangan unik. Siapkan dirimu!"
+            }
+        };
 
-        function pindahSlide(targetId) {
-            mainkanSuaraKlik();
-            setTimeout(() => {
-                document.querySelectorAll('.slide').forEach(el => el.style.display = 'none');
-                document.getElementById(targetId).style.display = 'block';
-            }, 300);
-        }
+        // Fungsi Navigasi
+        function navigasi(target, tipeSuara) {
+            let audio = (tipeSuara === 'klik') ? audioKlik : audioWelcome;
+            audio.currentTime = 0; audio.play().catch(e => console.log("Audio tertahan"));
 
-        function bukaSlideInfo(targetId) {
-            mainkanSuaraKlik();
-            
-            // Logika 50:50 Randomizer
-            const isNakula = Math.random() < 0.5;
-            
-            let imgSrc = isNakula ? "nakula.png" : "sadewa.png";
-            let pesan = "";
-
-            if(targetId === 'slide3') {
-                pesan = isNakula ? "Halo, aku Tabib Nakula! Perhatikan cara mainnya ya!" : "Hai, Detektif Sadewa di sini! Cek cara mainnya yuk!";
-                document.getElementById('imgCharCaraMain').src = imgSrc;
-                document.getElementById('teksCharCaraMain').innerText = pesan;
-            } else if (targetId === 'slide4') {
-                pesan = isNakula ? "Nakula ingatkan, baca rules-nya agar tidak salah jalan!" : "Sadewa pastikan kamu paham aturannya. Tidak ada poin minus kok!";
-                document.getElementById('imgCharRules').src = imgSrc;
-                document.getElementById('teksCharRules').innerText = pesan;
+            if(target === 'start') {
+                setTimeout(() => alert("Fitur gameplay lanjutannya belum dibuat sesuai instruksimu."), 500);
+                return;
             }
 
             setTimeout(() => {
-                document.querySelectorAll('.slide').forEach(el => el.style.display = 'none');
-                document.getElementById(targetId).style.display = 'block';
+                document.querySelectorAll('.slide').forEach(s => s.style.display = 'none');
+                document.getElementById(target).style.display = 'block';
             }, 300);
         }
 
-        function lanjutMulaiPetualangan() {
-            mainkanSuaraWelcome();
+        // Fungsi Buka Halaman Cara Main / Rules
+        function bukaInfo(tipe) {
+            audioKlik.currentTime = 0; audioKlik.play().catch(e => console.log("Audio tertahan"));
+
+            // Acak Karakter 50:50
+            const isNakula = Math.random() < 0.5;
+            document.getElementById('charPortrait').src = isNakula ? 'nakula.png' : 'sadewa.png';
+            document.getElementById('infoTitle').innerText = content[tipe].title;
+            document.getElementById('bubbleText').innerText = isNakula ? content[tipe].bubbleNakula : content[tipe].bubbleSadewa;
+            
+            const list = document.getElementById('infoList');
+            list.innerHTML = "";
+            content[tipe].list.forEach(item => {
+                let li = document.createElement('li'); li.innerText = item; list.appendChild(li);
+            });
+
+            // Tampilkan tombol "Mulai Sekarang" hanya di halaman Rules
+            document.getElementById('btnLanjutRules').style.display = (tipe === 'rules') ? 'block' : 'none';
+
             setTimeout(() => {
-                alert("Chapter 1 Siap Dimulai! (Di sini nanti masuk ke slide cerita 1)");
-            }, 500);
+                document.querySelectorAll('.slide').forEach(s => s.style.display = 'none');
+                document.getElementById('slideInfo').style.display = 'block';
+            }, 300);
         }
     </script>
-
 </body>
 </html>
