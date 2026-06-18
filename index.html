@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PELITA - Penerang Literasi Kesehatan</title>
+    <style>
+        /* --- Bagian CSS --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #f4f1e1; /* Warna latar menyesuaikan tema */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .slide-container {
+            text-align: center;
+            display: none; /* Disembunyikan secara default, diatur oleh JS nanti */
+        }
+
+        /* Tampilkan slide pertama saat halaman dimuat */
+        #slide1 {
+            display: block; 
+        }
+
+        .slide-image {
+            max-width: 80%;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .btn-mulai {
+            background-color: #5c3a21; /* Warna coklat tema PELITA */
+            color: white;
+            padding: 15px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .btn-mulai:hover {
+            background-color: #7a4f2f;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="soundKlik" src="slide 1 mulai.wav"></audio>
+
+    <div id="slide1" class="slide-container">
+        <img src="slide 1.png" alt="Slide 1 PELITA" class="slide-image">
+        <br>
+        <button class="btn-mulai" onclick="mulaiPetualangan()">MULAI PETUALANGAN</button>
+    </div>
+
+    <div id="slide2" class="slide-container">
+        <img src="slide 2.png" alt="Cara Main dan Rules" class="slide-image" style="background-color:#ddd; min-height:300px; display:flex; align-items:center; justify-content:center;">
+        <h2>Cara Main & Rules</h2>
+        <p>(Isi konten slide 2 di sini nantinya...)</p>
+    </div>
+
+    <script>
+        function mulaiPetualangan() {
+            // 1. Mainkan suara klik
+            let sound = document.getElementById("soundKlik");
+            sound.play();
+
+            // 2. Beri sedikit jeda (misal 500 milidetik) agar suara terdengar sebelum pindah halaman
+            setTimeout(function() {
+                // Sembunyikan Slide 1
+                document.getElementById("slide1").style.display = "none";
+                
+                // Tampilkan Slide 2
+                document.getElementById("slide2").style.display = "block";
+            }, 500); 
+        }
+    </script>
+
+</body>
+</html>
