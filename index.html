@@ -6,172 +6,122 @@
     <title>PELITA - Penerang Literasi Kesehatan Kita</title>
     <style>
         /* --- RESET & BASE STYLE --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent; 
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         body {
             background-color: #dcd5c1; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; font-family: 'Segoe UI', Tahoma, sans-serif; overflow: hidden;
         }
 
-        /* --- CONTAINER UTAMA (RASIO LAYAR GAME 3:2) --- */
+        /* --- CONTAINER UTAMA 3:2 --- */
         .game-frame {
-            position: relative;
-            width: 95vw;
-            max-width: 900px; 
-            aspect-ratio: 3 / 2;
-            background-color: #fcf9ee;
-            border: 6px solid #4a2e1b; 
-            border-radius: 16px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-            overflow: hidden;
+            position: relative; width: 95vw; max-width: 900px; aspect-ratio: 3 / 2;
+            background-color: #fcf9ee; border: 6px solid #4a2e1b; border-radius: 16px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4); overflow: hidden;
         }
 
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: none; 
-        }
-
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; }
         #slide1 { display: block; }
 
-        .bg-game-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            display: block;
-        }
+        .bg-game-image { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* =========================================
-           SLIDE 1: PANEL BAWAH & TOMBOL RAKSASA
-           ========================================= */
+        /* --- SLIDE 1: PANEL BAWAH --- */
         .bottom-panel {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 18%; 
-            background-color: #4a2e1b; 
-            border-top: 3px solid #dca658; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-            padding: 10px;
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 18%; 
+            background-color: #4a2e1b; border-top: 3px solid #dca658; 
+            display: flex; justify-content: center; align-items: center; z-index: 10;
         }
 
         .btn-mulai {
-            width: 90%; 
-            height: 90%; 
-            background: linear-gradient(135deg, #a66e38, #7c5333);
-            color: #fcf9ee;
-            border: 2px solid #f0dca8;
-            font-size: clamp(18px, 4vw, 32px); 
-            font-weight: 900;
-            letter-spacing: 2px;
-            border-radius: 12px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            transition: all 0.2s ease;
+            width: 90%; height: 80%; 
+            background: linear-gradient(135deg, #a66e38, #7c5333); color: #fcf9ee;
+            border: 2px solid #f0dca8; font-size: clamp(16px, 3.5vw, 28px); 
+            font-weight: 900; letter-spacing: 2px; border-radius: 12px; cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.2s; text-transform: uppercase;
         }
+        .btn-mulai:active { transform: scale(0.96); }
 
-        .btn-mulai:hover { transform: scale(1.02); background: linear-gradient(135deg, #c28244, #91623d); }
-        .btn-mulai:active { transform: scale(0.98); }
-
-        /* =========================================
-           SLIDE 2: OVERLAY MENU DI ATAS KOTAK HIJAU
-           ========================================= */
+        /* --- SLIDE 2: MENU DESA (UKURAN DIPERBAIKI BIAR PAS 100%) --- */
         .menu-labels-container {
-            position: absolute;
-            top: 44.5%; 
-            left: 26.5%; 
-            width: 47%; 
-            height: 5.5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 10;
+            position: absolute; top: 44.5%; left: 26.5%; width: 47%; height: 5.5%;
+            display: flex; justify-content: space-between; align-items: center; z-index: 10;
         }
-
         .btn-menu {
-            width: 32%; /* Disesuaikan agar muat dengan kotak */
-            height: 100%;
-            background: transparent; 
-            color: #ffffff; 
-            font-size: clamp(7px, 1.3vw, 13px); /* Ukuran disesuaikan agar tidak meluber */
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-            transition: transform 0.2s ease, text-shadow 0.2s ease;
-            white-space: normal; /* Mengizinkan teks menjadi 2 baris (berguna untuk Mulai Petualangan) */
-            line-height: 1.1;
+            width: 32%; height: 100%; background: transparent; color: #ffffff; 
+            /* Font dikecilkan sedikit dengan batasan ketat agar tidak keluar kotak */
+            font-size: clamp(6px, 1.1vw, 12px); 
+            font-weight: bold; border: none; cursor: pointer; font-family: inherit;
+            white-space: normal; line-height: 1.1; transition: 0.2s;
+            display: flex; justify-content: center; align-items: center; text-align: center;
         }
+        .btn-menu:hover { transform: scale(1.1); text-shadow: 0 0 5px white; }
 
-        .btn-menu:hover {
-            transform: scale(1.1); 
-            text-shadow: 0 0 8px rgba(255,255,255,0.8);
-        }
-
-        /* =========================================
-           SLIDE 3 & 4: TAMPILAN TEKS (CARA MAIN / RULES)
-           ========================================= */
+        /* --- SLIDE 3 & 4: INFO LAYAR --- */
         .info-screen {
-            width: 100%;
-            height: 100%;
-            padding: 30px;
-            background-color: #f7f2e1; 
-            color: #3e2717;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            width: 100%; height: 100%; padding: 30px; background-color: #f7f2e1; 
+            color: #3e2717; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
-
-        .info-title {
-            font-size: clamp(22px, 4vw, 32px);
-            color: #4a2e1b;
-            margin-bottom: 15px;
-            border-bottom: 3px dashed #7c5333;
-            padding-bottom: 5px;
-        }
-
-        .info-list {
-            text-align: left;
-            font-size: clamp(14px, 2.5vw, 18px);
-            line-height: 1.5;
-            max-width: 700px;
-            margin-bottom: 25px;
-            padding: 0 20px;
-        }
-
-        .info-list li { margin-bottom: 12px; }
-
+        .info-title { font-size: clamp(20px, 3.5vw, 30px); color: #4a2e1b; margin-bottom: 15px; border-bottom: 3px dashed #7c5333; }
+        .info-list { font-size: clamp(12px, 2vw, 16px); line-height: 1.5; max-width: 600px; text-align: left; margin-bottom: 20px; }
+        .info-list li { margin-bottom: 8px; }
+        
         .btn-kembali {
-            background: linear-gradient(135deg, #7c5333, #4a2e1b);
-            color: #f0dca8;
-            border: 2px solid #f0dca8;
-            padding: 10px 30px;
-            font-size: clamp(16px, 2.5vw, 20px);
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.2s;
+            background: linear-gradient(135deg, #7c5333, #4a2e1b); color: #f0dca8;
+            border: 2px solid #f0dca8; padding: 10px 25px; font-size: clamp(14px, 2vw, 18px);
+            font-weight: bold; border-radius: 50px; cursor: pointer; transition: 0.2s;
         }
-        .btn-kembali:hover { transform: scale(1.05); }
+
+        /* --- SLIDE 5: PILIH KARAKTER --- */
+        .char-select-container {
+            display: flex; justify-content: center; gap: 30px; margin-top: 20px;
+        }
+        .char-card {
+            background: #fff; border: 4px solid #4a2e1b; border-radius: 15px;
+            padding: 15px; text-align: center; cursor: pointer; transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); width: clamp(100px, 20vw, 180px);
+        }
+        .char-card:hover { transform: translateY(-10px); border-color: #dca658; }
+        /* Placeholder gambar karakter di layar pilih (Bisa ganti ukuran) */
+        .char-card img { width: 100%; height: auto; aspect-ratio: 1/1; object-fit: contain; background: #eee; border-radius: 10px; margin-bottom: 10px;}
+        .char-name { font-weight: bold; font-size: clamp(14px, 2vw, 18px); color: #4a2e1b; }
+
+        /* --- SLIDE 6: ANIMASI DIALOG BUBBLE --- */
+        .dialog-layout {
+            width: 100%; height: 100%; background: url('slide 2.png') center/cover;
+            position: relative; display: flex; align-items: flex-end; padding: 20px;
+        }
+        .dialog-box-container {
+            width: 100%; display: flex; align-items: flex-end; z-index: 20;
+        }
+        .dialog-portrait {
+            width: clamp(80px, 15vw, 150px); height: auto; object-fit: contain;
+            margin-right: 15px; transition: 0.3s;
+        }
+        .speech-bubble {
+            background: rgba(255, 255, 255, 0.95); border: 4px solid #4a2e1b;
+            border-radius: 20px 20px 20px 0; padding: 20px; flex-grow: 1;
+            position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            animation: popBubble 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer; /* Memberi tahu user bisa diklik */
+        }
+        .bubble-name {
+            font-weight: 900; color: #a66e38; margin-bottom: 5px; 
+            font-size: clamp(14px, 2vw, 18px); text-transform: uppercase;
+        }
+        .bubble-text {
+            color: #333; font-size: clamp(12px, 2.2vw, 18px); line-height: 1.4; font-weight: bold;
+        }
+        .tap-indicator {
+            position: absolute; right: 15px; bottom: 10px; font-size: 12px; color: #999;
+            animation: blink 1s infinite;
+        }
+
+        /* Keyframes Animasi */
+        @keyframes popBubble {
+            0% { transform: scale(0.8) translateY(20px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
     </style>
 </head>
@@ -182,21 +132,18 @@
     <div class="game-frame">
 
         <div id="slide1" class="slide">
-            <img src="slide 1.png" alt="PELITA Slide 1" class="bg-game-image">
+            <img src="slide 1.png" alt="Slide 1" class="bg-game-image">
             <div class="bottom-panel">
-                <button class="btn-mulai" onclick="keSlide2()">MULAI PETUALANGAN</button>
+                <button class="btn-mulai" onclick="pindahSlide('slide2')">MULAI PETUALANGAN</button>
             </div>
         </div>
 
         <div id="slide2" class="slide">
-            <img src="slide 2.png" alt="PELITA Slide 2" class="bg-game-image">
-            
+            <img src="slide 2.png" alt="Slide 2" class="bg-game-image">
             <div class="menu-labels-container">
-                <button class="btn-menu" onclick="bukaCaraMain()">CARA MAIN</button>
-                
-                <button class="btn-menu" onclick="bukaRules()">RULES</button>
-                
-                <button class="btn-menu" onclick="mulaiGameplay()">MULAI PETUALANGAN</button>
+                <button class="btn-menu" onclick="pindahSlide('slide3')">CARA MAIN</button>
+                <button class="btn-menu" onclick="pindahSlide('slide4')">RULES</button>
+                <button class="btn-menu" onclick="pindahSlide('slide5')">MULAI PETUALANGAN</button>
             </div>
         </div>
 
@@ -204,82 +151,122 @@
             <div class="info-screen">
                 <h2 class="info-title">🧩 CARA MAIN</h2>
                 <ul class="info-list">
-                    <li>Ikuti perjalanan kisah seru para pelajar dalam 12 Misi Kesehatan.</li>
-                    <li>Baca cerita dengan saksama di setiap chapternya.</li>
-                    <li>Pilih satu jawaban yang menurutmu paling tepat dari 2-3 pilihan yang tersedia.</li>
+                    <li>Ikuti 12 Misi Kesehatan pelajar.</li>
+                    <li>Pilih satu jawaban dari opsi yang tersedia.</li>
                 </ul>
-                <button class="btn-kembali" onclick="kembaliKeSlide2()">KEMBALI</button>
+                <button class="btn-kembali" onclick="pindahSlide('slide2')">KEMBALI</button>
             </div>
         </div>
 
         <div id="slide4" class="slide">
             <div class="info-screen">
-                <h2 class="info-title">⚖️ RULES (ATURAN)</h2>
+                <h2 class="info-title">⚖️ RULES</h2>
                 <ul class="info-list">
                     <li>Jawaban benar mendapat +1 bintang.</li>
-                    <li>Jawaban salah tidak akan mengurangi poinmu.</li>
-                    <li>Setelah memilih, kamu akan mendapatkan penjelasan medis dari tabib Nakula atau detektif Sadewa.</li>
+                    <li>Jawaban salah tidak mengurangi poin.</li>
                 </ul>
-                <button class="btn-kembali" onclick="kembaliKeSlide2()">KEMBALI</button>
+                <button class="btn-kembali" onclick="pindahSlide('slide2')">KEMBALI</button>
+            </div>
+        </div>
+
+        <div id="slide5" class="slide">
+            <div class="info-screen">
+                <h2 class="info-title">PILIH PENDAMPINGMU</h2>
+                <p>Siapa yang akan menemanimu di misi ini?</p>
+                <div class="char-select-container">
+                    <div class="char-card" onclick="mulaiDialog('Nakula')">
+                        <img src="nakula.png" alt="Nakula">
+                        <div class="char-name">TABIB NAKULA</div>
+                    </div>
+                    <div class="char-card" onclick="mulaiDialog('Sadewa')">
+                        <img src="sadewa.png" alt="Sadewa">
+                        <div class="char-name">DETEKTIF SADEWA</div>
+                    </div>
+                </div>
+                <br>
+                <button class="btn-kembali" onclick="pindahSlide('slide2')">KEMBALI</button>
+            </div>
+        </div>
+
+        <div id="slide6" class="slide">
+            <div class="dialog-layout">
+                <div class="dialog-box-container">
+                    <img id="charPortrait" src="nakula.png" alt="Karakter" class="dialog-portrait">
+                    
+                    <div class="speech-bubble" onclick="nextDialog()">
+                        <div id="charName" class="bubble-name">NAKULA</div>
+                        <div id="charText" class="bubble-text">Teks dialog akan muncul di sini...</div>
+                        <div class="tap-indicator">Klik untuk lanjut ▶</div>
+                    </div>
+                </div>
             </div>
         </div>
 
     </div>
 
     <script>
+        // Fungsi Suara & Pindah Slide Dasar
         function mainkanSuara() {
             const audio = document.getElementById("soundKlik");
-            audio.currentTime = 0; 
-            audio.play().catch(function(error) {
-                console.log("Audio ditahan browser:", error);
-            });
+            audio.currentTime = 0; audio.play().catch(e => console.log(e));
         }
 
-        function sembunyikanSemuaSlide() {
-            document.getElementById("slide1").style.display = "none";
-            document.getElementById("slide2").style.display = "none";
-            document.getElementById("slide3").style.display = "none";
-            document.getElementById("slide4").style.display = "none";
-        }
-
-        function keSlide2() {
+        function pindahSlide(targetId) {
             mainkanSuara();
-            setTimeout(function() {
-                sembunyikanSemuaSlide();
-                document.getElementById("slide2").style.display = "block";
+            setTimeout(() => {
+                document.querySelectorAll('.slide').forEach(el => el.style.display = 'none');
+                document.getElementById(targetId).style.display = 'block';
             }, 300);
         }
 
-        function bukaCaraMain() {
+        // ====== SISTEM DIALOG ANIMASI ======
+        let dialogIndex = 0;
+        let karakterPilihan = "";
+        
+        // Naskah Percakapan Nakula & Sadewa (Bisa kamu ganti teksnya!)
+        const naskahDialog = [
+            { nama: "NAKULA", img: "nakula.png", teks: "Halo! Aku Tabib Nakula. Siap untuk misi kesehatan hari ini?" },
+            { nama: "SADEWA", img: "sadewa.png", teks: "Dan aku Detektif Sadewa! Kita harus hati-hati sama hoaks kesehatan, lho!" },
+            { nama: "NAKULA", img: "nakula.png", teks: "Ayo kita mulai petualangan pertama: Kasus Sakit Kepala di Sekolah!" }
+        ];
+
+        function mulaiDialog(pilihan) {
             mainkanSuara();
-            setTimeout(function() {
-                sembunyikanSemuaSlide();
-                document.getElementById("slide3").style.display = "block";
+            karakterPilihan = pilihan; // Menyimpan karakter yang dipilih pemain
+            dialogIndex = 0; // Reset naskah dari awal
+            
+            setTimeout(() => {
+                document.querySelectorAll('.slide').forEach(el => el.style.display = 'none');
+                document.getElementById('slide6').style.display = 'block';
+                tampilkanTeks();
             }, 300);
         }
 
-        function bukaRules() {
-            mainkanSuara();
-            setTimeout(function() {
-                sembunyikanSemuaSlide();
-                document.getElementById("slide4").style.display = "block";
-            }, 300);
+        function tampilkanTeks() {
+            const data = naskahDialog[dialogIndex];
+            const bubble = document.querySelector('.speech-bubble');
+            
+            // Mengganti Foto, Nama, dan Teks
+            document.getElementById('charPortrait').src = data.img;
+            document.getElementById('charName').innerText = data.nama;
+            document.getElementById('charText').innerText = data.teks;
+            
+            // Me-reset animasi gelembung agar pop-up lagi
+            bubble.style.animation = 'none';
+            bubble.offsetHeight; // trigger reflow
+            bubble.style.animation = 'popBubble 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
         }
 
-        function mulaiGameplay() {
+        function nextDialog() {
             mainkanSuara();
-            setTimeout(function() {
-                alert("Chapter 1: Sakit Kepala di Sekolah. Segera Dimulai!");
-                // Nanti kamu bisa buat slide5 untuk mulai gamenya di sini
-            }, 300);
-        }
-
-        function kembaliKeSlide2() {
-            mainkanSuara();
-            setTimeout(function() {
-                sembunyikanSemuaSlide();
-                document.getElementById("slide2").style.display = "block";
-            }, 300);
+            dialogIndex++;
+            
+            if (dialogIndex < naskahDialog.length) {
+                tampilkanTeks();
+            } else {
+                // Jika naskah habis, masuk ke gameplay aslinya
+                alert("Dialog selesai! Masuk ke layar Game Chapter 1...");
+            }
         }
     </script>
 
