@@ -14,14 +14,14 @@
         }
 
         /* ==========================================================
-           🚨 PENGUNCI SITUS DESKTOP (DETEKSI LEBAR > 900px) 🚨
+           🚨 PENGUNCI SITUS DESKTOP 🚨
            ========================================================== */
         #desktop-lock {
             display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #2c1e12; color: #fff; z-index: 10000;
             flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;
         }
-        #desktop-lock h1 { font-family: 'Poppins', sans-serif; color: #ff5252; font-size: 30px; margin-bottom: 15px; }
+        #desktop-lock h1 { font-family: 'Poppins', sans-serif; color: #dca658; font-size: 30px; margin-bottom: 15px; }
         #desktop-lock p { font-size: 18px; max-width: 600px; margin-bottom: 20px; line-height: 1.5; }
         .hint-box { border: 2px dashed #ffeb3b; color: #ffeb3b; padding: 15px; border-radius: 10px; font-weight: bold; font-size: 16px; margin-bottom: 20px; }
 
@@ -30,7 +30,6 @@
             font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 18px; 
             background: #4CAF50; color: #fff; box-shadow: 0 6px 0 #1b5e20; text-transform: uppercase;
         }
-        .btn-confirm:active { transform: translateY(4px); box-shadow: none; }
 
         /* ==========================================================
            🎮 KOTAK GAME FIXED 900x600 (ANTI BALAPAN) 🎮
@@ -40,10 +39,9 @@
             justify-content: center; align-items: center;
         }
 
-        /* Kotak ini ukurannya mati, tidak bisa berubah, hanya di-zoom via JS */
         #game-container {
             width: 900px; height: 600px; position: relative;
-            background-color: #fcf9ee; border: 8px solid #4a2e1b; border-radius: 20px;
+            background-color: #fcf9ee; border: 10px solid #4a2e1b; border-radius: 20px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8); overflow: hidden;
             transform-origin: center center;
         }
@@ -52,7 +50,7 @@
         .bg-img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .bg-dim { filter: brightness(0.4) contrast(1.1); }
 
-        /* --- UI BAWAH (SLIDE 1 & LAINNYA) --- */
+        /* --- UI GLOBAL --- */
         .bottom-panel {
             position: absolute; bottom: 0; left: 0; width: 100%; height: 110px; 
             background: linear-gradient(to top, #4a2e1b, #6b442a); border-top: 5px solid #dca658; 
@@ -63,17 +61,16 @@
             color: #fff; border: 4px solid #fff; font-size: 28px; font-family: 'Poppins', sans-serif; 
             font-weight: 900; letter-spacing: 3px; border-radius: 15px; cursor: pointer; box-shadow: 0 6px 0 #7c5333;
         }
-        .btn-start:active { transform: translateY(4px); box-shadow: none; }
 
-        /* --- SLIDE 2: PAPAN & MENU (POSISI & UKURAN MATI) --- */
+        /* --- SLIDE 2: PAPAN & MENU (TEKS SUDAH DINAIKKAN KE ATAS) --- */
         .papan-sign { position: absolute; top: 60px; left: 225px; width: 450px; text-align: center; z-index: 10; }
         .papan-text { font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; font-size: 24px; text-transform: uppercase; line-height: 1.2; }
 
-        /* Kotak Menu Lebar 460px agar "MULAI PETUALANGAN" muat 1 baris */
-        .menu-nav { position: absolute; top: 265px; left: 220px; width: 460px; height: 45px; display: flex; justify-content: space-between; align-items: center; z-index: 60; }
-        .menu-btn { width: 145px; height: 100%; background: transparent; border: none; cursor: pointer; color: #fff; font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 11px; white-space: nowrap; }
+        /* Posisi top diubah dari 265px jadi 210px agar teks masuk ke kotak hijau */
+        .menu-nav { position: absolute; top: 210px; left: 215px; width: 470px; height: 35px; display: flex; justify-content: space-between; align-items: center; z-index: 60; }
+        .menu-btn { width: 145px; height: 100%; background: transparent; border: none; cursor: pointer; color: #fff; font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 11px; white-space: nowrap; text-align: center; }
 
-        /* --- KANAN: KARAKTER & GELEMBUNG --- */
+        /* --- CHARACTER & BUBBLE (KANAN) --- */
         .char-box-right {
             position: absolute; right: 20px; bottom: 0; width: 380px; height: 600px;
             display: flex; flex-direction: column; justify-content: flex-end; align-items: center; z-index: 100;
@@ -90,16 +87,9 @@
         .bubble-txt { font-weight: 900; font-size: 16px; color: #4a2e1b; line-height: 1.4; text-align: left; }
         .portrait-huge { height: 350px; width: auto; object-fit: contain; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6)); }
 
-        /* --- KIRI: INFO & RINA PUSING --- */
-        .content-left { position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80; }
-        .title-large { font-family: 'Poppins', sans-serif; font-size: 32px; color: #4a2e1b; margin-bottom: 15px; }
-        .list-style { list-style: none; font-weight: 700; font-size: 16px; color: #3e2717; line-height: 1.5; }
-        .list-style li { margin-bottom: 10px; padding-left: 30px; position: relative; }
-        .list-style li::before { content: '◈'; position: absolute; left: 0; color: #dca658; font-size: 20px; }
-
+        /* --- RINA & MEJA LAB --- */
         .rina-char { position: absolute; left: 30px; bottom: 40px; height: 380px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
         
-        /* MEJA LAB: PANJANG & MUAT 4 BARANG */
         .meja-lab-small {
             position: absolute; bottom: 0; left: 20px; 
             width: 480px; height: 180px; 
@@ -107,21 +97,19 @@
             display: flex; justify-content: space-evenly; align-items: flex-end; padding-bottom: 25px;
         }
         .obat-item { height: 75px; width: auto; cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); }
-        .obat-item:hover { transform: scale(1.1) translateY(-10px); }
         .obat-active { transform: scale(1.15) translateY(-10px); filter: drop-shadow(0 0 15px #4CAF50); border-bottom: 4px solid #4CAF50; }
 
-        /* --- PANEL HASIL (DITENGAH ATAS BIAR GAK NUTUPIN MUKA RINA) --- */
+        /* --- HASIL PANEL (DIGESER KE KIRI, DI ANTARA RINA & SADEWA, Z-INDEX TINGGI) --- */
         .result-panel {
-            position: absolute; left: 260px; top: 30px; width: 380px; z-index: 90;
+            position: absolute; left: 200px; top: 20px; width: 310px; z-index: 150;
             display: flex; flex-direction: column; align-items: center; text-align: center;
         }
-        #resBox { background:rgba(255,255,255,0.95); padding: 15px; border:4px solid #dca658; border-radius:15px; font-weight:bold; font-size: 15px; line-height:1.4; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        #resBox { background:rgba(255,255,255,0.95); padding: 15px; border:4px solid #dca658; border-radius:15px; font-weight:bold; font-size: 14px; line-height:1.4; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
         .action-btns { display: flex; gap: 15px; margin-top: 15px; }
         .btn-action { padding: 12px 25px; border-radius: 50px; border: none; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 14px; box-shadow: 0 4px 0 #2c1e12; text-transform: uppercase; }
         .btn-back { background: #6b442a; color: #fff; }
         .btn-next { background: #dca658; color: #fff; }
-        .btn-action:active { transform: translateY(4px); box-shadow: none; }
 
         @keyframes popUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     </style>
@@ -131,7 +119,7 @@
     <div id="desktop-lock">
         <h1>⚠️ MODE DESKTOP DIWAJIBKAN ⚠️</h1>
         <p>Agar teks dan gambar pas pada tempatnya, aktifkan Mode Situs Desktop di browsermu.</p>
-        <div class="hint">CARA: Klik ( ⋮ ) atau ikon menu di pojok browser -> Centang "Situs Desktop" / "Request Desktop Site"</div>
+        <div class="hint-box">CARA: Klik ( ⋮ ) di pojok browser -> Centang "Situs Desktop"</div>
         <button class="btn-confirm" onclick="cekDesktopManual()">✅ SAYA SUDAH CENTANG SITUS DESKTOP</button>
     </div>
 
@@ -162,12 +150,12 @@
 
             <div id="slideInfo" class="slide">
                 <div style="position: absolute; width: 100%; height: 100%; background-color: #f7f2e1;">
-                    <div class="content-left">
-                        <h2 id="infoTitle" class="title-large">INFO</h2>
-                        <ul id="infoList" class="list-style"></ul>
+                    <div style="position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80;">
+                        <h2 id="infoTitle" style="font-family:'Poppins'; font-size:32px; color:#4a2e1b; margin-bottom:15px;">INFO</h2>
+                        <ul id="infoList" style="list-style:none; font-weight:700; font-size:16px; color:#3e2717; line-height:1.5;"></ul>
                         <div class="action-btns">
                             <button class="btn-action btn-back" onclick="changeSlide('slide2', 'klik')">KEMBALI</button>
-                            <button id="btnPlay" class="btn-action btn-next" onclick="changeSlide('ch1_start', 'welcome')">MULAI SEKARANG!</button>
+                            <button id="btnPlay" class="btn-action btn-next" onclick="changeSlide('ch1_start', 'welcome')">MULAI!</button>
                         </div>
                     </div>
                     <div class="char-box-right">
@@ -185,22 +173,21 @@
                     <img src="sadewa.png" class="portrait-huge">
                 </div>
                 <div class="bottom-panel" style="background:none; border:none;">
-                    <button class="btn-action btn-next" style="padding: 15px 40px; font-size: 16px;" onclick="changeSlide('ch1_mix', 'klik')">LANJUTKAN ▶</button>
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px;" onclick="changeSlide('ch1_mix', 'klik')">LANJUTKAN ▶</button>
                 </div>
             </div>
 
             <div id="ch1_mix" class="slide">
                 <img src="kelas.png" class="bg-img bg-dim">
                 <img src="rina pusing.png" class="rina-char" style="filter: brightness(0.7) drop-shadow(0 0 10px #000);">
-                
                 <div class="meja-lab-small">
                     <img src="paracetamol.png" id="item-p" class="obat-item" onclick="selectObat('p')">
                     <img src="amoxicillin.png" id="item-a" class="obat-item" onclick="selectObat('a')">
                     <img src="antasida.png" id="item-t" class="obat-item" onclick="selectObat('t')">
-                    <img src="water.png" class="obat-item" onclick="runMix()" style="margin-left: 20px; filter: drop-shadow(0 0 15px cyan);">
+                    <img src="water.png" class="obat-item" onclick="runMix()" style="margin-left:20px; filter:drop-shadow(0 0 15px cyan);">
                 </div>
                 <div class="char-box-right">
-                    <div class="bubble-container"><p class="bubble-txt">Pilih satu obat di meja lab, lalu klik Gelas Air untuk memberikannya kepada Rina. Jangan sampai salah ya!</p></div>
+                    <div class="bubble-container"><p class="bubble-txt">Pilih satu obat di meja lab, lalu klik Gelas Air untuk memberikannya kepada Rina. Jangan sampai salah!</p></div>
                     <img src="sadewa.png" class="portrait-huge">
                 </div>
             </div>
@@ -208,13 +195,11 @@
             <div id="chResult" class="slide">
                 <img src="kelas.png" class="bg-img">
                 <img id="resRina" src="rina senyum.png" class="rina-char">
-                
                 <div class="result-panel">
-                    <h2 id="resTitle" class="title-large" style="margin-bottom: 5px; font-size: 28px; text-shadow: 2px 2px 0 #fff;">HASIL</h2>
+                    <h2 id="resTitle" style="font-family:'Poppins'; font-size:28px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
                     <div id="resBox"></div>
-                    <button id="resBtn" class="btn-action btn-next" style="margin-top: 15px;"></button>
+                    <button id="resBtn" class="btn-action btn-next" style="margin-top:15px;"></button>
                 </div>
-
                 <div class="char-box-right">
                     <div class="bubble-container"><p id="resSadewa" class="bubble-txt"></p></div>
                     <img src="sadewa.png" class="portrait-huge">
@@ -225,17 +210,15 @@
     </div>
 
     <script>
-        // FUNGSI ZOOM OTOMATIS (AGAR LAYOUT 900x600 TETAP PAS DI LAYAR MANAPUN)
         function resizeGame() {
             const game = document.getElementById('game-container');
             const scaleX = window.innerWidth / 920;
             const scaleY = window.innerHeight / 620;
             let scale = Math.min(scaleX, scaleY);
-            if(scale > 1) scale = 1; // Jangan melebihi ukuran asli di laptop besar
+            if(scale > 1) scale = 1;
             game.style.transform = `scale(${scale})`;
         }
 
-        // PENGECEKAN SITUS DESKTOP (JIKA LEBAR < 800, BERARTI BELUM AKTIF)
         function cekLayar() {
             if (window.innerWidth < 800) {
                 document.getElementById('desktop-lock').style.display = 'flex';
@@ -249,13 +232,7 @@
 
         window.onload = cekLayar;
         window.onresize = cekLayar;
-
-        // FUNGSI TOMBOL CONFIRM
-        function cekDesktopManual() {
-            document.getElementById('desktop-lock').style.display = 'none';
-            document.getElementById('game-wrapper').style.display = 'flex';
-            resizeGame();
-        }
+        function cekDesktopManual() { document.getElementById('desktop-lock').style.display = 'none'; document.getElementById('game-wrapper').style.display = 'flex'; resizeGame(); }
 
         const sfx = { klik: document.getElementById('a-klik'), welcome: document.getElementById('a-welcome'), correct: document.getElementById('a-correct'), wrong: document.getElementById('a-wrong') };
         let selectedObat = "";
@@ -274,11 +251,7 @@
             document.getElementById('infoPortrait').src = isNakula ? 'nakula.png' : 'sadewa.png';
             document.getElementById('infoTitle').innerText = type === 'cara' ? '🧩 CARA MAIN' : '⚖️ RULES';
             document.getElementById('infoBubble').innerText = isNakula ? 'Baca panduan ini agar misimu lancar!' : 'Detektif, pahami aturan mainnya!';
-            
-            document.getElementById('infoList').innerHTML = type === 'cara' ? 
-                '<li>Selesaikan 12 Tantangan Kesehatan</li><li>Gunakan logika medis memilih obat</li><li>Kumpulkan bintang di setiap misi!</li>' : 
-                '<li>Benar = +1 Bintang Sehat</li><li>Salah = 0 (Tanpa pengurangan poin)</li><li>Selalu baca fakta medis di akhir!</li>';
-            
+            document.getElementById('infoList').innerHTML = type === 'cara' ? '<li>Selesaikan 12 Tantangan Kesehatan</li><li>Gunakan logika medis memilih obat</li><li>Dapatkan bintang di setiap misi!</li>' : '<li>Benar = +1 Bintang Sehat</li><li>Salah = 0 (Tanpa pengurangan poin)</li><li>Selalu baca fakta medis di akhir!</li>';
             document.getElementById('btnPlay').style.display = type === 'rules' ? 'block' : 'none';
             changeSlide('slideInfo');
         }
@@ -289,31 +262,27 @@
             document.getElementById('item-p').classList.remove('obat-active');
             document.getElementById('item-a').classList.remove('obat-active');
             document.getElementById('item-t').classList.remove('obat-active');
-            
             if(val === 'p') document.getElementById('item-p').classList.add('obat-active');
             if(val === 'a') document.getElementById('item-a').classList.add('obat-active');
             if(val === 't') document.getElementById('item-t').classList.add('obat-active');
         }
 
         function runMix() {
-            if(!selectedObat) { alert("Pilih obat di atas meja dulu, lalu klik Gelas Air!"); return; }
-            
+            if(!selectedObat) { alert("Pilih obat di atas meja dulu!"); return; }
             const rina = document.getElementById('resRina'), title = document.getElementById('resTitle'), box = document.getElementById('resBox'), dialog = document.getElementById('resSadewa'), btn = document.getElementById('resBtn');
             
             if(selectedObat === 'p') {
-                playSfx('correct');
+                playSfx('correct'); 
                 rina.src = "rina senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
-                box.innerText = "Paracetamol adalah analgesik (pereda nyeri) yang tepat dan aman untuk sakit kepala Rina. Hebat!";
+                box.innerText = "Paracetamol adalah analgesik yang tepat dan aman untuk sakit kepala Rina. Hebat!";
                 dialog.innerText = "Luar biasa! Rina sudah kembali ceria. Kamu memang detektif medis yang teliti!";
-                btn.innerText = "LANJUT CHAPTER 2"; btn.className = "btn-action btn-next";
-                btn.onclick = () => { alert("Tunggu Update Chapter 2 ya!"); changeSlide('slide2', 'klik'); };
+                btn.innerText = "LANJUT CHAPTER 2"; btn.onclick = () => { alert("Tunggu Update!"); changeSlide('slide2', 'klik'); };
             } else {
-                playSfx('wrong');
+                playSfx('wrong'); 
                 rina.src = "rina mual.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
-                box.innerText = selectedObat === 'a' ? "Amoxicillin itu antibiotik (obat bakteri), bukan pereda pusing! Rina malah mual." : "Antasida itu obat lambung (sakit maag), tidak bisa menyembuhkan pusing Rina!";
-                dialog.innerText = "Aduh, racikannya salah! Rina jadi makin mual. Ayo coba teliti lagi jenis obatnya!";
-                btn.innerText = "COBA LAGI"; btn.className = "btn-action btn-back";
-                btn.onclick = () => changeSlide('ch1_mix', 'klik');
+                box.innerText = selectedObat === 'a' ? "Amoxicillin itu antibiotik, bukan pereda pusing! Rina malah mual." : "Antasida itu obat lambung, tidak bisa menyembuhkan pusing Rina!";
+                dialog.innerText = "Aduh, racikannya salah! Rina jadi makin mual. Ayo coba teliti lagi!";
+                btn.innerText = "COBA LAGI"; btn.onclick = () => changeSlide('ch1_mix', 'klik');
             }
             changeSlide('chResult');
         }
