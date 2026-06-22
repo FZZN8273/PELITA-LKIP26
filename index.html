@@ -62,11 +62,10 @@
             font-weight: 900; letter-spacing: 3px; border-radius: 15px; cursor: pointer; box-shadow: 0 6px 0 #7c5333;
         }
 
-        /* --- SLIDE 2: PAPAN & MENU (TOMBOLE DIPERKETAT 9px UNTUK MULAI PETUALANGAN) --- */
+        /* --- SLIDE 2: PAPAN & MENU (TEXT ANTI BALAPAN) --- */
         .papan-sign { position: absolute; top: 60px; left: 225px; width: 450px; text-align: center; z-index: 10; }
         .papan-text { font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; font-size: 24px; text-transform: uppercase; line-height: 1.2; }
 
-        /* Ukuran menu pas untuk menampung 17 karakter "MULAI PETUALANGAN" tanpa pecah (overflow) */
         .menu-nav { 
             position: absolute; top: 215px; left: 225px; width: 450px; height: 35px; 
             display: flex; justify-content: space-between; align-items: center; z-index: 60; 
@@ -74,7 +73,7 @@
         .menu-btn { 
             width: 146px; height: 100%; background: transparent; border: none; cursor: pointer; 
             color: #fff; font-family: 'Poppins', sans-serif; font-weight: 900; 
-            font-size: 9px; letter-spacing: -0.5px; /* Diperkecil dan dirapatkan biar muat */ 
+            font-size: 9px; letter-spacing: -0.5px; /* Font sangat kecil agar pas 17 karakter */ 
             line-height: 1; padding: 0; white-space: nowrap; 
             text-align: center; display: flex; justify-content: center; align-items: center; 
         }
@@ -96,21 +95,25 @@
         .bubble-txt { font-weight: 900; font-size: 16px; color: #4a2e1b; line-height: 1.4; text-align: left; }
         .portrait-huge { height: 350px; width: auto; object-fit: contain; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6)); }
 
-        /* --- RINA & MEJA LAB (2 BARIS GRID PRESISI) --- */
-        .rina-char { position: absolute; left: 30px; bottom: 40px; height: 380px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
+        /* --- RINA & MEJA LAB (FIX PRESISI ABSOLUT) --- */
+        /* DINAJIKAN AGAR WAJAH RINA TIDAK KEBANYAKAN TERPOTONG BAWAH */
+        .rina-char { position: absolute; left: 30px; bottom: 65px; height: 380px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
         
-        /* GRID 2 BARIS MEJA LAB (Fix Gambar 4 agar presisi di atas meja) */
+        /* FIX TOTAL MEJA: Background diatur center, item menggunakan Flexbox center agar tidak melayang kebawah */
         .meja-lab-small {
             position: absolute; bottom: 0; left: 20px; 
-            width: 480px; height: 150px; 
+            width: 480px; height: 155px; 
             background: url('meja 1.png') center bottom/contain no-repeat; z-index: 20;
-            display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
-            gap: 12px; padding-bottom: 25px;
+            display: flex; flex-direction: column; justify-content: center; /* PENTING: Menggunakan center bukan flex-end */
+            align-items: center; gap: 8px; padding-bottom: 25px; /* Padding bottom untuk ruang kaki meja */
         }
         .row-atas, .row-bawah {
-            display: flex; justify-content: space-evenly; width: 100%; padding: 0 30px;
+            display: flex; justify-content: space-evenly; width: 70%; /* Hanya 70% agar tidak terlalu mepet pinggir */
         }
-        .obat-item { height: 70px; width: auto; cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); }
+        .obat-item { 
+            height: 70px; width: auto; object-fit: contain; 
+            cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); 
+        }
         .obat-active { transform: scale(1.15) translateY(-5px); filter: drop-shadow(0 0 15px #4CAF50); }
 
         /* --- KIRI: INFO --- */
@@ -120,8 +123,7 @@
         .list-style li { margin-bottom: 10px; padding-left: 30px; position: relative; }
         .list-style li::before { content: '◈'; position: absolute; left: 0; color: #dca658; font-size: 20px; }
 
-        /* --- FIX PANEL HASIL (PERBAIKAN GAMBAR 2 DIPINDAHKAN KE KIRI ATAS) --- */
-        /* Dipindahkan kiri atas agar TIDAK menutupi wajah Rina (Kiri Bawah) & Sadewa (Kanan Bawah) */
+        /* --- PANEL HASIL DIPINDAHKAN KE KIRI ATAS (AMAN DARI MUKA KARAKTER) --- */
         .result-panel {
             position: absolute; left: 40px; top: 40px; width: 400px; z-index: 150;
             display: flex; flex-direction: column; align-items: center; text-align: center;
@@ -201,9 +203,9 @@
 
             <div id="ch1_mix" class="slide">
                 <img src="kelas.png" class="bg-img bg-dim">
-                <img src="rina pusing.png" class="rina-char" style="filter: brightness(0.7) drop-shadow(0 0 10px #000); z-index: 5;">
+                <img src="rina pusing.png" class="rina-char">
                 
-                <!-- GRID 2 BARIS: 2 Obat di Atas, 1 Obat + Air di Bawah (Fix posisi meja) -->
+                <!-- GRID 2 BARIS SPESIFIKASI PRESISI: 2 Obat Atas, 1 Obat + Air Bawah -->
                 <div class="meja-lab-small">
                     <div class="row-atas">
                         <img src="paracetamol.png" id="item-p" class="obat-item" onclick="selectObat('p')">
@@ -225,7 +227,7 @@
                 <img src="kelas.png" class="bg-img">
                 <img id="resRina" src="rina senyum.png" class="rina-char">
                 
-                <!-- PANEL HASIL DIPINDAHKAN KE KIRI ATAS, JAUH DARI WAJAH RINA & SADEWA -->
+                <!-- PANEL HASIL DI KIRI ATAS, JAUH DARI WAJAH RINA & SADEWA -->
                 <div class="result-panel">
                     <h2 id="resTitle" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
                     <div id="resBox"></div>
@@ -244,7 +246,6 @@
     </div>
 
     <script>
-        // Anti-Balapan, Skala Pas di Layar Desktop
         function resizeGame() {
             const game = document.getElementById('game-container');
             const scaleX = window.innerWidth / 920;
@@ -269,7 +270,6 @@
         window.onresize = cekLayar;
         function cekDesktopManual() { document.getElementById('desktop-lock').style.display = 'none'; document.getElementById('game-wrapper').style.display = 'flex'; resizeGame(); }
 
-        // ZERO DELAY AUDIO (Reset waktu 0 detik sebelum play)
         const sfx = { 
             klik: document.getElementById('a-klik'), 
             welcome: document.getElementById('a-welcome'), 
