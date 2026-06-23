@@ -6,7 +6,7 @@
     <title>PELITA - Penerang Literasi Kesehatan</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Sen:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; user-select: none; }
         body {
             background-color: #1a0f08; display: flex; justify-content: center; align-items: center;
             min-height: 100vh; font-family: 'Sen', sans-serif; overflow: hidden; margin: 0;
@@ -60,24 +60,23 @@
         }
         .btn-music-toggle:active { transform: translateY(4px); box-shadow: none; }
         .btn-music-toggle.muted { background: #7f5d46; border-color: #7f5d46; opacity: 0.8; }
-        .btn-music-toggle.hidden { display: none !important; } /* Hilang saat panduan */
+        .btn-music-toggle.hidden { display: none !important; }
 
         /* ==========================================================
-           📌 SLIDE 2 MENU UTAMA (PRESISI 100% DI KOTAK BIRU)
+           📌 SLIDE 2 MENU UTAMA (PRESISI 100% TIDAK MIRING)
            ========================================================== */
         .papan-sign { position: absolute; top: 60px; left: 150px; width: 600px; text-align: center; z-index: 10; }
         .papan-text { font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; font-size: 22px; text-transform: uppercase; line-height: 1.2; text-shadow: 2px 2px 0 #fff; }
         
-        /* Wrapper diatur space-around agar pas di bawah ikon biru */
         .menu-nav { 
             position: absolute; top: 260px; left: 200px; width: 500px; height: 40px; 
-            display: flex; justify-content: space-around; align-items: center; z-index: 60; 
+            display: flex; justify-content: space-between; align-items: center; z-index: 60; 
         }
         .menu-btn { 
-            width: 150px; height: 100%; background: transparent; border: none; cursor: pointer; 
+            width: 145px; height: 100%; background: transparent; border: none; cursor: pointer; 
             color: #fff; font-family: 'Poppins', sans-serif; font-weight: 900; 
-            font-size: 10px; line-height: 1.2; padding: 0; white-space: nowrap; 
-            text-align: center; display: flex; justify-content: center; align-items: center; 
+            font-size: 11px; line-height: 1.2; padding: 0; white-space: nowrap; 
+            text-align: center; display: flex; justify-content: center; align-items: center; pointer-events: auto;
         }
 
         /* --- CHARACTERS --- */
@@ -100,42 +99,40 @@
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
         /* ==========================================================
-           🛠️ SLIDE MEJA LAB (OBAT KEKIRI, NAIK, SADEWA BESAR)
+           🛠️ SLIDE MEJA LAB (SADEWA BESAR, OBAT AGAK NAIK)
            ========================================================== */
         #ch1_lab .bg-meja-lab {
             width: 100%; height: 100%;
             object-fit: contain; object-position: center bottom;
             position: absolute; top: 0; left: 0; z-index: 1;
         }
-        /* Sadewa & Bubble diperbesar */
         #ch1_lab .char-box-right {
             position: absolute; right: 20px; bottom: 0px; width: auto; height: auto;
-            transform: scale(0.95); transform-origin: bottom right; z-index: 10; 
+            transform: scale(0.9) translateX(10px); transform-origin: bottom right; z-index: 10; 
         }
         #ch1_lab .bubble-container { width: 340px; padding: 10px; margin-bottom: 10px; }
-        #ch1_lab .bubble-txt { font-size: 16px; line-height: 1.4; } /* Teks diperbesar */
-        #ch1_lab .portrait-huge { height: 300px; width: auto; } /* Sadewa diperbesar menjadi 300px */
+        #ch1_lab .bubble-txt { font-size: 16px; line-height: 1.4; }
+        #ch1_lab .portrait-huge { height: 300px; width: auto; }
 
-        /* Obat dinaikkan (bottom 30px) & digeser agak kekiri (left 44%) */
         #ch1_lab .meja-lab-small {
-            position: absolute; bottom: 30px; 
-            left: 44%; transform: translateX(-50%);
-            width: 60%; height: 280px; 
+            position: absolute; bottom: 20px; 
+            left: 43%; transform: translateX(-50%);
+            width: 55%; height: 270px; 
             z-index: 300; 
             display: flex; flex-direction: column; justify-content: flex-end;
-            align-items: center; padding-bottom: 35px; gap: 20px;
+            align-items: center; padding-bottom: 30px; gap: 15px;
         }
         #ch1_lab .row-atas, #ch1_lab .row-bawah {
-            display: flex; justify-content: center; width: 100%; padding: 0 10px; gap: 40px;
+            display: flex; justify-content: space-between; width: 100%; padding: 0 20px;
         }
         #ch1_lab .obat-item { 
-            height: 110px; width: auto; object-fit: contain; 
+            height: 100px; width: auto; object-fit: contain; 
             cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); 
             pointer-events: auto;
         }
         #ch1_lab .obat-active { transform: scale(1.15) translateY(-10px); filter: drop-shadow(0 0 15px #4CAF50); }
 
-        /* --- SLIDE CARA MAIN & RULES (LAYAR PENUH BERSIH) --- */
+        /* --- SLIDE CARA MAIN & RULES --- */
         .slide-white {
             background-color: #f7f2e1;
             width: 100%; height: 100%;
@@ -156,7 +153,7 @@
         .btn-back { background: #6b442a; color: #fff; }
         .btn-next { background: #dca658; color: #fff; }
 
-        /* --- LOADING SCREEN NUSANTARA (DURASI LEBIH LAMA ANTI LAG) --- */
+        /* --- LOADING SCREEN NUSANTARA --- */
         #loading-screen {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(244, 230, 208, 0.95); 
@@ -214,7 +211,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 2: MENU UTAMA (PRESISI 100%) -->
+            <!-- SLIDE 2: MENU UTAMA (FIX PRESISI 100%) -->
             <div id="slide2" class="slide">
                 <img src="slide 2.png" class="bg-img">
                 <div class="papan-sign"><p class="papan-text">Selamat Datang di<br>Desa Pelita</p></div>
@@ -277,7 +274,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 6: MEJA LAB (OBAT KEKIRI, NAIK, SADEWA BESAR) -->
+            <!-- SLIDE 6: MEJA LAB (SADEWA BESAR, OBAT NAIK) -->
             <div id="ch1_lab" class="slide">
                 <img src="meja 1.png" class="bg-meja-lab">
                 
@@ -381,8 +378,8 @@
             }
         }
 
-        // ⏳ LOADING SCREEN DURASI LEBIH LAMA (500ms) - ANTI NGELEG & DIEM
-        function showLoading(callback, duration = 500) {
+        // ⏳ LOGIKA LOADING SCREEN KHUSUS (4 Detik untuk Awal, 0.8 Detik untuk Navigasi)
+        function showLoading(callback, duration = 800) {
             if(isLoading) return;
             isLoading = true;
             const loader = document.getElementById('loading-screen');
@@ -397,6 +394,15 @@
         }
 
         function changeSlide(id, sound) {
+            // Atur durasi spesial
+            let durasi = 800; // Default 0.8 detik untuk navigasi tombol skenario
+            if(id === 'slide2' && sound === 'selamat') {
+                durasi = 4000; // 4 detik penuh untuk memuat data saat awal bermain
+            }
+            if(id === 'chResult') {
+                durasi = 600; // Hasil dikit aja loadingnya biar cepet
+            }
+
             showLoading(() => {
                 const musicBtn = document.getElementById('btnMusic');
                 if(id === 'slideCara' || id === 'slideRules') {
@@ -419,9 +425,10 @@
                 }
                 document.querySelectorAll('.slide').forEach(s => s.style.display = 'none');
                 document.getElementById(id).style.display = 'block';
-            });
+            }, durasi);
         }
 
+        // 🔥 FUNGSI KLIK OBAT LANGSUNG RESPONSIF (0 Detik Loading)
         function selectObat(val) {
             playSfx('klik');
             selectedObat = val;
