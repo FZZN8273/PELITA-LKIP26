@@ -62,18 +62,18 @@
             font-weight: 900; letter-spacing: 3px; border-radius: 15px; cursor: pointer; box-shadow: 0 6px 0 #7c5333;
         }
 
-        /* --- SLIDE 2: PAPAN & MENU --- */
+        /* --- SLIDE 2: PAPAN & MENU (TOMBOL DIPINDAHKAN LEBIH ATAS) --- */
         .papan-sign { position: absolute; top: 60px; left: 225px; width: 450px; text-align: center; z-index: 10; }
         .papan-text { font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; font-size: 24px; text-transform: uppercase; line-height: 1.2; }
 
         .menu-nav { 
-            position: absolute; top: 215px; left: 225px; width: 450px; height: 35px; 
+            position: absolute; top: 195px; left: 225px; width: 450px; height: 35px; /* Dinaikkan posisinya ke 195px */
             display: flex; justify-content: space-between; align-items: center; z-index: 60; 
         }
         .menu-btn { 
             width: 146px; height: 100%; background: transparent; border: none; cursor: pointer; 
             color: #fff; font-family: 'Poppins', sans-serif; font-weight: 900; 
-            font-size: 9px; letter-spacing: -0.5px; 
+            font-size: 9px; letter-spacing: -0.5px; /* Font kecil agar pas 17 karakter */ 
             line-height: 1; padding: 0; white-space: nowrap; 
             text-align: center; display: flex; justify-content: center; align-items: center; 
         }
@@ -95,16 +95,15 @@
         .bubble-txt { font-weight: 900; font-size: 16px; color: #4a2e1b; line-height: 1.4; text-align: left; }
         .portrait-huge { height: 350px; width: auto; object-fit: contain; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6)); }
 
-        /* --- RINA & MEJA LAB (POSISI RINA DINAJIKAN LAGI) --- */
-        /* Dinaikkan 85px dari bawah agar muka Rina full terlihat di layar */
-        .rina-char { position: absolute; left: 30px; bottom: 85px; height: 360px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
+        /* --- RINA & MEJA LAB (POSISI RINA DINAJIKAN LAGI & DIPERKECIL) --- */
+        /* Dinaikkan 120px dari bawah, dan tingginya 340px agar posisi muka tepat di tengah layar */
+        .rina-char { position: absolute; left: 30px; bottom: 120px; height: 340px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
         
-        /* MEJA DIATUR FLEX-END AGAR BARANG MENEMPEL KE MEJA TIDAK MELAYANG */
         .meja-lab-small {
             position: absolute; bottom: 0; left: 20px; 
             width: 480px; height: 155px; 
             background: url('meja 1.png') center bottom/contain no-repeat; z-index: 20;
-            display: flex; flex-direction: column; justify-content: flex-end; /* Ubah ke flex-end agar menempel */ 
+            display: flex; flex-direction: column; justify-content: flex-end; 
             align-items: center; padding-bottom: 35px; gap: 6px;
         }
         .row-atas, .row-bawah {
