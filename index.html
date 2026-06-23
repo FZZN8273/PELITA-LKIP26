@@ -50,9 +50,7 @@
             font-weight: 900; letter-spacing: 3px; border-radius: 15px; cursor: pointer; box-shadow: 0 6px 0 #7c5333;
         }
 
-        /* ==========================================================
-           🎵 TOMBOL MUSIK ON/OFF
-           ========================================================== */
+        /* --- TOMBOL MUSIK ON/OFF --- */
         .btn-music-toggle {
             position: absolute; top: 15px; left: 15px; z-index: 9998;
             padding: 8px 15px; border-radius: 20px; border: 3px solid #dca658;
@@ -63,9 +61,7 @@
         .btn-music-toggle:active { transform: translateY(4px); box-shadow: none; }
         .btn-music-toggle.muted { background: #7f5d46; border-color: #7f5d46; opacity: 0.8; }
 
-        /* ==========================================================
-           📌 SLIDE 2 MENU UTAMA (PAS PRESISI)
-           ========================================================== */
+        /* --- SLIDE 2 MENU UTAMA --- */
         .papan-sign { position: absolute; top: 60px; left: 150px; width: 600px; text-align: center; z-index: 10; }
         .papan-text { font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; font-size: 22px; text-transform: uppercase; line-height: 1.2; text-shadow: 2px 2px 0 #fff; }
         .menu-nav { 
@@ -79,7 +75,7 @@
             text-align: center; display: flex; justify-content: center; align-items: center; 
         }
 
-        /* --- CHARACTER UMUM --- */
+        /* --- CHARACTERS --- */
         .char-box-right {
             position: absolute; right: 20px; bottom: 0; width: 380px; height: 600px;
             display: flex; flex-direction: column; justify-content: flex-end; align-items: center; z-index: 100;
@@ -87,7 +83,7 @@
         .bubble-container {
             background: #ffffff; border: 5px solid #4a2e1b; border-radius: 20px;
             padding: 15px; width: 360px; margin-bottom: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-            position: relative; animation: popUp 0.4s ease-out;
+            position: relative; animation: popUp 0.3s ease-out;
         }
         .bubble-container::after {
             content: ''; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
@@ -96,12 +92,9 @@
         .bubble-txt { font-weight: 900; font-size: 16px; color: #4a2e1b; line-height: 1.4; text-align: left; }
         .portrait-huge { height: 350px; width: auto; object-fit: contain; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6)); }
 
-        /* --- RINA UMUM --- */
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
-        /* ==========================================================
-           🛠️ SLIDE MEJA LAB (OBAT BESAR & FOKUS)
-           ========================================================== */
+        /* --- SLIDE MEJA LAB (OBAT "AGAK NAIK") --- */
         #ch1_lab .bg-meja-lab {
             width: 100%; height: 100%;
             object-fit: contain; object-position: center bottom;
@@ -115,30 +108,28 @@
         #ch1_lab .bubble-txt { font-size: 14px; line-height: 1.4; }
         #ch1_lab .portrait-huge { height: 280px; width: auto; }
 
-        /* OBAT-OBATAN DIPERBESAR & TERSUSUN RAPI */
         #ch1_lab .meja-lab-small {
-            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 60%; height: 320px;
+            position: absolute; bottom: 15px; /* DINAJIKAN 15px dari bawah */ 
+            left: 50%; transform: translateX(-50%);
+            width: 60%; height: 280px; /* DIPERKECIL TINGGINYA agar obat terlihat naik */
             z-index: 20;
             display: flex; flex-direction: column; justify-content: flex-end;
-            align-items: center; padding-bottom: 45px; gap: 15px;
+            align-items: center; padding-bottom: 35px; gap: 10px;
         }
         #ch1_lab .row-atas, #ch1_lab .row-bawah {
             display: flex; justify-content: space-around; width: 100%; padding: 0 10px;
         }
         #ch1_lab .obat-item { 
-            height: 110px; /* DIPERBESAR DARI 85px MENJADI 110px */ 
-            width: auto; object-fit: contain; 
+            height: 110px; width: auto; object-fit: contain; 
             cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); 
         }
         #ch1_lab .obat-active { transform: scale(1.15) translateY(-10px); filter: drop-shadow(0 0 15px #4CAF50); }
 
-        /* --- SLIDE INFO --- */
-        .content-left { position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80; }
-        .title-large { font-family: 'Poppins', sans-serif; font-size: 32px; color: #4a2e1b; margin-bottom: 15px; }
-        .list-style { list-style: none; font-weight: 700; font-size: 16px; color: #3e2717; line-height: 1.5; }
-        .list-style li { margin-bottom: 10px; padding-left: 30px; position: relative; }
-        .list-style li::before { content: '◈'; position: absolute; left: 0; color: #dca658; font-size: 20px; }
+        /* --- TOMBOL GLOBAL --- */
+        .action-btns { display: flex; gap: 15px; margin-top: 15px; }
+        .btn-action { padding: 12px 25px; border-radius: 50px; border: none; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 14px; box-shadow: 0 4px 0 #2c1e12; text-transform: uppercase; }
+        .btn-back { background: #6b442a; color: #fff; }
+        .btn-next { background: #dca658; color: #fff; }
 
         /* --- PANEL HASIL --- */
         .result-panel {
@@ -146,14 +137,8 @@
             display: flex; flex-direction: column; align-items: center; text-align: center;
         }
         #resBox { background: rgba(255,255,255,0.98); padding: 15px; border: 4px solid #dca658; border-radius: 15px; font-weight: bold; font-size: 14px; line-height: 1.4; box-shadow: 0 10px 20px rgba(0,0,0,0.3); width: 100%; }
-        .action-btns { display: flex; gap: 15px; margin-top: 15px; }
-        .btn-action { padding: 12px 25px; border-radius: 50px; border: none; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 14px; box-shadow: 0 4px 0 #2c1e12; text-transform: uppercase; }
-        .btn-back { background: #6b442a; color: #fff; }
-        .btn-next { background: #dca658; color: #fff; }
 
-        /* ==========================================================
-           ⏳ LOADING SCREEN NUSANTARA
-           ========================================================== */
+        /* --- LOADING SCREEN NUSANTARA --- */
         #loading-screen {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(244, 230, 208, 0.95); 
@@ -172,7 +157,6 @@
         #loading-screen h2 { font-size: 28px; font-weight: 900; color: #4a2e1b; margin-bottom: 5px; }
         #loading-screen p { font-size: 16px; color: #6b442a; font-weight: 700; font-style: italic; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
         @keyframes popUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     </style>
 </head>
@@ -188,12 +172,11 @@
     <div id="game-wrapper">
         <div id="game-container">
             
+            <!-- AUDIO SESUAI REQUEST -->
             <audio id="a-klik" src="slide 1 mulai.mp3" preload="auto"></audio>
             <audio id="a-welcome" src="welcoming.mp3" preload="auto"></audio>
             <audio id="a-correct" src="correct.mp3" preload="auto"></audio>
             <audio id="a-wrong" src="wrong.mp3" preload="auto"></audio>
-            
-            <!-- ⭐ FITUR AUDIO BARU -->
             <audio id="a-selamat" src="selamat-datang.mp3" preload="auto"></audio>
             <audio id="a-gamelan" src="gamelan.mp3" preload="auto" loop></audio>
 
@@ -220,31 +203,57 @@
                 <img src="slide 2.png" class="bg-img">
                 <div class="papan-sign"><p class="papan-text">Selamat Datang di<br>Desa Pelita</p></div>
                 <div class="menu-nav">
-                    <button class="menu-btn" onclick="showInfo('cara')">CARA MAIN</button>
-                    <button class="menu-btn" onclick="showInfo('rules')">RULES</button>
+                    <!-- MENU DIUBAH KE HALAMAN STATIS MASING-MASING -->
+                    <button class="menu-btn" onclick="changeSlide('slideCara', 'klik')">CARA MAIN</button>
+                    <button class="menu-btn" onclick="changeSlide('slideRules', 'klik')">RULES</button>
                     <button class="menu-btn" onclick="changeSlide('ch1_kelas', 'welcome')">MULAI PETUALANGAN</button>
                 </div>
             </div>
 
-            <!-- SLIDE 3: INFO -->
-            <div id="slideInfo" class="slide">
+            <!-- SLIDE 3: CARA MAIN (HALAMAN STATIS) -->
+            <div id="slideCara" class="slide">
                 <div style="position: absolute; width: 100%; height: 100%; background-color: #f7f2e1;">
                     <div style="position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80;">
-                        <h2 id="infoTitle" style="font-family:'Poppins'; font-size:32px; color:#4a2e1b; margin-bottom:15px;">INFO</h2>
-                        <ul id="infoList" style="list-style:none; font-weight:700; font-size:16px; color:#3e2717; line-height:1.5;"></ul>
+                        <h2 style="font-family:'Poppins'; font-size:32px; color:#4a2e1b; margin-bottom:15px;">🧩 CARA MAIN</h2>
+                        <ul style="list-style:none; font-weight:700; font-size:16px; color:#3e2717; line-height:2;">
+                            <li>1. Selesaikan 12 Tantangan Kesehatan.</li>
+                            <li>2. Gunakan logika medis memilih obat.</li>
+                            <li>3. Dapatkan bintang di setiap misi!</li>
+                        </ul>
                         <div class="action-btns">
                             <button class="btn-action btn-back" onclick="changeSlide('slide2', 'klik')">KEMBALI</button>
-                            <button id="btnPlay" class="btn-action btn-next" onclick="changeSlide('ch1_kelas', 'welcome')">MULAI!</button>
                         </div>
                     </div>
                     <div class="char-box-right">
-                        <div class="bubble-container"><p id="infoBubble" class="bubble-txt"></p></div>
-                        <img id="infoPortrait" src="nakula.png" class="portrait-huge">
+                        <div class="bubble-container"><p class="bubble-txt">Baca panduan ini agar misimu lancar, Detektif!</p></div>
+                        <img src="nakula.png" class="portrait-huge">
                     </div>
                 </div>
             </div>
 
-            <!-- SLIDE 4: KELAS - RINA PUSING -->
+            <!-- SLIDE 4: RULES (HALAMAN STATIS) -->
+            <div id="slideRules" class="slide">
+                <div style="position: absolute; width: 100%; height: 100%; background-color: #f7f2e1;">
+                    <div style="position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80;">
+                        <h2 style="font-family:'Poppins'; font-size:32px; color:#4a2e1b; margin-bottom:15px;">⚖️ RULES</h2>
+                        <ul style="list-style:none; font-weight:700; font-size:16px; color:#3e2717; line-height:2;">
+                            <li>1. Benar = +1 Bintang Sehat.</li>
+                            <li>2. Salah = 0 (Tanpa pengurangan poin).</li>
+                            <li>3. Selalu baca fakta medis di akhir!</li>
+                        </ul>
+                        <div class="action-btns">
+                            <button class="btn-action btn-back" onclick="changeSlide('slide2', 'klik')">KEMBALI</button>
+                            <button class="btn-action btn-next" onclick="changeSlide('ch1_kelas', 'welcome')">MULAI!</button>
+                        </div>
+                    </div>
+                    <div class="char-box-right">
+                        <div class="bubble-container"><p class="bubble-txt">Detektif, pahami aturan mainnya agar tak tersesat!</p></div>
+                        <img src="sadewa.png" class="portrait-huge">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5: KELAS - RINA PUSING -->
             <div id="ch1_kelas" class="slide">
                 <img src="kelas.png" class="bg-img bg-dim">
                 <img src="rina pusing.png" class="rina-char">
@@ -257,10 +266,11 @@
                 </div>
             </div>
 
-            <!-- SLIDE 5: MEJA LAB (FOKUS OBAT & KARAKTER) -->
+            <!-- SLIDE 6: MEJA LAB (OBAT AGAK NAIK & FOKUS) -->
             <div id="ch1_lab" class="slide">
                 <img src="meja 1.png" class="bg-meja-lab">
                 
+                <!-- OBAT-OBATAN AGAK NAIK POSISINYA -->
                 <div class="meja-lab-small">
                     <div class="row-atas">
                         <img src="paracetamol.png" id="item-p" class="obat-item" onclick="selectObat('p')">
@@ -272,13 +282,14 @@
                     </div>
                 </div>
 
+                <!-- KARAKTER SEDEWA DI KANAN -->
                 <div class="char-box-right">
                     <div class="bubble-container"><p class="bubble-txt">Pilih satu obat di meja lab, lalu klik Gelas Air untuk memberikannya kepada Rina. Jangan sampai salah!</p></div>
                     <img src="sadewa.png" class="portrait-huge">
                 </div>
             </div>
 
-            <!-- SLIDE 6: HASIL -->
+            <!-- SLIDE 7: HASIL -->
             <div id="chResult" class="slide">
                 <img src="kelas.png" class="bg-img">
                 <img id="resRina" src="rina senyum.png" class="rina-char">
@@ -330,11 +341,12 @@
             welcome: document.getElementById('a-welcome'), 
             correct: document.getElementById('a-correct'), 
             wrong: document.getElementById('a-wrong'),
-            selamat: document.getElementById('a-selamat') // Tambahan suara selamat datang
+            selamat: document.getElementById('a-selamat') 
         };
         
         let selectedObat = "";
-        let isMusicOn = true; // Default musik menyala
+        let isMusicOn = true;
+        let isLoading = false; // Cegah double-click saat loading
 
         function playSfx(type) { 
             if(sfx[type]) { 
@@ -343,9 +355,6 @@
             } 
         }
 
-        // ==========================================================
-        // 🎵 FITUR TOMBOL ON/OFF MUSIK GAMELAN
-        // ==========================================================
         function toggleMusic() {
             const btn = document.getElementById('btnMusic');
             const gamelan = document.getElementById('a-gamelan');
@@ -363,27 +372,26 @@
             }
         }
 
-        // ==========================================================
-        // ⏳ FITUR LOADING SCREEN (CEGAH AUDIO DOUBLE PLAY / NGELEG)
-        // ==========================================================
-        function showLoading(callback, duration = 600) {
+        // ⏳ LOADING SCREEN DIPERCEPAT (300ms) & ANTI DOUBLE CLICK
+        function showLoading(callback, duration = 300) {
+            if(isLoading) return; // Cegah error double click
+            isLoading = true;
             const loader = document.getElementById('loading-screen');
             loader.style.display = 'flex';
             setTimeout(() => {
                 loader.style.display = 'none';
+                isLoading = false;
                 if (typeof callback === 'function') {
                     callback();
                 }
             }, duration);
         }
 
-        // Setiap pindah slide, selalu lewati loading screen dulu
         function changeSlide(id, sound) {
             showLoading(() => {
                 if(sound) {
                     if(sound === 'selamat') {
                         playSfx('selamat'); // Putar selamat-datang.mp3
-                        // Nyalakan musik latar gamelan saat memulai petualangan
                         if(isMusicOn) {
                             const gamelan = document.getElementById('a-gamelan');
                             gamelan.currentTime = 0;
@@ -398,21 +406,8 @@
             });
         }
 
-        function showInfo(type) {
-            showLoading(() => {
-                playSfx('klik');
-                const isNakula = Math.random() < 0.5;
-                document.getElementById('infoPortrait').src = isNakula ? 'nakula.png' : 'sadewa.png';
-                document.getElementById('infoTitle').innerText = type === 'cara' ? '🧩 CARA MAIN' : '⚖️ RULES';
-                document.getElementById('infoBubble').innerText = isNakula ? 'Baca panduan ini agar misimu lancar!' : 'Detektif, pahami aturan mainnya!';
-                document.getElementById('infoList').innerHTML = type === 'cara' ? '<li>Selesaikan 12 Tantangan Kesehatan</li><li>Gunakan logika medis memilih obat</li><li>Dapatkan bintang di setiap misi!</li>' : '<li>Benar = +1 Bintang Sehat</li><li>Salah = 0 (Tanpa pengurangan poin)</li><li>Selalu baca fakta medis di akhir!</li>';
-                document.getElementById('btnPlay').style.display = type === 'rules' ? 'block' : 'none';
-                document.getElementById('slideInfo').style.display = 'block';
-            });
-        }
-
         function selectObat(val) {
-            playSfx('klik');
+            playSfx('klik'); // Langsung responsif tanpa loading
             selectedObat = val;
             document.getElementById('item-p').classList.remove('obat-active');
             document.getElementById('item-a').classList.remove('obat-active');
