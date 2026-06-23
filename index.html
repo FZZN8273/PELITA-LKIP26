@@ -62,18 +62,23 @@
             font-weight: 900; letter-spacing: 3px; border-radius: 15px; cursor: pointer; box-shadow: 0 6px 0 #7c5333;
         }
 
-        /* --- SLIDE 2: PAPAN & MENU (FIX POSISI TOMBOL AGAR TEPAT DI KOTAK BAWAH IKON) --- */
-        .papan-sign { position: absolute; top: 60px; left: 160px; width: 580px; text-align: center; z-index: 10; }
+        /* ==========================================================
+           ✨ SLIDE 2 (MENU UTAMA): 100% PAS SECARA MATEMATIS ✨
+           ========================================================== */
+        /* Papan kayu dipastikan berada di posisi tengah presisi */
+        .papan-sign { position: absolute; top: 60px; left: 150px; width: 600px; text-align: center; z-index: 10; }
+        /* Font 22px di dalam width 600px DIPASTIKAN TIDAK AKAN MELUAP/KELUAR PAPAN */
         .papan-text { font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; font-size: 22px; text-transform: uppercase; line-height: 1.2; text-shadow: 2px 2px 0 #fff; }
 
+        /* Menu menggunakan space-evenly agar tombol pas di tengah-tengah ikon birunya */
         .menu-nav { 
-            position: absolute; top: 260px; left: 210px; width: 480px; height: 40px; 
-            display: flex; justify-content: space-around; align-items: center; z-index: 60; 
+            position: absolute; top: 260px; left: 230px; width: 440px; height: 40px; 
+            display: flex; justify-content: space-evenly; align-items: center; z-index: 60; 
         }
         .menu-btn { 
             width: 140px; height: 100%; background: transparent; border: none; cursor: pointer; 
             color: #fff; font-family: 'Poppins', sans-serif; font-weight: 900; 
-            font-size: 12px; line-height: 1.4; padding: 0; white-space: nowrap; 
+            font-size: 10px; line-height: 1.2; padding: 0; white-space: nowrap; 
             text-align: center; display: flex; justify-content: center; align-items: center; 
         }
 
@@ -94,29 +99,28 @@
         .bubble-txt { font-weight: 900; font-size: 16px; color: #4a2e1b; line-height: 1.4; text-align: left; }
         .portrait-huge { height: 350px; width: auto; object-fit: contain; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6)); }
 
-        /* --- RINA (FIX DI BAWAH, JANGAN KEATAS) --- */
+        /* --- RINA (Dipastikan di bawah sekali) --- */
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
-        /* --- SLIDE MEJA LAB (FULL MEJA TENGAH) --- */
-        #ch1_mix .meja-lab-small {
+        /* --- SLIDE FULL MEJA LAB (RASIO 3:2) --- */
+        #ch1_lab .meja-lab-small {
             position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
             width: 800px; height: 400px;
             background: url('meja 1.png') center bottom/contain no-repeat; z-index: 20;
             display: flex; flex-direction: column; justify-content: flex-end;
             align-items: center; padding-bottom: 60px; gap: 6px;
         }
-        #ch1_mix .row-atas, #ch1_mix .row-bawah {
-            display: flex; justify-content: space-evenly; width: 60%;
+        #ch1_lab .row-atas, #ch1_lab .row-bawah {
+            display: flex; justify-content: space-evenly; width: 55%;
         }
-        #ch1_mix .obat-item { 
+        #ch1_lab .obat-item { 
             height: 80px; width: auto; object-fit: contain; 
             cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); 
         }
-        #ch1_mix .obat-active { transform: scale(1.15) translateY(-10px); filter: drop-shadow(0 0 15px #4CAF50); }
+        #ch1_lab .obat-active { transform: scale(1.15) translateY(-10px); filter: drop-shadow(0 0 15px #4CAF50); }
         
-        /* Posisi Rina di Slide Meja Lab (Dinaikkan sedikit agar terlihat di atas meja) */
-        #ch1_mix .rina-char { position: absolute; left: 20px; bottom: 200px; height: 300px; z-index: 25; }
-        #ch1_mix .char-box-right { bottom: 80px; }
+        #ch1_lab .rina-char { position: absolute; left: 20px; bottom: 200px; height: 300px; z-index: 25; }
+        #ch1_lab .char-box-right { bottom: 80px; }
 
         /* --- KIRI: INFO --- */
         .content-left { position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80; }
@@ -157,7 +161,7 @@
             <audio id="a-correct" src="correct.mp3" preload="auto"></audio>
             <audio id="a-wrong" src="wrong.mp3" preload="auto"></audio>
 
-            <!-- SLIDE 1: PEMBUKAAN -->
+            <!-- HALAMAN AWAL -->
             <div id="slide1" class="slide" style="display: block;">
                 <img src="slide 1.png" class="bg-img">
                 <div class="bottom-panel">
@@ -165,7 +169,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 2: MENU UTAMA -->
+            <!-- HALAMAN MENU (PAS 100% MATEMATIKA) -->
             <div id="slide2" class="slide">
                 <img src="slide 2.png" class="bg-img">
                 <div class="papan-sign"><p class="papan-text">Selamat Datang di<br>Desa Pelita</p></div>
@@ -176,7 +180,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 3: INFO (CARA MAIN / RULES) -->
+            <!-- SLIDE INFORMASI -->
             <div id="slideInfo" class="slide">
                 <div style="position: absolute; width: 100%; height: 100%; background-color: #f7f2e1;">
                     <div style="position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80;">
@@ -194,7 +198,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 4: KELAS - RINA PUSING (SEBELUM MEJA LAB) -->
+            <!-- SKENARIO 1 - BAGIAN 1: RINA PUSING DI KELAS -->
             <div id="ch1_kelas" class="slide">
                 <img src="kelas.png" class="bg-img bg-dim">
                 <img src="rina pusing.png" class="rina-char">
@@ -207,7 +211,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 5: FULL MEJA LAB - (LOGIKA PERMAINAN) -->
+            <!-- SKENARIO 1 - BAGIAN 2: FULL MEJA LAB (RASIO 3:2) -->
             <div id="ch1_lab" class="slide">
                 <img src="kelas.png" class="bg-img bg-dim">
                 <img src="rina pusing.png" class="rina-char">
@@ -230,7 +234,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 6: HASIL (RINA SENYUM ATAU MUAL) -->
+            <!-- SKENARIO 1 - BAGIAN 3: HASIL (MUAL ATAU SENYUM) -->
             <div id="chResult" class="slide">
                 <img src="kelas.png" class="bg-img">
                 <img id="resRina" src="rina senyum.png" class="rina-char">
