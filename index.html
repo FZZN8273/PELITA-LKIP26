@@ -51,6 +51,19 @@
         }
 
         /* ==========================================================
+           🎵 TOMBOL MUSIK ON/OFF
+           ========================================================== */
+        .btn-music-toggle {
+            position: absolute; top: 15px; left: 15px; z-index: 9998;
+            padding: 8px 15px; border-radius: 20px; border: 3px solid #dca658;
+            background: #4a2e1b; color: #fff; cursor: pointer; box-shadow: 0 4px 0 #2c1e12;
+            font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 16px;
+            transition: 0.2s; line-height: 1;
+        }
+        .btn-music-toggle:active { transform: translateY(4px); box-shadow: none; }
+        .btn-music-toggle.muted { background: #7f5d46; border-color: #7f5d46; opacity: 0.8; }
+
+        /* ==========================================================
            📌 SLIDE 2 MENU UTAMA (PAS PRESISI)
            ========================================================== */
         .papan-sign { position: absolute; top: 60px; left: 150px; width: 600px; text-align: center; z-index: 10; }
@@ -87,44 +100,35 @@
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
         /* ==========================================================
-           🛠️ SLIDE SKENARIO 1: BACKGROUND MEJA FULL & KARAKTER KECIL
+           🛠️ SLIDE MEJA LAB (OBAT BESAR & FOKUS)
            ========================================================== */
         #ch1_lab .bg-meja-lab {
             width: 100%; height: 100%;
-            /* Gunakan object-fit: contain & center bottom agar gambar meja presisi di bawah */
             object-fit: contain; object-position: center bottom;
             position: absolute; top: 0; left: 0; z-index: 1;
         }
-        
-        /* Menyesuaikan Rina agar lebih kecil dan tidak menutupi meja */
-        #ch1_lab .rina-char { 
-            position: absolute; left: 20px; bottom: 20px; height: 180px; z-index: 25; 
-        }
-        
-        /* Menyesuaikan Sadewa & Gelembung agar kecil dan tidak menutupi meja */
         #ch1_lab .char-box-right {
             position: absolute; right: 20px; bottom: 0px; width: auto; height: auto;
-            transform: scale(0.7); transform-origin: bottom right; z-index: 100;
+            transform: scale(0.95); transform-origin: bottom right; z-index: 100;
         }
-        #ch1_lab .bubble-container {
-            width: 280px; padding: 10px; margin-bottom: 15px;
-        }
-        #ch1_lab .bubble-txt { font-size: 12px; line-height: 1.3; }
-        #ch1_lab .portrait-huge { height: 150px; width: auto; }
+        #ch1_lab .bubble-container { width: 320px; padding: 12px; margin-bottom: 15px; }
+        #ch1_lab .bubble-txt { font-size: 14px; line-height: 1.4; }
+        #ch1_lab .portrait-huge { height: 280px; width: auto; }
 
-        /* --- ITEM OBAT DI ATAS MEJA --- */
+        /* OBAT-OBATAN DIPERBESAR & TERSUSUN RAPI */
         #ch1_lab .meja-lab-small {
             position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 60%; height: 300px; /* Menempati area di atas meja */
+            width: 60%; height: 320px;
             z-index: 20;
             display: flex; flex-direction: column; justify-content: flex-end;
-            align-items: center; padding-bottom: 50px; gap: 8px;
+            align-items: center; padding-bottom: 45px; gap: 15px;
         }
         #ch1_lab .row-atas, #ch1_lab .row-bawah {
-            display: flex; justify-content: space-evenly; width: 70%;
+            display: flex; justify-content: space-around; width: 100%; padding: 0 10px;
         }
         #ch1_lab .obat-item { 
-            height: 70px; width: auto; object-fit: contain; 
+            height: 110px; /* DIPERBESAR DARI 85px MENJADI 110px */ 
+            width: auto; object-fit: contain; 
             cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); 
         }
         #ch1_lab .obat-active { transform: scale(1.15) translateY(-10px); filter: drop-shadow(0 0 15px #4CAF50); }
@@ -147,6 +151,28 @@
         .btn-back { background: #6b442a; color: #fff; }
         .btn-next { background: #dca658; color: #fff; }
 
+        /* ==========================================================
+           ⏳ LOADING SCREEN NUSANTARA
+           ========================================================== */
+        #loading-screen {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(244, 230, 208, 0.95); 
+            display: none; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 9999; font-family: 'Poppins', sans-serif; border: 6px solid #dca658;
+        }
+        #loading-screen .spinner {
+            width: 80px; height: 80px; border: 10px solid #dca658; border-top: 10px solid #6b442a;
+            border-radius: 50%; animation: spin 1s linear infinite; box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            margin-bottom: 20px; position: relative;
+        }
+        #loading-screen .spinner::after {
+            content: "✦"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 24px; color: #6b442a;
+        }
+        #loading-screen h2 { font-size: 28px; font-weight: 900; color: #4a2e1b; margin-bottom: 5px; }
+        #loading-screen p { font-size: 16px; color: #6b442a; font-weight: 700; font-style: italic; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
         @keyframes popUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     </style>
 </head>
@@ -162,20 +188,34 @@
     <div id="game-wrapper">
         <div id="game-container">
             
-            <audio id="a-klik" src="slide 1 mulai.wav" preload="auto"></audio>
-            <audio id="a-welcome" src="welcoming.wav" preload="auto"></audio>
+            <audio id="a-klik" src="slide 1 mulai.mp3" preload="auto"></audio>
+            <audio id="a-welcome" src="welcoming.mp3" preload="auto"></audio>
             <audio id="a-correct" src="correct.mp3" preload="auto"></audio>
             <audio id="a-wrong" src="wrong.mp3" preload="auto"></audio>
+            
+            <!-- ⭐ FITUR AUDIO BARU -->
+            <audio id="a-selamat" src="selamat-datang.mp3" preload="auto"></audio>
+            <audio id="a-gamelan" src="gamelan.mp3" preload="auto" loop></audio>
+
+            <!-- TOMBOL ON/OFF MUSIK -->
+            <button class="btn-music-toggle" id="btnMusic" onclick="toggleMusic()">🎵 ON</button>
+
+            <!-- LOADING SCREEN -->
+            <div id="loading-screen">
+                <div class="spinner"></div>
+                <h2>Nenek Moyang Lagi Natah...</h2>
+                <p>Jangan kemana-mana, bentar lagi wayangnya main!</p>
+            </div>
 
             <!-- SLIDE 1: AWALAN -->
             <div id="slide1" class="slide" style="display: block;">
                 <img src="slide 1.png" class="bg-img">
                 <div class="bottom-panel">
-                    <button class="btn-start" onclick="changeSlide('slide2', 'klik')">MULAI PETUALANGAN</button>
+                    <button class="btn-start" onclick="changeSlide('slide2', 'selamat')">MULAI PETUALANGAN</button>
                 </div>
             </div>
 
-            <!-- SLIDE 2: MENU UTAMA (PAS 100% MATEMATIS) -->
+            <!-- SLIDE 2: MENU UTAMA -->
             <div id="slide2" class="slide">
                 <img src="slide 2.png" class="bg-img">
                 <div class="papan-sign"><p class="papan-text">Selamat Datang di<br>Desa Pelita</p></div>
@@ -204,7 +244,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 4: KELAS - RINA PUSING (SEBELUM KE MEJA) -->
+            <!-- SLIDE 4: KELAS - RINA PUSING -->
             <div id="ch1_kelas" class="slide">
                 <img src="kelas.png" class="bg-img bg-dim">
                 <img src="rina pusing.png" class="rina-char">
@@ -217,17 +257,10 @@
                 </div>
             </div>
 
-            <!-- ==========================================================
-                 SLIDE 5: FULL MEJA LAB (BACKGROUND MEJA, KARAKTER KECIL)
-                 ========================================================== -->
+            <!-- SLIDE 5: MEJA LAB (FOKUS OBAT & KARAKTER) -->
             <div id="ch1_lab" class="slide">
-                <!-- BACKGROUND MEJA FULL -->
                 <img src="meja 1.png" class="bg-meja-lab">
                 
-                <!-- RINA DIKECILKAN -->
-                <img src="rina pusing.png" class="rina-char">
-                
-                <!-- OBAT-OBATAN DAN AIR TERTATA RAPI DI MEJA -->
                 <div class="meja-lab-small">
                     <div class="row-atas">
                         <img src="paracetamol.png" id="item-p" class="obat-item" onclick="selectObat('p')">
@@ -239,7 +272,6 @@
                     </div>
                 </div>
 
-                <!-- SADEWA DAN GELEMBUNG DIKECILKAN -->
                 <div class="char-box-right">
                     <div class="bubble-container"><p class="bubble-txt">Pilih satu obat di meja lab, lalu klik Gelas Air untuk memberikannya kepada Rina. Jangan sampai salah!</p></div>
                     <img src="sadewa.png" class="portrait-huge">
@@ -297,9 +329,12 @@
             klik: document.getElementById('a-klik'), 
             welcome: document.getElementById('a-welcome'), 
             correct: document.getElementById('a-correct'), 
-            wrong: document.getElementById('a-wrong') 
+            wrong: document.getElementById('a-wrong'),
+            selamat: document.getElementById('a-selamat') // Tambahan suara selamat datang
         };
+        
         let selectedObat = "";
+        let isMusicOn = true; // Default musik menyala
 
         function playSfx(type) { 
             if(sfx[type]) { 
@@ -308,21 +343,72 @@
             } 
         }
 
+        // ==========================================================
+        // 🎵 FITUR TOMBOL ON/OFF MUSIK GAMELAN
+        // ==========================================================
+        function toggleMusic() {
+            const btn = document.getElementById('btnMusic');
+            const gamelan = document.getElementById('a-gamelan');
+            if(isMusicOn) {
+                gamelan.pause();
+                btn.innerText = "🔇 OFF";
+                btn.classList.add('muted');
+                isMusicOn = false;
+            } else {
+                gamelan.currentTime = 0;
+                gamelan.play().catch(e=>e);
+                btn.innerText = "🎵 ON";
+                btn.classList.remove('muted');
+                isMusicOn = true;
+            }
+        }
+
+        // ==========================================================
+        // ⏳ FITUR LOADING SCREEN (CEGAH AUDIO DOUBLE PLAY / NGELEG)
+        // ==========================================================
+        function showLoading(callback, duration = 600) {
+            const loader = document.getElementById('loading-screen');
+            loader.style.display = 'flex';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                if (typeof callback === 'function') {
+                    callback();
+                }
+            }, duration);
+        }
+
+        // Setiap pindah slide, selalu lewati loading screen dulu
         function changeSlide(id, sound) {
-            if(sound) playSfx(sound);
-            document.querySelectorAll('.slide').forEach(s => s.style.display = 'none');
-            document.getElementById(id).style.display = 'block';
+            showLoading(() => {
+                if(sound) {
+                    if(sound === 'selamat') {
+                        playSfx('selamat'); // Putar selamat-datang.mp3
+                        // Nyalakan musik latar gamelan saat memulai petualangan
+                        if(isMusicOn) {
+                            const gamelan = document.getElementById('a-gamelan');
+                            gamelan.currentTime = 0;
+                            gamelan.play().catch(e=>e);
+                        }
+                    } else {
+                        playSfx(sound);
+                    }
+                }
+                document.querySelectorAll('.slide').forEach(s => s.style.display = 'none');
+                document.getElementById(id).style.display = 'block';
+            });
         }
 
         function showInfo(type) {
-            playSfx('klik');
-            const isNakula = Math.random() < 0.5;
-            document.getElementById('infoPortrait').src = isNakula ? 'nakula.png' : 'sadewa.png';
-            document.getElementById('infoTitle').innerText = type === 'cara' ? '🧩 CARA MAIN' : '⚖️ RULES';
-            document.getElementById('infoBubble').innerText = isNakula ? 'Baca panduan ini agar misimu lancar!' : 'Detektif, pahami aturan mainnya!';
-            document.getElementById('infoList').innerHTML = type === 'cara' ? '<li>Selesaikan 12 Tantangan Kesehatan</li><li>Gunakan logika medis memilih obat</li><li>Dapatkan bintang di setiap misi!</li>' : '<li>Benar = +1 Bintang Sehat</li><li>Salah = 0 (Tanpa pengurangan poin)</li><li>Selalu baca fakta medis di akhir!</li>';
-            document.getElementById('btnPlay').style.display = type === 'rules' ? 'block' : 'none';
-            changeSlide('slideInfo');
+            showLoading(() => {
+                playSfx('klik');
+                const isNakula = Math.random() < 0.5;
+                document.getElementById('infoPortrait').src = isNakula ? 'nakula.png' : 'sadewa.png';
+                document.getElementById('infoTitle').innerText = type === 'cara' ? '🧩 CARA MAIN' : '⚖️ RULES';
+                document.getElementById('infoBubble').innerText = isNakula ? 'Baca panduan ini agar misimu lancar!' : 'Detektif, pahami aturan mainnya!';
+                document.getElementById('infoList').innerHTML = type === 'cara' ? '<li>Selesaikan 12 Tantangan Kesehatan</li><li>Gunakan logika medis memilih obat</li><li>Dapatkan bintang di setiap misi!</li>' : '<li>Benar = +1 Bintang Sehat</li><li>Salah = 0 (Tanpa pengurangan poin)</li><li>Selalu baca fakta medis di akhir!</li>';
+                document.getElementById('btnPlay').style.display = type === 'rules' ? 'block' : 'none';
+                document.getElementById('slideInfo').style.display = 'block';
+            });
         }
 
         function selectObat(val) {
