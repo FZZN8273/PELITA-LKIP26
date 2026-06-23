@@ -62,19 +62,18 @@
             font-weight: 900; letter-spacing: 3px; border-radius: 15px; cursor: pointer; box-shadow: 0 6px 0 #7c5333;
         }
 
-        /* --- SLIDE 2: PAPAN & MENU (TOMBOL DIPINDAHKAN LEBIH ATAS) --- */
-        .papan-sign { position: absolute; top: 60px; left: 225px; width: 450px; text-align: center; z-index: 10; }
-        .papan-text { font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; font-size: 24px; text-transform: uppercase; line-height: 1.2; }
+        /* --- SLIDE 2: PAPAN & MENU (FIX POSISI TOMBOL AGAR TEPAT DI KOTAK BAWAH IKON) --- */
+        .papan-sign { position: absolute; top: 60px; left: 160px; width: 580px; text-align: center; z-index: 10; }
+        .papan-text { font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; font-size: 22px; text-transform: uppercase; line-height: 1.2; text-shadow: 2px 2px 0 #fff; }
 
         .menu-nav { 
-            position: absolute; top: 195px; left: 225px; width: 450px; height: 35px; /* Dinaikkan posisinya ke 195px */
-            display: flex; justify-content: space-between; align-items: center; z-index: 60; 
+            position: absolute; top: 260px; left: 210px; width: 480px; height: 40px; 
+            display: flex; justify-content: space-around; align-items: center; z-index: 60; 
         }
         .menu-btn { 
-            width: 146px; height: 100%; background: transparent; border: none; cursor: pointer; 
+            width: 140px; height: 100%; background: transparent; border: none; cursor: pointer; 
             color: #fff; font-family: 'Poppins', sans-serif; font-weight: 900; 
-            font-size: 9px; letter-spacing: -0.5px; /* Font kecil agar pas 17 karakter */ 
-            line-height: 1; padding: 0; white-space: nowrap; 
+            font-size: 12px; line-height: 1.4; padding: 0; white-space: nowrap; 
             text-align: center; display: flex; justify-content: center; align-items: center; 
         }
 
@@ -95,25 +94,29 @@
         .bubble-txt { font-weight: 900; font-size: 16px; color: #4a2e1b; line-height: 1.4; text-align: left; }
         .portrait-huge { height: 350px; width: auto; object-fit: contain; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6)); }
 
-        /* --- RINA & MEJA LAB (POSISI RINA DINAJIKAN LAGI & DIPERKECIL) --- */
-        /* Dinaikkan 120px dari bawah, dan tingginya 340px agar posisi muka tepat di tengah layar */
-        .rina-char { position: absolute; left: 30px; bottom: 120px; height: 340px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
-        
-        .meja-lab-small {
-            position: absolute; bottom: 0; left: 20px; 
-            width: 480px; height: 155px; 
+        /* --- RINA (FIX DI BAWAH, JANGAN KEATAS) --- */
+        .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
+
+        /* --- SLIDE MEJA LAB (FULL MEJA TENGAH) --- */
+        #ch1_mix .meja-lab-small {
+            position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+            width: 800px; height: 400px;
             background: url('meja 1.png') center bottom/contain no-repeat; z-index: 20;
-            display: flex; flex-direction: column; justify-content: flex-end; 
-            align-items: center; padding-bottom: 35px; gap: 6px;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            align-items: center; padding-bottom: 60px; gap: 6px;
         }
-        .row-atas, .row-bawah {
-            display: flex; justify-content: space-evenly; width: 75%;
+        #ch1_mix .row-atas, #ch1_mix .row-bawah {
+            display: flex; justify-content: space-evenly; width: 60%;
         }
-        .obat-item { 
-            height: 70px; width: auto; object-fit: contain; 
+        #ch1_mix .obat-item { 
+            height: 80px; width: auto; object-fit: contain; 
             cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); 
         }
-        .obat-active { transform: scale(1.15) translateY(-5px); filter: drop-shadow(0 0 15px #4CAF50); }
+        #ch1_mix .obat-active { transform: scale(1.15) translateY(-10px); filter: drop-shadow(0 0 15px #4CAF50); }
+        
+        /* Posisi Rina di Slide Meja Lab (Dinaikkan sedikit agar terlihat di atas meja) */
+        #ch1_mix .rina-char { position: absolute; left: 20px; bottom: 200px; height: 300px; z-index: 25; }
+        #ch1_mix .char-box-right { bottom: 80px; }
 
         /* --- KIRI: INFO --- */
         .content-left { position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80; }
@@ -154,6 +157,7 @@
             <audio id="a-correct" src="correct.mp3" preload="auto"></audio>
             <audio id="a-wrong" src="wrong.mp3" preload="auto"></audio>
 
+            <!-- SLIDE 1: PEMBUKAAN -->
             <div id="slide1" class="slide" style="display: block;">
                 <img src="slide 1.png" class="bg-img">
                 <div class="bottom-panel">
@@ -161,16 +165,18 @@
                 </div>
             </div>
 
+            <!-- SLIDE 2: MENU UTAMA -->
             <div id="slide2" class="slide">
                 <img src="slide 2.png" class="bg-img">
                 <div class="papan-sign"><p class="papan-text">Selamat Datang di<br>Desa Pelita</p></div>
                 <div class="menu-nav">
                     <button class="menu-btn" onclick="showInfo('cara')">CARA MAIN</button>
                     <button class="menu-btn" onclick="showInfo('rules')">RULES</button>
-                    <button class="menu-btn" onclick="changeSlide('ch1_start', 'welcome')">MULAI PETUALANGAN</button>
+                    <button class="menu-btn" onclick="changeSlide('ch1_kelas', 'welcome')">MULAI PETUALANGAN</button>
                 </div>
             </div>
 
+            <!-- SLIDE 3: INFO (CARA MAIN / RULES) -->
             <div id="slideInfo" class="slide">
                 <div style="position: absolute; width: 100%; height: 100%; background-color: #f7f2e1;">
                     <div style="position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80;">
@@ -178,7 +184,7 @@
                         <ul id="infoList" style="list-style:none; font-weight:700; font-size:16px; color:#3e2717; line-height:1.5;"></ul>
                         <div class="action-btns">
                             <button class="btn-action btn-back" onclick="changeSlide('slide2', 'klik')">KEMBALI</button>
-                            <button id="btnPlay" class="btn-action btn-next" onclick="changeSlide('ch1_start', 'welcome')">MULAI!</button>
+                            <button id="btnPlay" class="btn-action btn-next" onclick="changeSlide('ch1_kelas', 'welcome')">MULAI!</button>
                         </div>
                     </div>
                     <div class="char-box-right">
@@ -188,7 +194,8 @@
                 </div>
             </div>
 
-            <div id="ch1_start" class="slide">
+            <!-- SLIDE 4: KELAS - RINA PUSING (SEBELUM MEJA LAB) -->
+            <div id="ch1_kelas" class="slide">
                 <img src="kelas.png" class="bg-img bg-dim">
                 <img src="rina pusing.png" class="rina-char">
                 <div class="char-box-right">
@@ -196,14 +203,16 @@
                     <img src="sadewa.png" class="portrait-huge">
                 </div>
                 <div class="bottom-panel" style="background:none; border:none;">
-                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px;" onclick="changeSlide('ch1_mix', 'klik')">LANJUTKAN ▶</button>
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px;" onclick="changeSlide('ch1_lab', 'klik')">LANJUTKAN ▶</button>
                 </div>
             </div>
 
-            <div id="ch1_mix" class="slide">
+            <!-- SLIDE 5: FULL MEJA LAB - (LOGIKA PERMAINAN) -->
+            <div id="ch1_lab" class="slide">
                 <img src="kelas.png" class="bg-img bg-dim">
                 <img src="rina pusing.png" class="rina-char">
                 
+                <!-- MEJA LAB BESAR DI TENGAH -->
                 <div class="meja-lab-small">
                     <div class="row-atas">
                         <img src="paracetamol.png" id="item-p" class="obat-item" onclick="selectObat('p')">
@@ -221,6 +230,7 @@
                 </div>
             </div>
 
+            <!-- SLIDE 6: HASIL (RINA SENYUM ATAU MUAL) -->
             <div id="chResult" class="slide">
                 <img src="kelas.png" class="bg-img">
                 <img id="resRina" src="rina senyum.png" class="rina-char">
@@ -325,7 +335,7 @@
                 rina.src = "rina mual.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
                 box.innerText = selectedObat === 'a' ? "Amoxicillin itu antibiotik, bukan pereda pusing! Rina malah mual." : "Antasida itu obat lambung, tidak bisa menyembuhkan pusing Rina!";
                 dialog.innerText = "Aduh, racikannya salah! Rina jadi makin mual. Ayo coba teliti lagi!";
-                btn.innerText = "COBA LAGI"; btn.onclick = () => changeSlide('ch1_mix', 'klik');
+                btn.innerText = "COBA LAGI"; btn.onclick = () => changeSlide('ch1_lab', 'klik');
             }
             changeSlide('chResult');
         }
