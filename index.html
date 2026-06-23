@@ -6,16 +6,12 @@
     <title>PELITA - Penerang Literasi Kesehatan</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Sen:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* --- RESET DASAR --- */
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         body {
             background-color: #1a0f08; display: flex; justify-content: center; align-items: center;
             min-height: 100vh; font-family: 'Sen', sans-serif; overflow: hidden; margin: 0;
         }
 
-        /* ==========================================================
-           🚨 PENGUNCI SITUS DESKTOP 🚨
-           ========================================================== */
         #desktop-lock {
             display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #2c1e12; color: #fff; z-index: 10000;
@@ -24,21 +20,13 @@
         #desktop-lock h1 { font-family: 'Poppins', sans-serif; color: #dca658; font-size: 30px; margin-bottom: 15px; }
         #desktop-lock p { font-size: 18px; max-width: 600px; margin-bottom: 20px; line-height: 1.5; }
         .hint-box { border: 2px dashed #ffeb3b; color: #ffeb3b; padding: 15px; border-radius: 10px; font-weight: bold; font-size: 16px; margin-bottom: 20px; }
-
         .btn-confirm {
             padding: 15px 30px; border-radius: 50px; border: 4px solid #fff; cursor: pointer; 
             font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 18px; 
             background: #4CAF50; color: #fff; box-shadow: 0 6px 0 #1b5e20; text-transform: uppercase;
         }
 
-        /* ==========================================================
-           🎮 KOTAK GAME FIXED 900x600 (ANTI BALAPAN) 🎮
-           ========================================================== */
-        #game-wrapper {
-            display: none; width: 100vw; height: 100vh;
-            justify-content: center; align-items: center;
-        }
-
+        #game-wrapper { display: none; width: 100vw; height: 100vh; justify-content: center; align-items: center; }
         #game-container {
             width: 900px; height: 600px; position: relative;
             background-color: #fcf9ee; border: 10px solid #4a2e1b; border-radius: 20px;
@@ -63,14 +51,10 @@
         }
 
         /* ==========================================================
-           ✨ SLIDE 2 (MENU UTAMA): 100% PAS SECARA MATEMATIS ✨
+           📌 SLIDE 2 MENU UTAMA (PAS PRESISI)
            ========================================================== */
-        /* Papan kayu dipastikan berada di posisi tengah presisi */
         .papan-sign { position: absolute; top: 60px; left: 150px; width: 600px; text-align: center; z-index: 10; }
-        /* Font 22px di dalam width 600px DIPASTIKAN TIDAK AKAN MELUAP/KELUAR PAPAN */
         .papan-text { font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; font-size: 22px; text-transform: uppercase; line-height: 1.2; text-shadow: 2px 2px 0 #fff; }
-
-        /* Menu menggunakan space-evenly agar tombol pas di tengah-tengah ikon birunya */
         .menu-nav { 
             position: absolute; top: 260px; left: 230px; width: 440px; height: 40px; 
             display: flex; justify-content: space-evenly; align-items: center; z-index: 60; 
@@ -82,7 +66,7 @@
             text-align: center; display: flex; justify-content: center; align-items: center; 
         }
 
-        /* --- CHARACTER & BUBBLE (KANAN) --- */
+        /* --- CHARACTER UMUM --- */
         .char-box-right {
             position: absolute; right: 20px; bottom: 0; width: 380px; height: 600px;
             display: flex; flex-direction: column; justify-content: flex-end; align-items: center; z-index: 100;
@@ -99,30 +83,53 @@
         .bubble-txt { font-weight: 900; font-size: 16px; color: #4a2e1b; line-height: 1.4; text-align: left; }
         .portrait-huge { height: 350px; width: auto; object-fit: contain; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6)); }
 
-        /* --- RINA (Dipastikan di bawah sekali) --- */
+        /* --- RINA UMUM --- */
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
-        /* --- SLIDE FULL MEJA LAB (RASIO 3:2) --- */
+        /* ==========================================================
+           🛠️ SLIDE SKENARIO 1: BACKGROUND MEJA FULL & KARAKTER KECIL
+           ========================================================== */
+        #ch1_lab .bg-meja-lab {
+            width: 100%; height: 100%;
+            /* Gunakan object-fit: contain & center bottom agar gambar meja presisi di bawah */
+            object-fit: contain; object-position: center bottom;
+            position: absolute; top: 0; left: 0; z-index: 1;
+        }
+        
+        /* Menyesuaikan Rina agar lebih kecil dan tidak menutupi meja */
+        #ch1_lab .rina-char { 
+            position: absolute; left: 20px; bottom: 20px; height: 180px; z-index: 25; 
+        }
+        
+        /* Menyesuaikan Sadewa & Gelembung agar kecil dan tidak menutupi meja */
+        #ch1_lab .char-box-right {
+            position: absolute; right: 20px; bottom: 0px; width: auto; height: auto;
+            transform: scale(0.7); transform-origin: bottom right; z-index: 100;
+        }
+        #ch1_lab .bubble-container {
+            width: 280px; padding: 10px; margin-bottom: 15px;
+        }
+        #ch1_lab .bubble-txt { font-size: 12px; line-height: 1.3; }
+        #ch1_lab .portrait-huge { height: 150px; width: auto; }
+
+        /* --- ITEM OBAT DI ATAS MEJA --- */
         #ch1_lab .meja-lab-small {
-            position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-            width: 800px; height: 400px;
-            background: url('meja 1.png') center bottom/contain no-repeat; z-index: 20;
+            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 60%; height: 300px; /* Menempati area di atas meja */
+            z-index: 20;
             display: flex; flex-direction: column; justify-content: flex-end;
-            align-items: center; padding-bottom: 60px; gap: 6px;
+            align-items: center; padding-bottom: 50px; gap: 8px;
         }
         #ch1_lab .row-atas, #ch1_lab .row-bawah {
-            display: flex; justify-content: space-evenly; width: 55%;
+            display: flex; justify-content: space-evenly; width: 70%;
         }
         #ch1_lab .obat-item { 
-            height: 80px; width: auto; object-fit: contain; 
+            height: 70px; width: auto; object-fit: contain; 
             cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); 
         }
         #ch1_lab .obat-active { transform: scale(1.15) translateY(-10px); filter: drop-shadow(0 0 15px #4CAF50); }
-        
-        #ch1_lab .rina-char { position: absolute; left: 20px; bottom: 200px; height: 300px; z-index: 25; }
-        #ch1_lab .char-box-right { bottom: 80px; }
 
-        /* --- KIRI: INFO --- */
+        /* --- SLIDE INFO --- */
         .content-left { position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80; }
         .title-large { font-family: 'Poppins', sans-serif; font-size: 32px; color: #4a2e1b; margin-bottom: 15px; }
         .list-style { list-style: none; font-weight: 700; font-size: 16px; color: #3e2717; line-height: 1.5; }
@@ -135,7 +142,6 @@
             display: flex; flex-direction: column; align-items: center; text-align: center;
         }
         #resBox { background: rgba(255,255,255,0.98); padding: 15px; border: 4px solid #dca658; border-radius: 15px; font-weight: bold; font-size: 14px; line-height: 1.4; box-shadow: 0 10px 20px rgba(0,0,0,0.3); width: 100%; }
-
         .action-btns { display: flex; gap: 15px; margin-top: 15px; }
         .btn-action { padding: 12px 25px; border-radius: 50px; border: none; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 14px; box-shadow: 0 4px 0 #2c1e12; text-transform: uppercase; }
         .btn-back { background: #6b442a; color: #fff; }
@@ -161,7 +167,7 @@
             <audio id="a-correct" src="correct.mp3" preload="auto"></audio>
             <audio id="a-wrong" src="wrong.mp3" preload="auto"></audio>
 
-            <!-- HALAMAN AWAL -->
+            <!-- SLIDE 1: AWALAN -->
             <div id="slide1" class="slide" style="display: block;">
                 <img src="slide 1.png" class="bg-img">
                 <div class="bottom-panel">
@@ -169,7 +175,7 @@
                 </div>
             </div>
 
-            <!-- HALAMAN MENU (PAS 100% MATEMATIKA) -->
+            <!-- SLIDE 2: MENU UTAMA (PAS 100% MATEMATIS) -->
             <div id="slide2" class="slide">
                 <img src="slide 2.png" class="bg-img">
                 <div class="papan-sign"><p class="papan-text">Selamat Datang di<br>Desa Pelita</p></div>
@@ -180,7 +186,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE INFORMASI -->
+            <!-- SLIDE 3: INFO -->
             <div id="slideInfo" class="slide">
                 <div style="position: absolute; width: 100%; height: 100%; background-color: #f7f2e1;">
                     <div style="position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80;">
@@ -198,7 +204,7 @@
                 </div>
             </div>
 
-            <!-- SKENARIO 1 - BAGIAN 1: RINA PUSING DI KELAS -->
+            <!-- SLIDE 4: KELAS - RINA PUSING (SEBELUM KE MEJA) -->
             <div id="ch1_kelas" class="slide">
                 <img src="kelas.png" class="bg-img bg-dim">
                 <img src="rina pusing.png" class="rina-char">
@@ -211,12 +217,17 @@
                 </div>
             </div>
 
-            <!-- SKENARIO 1 - BAGIAN 2: FULL MEJA LAB (RASIO 3:2) -->
+            <!-- ==========================================================
+                 SLIDE 5: FULL MEJA LAB (BACKGROUND MEJA, KARAKTER KECIL)
+                 ========================================================== -->
             <div id="ch1_lab" class="slide">
-                <img src="kelas.png" class="bg-img bg-dim">
+                <!-- BACKGROUND MEJA FULL -->
+                <img src="meja 1.png" class="bg-meja-lab">
+                
+                <!-- RINA DIKECILKAN -->
                 <img src="rina pusing.png" class="rina-char">
                 
-                <!-- MEJA LAB BESAR DI TENGAH -->
+                <!-- OBAT-OBATAN DAN AIR TERTATA RAPI DI MEJA -->
                 <div class="meja-lab-small">
                     <div class="row-atas">
                         <img src="paracetamol.png" id="item-p" class="obat-item" onclick="selectObat('p')">
@@ -228,13 +239,14 @@
                     </div>
                 </div>
 
+                <!-- SADEWA DAN GELEMBUNG DIKECILKAN -->
                 <div class="char-box-right">
                     <div class="bubble-container"><p class="bubble-txt">Pilih satu obat di meja lab, lalu klik Gelas Air untuk memberikannya kepada Rina. Jangan sampai salah!</p></div>
                     <img src="sadewa.png" class="portrait-huge">
                 </div>
             </div>
 
-            <!-- SKENARIO 1 - BAGIAN 3: HASIL (MUAL ATAU SENYUM) -->
+            <!-- SLIDE 6: HASIL -->
             <div id="chResult" class="slide">
                 <img src="kelas.png" class="bg-img">
                 <img id="resRina" src="rina senyum.png" class="rina-char">
