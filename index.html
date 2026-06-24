@@ -63,7 +63,7 @@
         .btn-music-toggle.hidden { display: none !important; }
 
         /* ==========================================================
-           📌 SLIDE 2 MENU UTAMA (PRESISI 100% TIDAK MIRING)
+           📌 SLIDE 2 MENU UTAMA (PRESISI 100% DI TENGAH IKON BIRU)
            ========================================================== */
         .papan-sign { position: absolute; top: 60px; left: 150px; width: 600px; text-align: center; z-index: 10; }
         .papan-text { font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; font-size: 22px; text-transform: uppercase; line-height: 1.2; text-shadow: 2px 2px 0 #fff; }
@@ -79,7 +79,7 @@
             text-align: center; display: flex; justify-content: center; align-items: center; pointer-events: auto;
         }
 
-        /* --- CHARACTERS --- */
+        /* --- CHARACTERS (GELEMBUNG TEKS DIPERBESAR) --- */
         .char-box-right {
             position: absolute; right: 20px; bottom: 0; width: 380px; height: 600px;
             display: flex; flex-direction: column; justify-content: flex-end; align-items: center; z-index: 100;
@@ -93,13 +93,14 @@
             content: ''; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
             border-width: 20px 15px 0 15px; border-style: solid; border-color: #4a2e1b transparent transparent transparent;
         }
-        .bubble-txt { font-weight: 900; font-size: 16px; color: #4a2e1b; line-height: 1.4; text-align: left; }
+        /* TEKS GELEMBUNG DIBIKIN BESAR BIAR KELIATAN */
+        .bubble-txt { font-weight: 900; font-size: 18px; color: #4a2e1b; line-height: 1.4; text-align: left; text-shadow: 0px 0px 4px rgba(255,255,255,0.8); }
         .portrait-huge { height: 350px; width: auto; object-fit: contain; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6)); }
 
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
         /* ==========================================================
-           🛠️ SLIDE MEJA LAB (SADEWA BESAR, OBAT AGAK NAIK)
+           🛠️ SLIDE MEJA LAB (SADEWA BESAR, OBAT PRESISI DI TENGAH)
            ========================================================== */
         #ch1_lab .bg-meja-lab {
             width: 100%; height: 100%;
@@ -111,11 +112,11 @@
             transform: scale(0.9) translateX(10px); transform-origin: bottom right; z-index: 10; 
         }
         #ch1_lab .bubble-container { width: 340px; padding: 10px; margin-bottom: 10px; }
-        #ch1_lab .bubble-txt { font-size: 16px; line-height: 1.4; }
+        #ch1_lab .bubble-txt { font-size: 17px; line-height: 1.4; }
         #ch1_lab .portrait-huge { height: 300px; width: auto; }
 
         #ch1_lab .meja-lab-small {
-            position: absolute; bottom: 20px; 
+            position: absolute; bottom: 25px; 
             left: 43%; transform: translateX(-50%);
             width: 55%; height: 270px; 
             z-index: 300; 
@@ -193,6 +194,7 @@
             <audio id="a-correct" src="correct.mp3" preload="auto"></audio>
             <audio id="a-wrong" src="wrong.mp3" preload="auto"></audio>
             <audio id="a-selamat" src="selamat-datang.mp3" preload="auto"></audio>
+            <audio id="a-tegang" src="tegang.mp3" preload="auto"></audio> <!-- AUDIO TEGANG DITAMBAHKAN -->
             <audio id="a-gamelan" src="gamelan.mp3" preload="auto" loop></audio>
 
             <button class="btn-music-toggle" id="btnMusic" onclick="toggleMusic()">🎵 ON</button>
@@ -211,7 +213,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 2: MENU UTAMA (FIX PRESISI 100%) -->
+            <!-- SLIDE 2: MENU UTAMA -->
             <div id="slide2" class="slide">
                 <img src="slide 2.png" class="bg-img">
                 <div class="papan-sign"><p class="papan-text">Selamat Datang di<br>Desa Pelita</p></div>
@@ -261,7 +263,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 5: KELAS - RINA PUSING -->
+            <!-- SLIDE 5: KELAS - RINA PUSING (CERITA DIMULAI) -->
             <div id="ch1_kelas" class="slide">
                 <img src="kelas.png" class="bg-img bg-dim">
                 <img src="rina pusing.png" class="rina-char">
@@ -274,7 +276,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 6: MEJA LAB (SADEWA BESAR, OBAT NAIK) -->
+            <!-- SLIDE 6: MEJA LAB -->
             <div id="ch1_lab" class="slide">
                 <img src="meja 1.png" class="bg-meja-lab">
                 
@@ -347,7 +349,8 @@
             welcome: document.getElementById('a-welcome'), 
             correct: document.getElementById('a-correct'), 
             wrong: document.getElementById('a-wrong'),
-            selamat: document.getElementById('a-selamat') 
+            selamat: document.getElementById('a-selamat'),
+            tegang: document.getElementById('a-tegang') // AUDIO TEGANG DITAMBAHKAN
         };
         
         let selectedObat = "";
@@ -378,7 +381,7 @@
             }
         }
 
-        // ⏳ LOGIKA LOADING SCREEN KHUSUS (4 Detik untuk Awal, 0.8 Detik untuk Navigasi)
+        // ⏳ LOADING SCREEN
         function showLoading(callback, duration = 800) {
             if(isLoading) return;
             isLoading = true;
@@ -394,13 +397,12 @@
         }
 
         function changeSlide(id, sound) {
-            // Atur durasi spesial
-            let durasi = 800; // Default 0.8 detik untuk navigasi tombol skenario
+            let durasi = 800; 
             if(id === 'slide2' && sound === 'selamat') {
-                durasi = 4000; // 4 detik penuh untuk memuat data saat awal bermain
+                durasi = 4000; // 4 detik saat mulai game
             }
             if(id === 'chResult') {
-                durasi = 600; // Hasil dikit aja loadingnya biar cepet
+                durasi = 600; 
             }
 
             showLoading(() => {
@@ -423,12 +425,18 @@
                         playSfx(sound);
                     }
                 }
+
+                // ⭐ FITUR KHUSUS: SUARA TEGANG SAAT MASUK SLIDE RINA
+                if(id === 'ch1_kelas') {
+                    playSfx('tegang');
+                }
+
                 document.querySelectorAll('.slide').forEach(s => s.style.display = 'none');
                 document.getElementById(id).style.display = 'block';
             }, durasi);
         }
 
-        // 🔥 FUNGSI KLIK OBAT LANGSUNG RESPONSIF (0 Detik Loading)
+        // 🔥 KLIK OBAT LANGSUNG RESPONSIF
         function selectObat(val) {
             playSfx('klik');
             selectedObat = val;
