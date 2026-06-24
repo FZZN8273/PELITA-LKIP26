@@ -63,16 +63,15 @@
         .btn-music-toggle.hidden { display: none !important; }
 
         /* ==========================================================
-           📌 SLIDE 2 MENU UTAMA (PRESISI TENGAH 100%)
+           📌 SLIDE 2 MENU UTAMA (PAS DI PAPAN KAYU, TIDAK KELUAR)
            ========================================================== */
-        /* Menggunakan transform: translateX(-50%) agar 100% pas di tengah gambar papan kayu */
         .papan-sign { 
             position: absolute; top: 60px; left: 50%; transform: translateX(-50%); 
-            width: 600px; text-align: center; z-index: 10; 
+            width: 580px; text-align: center; z-index: 10; 
         }
         .papan-text { 
             font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; 
-            font-size: 24px; text-transform: uppercase; line-height: 1.1; 
+            font-size: 22px; text-transform: uppercase; line-height: 1.1; 
             text-shadow: 1px 1px 0 #fff, 2px 2px 0 #fff, 3px 3px 0 rgba(0,0,0,0.1); 
         }
         
@@ -108,7 +107,7 @@
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
         /* ==========================================================
-           🛠️ SLIDE MEJA LAB (OBAT DITURUNKAN PAS DI MEJA)
+           🛠️ SLIDE MEJA LAB (OBAT NAIK, AGAK KEKIRI, & PAS DI ATAS MEJA)
            ========================================================== */
         #ch1_lab .bg-meja-lab {
             width: 100%; height: 100%;
@@ -123,19 +122,20 @@
         #ch1_lab .bubble-txt { font-size: 17px; line-height: 1.4; }
         #ch1_lab .portrait-huge { height: 300px; width: auto; }
 
+        /* Dinaikkan bottom-nya & digeser kiri ke 46% */
         #ch1_lab .meja-lab-small {
-            position: absolute; bottom: 15px; /* Diturunkan lagi supaya obat gak melayang */ 
-            left: 50%; transform: translateX(-50%);
-            width: 55%; height: 260px; 
+            position: absolute; bottom: 45px; /* Dinaikkan ke atas */ 
+            left: 46%; transform: translateX(-50%); /* Digeser agak ke kiri */
+            width: 55%; height: 240px; 
             z-index: 300; 
             display: flex; flex-direction: column; justify-content: flex-end;
-            align-items: center; padding-bottom: 25px; gap: 15px;
+            align-items: center; padding-bottom: 30px; gap: 20px;
         }
         #ch1_lab .row-atas, #ch1_lab .row-bawah {
             display: flex; justify-content: space-between; width: 100%; padding: 0 15px;
         }
         #ch1_lab .obat-item { 
-            height: 85px; width: auto; object-fit: contain; 
+            height: 75px; width: auto; object-fit: contain; 
             cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); 
             pointer-events: auto;
         }
@@ -439,7 +439,7 @@
         }
 
         function changeSlide(id, sound) {
-            // 🔥 FIX AUDIO: HENTIKAN TEPUK & SAD SAAT NAVIGASI DIPENCET
+            // 🔥 FIX AUDIO: HENTIKAN SUARA TEPUK & SAD SAAT NAVIGASI DIPENCET
             const tepuk = document.getElementById('a-tepuk');
             const sad = document.getElementById('a-sad');
             tepuk.pause();
@@ -464,6 +464,7 @@
                 }
 
                 if(id === 'ch1_kelas' || id === 'ch1_lab') {
+                    // Agar audio tegang tidak restart saat pindah dari slide kelas ke lab
                     if(!(lastSlideId === 'ch1_kelas' && id === 'ch1_lab')) {
                         playBgMusic('tegang');
                     } else {
@@ -511,7 +512,7 @@
             const rina = document.getElementById('resRina'), title = document.getElementById('resTitle'), box = document.getElementById('resBox'), dialog = document.getElementById('resSadewa'), btn = document.getElementById('resBtn');
             
             if(selectedObat === 'p') {
-                // 2. BENAR: correct.mp3 -> disusul tepuk.mp3 (Hanya disini)
+                // 2. BENAR: correct.mp3 -> disusul tepuk.mp3
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
                 
@@ -520,7 +521,7 @@
                 dialog.innerText = "Luar biasa! Rina sudah kembali ceria. Kamu memang detektif medis yang teliti!";
                 btn.innerText = "LANJUT CHAPTER 2"; btn.onclick = () => { alert("Tunggu Update!"); changeSlide('slide2', 'klik'); };
             } else {
-                // 3. SALAH: wrong.mp3 -> disusul sad.mp3 (Hanya disini)
+                // 3. SALAH: wrong.mp3 -> disusul sad.mp3
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
 
