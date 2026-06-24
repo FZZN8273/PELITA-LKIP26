@@ -63,17 +63,22 @@
         .btn-music-toggle.hidden { display: none !important; }
 
         /* ==========================================================
-           📌 SLIDE 2 MENU UTAMA (FIX TEKS BESAR & PAS DI PAPAN)
+           📌 SLIDE 2 MENU UTAMA (PRESISI TENGAH 100%)
            ========================================================== */
-        .papan-sign { position: absolute; top: 60px; left: 150px; width: 600px; text-align: center; z-index: 10; }
+        /* Menggunakan transform: translateX(-50%) agar 100% pas di tengah gambar papan kayu */
+        .papan-sign { 
+            position: absolute; top: 60px; left: 50%; transform: translateX(-50%); 
+            width: 600px; text-align: center; z-index: 10; 
+        }
         .papan-text { 
             font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; 
-            font-size: 26px; text-transform: uppercase; line-height: 1.2; 
-            text-shadow: 2px 2px 0 #fff; 
+            font-size: 24px; text-transform: uppercase; line-height: 1.1; 
+            text-shadow: 1px 1px 0 #fff, 2px 2px 0 #fff, 3px 3px 0 rgba(0,0,0,0.1); 
         }
         
         .menu-nav { 
-            position: absolute; top: 260px; left: 160px; width: 580px; height: 40px; 
+            position: absolute; top: 265px; left: 50%; transform: translateX(-50%); 
+            width: 580px; height: 40px; 
             display: flex; justify-content: space-between; align-items: center; z-index: 60; 
         }
         .menu-btn { 
@@ -103,7 +108,7 @@
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
         /* ==========================================================
-           🛠️ SLIDE MEJA LAB (OBAT PAS DI ATAS MEJA)
+           🛠️ SLIDE MEJA LAB (OBAT DITURUNKAN PAS DI MEJA)
            ========================================================== */
         #ch1_lab .bg-meja-lab {
             width: 100%; height: 100%;
@@ -119,12 +124,12 @@
         #ch1_lab .portrait-huge { height: 300px; width: auto; }
 
         #ch1_lab .meja-lab-small {
-            position: absolute; bottom: 30px; 
+            position: absolute; bottom: 15px; /* Diturunkan lagi supaya obat gak melayang */ 
             left: 50%; transform: translateX(-50%);
-            width: 55%; height: 240px; 
+            width: 55%; height: 260px; 
             z-index: 300; 
             display: flex; flex-direction: column; justify-content: flex-end;
-            align-items: center; padding-bottom: 35px; gap: 15px;
+            align-items: center; padding-bottom: 25px; gap: 15px;
         }
         #ch1_lab .row-atas, #ch1_lab .row-bawah {
             display: flex; justify-content: space-between; width: 100%; padding: 0 15px;
@@ -198,13 +203,11 @@
             <audio id="a-wrong" src="wrong.mp3" preload="auto"></audio>
             <audio id="a-selamat" src="selamat-datang.mp3" preload="auto"></audio>
             
-            <!-- AUDIO TAMBAHAN (WAJIB DIUPLOAD KE GITHUB) -->
+            <!-- AUDIO SPESIAL & BACKGROUND -->
             <audio id="a-tegang" src="tegang.mp3" preload="auto" loop></audio>
+            <audio id="a-gamelan" src="gamelan.mp3" preload="auto" loop></audio>
             <audio id="a-tepuk" src="tepuk.mp3" preload="auto"></audio>
             <audio id="a-sad" src="sad.mp3" preload="auto"></audio>
-            
-            <!-- BACKGROUND MUSIC -->
-            <audio id="a-gamelan" src="gamelan.mp3" preload="auto" loop></audio>
 
             <button class="btn-music-toggle" id="btnMusic" onclick="toggleMusic()">🎵 ON</button>
 
@@ -359,14 +362,14 @@
             correct: document.getElementById('a-correct'), 
             wrong: document.getElementById('a-wrong'),
             selamat: document.getElementById('a-selamat'),
-            tepuk: document.getElementById('a-tepuk'), // Tambahan
-            sad: document.getElementById('a-sad')     // Tambahan
+            tepuk: document.getElementById('a-tepuk'),
+            sad: document.getElementById('a-sad')
         };
         
         let selectedObat = "";
         let isMusicOn = true;
         let isLoading = false;
-        let lastSlideId = "slide1"; // Catat slide sebelumnya
+        let lastSlideId = "slide1";
 
         function playSfx(type) { 
             if(sfx[type]) { 
@@ -375,7 +378,6 @@
             } 
         }
 
-        // 🎵 LOGIKA GANTI BACKGROUND LAGU OTOMATIS
         function stopAllBgMusic() {
             document.getElementById('a-gamelan').pause();
             document.getElementById('a-tegang').pause();
@@ -384,12 +386,10 @@
         function playBgMusic(type) {
             const gamelan = document.getElementById('a-gamelan');
             const tegang = document.getElementById('a-tegang');
-            
-            // Hentikan semuanya
             gamelan.pause();
             tegang.pause();
 
-            if (!isMusicOn) return; // Jika user matikan suara, jangan mainkan apapun.
+            if (!isMusicOn) return;
 
             if (type === 'tegang') {
                 tegang.currentTime = 0;
@@ -409,7 +409,6 @@
             if(isMusicOn) {
                 btn.innerText = "🎵 ON";
                 btn.classList.remove('muted');
-                // Cek posisi slide sekarang, putar lagu yang tepat sesuai konteks
                 const activeSlide = document.querySelector('.slide[style*="display: block"]');
                 const activeId = activeSlide ? activeSlide.id : 'slide1';
                 if(activeId === 'ch1_kelas' || activeId === 'ch1_lab') {
@@ -440,9 +439,17 @@
         }
 
         function changeSlide(id, sound) {
+            // 🔥 FIX AUDIO: HENTIKAN TEPUK & SAD SAAT NAVIGASI DIPENCET
+            const tepuk = document.getElementById('a-tepuk');
+            const sad = document.getElementById('a-sad');
+            tepuk.pause();
+            sad.pause();
+            tepuk.currentTime = 0;
+            sad.currentTime = 0;
+
             let durasi = 800; 
             if(id === 'slide2' && sound === 'selamat') {
-                durasi = 4000; // 4 detik saat mulai game
+                durasi = 4000; 
             }
             if(id === 'chResult') {
                 durasi = 600; 
@@ -456,21 +463,18 @@
                     musicBtn.classList.remove('hidden');
                 }
 
-                // 🎵 FITUR KHUSUS: GANTI LAGU DAN ANTI RESTART
                 if(id === 'ch1_kelas' || id === 'ch1_lab') {
-                    // KECUALI: Jika pindah dari 'ch1_kelas' ke 'ch1_lab', tegang LANJUT (Tidak restart)
                     if(!(lastSlideId === 'ch1_kelas' && id === 'ch1_lab')) {
                         playBgMusic('tegang');
                     } else {
-                        // Logic agar tegang tetap menyala tanpa restart (Biarkan dia jalan)
                         if(isMusicOn && document.getElementById('a-tegang').paused) {
-                            playBgMusic('tegang'); // Safety jika tiba-tiba mati
+                            playBgMusic('tegang');
                         }
                     }
                 } else if (id === 'slide2') {
                     playBgMusic('gamelan');
                 } else {
-                    stopAllBgMusic(); // Hasil / Info mati total
+                    stopAllBgMusic();
                 }
 
                 if(sound) {
@@ -483,11 +487,10 @@
 
                 document.querySelectorAll('.slide').forEach(s => s.style.display = 'none');
                 document.getElementById(id).style.display = 'block';
-                lastSlideId = id; // Simpan slide terakhir
+                lastSlideId = id; 
             }, durasi);
         }
 
-        // 🔥 KLIK OBAT LANGSUNG RESPONSIF
         function selectObat(val) {
             playSfx('klik');
             selectedObat = val;
@@ -502,24 +505,24 @@
         function runMix() {
             if(!selectedObat) { alert("Pilih obat di atas meja dulu!"); return; }
             
-            // 1. STOP SEMUA BACKGROUND MUSIK & TEGANG
+            // 1. STOP SEMUA BACKGROUND MUSIK & TEGANG SAAT MASUK HASIL
             stopAllBgMusic();
 
             const rina = document.getElementById('resRina'), title = document.getElementById('resTitle'), box = document.getElementById('resBox'), dialog = document.getElementById('resSadewa'), btn = document.getElementById('resBtn');
             
             if(selectedObat === 'p') {
-                // 2. BENAR: correct.mp3 -> tepuk.mp3
+                // 2. BENAR: correct.mp3 -> disusul tepuk.mp3 (Hanya disini)
                 playSfx('correct'); 
-                setTimeout(() => playSfx('tepuk'), 400);
+                setTimeout(() => playSfx('tepuk'), 500);
                 
                 rina.src = "rina senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerText = "Paracetamol adalah analgesik yang tepat dan aman untuk sakit kepala Rina. Hebat!";
                 dialog.innerText = "Luar biasa! Rina sudah kembali ceria. Kamu memang detektif medis yang teliti!";
                 btn.innerText = "LANJUT CHAPTER 2"; btn.onclick = () => { alert("Tunggu Update!"); changeSlide('slide2', 'klik'); };
             } else {
-                // 3. SALAH: wrong.mp3 -> sad.mp3
+                // 3. SALAH: wrong.mp3 -> disusul sad.mp3 (Hanya disini)
                 playSfx('wrong'); 
-                setTimeout(() => playSfx('sad'), 400);
+                setTimeout(() => playSfx('sad'), 500);
 
                 rina.src = "rina mual.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
                 box.innerText = selectedObat === 'a' ? "Amoxicillin itu antibiotik, bukan pereda pusing! Rina malah mual." : "Antasida itu obat lambung, tidak bisa menyembuhkan pusing Rina!";
