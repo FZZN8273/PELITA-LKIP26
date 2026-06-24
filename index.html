@@ -63,16 +63,16 @@
         .btn-music-toggle.hidden { display: none !important; }
 
         /* ==========================================================
-           📌 SLIDE 2 MENU UTAMA (PAS DI PAPAN KAYU, TIDAK KELUAR)
+           📌 SLIDE 2 MENU UTAMA
            ========================================================== */
         .papan-sign { 
             position: absolute; top: 60px; left: 50%; transform: translateX(-50%); 
-            width: 580px; text-align: center; z-index: 10; 
+            width: 600px; text-align: center; z-index: 10; 
         }
         .papan-text { 
             font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; 
             font-size: 22px; text-transform: uppercase; line-height: 1.1; 
-            text-shadow: 1px 1px 0 #fff, 2px 2px 0 #fff, 3px 3px 0 rgba(0,0,0,0.1); 
+            text-shadow: 1px 1px 0 #fff, 2px 2px 0 #fff; 
         }
         
         .menu-nav { 
@@ -107,35 +107,37 @@
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
         /* ==========================================================
-           🛠️ SLIDE MEJA LAB (OBAT NAIK, AGAK KEKIRI, & PAS DI ATAS MEJA)
+           🛠️ SLIDE MEJA LAB (OBAT DIBESARIN & DINAJIKAN KEATAS)
            ========================================================== */
         #ch1_lab .bg-meja-lab {
             width: 100%; height: 100%;
             object-fit: contain; object-position: center bottom;
             position: absolute; top: 0; left: 0; z-index: 1;
         }
+        
         #ch1_lab .char-box-right {
             position: absolute; right: 20px; bottom: 0px; width: auto; height: auto;
-            transform: scale(0.9) translateX(10px); transform-origin: bottom right; z-index: 10; 
+            transform: scale(1.0); /* Diperbesar ke ukuran normal */
+            transform-origin: bottom right; z-index: 10; 
         }
-        #ch1_lab .bubble-container { width: 340px; padding: 10px; margin-bottom: 10px; }
-        #ch1_lab .bubble-txt { font-size: 17px; line-height: 1.4; }
-        #ch1_lab .portrait-huge { height: 300px; width: auto; }
+        #ch1_lab .bubble-container { width: 360px; padding: 12px; margin-bottom: 10px; }
+        #ch1_lab .bubble-txt { font-size: 20px; line-height: 1.4; } /* Teks gelembung dibesarkan */
+        #ch1_lab .portrait-huge { height: 330px; width: auto; } /* Wayang dibesarkan */
 
-        /* Dinaikkan bottom-nya & digeser kiri ke 46% */
+        /* Obat-obatan dinikkan ke atas & ukuran diperbesar */
         #ch1_lab .meja-lab-small {
-            position: absolute; bottom: 45px; /* Dinaikkan ke atas */ 
-            left: 46%; transform: translateX(-50%); /* Digeser agak ke kiri */
-            width: 55%; height: 240px; 
+            position: absolute; bottom: 45px; 
+            left: 46%; transform: translateX(-50%);
+            width: 60%; height: 290px; 
             z-index: 300; 
             display: flex; flex-direction: column; justify-content: flex-end;
-            align-items: center; padding-bottom: 30px; gap: 20px;
+            align-items: center; padding-bottom: 30px; gap: 18px;
         }
         #ch1_lab .row-atas, #ch1_lab .row-bawah {
-            display: flex; justify-content: space-between; width: 100%; padding: 0 15px;
+            display: flex; justify-content: space-between; width: 100%; padding: 0 20px;
         }
         #ch1_lab .obat-item { 
-            height: 75px; width: auto; object-fit: contain; 
+            height: 100px; width: auto; object-fit: contain; /* Diperbesar jadi 100px */
             cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); 
             pointer-events: auto;
         }
@@ -288,7 +290,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 6: MEJA LAB -->
+            <!-- SLIDE 6: MEJA LAB (OBAT BESAR & NAIK) -->
             <div id="ch1_lab" class="slide">
                 <img src="meja 1.png" class="bg-meja-lab">
                 
