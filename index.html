@@ -63,10 +63,17 @@
         .btn-music-toggle.hidden { display: none !important; }
 
         /* ==========================================================
-           📌 SLIDE 2 MENU UTAMA
+           📌 SLIDE 2 MENU UTAMA (TEKS SELAMAT DATANG DIPERBESAR & DIKIRI)
            ========================================================== */
-        .papan-sign { position: absolute; top: 60px; left: 150px; width: 600px; text-align: center; z-index: 10; }
-        .papan-text { font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; font-size: 22px; text-transform: uppercase; line-height: 1.2; text-shadow: 2px 2px 0 #fff; }
+        .papan-sign { 
+            position: absolute; top: 62px; left: 140px; width: 600px; text-align: center; z-index: 10; 
+        }
+        .papan-text { 
+            font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; 
+            font-size: 26px; /* Diperbesar */ 
+            text-transform: uppercase; line-height: 1.2; letter-spacing: 1px;
+            text-shadow: 2px 2px 0 #fff; 
+        }
         
         .menu-nav { 
             position: absolute; top: 260px; left: 200px; width: 500px; height: 40px; 
@@ -193,8 +200,12 @@
             <audio id="a-correct" src="correct.mp3" preload="auto"></audio>
             <audio id="a-wrong" src="wrong.mp3" preload="auto"></audio>
             <audio id="a-selamat" src="selamat-datang.mp3" preload="auto"></audio>
-            <audio id="a-tegang" src="tegang.mp3" preload="auto"></audio> 
+            <audio id="a-tegang" src="tegang.mp3" preload="auto" loop></audio>
             <audio id="a-gamelan" src="gamelan.mp3" preload="auto" loop></audio>
+            
+            <!-- AUDIO EFEK BARU (TEPUK & SEDIH) -->
+            <audio id="a-tepuk" src="tepuk.mp3" preload="auto"></audio>
+            <audio id="a-sad" src="sad.mp3" preload="auto"></audio>
 
             <button class="btn-music-toggle" id="btnMusic" onclick="toggleMusic()">🎵 ON</button>
 
@@ -262,7 +273,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 5: KELAS - RINA PUSING (MULAI GANTI LAGU OTOMATIS) -->
+            <!-- SLIDE 5: KELAS - RINA PUSING -->
             <div id="ch1_kelas" class="slide">
                 <img src="kelas.png" class="bg-img bg-dim">
                 <img src="rina pusing.png" class="rina-char">
@@ -275,7 +286,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 6: MEJA LAB (TEGANG TERUS BERULANG) -->
+            <!-- SLIDE 6: MEJA LAB -->
             <div id="ch1_lab" class="slide">
                 <img src="meja 1.png" class="bg-meja-lab">
                 
@@ -296,7 +307,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 7: HASIL (KEMBALI KE GAMELAN) -->
+            <!-- SLIDE 7: HASIL -->
             <div id="chResult" class="slide">
                 <img src="kelas.png" class="bg-img">
                 <img id="resRina" src="rina senyum.png" class="rina-char">
@@ -348,7 +359,9 @@
             welcome: document.getElementById('a-welcome'), 
             correct: document.getElementById('a-correct'), 
             wrong: document.getElementById('a-wrong'),
-            selamat: document.getElementById('a-selamat') 
+            selamat: document.getElementById('a-selamat'),
+            tepuk: document.getElementById('a-tepuk'),
+            sad: document.getElementById('a-sad')
         };
         
         let selectedObat = "";
@@ -362,25 +375,38 @@
             } 
         }
 
-        // 🎵 LOGIKA GANTI BACKGROUND LAGU OTOMATIS (TANPA SENTUH TOMBOL)
+        // 🎵 LOGIKA GANTI BACKGROUND LAGU OTOMATIS (TANPA RESET DI TENGAH JALAN)
         function playBgMusic(type) {
             const gamelan = document.getElementById('a-gamelan');
             const tegang = document.getElementById('a-tegang');
             
-            // Hentikan semuanya dulu sebelum ganti
-            gamelan.pause();
-            tegang.pause();
+            // Jika user matikan suara, jangan lakukan apa-apa
+            if (!isMusicOn) return; 
 
-            if (!isMusicOn) return; // Jika user matikan suara, jangan mainkan apapun.
-
+            // Logika pintar: Cek apa jenis lagu yang diminta, apakah sedang diputar?
             if (type === 'tegang') {
-                tegang.currentTime = 0;
-                tegang.loop = true;
-                tegang.play().catch(e=>e);
+                // Jika musik gamelan sedang menyala, matikan dulu
+                if (!gamelan.paused) {
+                    gamelan.pause();
+                    gamelan.currentTime = 0;
+                }
+                // Jika tegang belum diputar (pause), maka putar dari awal.
+                // Jika tegang sedang berjalan, biarkan saja (jangan reset ke 0).
+                if (tegang.paused) {
+                    tegang.currentTime = 0;
+                    tegang.play().catch(e=>e);
+                }
             } else {
-                gamelan.currentTime = 0;
-                gamelan.loop = true;
-                gamelan.play().catch(e=>e);
+                // Jika musik tegang sedang menyala, matikan dulu
+                if (!tegang.paused) {
+                    tegang.pause();
+                    tegang.currentTime = 0;
+                }
+                // Jika gamelan belum diputar (pause), maka putar dari awal.
+                if (gamelan.paused) {
+                    gamelan.currentTime = 0;
+                    gamelan.play().catch(e=>e);
+                }
             }
         }
 
@@ -425,7 +451,7 @@
         function changeSlide(id, sound) {
             let durasi = 800; 
             if(id === 'slide2' && sound === 'selamat') {
-                durasi = 4000; // 4 detik saat awal
+                durasi = 4000; // 4 detik saat mulai game
             }
             if(id === 'chResult') {
                 durasi = 600; 
@@ -477,12 +503,18 @@
             
             if(selectedObat === 'p') {
                 playSfx('correct'); 
+                // Efek tambahan Tepuk tangan 300ms setelah correct
+                setTimeout(() => playSfx('tepuk'), 300);
+
                 rina.src = "rina senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerText = "Paracetamol adalah analgesik yang tepat dan aman untuk sakit kepala Rina. Hebat!";
                 dialog.innerText = "Luar biasa! Rina sudah kembali ceria. Kamu memang detektif medis yang teliti!";
                 btn.innerText = "LANJUT CHAPTER 2"; btn.onclick = () => { alert("Tunggu Update!"); changeSlide('slide2', 'klik'); };
             } else {
                 playSfx('wrong'); 
+                // Efek tambahan Sedih 300ms setelah wrong
+                setTimeout(() => playSfx('sad'), 300);
+
                 rina.src = "rina mual.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
                 box.innerText = selectedObat === 'a' ? "Amoxicillin itu antibiotik, bukan pereda pusing! Rina malah mual." : "Antasida itu obat lambung, tidak bisa menyembuhkan pusing Rina!";
                 dialog.innerText = "Aduh, racikannya salah! Rina jadi makin mual. Ayo coba teliti lagi!";
