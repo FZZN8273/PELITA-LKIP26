@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -80,7 +79,7 @@
             text-align: center; display: flex; justify-content: center; align-items: center; pointer-events: auto;
         }
 
-        /* --- CHARACTERS (GELEMBUNG TEKS DIPERBESAR) --- */
+        /* --- CHARACTERS --- */
         .char-box-right {
             position: absolute; right: 20px; bottom: 0; width: 380px; height: 600px;
             display: flex; flex-direction: column; justify-content: flex-end; align-items: center; z-index: 100;
@@ -263,7 +262,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 5: KELAS - RINA PUSING (CERITA DIMULAI) -->
+            <!-- SLIDE 5: KELAS - RINA PUSING (MULAI GANTI LAGU OTOMATIS) -->
             <div id="ch1_kelas" class="slide">
                 <img src="kelas.png" class="bg-img bg-dim">
                 <img src="rina pusing.png" class="rina-char">
@@ -276,7 +275,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 6: MEJA LAB -->
+            <!-- SLIDE 6: MEJA LAB (TEGANG TERUS BERULANG) -->
             <div id="ch1_lab" class="slide">
                 <img src="meja 1.png" class="bg-meja-lab">
                 
@@ -297,7 +296,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 7: HASIL -->
+            <!-- SLIDE 7: HASIL (KEMBALI KE GAMELAN) -->
             <div id="chResult" class="slide">
                 <img src="kelas.png" class="bg-img">
                 <img id="resRina" src="rina senyum.png" class="rina-char">
@@ -349,8 +348,7 @@
             welcome: document.getElementById('a-welcome'), 
             correct: document.getElementById('a-correct'), 
             wrong: document.getElementById('a-wrong'),
-            selamat: document.getElementById('a-selamat'),
-            tegang: document.getElementById('a-tegang') 
+            selamat: document.getElementById('a-selamat') 
         };
         
         let selectedObat = "";
@@ -364,20 +362,48 @@
             } 
         }
 
-        function toggleMusic() {
-            const btn = document.getElementById('btnMusic');
+        // 🎵 LOGIKA GANTI BACKGROUND LAGU OTOMATIS (TANPA SENTUH TOMBOL)
+        function playBgMusic(type) {
             const gamelan = document.getElementById('a-gamelan');
-            if(isMusicOn) {
-                gamelan.pause();
-                btn.innerText = "🔇 OFF";
-                btn.classList.add('muted');
-                isMusicOn = false;
+            const tegang = document.getElementById('a-tegang');
+            
+            // Hentikan semuanya dulu sebelum ganti
+            gamelan.pause();
+            tegang.pause();
+
+            if (!isMusicOn) return; // Jika user matikan suara, jangan mainkan apapun.
+
+            if (type === 'tegang') {
+                tegang.currentTime = 0;
+                tegang.loop = true;
+                tegang.play().catch(e=>e);
             } else {
                 gamelan.currentTime = 0;
+                gamelan.loop = true;
                 gamelan.play().catch(e=>e);
+            }
+        }
+
+        function toggleMusic() {
+            const btn = document.getElementById('btnMusic');
+            isMusicOn = !isMusicOn;
+            
+            if(isMusicOn) {
                 btn.innerText = "🎵 ON";
                 btn.classList.remove('muted');
-                isMusicOn = true;
+                // Cek posisi slide sekarang, putar lagu yang tepat sesuai konteks
+                const activeSlide = document.querySelector('.slide[style*="display: block"]');
+                const activeId = activeSlide ? activeSlide.id : 'slide1';
+                if(activeId === 'ch1_kelas' || activeId === 'ch1_lab') {
+                    playBgMusic('tegang');
+                } else {
+                    playBgMusic('gamelan');
+                }
+            } else {
+                btn.innerText = "🔇 OFF";
+                btn.classList.add('muted');
+                document.getElementById('a-gamelan').pause();
+                document.getElementById('a-tegang').pause();
             }
         }
 
@@ -399,7 +425,7 @@
         function changeSlide(id, sound) {
             let durasi = 800; 
             if(id === 'slide2' && sound === 'selamat') {
-                durasi = 4000; // 4 detik saat mulai game
+                durasi = 4000; // 4 detik saat awal
             }
             if(id === 'chResult') {
                 durasi = 600; 
@@ -413,30 +439,16 @@
                     musicBtn.classList.remove('hidden');
                 }
 
-                // 🎵 LOGIKA KHUSUS: GAMELAN MATI SAAT TEGANG
-                const gamelan = document.getElementById('a-gamelan');
-                if (id === 'ch1_kelas') {
-                    // 1. Jika musik menyala, pause gamelan
-                    if (isMusicOn) {
-                        gamelan.pause();
-                    }
-                    // 2. Putar efek tegang
-                    playSfx('tegang');
-                    // 3. Pasang listener "Once" agar setelah tegang selesai, gamelan menyala kembali
-                    sfx.tegang.onended = () => {
-                        if (isMusicOn) {
-                            gamelan.currentTime = 0;
-                            gamelan.play().catch(e=>e);
-                        }
-                        sfx.tegang.onended = null; // Bersihkan listener
-                    };
-                } else if (sound) {
+                // 🎵 FITUR OTOMATIS GANTI LAGU BERDASARKAN SLIDE
+                if(id === 'ch1_kelas' || id === 'ch1_lab') {
+                    playBgMusic('tegang');
+                } else {
+                    playBgMusic('gamelan');
+                }
+
+                if(sound) {
                     if(sound === 'selamat') {
                         playSfx('selamat');
-                        if(isMusicOn) {
-                            gamelan.currentTime = 0;
-                            gamelan.play().catch(e=>e);
-                        }
                     } else {
                         playSfx(sound);
                     }
