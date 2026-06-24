@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -63,7 +64,7 @@
         .btn-music-toggle.hidden { display: none !important; }
 
         /* ==========================================================
-           📌 SLIDE 2 MENU UTAMA (PRESISI 100% DI TENGAH IKON BIRU)
+           📌 SLIDE 2 MENU UTAMA
            ========================================================== */
         .papan-sign { position: absolute; top: 60px; left: 150px; width: 600px; text-align: center; z-index: 10; }
         .papan-text { font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; font-size: 22px; text-transform: uppercase; line-height: 1.2; text-shadow: 2px 2px 0 #fff; }
@@ -93,14 +94,13 @@
             content: ''; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
             border-width: 20px 15px 0 15px; border-style: solid; border-color: #4a2e1b transparent transparent transparent;
         }
-        /* TEKS GELEMBUNG DIBIKIN BESAR BIAR KELIATAN */
         .bubble-txt { font-weight: 900; font-size: 18px; color: #4a2e1b; line-height: 1.4; text-align: left; text-shadow: 0px 0px 4px rgba(255,255,255,0.8); }
         .portrait-huge { height: 350px; width: auto; object-fit: contain; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6)); }
 
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
         /* ==========================================================
-           🛠️ SLIDE MEJA LAB (SADEWA BESAR, OBAT PRESISI DI TENGAH)
+           🛠️ SLIDE MEJA LAB
            ========================================================== */
         #ch1_lab .bg-meja-lab {
             width: 100%; height: 100%;
@@ -194,7 +194,7 @@
             <audio id="a-correct" src="correct.mp3" preload="auto"></audio>
             <audio id="a-wrong" src="wrong.mp3" preload="auto"></audio>
             <audio id="a-selamat" src="selamat-datang.mp3" preload="auto"></audio>
-            <audio id="a-tegang" src="tegang.mp3" preload="auto"></audio> <!-- AUDIO TEGANG DITAMBAHKAN -->
+            <audio id="a-tegang" src="tegang.mp3" preload="auto"></audio> 
             <audio id="a-gamelan" src="gamelan.mp3" preload="auto" loop></audio>
 
             <button class="btn-music-toggle" id="btnMusic" onclick="toggleMusic()">🎵 ON</button>
@@ -350,7 +350,7 @@
             correct: document.getElementById('a-correct'), 
             wrong: document.getElementById('a-wrong'),
             selamat: document.getElementById('a-selamat'),
-            tegang: document.getElementById('a-tegang') // AUDIO TEGANG DITAMBAHKAN
+            tegang: document.getElementById('a-tegang') 
         };
         
         let selectedObat = "";
@@ -413,22 +413,33 @@
                     musicBtn.classList.remove('hidden');
                 }
 
-                if(sound) {
+                // 🎵 LOGIKA KHUSUS: GAMELAN MATI SAAT TEGANG
+                const gamelan = document.getElementById('a-gamelan');
+                if (id === 'ch1_kelas') {
+                    // 1. Jika musik menyala, pause gamelan
+                    if (isMusicOn) {
+                        gamelan.pause();
+                    }
+                    // 2. Putar efek tegang
+                    playSfx('tegang');
+                    // 3. Pasang listener "Once" agar setelah tegang selesai, gamelan menyala kembali
+                    sfx.tegang.onended = () => {
+                        if (isMusicOn) {
+                            gamelan.currentTime = 0;
+                            gamelan.play().catch(e=>e);
+                        }
+                        sfx.tegang.onended = null; // Bersihkan listener
+                    };
+                } else if (sound) {
                     if(sound === 'selamat') {
                         playSfx('selamat');
                         if(isMusicOn) {
-                            const gamelan = document.getElementById('a-gamelan');
                             gamelan.currentTime = 0;
                             gamelan.play().catch(e=>e);
                         }
                     } else {
                         playSfx(sound);
                     }
-                }
-
-                // ⭐ FITUR KHUSUS: SUARA TEGANG SAAT MASUK SLIDE RINA
-                if(id === 'ch1_kelas') {
-                    playSfx('tegang');
                 }
 
                 document.querySelectorAll('.slide').forEach(s => s.style.display = 'none');
