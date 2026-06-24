@@ -63,27 +63,27 @@
         .btn-music-toggle.hidden { display: none !important; }
 
         /* ==========================================================
-           📌 SLIDE 2 MENU UTAMA
+           📌 SLIDE 2 MENU UTAMA (PRESISI 100% PAKE SIMBOL)
            ========================================================== */
         .papan-sign { 
-            position: absolute; top: 60px; left: 50%; transform: translateX(-50%); 
-            width: 600px; text-align: center; z-index: 10; 
+            position: absolute; top: 65px; left: 50%; transform: translateX(-50%); 
+            width: 580px; text-align: center; z-index: 10; 
         }
         .papan-text { 
             font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; 
-            font-size: 22px; text-transform: uppercase; line-height: 1.1; 
+            font-size: 24px; text-transform: uppercase; line-height: 1.1; 
             text-shadow: 1px 1px 0 #fff, 2px 2px 0 #fff; 
         }
         
         .menu-nav { 
             position: absolute; top: 265px; left: 50%; transform: translateX(-50%); 
-            width: 580px; height: 40px; 
+            width: 580px; height: 45px; 
             display: flex; justify-content: space-between; align-items: center; z-index: 60; 
         }
         .menu-btn { 
-            width: 170px; height: 100%; background: transparent; border: none; cursor: pointer; 
+            width: 180px; height: 100%; background: transparent; border: none; cursor: pointer; 
             color: #fff; font-family: 'Poppins', sans-serif; font-weight: 900; 
-            font-size: 12px; line-height: 1.2; padding: 0; white-space: nowrap; 
+            font-size: 16px; line-height: 1.2; padding: 0; white-space: nowrap; 
             text-align: center; display: flex; justify-content: center; align-items: center; pointer-events: auto;
         }
 
@@ -107,7 +107,7 @@
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
         /* ==========================================================
-           🛠️ SLIDE MEJA LAB (OBAT DIBESARIN & DINAJIKAN KEATAS)
+           🛠️ SLIDE MEJA LAB (OBAT PALING BESAR & NAIK KE ATAS)
            ========================================================== */
         #ch1_lab .bg-meja-lab {
             width: 100%; height: 100%;
@@ -116,28 +116,29 @@
         }
         
         #ch1_lab .char-box-right {
-            position: absolute; right: 20px; bottom: 0px; width: auto; height: auto;
-            transform: scale(1.0); /* Diperbesar ke ukuran normal */
+            position: absolute; right: 20px; bottom: 40px; /* Naikkan posisi Sadewa dari bawah */
+            width: auto; height: auto;
+            transform: scale(1.0); 
             transform-origin: bottom right; z-index: 10; 
         }
         #ch1_lab .bubble-container { width: 360px; padding: 12px; margin-bottom: 10px; }
-        #ch1_lab .bubble-txt { font-size: 20px; line-height: 1.4; } /* Teks gelembung dibesarkan */
-        #ch1_lab .portrait-huge { height: 330px; width: auto; } /* Wayang dibesarkan */
+        #ch1_lab .bubble-txt { font-size: 20px; line-height: 1.4; } 
+        #ch1_lab .portrait-huge { height: 350px; width: auto; } /* Wayang dibesarkan */
 
-        /* Obat-obatan dinikkan ke atas & ukuran diperbesar */
+        /* Obat dinaikkan, dan tinggi item diperbesar ke 110px */
         #ch1_lab .meja-lab-small {
-            position: absolute; bottom: 45px; 
-            left: 46%; transform: translateX(-50%);
-            width: 60%; height: 290px; 
+            position: absolute; bottom: 75px; /* Dinaikkan ke atas meja */
+            left: 50%; transform: translateX(-50%);
+            width: 60%; height: 260px; 
             z-index: 300; 
             display: flex; flex-direction: column; justify-content: flex-end;
-            align-items: center; padding-bottom: 30px; gap: 18px;
+            align-items: center; padding-bottom: 40px; gap: 25px;
         }
         #ch1_lab .row-atas, #ch1_lab .row-bawah {
-            display: flex; justify-content: space-between; width: 100%; padding: 0 20px;
+            display: flex; justify-content: space-between; width: 100%; padding: 0 15px;
         }
         #ch1_lab .obat-item { 
-            height: 100px; width: auto; object-fit: contain; /* Diperbesar jadi 100px */
+            height: 110px; width: auto; object-fit: contain; /* Diperbesar dari 100px ke 110px */
             cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); 
             pointer-events: auto;
         }
@@ -232,9 +233,10 @@
                 <img src="slide 2.png" class="bg-img">
                 <div class="papan-sign"><p class="papan-text">Selamat Datang di<br>Desa Pelita</p></div>
                 <div class="menu-nav">
-                    <button class="menu-btn" onclick="changeSlide('slideCara', 'klik')">CARA MAIN</button>
-                    <button class="menu-btn" onclick="changeSlide('slideRules', 'klik')">RULES</button>
-                    <button class="menu-btn" onclick="changeSlide('ch1_kelas', 'welcome')">MULAI PETUALANGAN</button>
+                    <!-- MENGGUNAKAN SIMBOL EMOJI UNTUK PRESISI TOMBOL -->
+                    <button class="menu-btn" onclick="changeSlide('slideCara', 'klik')">🧩 CARA MAIN</button>
+                    <button class="menu-btn" onclick="changeSlide('slideRules', 'klik')">⚖️ RULES</button>
+                    <button class="menu-btn" onclick="changeSlide('ch1_kelas', 'welcome')">🚀 MULAI</button>
                 </div>
             </div>
 
@@ -290,7 +292,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 6: MEJA LAB (OBAT BESAR & NAIK) -->
+            <!-- SLIDE 6: MEJA LAB (OBAT BESAR & NAIK KE ATAS) -->
             <div id="ch1_lab" class="slide">
                 <img src="meja 1.png" class="bg-meja-lab">
                 
