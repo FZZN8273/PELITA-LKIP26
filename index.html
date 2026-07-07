@@ -13,12 +13,6 @@
             min-height: 100vh; font-family: 'Sen', sans-serif; overflow: hidden; margin: 0;
         }
 
-        /* ★★ VARIABEL KONTROL PENTING (HANYA UBAH SATU ANGKA DI SINI) ★★ */
-        :root {
-            /* Makin kecil angkanya (misal 12px) -> Teks makin naik ke atas. Makin besar (misal 24px) -> Teks makin turun ke bawah */
-            --tombol-naik-turun: 16px; 
-        }
-
         #desktop-lock {
             display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #2c1e12; color: #fff; z-index: 10000;
@@ -70,46 +64,46 @@
         .btn-music-toggle.hidden { display: none !important; }
 
         /* ==========================================================
-           📌 SLIDE 2 MENU UTAMA (DINAJIKAN AGAR TIDAK MEROSOT)
+           📌 SLIDE 2 MENU UTAMA (VERSI GAMBAR BARU - TANPA TIMPA TEKS)
            ========================================================== */
-        .papan-sign { 
-            position: absolute; top: 30px; /* Dinaikkan agar tulisan "Selamat Datang" pas di papan */
-            left: 50%; transform: translateX(-50%); 
-            width: 580px; text-align: center; z-index: 10; 
-        }
-        .papan-text { 
-            font-family: 'Poppins', sans-serif; font-weight: 900; color: #3e2717; 
-            font-size: 26px; text-transform: uppercase; line-height: 1.1; 
-            text-shadow: 1px 1px 0 #fff, 2px 2px 0 #fff, 3px 3px 0 rgba(0,0,0,0.1); 
-            margin-top: -10px; /* Menarik teks ke atas agar tidak jatuh ke bawah */
-        }
+        /* Karena gambar slide 2.png sudah ada tulisan papan kayunya, kita HAPUS teks HTML agar tidak menimpa */
         
         .menu-nav { 
-            position: absolute; top: 220px; /* Dinaikkan agar tombol pas di bawah ikon biru */
-            left: 50%; transform: translateX(-50%); 
-            width: 460px; height: 40px; 
+            position: absolute; 
+            top: 235px; /* Posisi vertikal di bawah ikon */
+            left: 420px; /* Menyesuaikan dengan posisi horizontal ikon di sisi kanan */
+            width: 460px; height: 45px; 
             display: flex; justify-content: space-between; align-items: center; z-index: 60; 
         }
+        
+        /* 
+           ★★ DESAIN TOMBOL (DIBULEITIN & EFEK 3D) ★★ 
+        */
         .menu-btn { 
-            width: 145px; height: 100%; background: transparent; border: none; cursor: pointer; 
-            color: #fff; font-family: 'Poppins', sans-serif; font-weight: 900; 
-            font-size: 11px; line-height: 1.1; padding: 0; white-space: nowrap; 
-            text-align: center; display: flex; justify-content: center; align-items: center; pointer-events: auto;
+            width: 140px; height: 100%; 
+            background: #fcf9ee; /* Warna putih krem agar kontras dengan gambar */
+            border: 4px solid #4a2e1b; /* Border coklat tebal */
+            border-radius: 20px; /* Dibuleitin sesuai permintaan */
+            color: #4a2e1b; /* Warna teks coklat */
+            font-family: 'Poppins', sans-serif; font-weight: 900; 
+            font-size: 12px; line-height: 1.2; 
+            cursor: pointer; 
+            box-shadow: 0 5px 0 #4a2e1b; /* ★ EFEK TOMBOL 3D (Bayangan di bawah) */
+            transition: all 0.1s ease;
+            text-align: center; display: flex; justify-content: center; align-items: center; 
+            padding: 0 5px; pointer-events: auto;
+        }
+        
+        /* EFEK SAAT TOMBOL DITEKAN (Active) */
+        .menu-btn:active {
+            transform: translateY(5px); /* Tombol tertekan ke bawah */
+            box-shadow: none; /* Bayangan hilang */
         }
 
-        /* ★★ KUNCI UTAMA PENGATURAN NAIK TURUN TEKS TOMBOL ★★ */
-        #slide2 .menu-nav button:nth-child(1),
-        #slide2 .menu-nav button:nth-child(2),
-        #slide2 .menu-nav button:nth-child(3) {
-            margin: 0 !important; padding: 0;
-            display: flex; justify-content: center; align-items: center;
-            /* Menggunakan variabel CSS. Ubah angka di bagian :root paling atas */
-            line-height: var(--tombol-naik-turun); 
+        /* Khusus untuk tombol "MULAI PETUALANGAN" karena tulisannya panjang, sedikit dikecilkan fontnya */
+        .menu-btn:nth-child(3) {
+            font-size: 10px; 
         }
-        /* Ukuran Font masing-masing tombol */
-        #slide2 .menu-nav button:nth-child(1) { font-size: 13px; font-family: 'Poppins', sans-serif; } /* Cara Main */
-        #slide2 .menu-nav button:nth-child(2) { font-size: 13px; font-family: 'Poppins', sans-serif; } /* Rules */
-        #slide2 .menu-nav button:nth-child(3) { font-size: 11px; font-family: 'Poppins', sans-serif; } /* Mulai Petualangan */
 
         /* --- CHARACTERS --- */
         .char-box-right {
@@ -131,7 +125,7 @@
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
         /* ==========================================================
-           🛠️ SLIDE MEJA LAB (OBAT NAIK KE ATAS MEJA & BESAR)
+           🛠️ SLIDE MEJA LAB
            ========================================================== */
         #ch1_lab .bg-meja-lab {
             width: 100%; height: 100%;
@@ -149,7 +143,7 @@
         #ch1_lab .portrait-huge { height: 320px; width: auto; }
 
         #ch1_lab .meja-lab-small {
-            position: absolute; bottom: 20px; /* Dinaikkan agar tidak jatuh ke bawah */
+            position: absolute; bottom: 20px; 
             left: 50%; transform: translateX(-50%);
             width: 60%; height: 280px; 
             z-index: 300; 
@@ -221,7 +215,7 @@
     <div id="game-wrapper">
         <div id="game-container">
             
-            <!-- AUDIO UTAMA (Sesuai nama file di screenshot GitHub kamu) -->
+            <!-- AUDIO UTAMA -->
             <audio id="a-klik" src="slide 1 mulai.mp3" preload="auto"></audio>
             <audio id="a-welcome" src="welcoming.mp3" preload="auto"></audio>
             <audio id="a-correct" src="correct.mp3" preload="auto"></audio>
@@ -250,10 +244,9 @@
                 </div>
             </div>
 
-            <!-- SLIDE 2: MENU UTAMA -->
+            <!-- SLIDE 2: MENU UTAMA (Dengan gambar baru) -->
             <div id="slide2" class="slide">
                 <img src="slide 2.png" class="bg-img">
-                <div class="papan-sign"><p class="papan-text">Selamat Datang di<br>Desa Pelita</p></div>
                 <div class="menu-nav">
                     <button class="menu-btn" onclick="changeSlide('slideCara', 'klik')">CARA MAIN</button>
                     <button class="menu-btn" onclick="changeSlide('slideRules', 'klik')">RULES</button>
@@ -483,7 +476,6 @@
                 }
 
                 if(id === 'ch1_kelas' || id === 'ch1_lab') {
-                    // Agar audio tegang tidak restart saat pindah dari slide kelas ke lab
                     if(!(lastSlideId === 'ch1_kelas' && id === 'ch1_lab')) {
                         playBgMusic('tegang');
                     } else {
