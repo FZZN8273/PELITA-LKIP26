@@ -64,7 +64,7 @@
         .btn-music-toggle.hidden { display: none !important; }
 
         /* ==========================================================
-           📌 SLIDE 2 MENU UTAMA (HITBOX PRESISI MENUTUPI IKON)
+           📌 SLIDE 2 MENU UTAMA
            ========================================================== */
         .menu-hitbox-container { 
             position: absolute; 
@@ -78,7 +78,7 @@
             background: transparent; border: none; cursor: pointer; display: block; pointer-events: auto;
         }
 
-        /* --- CHARACTERS UMUM --- */
+        /* --- CHARACTERS --- */
         .char-box-right {
             position: absolute; right: 20px; bottom: 0; width: 380px; height: 600px;
             display: flex; flex-direction: column; justify-content: flex-end; align-items: center; z-index: 100;
@@ -95,7 +95,7 @@
         .bubble-txt { font-weight: 900; font-size: 18px; color: #4a2e1b; line-height: 1.4; text-align: left; text-shadow: 0px 0px 4px rgba(255,255,255,0.8); }
         .portrait-huge { height: 350px; width: auto; object-fit: contain; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6)); }
 
-        /* --- SLIDE MEJA LAB SKENARIO 1 --- */
+        /* --- SKENARIO 1 (RINA) --- */
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
         #ch1_lab .bg-meja-lab {
             width: 100%; height: 100%;
@@ -129,25 +129,28 @@
         #ch1_lab .obat-active { transform: scale(1.15) translateY(-10px); filter: drop-shadow(0 0 15px #4CAF50); }
 
         /* ==========================================================
-           🛠️ SLIDE SKENARIO 2 (Sanitasi & ODF)
+           🚀 SKENARIO 2 (ANDI & ODF)
            ========================================================== */
-        .bg-ch2 { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; position: absolute; top: 0; left: 0; z-index: 1; }
-        .ch2-char-left { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
-        .ch2-char-right { position: absolute; right: 20px; bottom: 20px; width: auto; height: auto; z-index: 10; }
-        .ch2-char-right .portrait-huge { height: 350px; width: auto; }
+        #ch2_adegan1 .bg-odf {
+            width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;
+        }
+        .andi-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 40px; height: 330px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
-        /* Kotak Pilihan Skenario 2 */
-        .ch2-quiz-box {
+        /* Layout Kuis Pilihan Ganda Skenario 2 */
+        #ch2_quiz .bg-odf {
+            width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;
+        }
+        .quiz-container {
             position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); z-index: 20;
-            width: 700px; background: rgba(255,255,255,0.95); padding: 25px; border-radius: 20px; border: 4px solid #4a2e1b; text-align: center;
+            width: 700px; background: rgba(255,255,255,0.9); padding: 25px; border-radius: 20px; border: 4px solid #4a2e1b; text-align: center;
         }
-        .ch2-quiz-q { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 22px; color: #4a2e1b; margin-bottom: 20px; line-height: 1.4; }
-        .ch2-quiz-options { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-bottom: 20px; }
-        .ch2-quiz-btn {
-            width: 100%; max-width: 450px; padding: 12px 20px; border-radius: 50px; border: 3px solid #4a2e1b; background: #fff; cursor: pointer; font-weight: 900; font-size: 16px; text-align: left; transition: 0.2s;
+        .quiz-question { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 22px; color: #4a2e1b; margin-bottom: 20px; }
+        .quiz-options { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-bottom: 20px; }
+        .quiz-btn { 
+            width: 80%; padding: 12px; border-radius: 50px; border: 3px solid #4a2e1b; background: #fff; cursor: pointer; font-weight: 900; font-size: 16px; transition: 0.2s; text-align: left; padding-left: 20px;
         }
-        .ch2-quiz-btn:hover { background: #f0f0f0; }
-        .ch2-quiz-btn.selected { background: #dca658; color: #fff; border-color: #dca658; }
+        .quiz-btn:active { transform: scale(0.95); }
+        .quiz-btn.selected { background: #dca658; color: #fff; border-color: #dca658; }
 
         /* --- SLIDE CARA MAIN & RULES --- */
         .slide-white {
@@ -159,7 +162,7 @@
             position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80; color: #3e2717;
         }
 
-        /* --- PANEL HASIL --- */
+        /* --- PANEL HASIL (Dipakai Skenario 1 & 2) --- */
         .result-panel {
             position: absolute; left: 40px; top: 40px; width: 400px; z-index: 150;
             display: flex; flex-direction: column; align-items: center; text-align: center;
@@ -283,9 +286,8 @@
             </div>
 
             <!-- ==========================================================
-               📌 SKENARIO 1: RINA PUSING & MEJA LAB
-               ========================================================== -->
-            <!-- SLIDE 5 -->
+                 SKENARIO 1: RINA & OBAT-OBATAN
+                 ========================================================== -->
             <div id="ch1_kelas" class="slide">
                 <img src="kelas.png" class="bg-img bg-dim">
                 <img src="rina pusing.png" class="rina-char">
@@ -298,7 +300,6 @@
                 </div>
             </div>
 
-            <!-- SLIDE 6 -->
             <div id="ch1_lab" class="slide">
                 <img src="meja 1.png" class="bg-meja-lab">
                 <div class="meja-lab-small">
@@ -317,10 +318,66 @@
                 </div>
             </div>
 
-            <!-- SLIDE 7: HASIL SKENARIO 1 -->
+            <!-- ==========================================================
+                 SKENARIO 2: ANDI & ODF (Bau di Selokan Kantin)
+                 ========================================================== -->
+            <!-- Adegan 1: Pengenalan Masalah -->
+            <div id="ch2_adegan1" class="slide">
+                <img src="odf.png" class="bg-odf">
+                <img src="andi bingung.png" class="andi-char">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt">Andi resah. Sudah seminggu banyak temannya sakit perut. Ternyata, warga masih suka BAB di selokan belakang kantin. Ini serius. Penyakit menyebar dari sini. Apa yang harus dilakukan?</p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
+                <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch2_quiz', 'klik')">LANJUTKAN ▶</button>
+                </div>
+            </div>
+
+            <!-- Adegan 2: Pilihan Ganda -->
+            <div id="ch2_quiz" class="slide">
+                <img src="odf.png" class="bg-odf">
+                
+                <div class="char-box-right">
+                    <div class="bubble-container" style="width: 320px; margin-bottom: 50px;"><p class="bubble-txt" id="bubble2">Andi menunggu saran terbaikmu, Detektif!</p></div>
+                    <img src="nakula.png" class="portrait-huge" style="height: 280px; margin-right: 20px;">
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-question">Apa tindakan terbaik untuk mengatasi masalah ini?</div>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="selectAnswer2(0)">A. Bangun jamban + cuci tangan pakai sabun</button>
+                        <button class="quiz-btn" onclick="selectAnswer2(1)">B. Cuci tangan saja sudah cukup</button>
+                        <button class="quiz-btn" onclick="selectAnswer2(2)">C. Bangun jamban saja</button>
+                    </div>
+                    <button class="btn-action btn-next" id="quizSubmitBtn2" onclick="submitAnswer2()" style="display:none;">JAWAB ▶</button>
+                </div>
+            </div>
+
+            <!-- Adegan 3: Hasil -->
+            <div id="ch2_result" class="slide">
+                <img src="odf.png" class="bg-img">
+                <img id="resAndi" src="andi bingung.png" class="andi-char">
+                
+                <div class="result-panel">
+                    <h2 id="resTitle2" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
+                    <div id="resBox2"></div>
+                    <div class="action-btns">
+                        <button id="resBtn2" class="btn-action btn-next"></button>
+                    </div>
+                </div>
+
+                <div class="char-box-right">
+                    <div class="bubble-container"><p id="resNakula2" class="bubble-txt"></p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
+            </div>
+
+            <!-- HASIL SKENARIO 1 (Rina) -->
             <div id="chResult" class="slide">
                 <img src="kelas.png" class="bg-img">
                 <img id="resRina" src="rina senyum.png" class="rina-char">
+                
                 <div class="result-panel">
                     <h2 id="resTitle" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
                     <div id="resBox"></div>
@@ -328,73 +385,10 @@
                         <button id="resBtn" class="btn-action btn-next"></button>
                     </div>
                 </div>
+
                 <div class="char-box-right">
                     <div class="bubble-container"><p id="resSadewa" class="bubble-txt"></p></div>
                     <img src="sadewa.png" class="portrait-huge">
-                </div>
-            </div>
-
-            <!-- ==========================================================
-               📌 SKENARIO 2: BAU DI BELAKANG KANTIN (ODF & SANITASI)
-               ========================================================== -->
-            <!-- SLIDE 8: ADEGAN 1 (MASALAH) -->
-            <div id="ch2_adegan1" class="slide">
-                <img src="odf.jpg" class="bg-ch2 bg-dim">
-                <img src="andi bingung.png" class="ch2-char-left">
-                <div class="ch2-char-right">
-                    <div class="bubble-container" style="width: 400px;">
-                        <p class="bubble-txt" style="font-size: 15px;">
-                            "Andi resah. Sudah seminggu banyak temannya sakit perut. Ternyata, warga masih suka BAB di selokan belakang kantin."<br><br>
-                            <strong>Nakula:</strong> "Ini serius. Penyakit menyebar dari sini. Apa yang harus dilakukan?"
-                        </p>
-                    </div>
-                    <img src="nakula.png" class="portrait-huge" style="height: 300px;">
-                </div>
-                <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
-                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch2_pilih', 'klik')">CARI TAHU SOLUSI ▶</button>
-                </div>
-            </div>
-
-            <!-- SLIDE 9: ADEGAN 2 (PILIHAN) -->
-            <div id="ch2_pilih" class="slide">
-                <img src="odf.jpg" class="bg-ch2 bg-dim" style="filter: brightness(0.3) contrast(1.1);">
-                
-                <div class="ch2-quiz-box">
-                    <div class="ch2-quiz-q">Apa tindakan terbaik untuk mengatasi masalah ini?</div>
-                    <div class="ch2-quiz-options">
-                        <button class="ch2-quiz-btn" onclick="ch2Select(0)">A. Bangun jamban + cuci tangan pakai sabun</button>
-                        <button class="ch2-quiz-btn" onclick="ch2Select(1)">B. Cuci tangan saja sudah cukup</button>
-                        <button class="ch2-quiz-btn" onclick="ch2Select(2)">C. Bangun jamban saja</button>
-                    </div>
-                    <button class="btn-action btn-next" id="ch2SubmitBtn" onclick="ch2Submit()" style="display:none; box-shadow: none; background: #4CAF50;">JAWAB ▶</button>
-                </div>
-
-                <div class="ch2-char-right" style="bottom: 10px;">
-                    <div class="bubble-container" style="width: 340px; padding: 12px; margin-bottom: 5px;">
-                        <p class="bubble-txt" style="font-size: 16px;" id="ch2Bubble">Pilih solusi yang paling tepat untuk Andi!</p>
-                    </div>
-                    <img src="nakula.png" class="portrait-huge" style="height: 280px;">
-                </div>
-            </div>
-
-            <!-- SLIDE 10: ADEGAN 3 (HASIL) -->
-            <div id="ch2_hasil" class="slide">
-                <img src="odf.jpg" id="ch2BgResult" class="bg-ch2 bg-dim">
-                <img src="andi bingung.png" id="ch2Andi" class="ch2-char-left">
-                
-                <div class="result-panel" style="top: 35px; width: 420px;">
-                    <h2 id="ch2ResTitle" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
-                    <div id="ch2ResBox" style="background: rgba(255,255,255,0.98); padding: 15px; border: 4px solid #dca658; border-radius: 15px; font-weight: bold; font-size: 14px; line-height: 1.4; box-shadow: 0 10px 20px rgba(0,0,0,0.3); width: 100%;"></div>
-                    <div class="action-btns">
-                        <button id="ch2ResBtn" class="btn-action btn-next"></button>
-                    </div>
-                </div>
-
-                <div class="ch2-char-right" style="bottom: 10px;">
-                    <div class="bubble-container" style="width: 340px; padding: 12px; margin-bottom: 5px;">
-                        <p class="bubble-txt" style="font-size: 16px;" id="ch2ResNakula"></p>
-                    </div>
-                    <img src="nakula.png" class="portrait-huge" style="height: 280px;">
                 </div>
             </div>
 
@@ -426,9 +420,6 @@
         window.onresize = cekLayar;
         function cekDesktopManual() { document.getElementById('desktop-lock').style.display = 'none'; document.getElementById('game-wrapper').style.display = 'flex'; resizeGame(); }
 
-        // ==========================================================
-        // 🔥 SKENARIO 1 : LOGIKA OBAT & GAMELAN
-        // ==========================================================
         const sfx = { 
             klik: document.getElementById('a-klik'), 
             welcome: document.getElementById('a-welcome'), 
@@ -439,6 +430,7 @@
             sad: document.getElementById('a-sad')
         };
         
+        /* --- STATE SKENARIO 1 --- */
         let selectedObat = "";
         let isMusicOn = true;
         let isLoading = false;
@@ -461,6 +453,7 @@
             const tegang = document.getElementById('a-tegang');
             gamelan.pause();
             tegang.pause();
+
             if (!isMusicOn) return;
 
             if (type === 'tegang') {
@@ -510,15 +503,14 @@
         }
 
         function changeSlide(id, sound) {
-            // HENTIKAN SUARA TEPUK & SAD SAAT NAVIGASI
             const tepuk = document.getElementById('a-tepuk');
             const sad = document.getElementById('a-sad');
             tepuk.pause(); sad.pause();
             tepuk.currentTime = 0; sad.currentTime = 0;
 
             let durasi = 800; 
-            if(id === 'slide2' && sound === 'selamat') { durasi = 4000; } 
-            if(id === 'chResult' || id === 'ch2_hasil') { durasi = 600; }
+            if(id === 'slide2' && sound === 'selamat') { durasi = 4000; }
+            if(id === 'chResult' || id === 'ch2_result') { durasi = 600; }
 
             showLoading(() => {
                 const musicBtn = document.getElementById('btnMusic');
@@ -528,7 +520,6 @@
                     musicBtn.classList.remove('hidden');
                 }
 
-                // Logika Background Music Skenario 1 & Transisi ke 2
                 if(id === 'ch1_kelas' || id === 'ch1_lab') {
                     if(!(lastSlideId === 'ch1_kelas' && id === 'ch1_lab')) {
                         playBgMusic('tegang');
@@ -539,15 +530,13 @@
                     }
                 } else if (id === 'slide2') {
                     playBgMusic('gamelan');
-                } else if (id === 'ch2_adegan1' || id === 'ch2_pilih') {
-                    stopAllBgMusic(); // Skenario 2 tidak perlu musik latar tegang
                 } else {
                     stopAllBgMusic();
                 }
 
                 if(sound) {
                     if(sound === 'selamat') {
-                        playSfx('selamat'); 
+                        playSfx('selamat');
                     } else {
                         playSfx(sound);
                     }
@@ -559,7 +548,9 @@
             }, durasi);
         }
 
-        // --- LOGIKA SKENARIO 1 (PILIH OBAT) ---
+        /* ==========================================================
+           LOGIKA SKENARIO 1
+           ========================================================== */
         function selectObat(val) {
             playSfx('klik');
             selectedObat = val;
@@ -573,7 +564,6 @@
 
         function runMix() {
             if(!selectedObat) { alert("Pilih obat di atas meja dulu!"); return; }
-            
             stopAllBgMusic();
 
             const rina = document.getElementById('resRina'), title = document.getElementById('resTitle'), box = document.getElementById('resBox'), dialog = document.getElementById('resSadewa'), btn = document.getElementById('resBtn');
@@ -581,18 +571,14 @@
             if(selectedObat === 'p') {
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
-                
                 rina.src = "rina senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerText = "Paracetamol adalah analgesik yang tepat dan aman untuk sakit kepala Rina. Hebat!";
                 dialog.innerText = "Luar biasa! Rina sudah kembali ceria. Kamu memang detektif medis yang teliti!";
-                
-                // 🔥 LANJUT KE SKENARIO 2
-                btn.innerText = "LANJUT CHAPTER 2"; 
-                btn.onclick = () => { changeSlide('ch2_adegan1', 'klik'); };
+                // 🔥 TOMBOL LANJUT DIUBAH KE SKENARIO 2
+                btn.innerText = "LANJUT CHAPTER 2"; btn.onclick = () => { changeSlide('ch2_adegan1', 'klik'); };
             } else {
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
-
                 rina.src = "rina mual.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
                 box.innerText = selectedObat === 'a' ? "Amoxicillin itu antibiotik, bukan pereda pusing! Rina malah mual." : "Antasida itu obat lambung, tidak bisa menyembuhkan pusing Rina!";
                 dialog.innerText = "Aduh, racikannya salah! Rina jadi makin mual. Ayo coba teliti lagi!";
@@ -601,54 +587,41 @@
             changeSlide('chResult');
         }
 
-        // ==========================================================
-        // 🔥 SKENARIO 2 : LOGIKA QUIZ ODF & SANITASI
-        // ==========================================================
-        let ch2SelectedIndex = -1;
+        /* ==========================================================
+           LOGIKA SKENARIO 2 (ANDI & ODF)
+           ========================================================== */
+        let selectedAnswer2 = -1;
 
-        function ch2Select(index) {
+        function selectAnswer2(index) {
             playSfx('klik');
-            ch2SelectedIndex = index;
-            const btns = document.querySelectorAll('.ch2-quiz-btn');
+            selectedAnswer2 = index;
+            const btns = document.querySelectorAll('.quiz-btn');
             btns.forEach((btn, i) => btn.classList.toggle('selected', i === index));
-            document.getElementById('ch2SubmitBtn').style.display = 'inline-block';
+            document.getElementById('quizSubmitBtn2').style.display = 'block';
         }
 
-        function ch2Submit() {
-            if(ch2SelectedIndex === -1) { alert("Pilih dulu solusinya, Detektif!"); return; }
+        function submitAnswer2() {
+            if(selectedAnswer2 === -1) return alert("Pilih jawaban dulu!");
+            stopAllBgMusic();
 
-            const bg = document.getElementById('ch2BgResult');
-            const andi = document.getElementById('ch2Andi');
-            const title = document.getElementById('ch2ResTitle');
-            const box = document.getElementById('ch2ResBox');
-            const nakula = document.getElementById('ch2ResNakula');
-            const btn = document.getElementById('ch2ResBtn');
+            const andi = document.getElementById('resAndi'), title = document.getElementById('resTitle2'), box = document.getElementById('resBox2'), dialog = document.getElementById('resNakula2'), btn = document.getElementById('resBtn2');
 
-            if(ch2SelectedIndex === 0) { // Jawaban Benar (A)
+            if(selectedAnswer2 === 0) { // JAWABAN BENAR (A)
                 playSfx('correct'); 
-                // Ganti background dengan selokan bersih (atau tetap odf dengan overlay)
-                bg.src = "selokan bersih.png"; // Pastikan file ini diupload
-                bg.style.filter = "none";
-                andi.src = "andi senyum.png"; // Pastikan file ini diupload
-
-                title.innerText = "✅ TEPAT!"; title.style.color = "#2e7d32";
-                box.innerHTML = "Jamban menghentikan pencemaran, cuci tangan membunuh kuman. Ini namanya ODF!<br><br><strong>Data:</strong> Diare pembunuh nomor 2 anak dunia. Penyebab utama sanitasi buruk.<br><br><strong>Tips:</strong> Gunakan jamban sehat. Cuci tangan pakai sabun setelah BAB.";
-                nakula.innerText = "Kamu hebat! Dengan sanitasi bersih, warga terbebas dari penyakit!";
-                btn.innerText = "LANJUT CHAPTER 3"; 
-                btn.onclick = () => { alert("Tunggu update Chapter 3!"); changeSlide('slide2', 'klik'); };
-            } else { // Jawaban Salah (B atau C)
-                playSfx('wrong');
-                bg.src = "odf.jpg";
-                bg.style.filter = "brightness(0.4) contrast(1.1)";
-                andi.src = "andi bingung.png"; 
-
-                title.innerText = "❌ BELUM TEPAT"; title.style.color = "#c62828";
-                box.innerText = "Hanya cuci tangan atau hanya jamban tidak cukup. Harus keduanya!";
-                nakula.innerText = "Sanitasi bersih butuh jamban layak dan cuci tangan.";
-                btn.innerText = "COBA LAGI"; 
-                btn.onclick = () => changeSlide('ch2_pilih', 'klik');
+                setTimeout(() => playSfx('tepuk'), 500);
+                andi.src = "andi senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
+                box.innerHTML = "Tepat! Jamban menghentikan pencemaran, cuci tangan membunuh kuman. Ini namanya ODF!<br><br><b>Data:</b> Diare pembunuh nomor 2 anak dunia. Penyebab utama sanitasi buruk.<br><br><b>Tips:</b> Gunakan jamban sehat. Cuci tangan pakai sabun setelah BAB.";
+                dialog.innerText = "Kamu hebat! Pilihanmu menyelamatkan Andi dan teman-temannya dari penyakit!";
+                btn.innerText = "SELESAI"; btn.onclick = () => { alert("Tunggu Update Skenario Berikutnya!"); changeSlide('slide2', 'klik'); };
+            } else { // JAWABAN SALAH (B atau C)
+                playSfx('wrong'); 
+                setTimeout(() => playSfx('sad'), 500);
+                andi.src = "andi bingung.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
+                box.innerHTML = "Hanya cuci tangan atau hanya jamban tidak cukup. Harus keduanya!<br><br><b>Tips:</b> Sanitasi bersih butuh jamban layak dan cuci tangan.";
+                dialog.innerText = "Aduh, selokan tetap kotor dan Andi masih bingung. Ayo coba pilih dengan teliti lagi!";
+                btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn2').style.display = 'none'; selectedAnswer2 = -1; document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch2_quiz', 'klik'); };
             }
-            changeSlide('ch2_hasil');
+            changeSlide('ch2_result');
         }
     </script>
 </body>
