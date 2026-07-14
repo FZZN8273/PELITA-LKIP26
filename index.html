@@ -64,30 +64,21 @@
         .btn-music-toggle.hidden { display: none !important; }
 
         /* ==========================================================
-           📌 SLIDE 2 MENU UTAMA (VERSI GAMBAR BARU - HITBOX GARIS)
+           📌 SLIDE 2 MENU UTAMA (HITBOX PRESISI MENUTUPI IKON)
            ========================================================== */
-        /* Layout hitbox transparan untuk menutupi teks di gambar tanpa menimpa */
         .menu-hitbox-container { 
             position: absolute; 
-            top: 278px; /* Posisi vertikal persis menutupi teks di gambar */
-            left: 50%; transform: translateX(-50%); 
-            width: 500px; height: 40px; 
+            top: 167px; /* Menyesuaikan posisi vertikal ikon biru */
+            left: 538px; /* Menyesuaikan posisi horizontal awal kumpulan ikon */
+            width: 320px; height: 100px; 
             display: flex; justify-content: space-between; align-items: center; z-index: 60; 
         }
         
-        /* Tombol berupa garis transparan (Kotak garis layout) */
+        /* Area klik transparan tanpa garis. Biar user merasa klik fotonya langsung */
         .menu-hitbox { 
-            width: 145px; height: 100%; 
-            background: transparent; 
-            border: 2px dashed rgba(255, 255, 255, 0.3); /* Garis putih transparan agar kelihatan layoutnya */
-            cursor: pointer; 
-            display: flex; justify-content: center; align-items: center; 
-            color: transparent; 
-            transition: 0.2s;
+            width: 90px; height: 90px; /* Ukuran persis menyamai kotak biru */
+            background: transparent; border: none; cursor: pointer; display: block; pointer-events: auto;
         }
-        /* Saat dihover (di PC) atau ditekan, garis jadi lebih jelas */
-        .menu-hitbox:hover { border: 2px solid rgba(255, 255, 255, 0.8); }
-        .menu-hitbox:active { border: 2px solid #fff; }
 
         /* --- CHARACTERS --- */
         .char-box-right {
@@ -204,7 +195,7 @@
             <audio id="a-welcome" src="welcoming.mp3" preload="auto"></audio>
             <audio id="a-correct" src="correct.mp3" preload="auto"></audio>
             <audio id="a-wrong" src="wrong.mp3" preload="auto"></audio>
-            <audio id="a-selamat" src="selamat datang.mp3" preload="auto"></audio> <!-- Jangan lupa upload file ini -->
+            <audio id="a-selamat" src="selamat-datang.mp3" preload="auto"></audio>
             
             <!-- AUDIO SPESIAL & BACKGROUND -->
             <audio id="a-tegang" src="tegang.mp3" preload="auto" loop></audio>
@@ -228,11 +219,16 @@
                 </div>
             </div>
 
-            <!-- SLIDE 2: MENU UTAMA (Kotak garis layout aja) -->
+            <!-- SLIDE 2: MENU UTAMA (Area klik transparan menempel pada ikon biru) -->
             <div id="slide2" class="slide">
                 <img src="slide 2.png" class="bg-img">
                 <div class="menu-hitbox-container">
-                    <!-- Area transparan yang menutupi teks gambar (Hanya garis layout) -->
+                    <!-- 
+                       Urutan Ikon di Gambar: 
+                       1. Puzzle (Kiri) -> Cara Main 
+                       2. Palu/Buku (Tengah) -> Rules 
+                       3. Gapura/Kompas (Kanan) -> Mulai Petualangan 
+                    -->
                     <div class="menu-hitbox" onclick="changeSlide('slideCara', 'klik')"></div>
                     <div class="menu-hitbox" onclick="changeSlide('slideRules', 'klik')"></div>
                     <div class="menu-hitbox" onclick="changeSlide('ch1_kelas', 'welcome')"></div>
@@ -449,7 +445,7 @@
             tepuk.currentTime = 0; sad.currentTime = 0;
 
             let durasi = 800; 
-            if(id === 'slide2' && sound === 'selamat') { durasi = 4000; } // 4 detik di awal game + putar selamat-datang.mp3
+            if(id === 'slide2' && sound === 'selamat') { durasi = 4000; } // 🔥 4 detik loading awal + suara selamat datang otomatis
             if(id === 'chResult') { durasi = 600; }
 
             showLoading(() => {
@@ -476,7 +472,7 @@
 
                 if(sound) {
                     if(sound === 'selamat') {
-                        playSfx('selamat'); // 🔥 SUARA SELAMAT DATANG DIPUTAR DISINI
+                        playSfx('selamat'); // 🔥 SUARA SELAMAT DATANG DIPUTAR DI SINI
                     } else {
                         playSfx(sound);
                     }
