@@ -92,7 +92,15 @@
             content: ''; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
             border-width: 20px 15px 0 15px; border-style: solid; border-color: #4a2e1b transparent transparent transparent;
         }
-        .bubble-txt { font-weight: 900; font-size: 18px; color: #4a2e1b; line-height: 1.4; text-align: left; text-shadow: 0px 0px 4px rgba(255,255,255,0.8); }
+        /* ★★ PERBAIKAN KETERBACAAN GELEMBUNG ★★ */
+        .bubble-txt { 
+            font-weight: 900; 
+            font-size: 18px; 
+            color: #4a2e1b; 
+            line-height: 1.4; 
+            text-align: left; 
+            text-shadow: 0px 0px 6px #ffffff, 0px 0px 6px #ffffff; /* Dipertebal kontrasnya */
+        }
         .portrait-huge { height: 350px; width: auto; object-fit: contain; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6)); }
 
         /* --- SKENARIO 1 (RINA) --- */
@@ -148,33 +156,16 @@
         .quiz-btn:active { transform: scale(0.95); }
         .quiz-btn.selected { background: #dca658; color: #fff; border-color: #dca658; }
 
-        /* ==========================================================
-           ✨ FIX LAYOUT SKENARIO 2 (MENCEGAH GELEMBUNG NAKULA MENUTUPI PILIHAN)
-           ========================================================== */
         #ch2_quiz .quiz-container {
             width: 620px;
             left: 44%; /* Geser kuis sedikit ke kiri */
             padding: 20px;
         }
-        #ch2_quiz .quiz-question {
-            font-size: 20px; /* Perkecil font pertanyaan */
-        }
-        #ch2_quiz .quiz-btn {
-            width: 85%;
-            font-size: 15px; /* Perkecil font opsi jawaban */
-            padding: 10px 15px;
-        }
-        #ch2_quiz .char-box-right {
-            transform: scale(0.75) !important; /* Mengecilkan karakter dan gelembung */
-            transform-origin: bottom right !important;
-        }
-        #ch2_quiz .bubble-container {
-            width: 280px !important; /* Memaksa lebar gelembung lebih kecil */
-            margin-bottom: 15px !important;
-        }
-        #ch2_quiz .portrait-huge {
-            height: 250px !important; /* Mengecilkan karakter Nakula */
-        }
+        #ch2_quiz .quiz-question { font-size: 20px; }
+        #ch2_quiz .quiz-btn { width: 85%; font-size: 15px; padding: 10px 15px; }
+        #ch2_quiz .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
+        #ch2_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
+        #ch2_quiz .portrait-huge { height: 250px !important; }
 
         /* --- SLIDE CARA MAIN & RULES --- */
         .slide-white {
@@ -186,12 +177,31 @@
             position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80; color: #3e2717;
         }
 
-        /* --- PANEL HASIL (Dipakai Skenario 1 & 2) --- */
+        /* ==========================================================
+           ✨ PERBAIKAN FONT DI PANEL HASIL (BACKGROUND PUTIH SOLID & SHADOW)
+           ========================================================== */
         .result-panel {
             position: absolute; left: 40px; top: 40px; width: 400px; z-index: 150;
             display: flex; flex-direction: column; align-items: center; text-align: center;
         }
-        #resBox { background: rgba(255,255,255,0.98); padding: 15px; border: 4px solid #dca658; border-radius: 15px; font-weight: bold; font-size: 14px; line-height: 1.4; box-shadow: 0 10px 20px rgba(0,0,0,0.3); width: 100%; }
+        #resBox, #resBox2 { 
+            background: #ffffff; /* Ubah dari transparan menjadi putih solid */
+            padding: 20px 15px; 
+            border: 4px solid #dca658; 
+            border-radius: 15px; 
+            font-weight: 900; /* Font dipertebal */
+            font-size: 14px; 
+            line-height: 1.6; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
+            width: 100%; 
+            color: #3e2717; /* Coklat gelap */
+            text-shadow: 0px 0px 6px #ffffff; /* Agar kontras di latar gelap */
+        }
+        #resTitle, #resTitle2 {
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9) !important; /* Agar judul HASIL juga jelas */
+        }
+
+        /* --- TOMBOL GLOBAL --- */
         .action-btns { display: flex; gap: 15px; margin-top: 15px; }
         .btn-action { padding: 12px 25px; border-radius: 50px; border: none; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 14px; box-shadow: 0 4px 0 #2c1e12; text-transform: uppercase; }
         .btn-back { background: #6b442a; color: #fff; }
@@ -358,7 +368,7 @@
                 </div>
             </div>
 
-            <!-- Adegan 2: Pilihan Ganda (Layout sudah diperbaiki agar tidak saling nutup) -->
+            <!-- Adegan 2: Pilihan Ganda -->
             <div id="ch2_quiz" class="slide">
                 <img src="odf.png" class="bg-odf">
                 
@@ -384,7 +394,7 @@
                 <img id="resAndi" src="andi bingung.png" class="andi-char">
                 
                 <div class="result-panel">
-                    <h2 id="resTitle2" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
+                    <h2 id="resTitle2" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px;">HASIL</h2>
                     <div id="resBox2"></div>
                     <div class="action-btns">
                         <button id="resBtn2" class="btn-action btn-next"></button>
@@ -403,7 +413,7 @@
                 <img id="resRina" src="rina senyum.png" class="rina-char">
                 
                 <div class="result-panel">
-                    <h2 id="resTitle" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
+                    <h2 id="resTitle" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px;">HASIL</h2>
                     <div id="resBox"></div>
                     <div class="action-btns">
                         <button id="resBtn" class="btn-action btn-next"></button>
@@ -598,7 +608,6 @@
                 rina.src = "rina senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerText = "Paracetamol adalah analgesik yang tepat dan aman untuk sakit kepala Rina. Hebat!";
                 dialog.innerText = "Luar biasa! Rina sudah kembali ceria. Kamu memang detektif medis yang teliti!";
-                // 🔥 TOMBOL LANJUT DIUBAH KE SKENARIO 2
                 btn.innerText = "LANJUT CHAPTER 2"; btn.onclick = () => { changeSlide('ch2_adegan1', 'klik'); };
             } else {
                 playSfx('wrong'); 
