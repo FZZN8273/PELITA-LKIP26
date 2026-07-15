@@ -131,15 +131,11 @@
         /* ==========================================================
            🚀 SKENARIO 2 (ANDI & ODF)
            ========================================================== */
-        #ch2_adegan1 .bg-odf {
-            width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;
-        }
+        #ch2_adegan1 .bg-odf { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .andi-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 40px; height: 330px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
 
         /* Layout Kuis Pilihan Ganda Skenario 2 */
-        #ch2_quiz .bg-odf {
-            width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;
-        }
+        #ch2_quiz .bg-odf { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .quiz-container {
             position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); z-index: 20;
             width: 700px; background: rgba(255,255,255,0.9); padding: 25px; border-radius: 20px; border: 4px solid #4a2e1b; text-align: center;
@@ -151,6 +147,34 @@
         }
         .quiz-btn:active { transform: scale(0.95); }
         .quiz-btn.selected { background: #dca658; color: #fff; border-color: #dca658; }
+
+        /* ==========================================================
+           ✨ FIX LAYOUT SKENARIO 2 (MENCEGAH GELEMBUNG NAKULA MENUTUPI PILIHAN)
+           ========================================================== */
+        #ch2_quiz .quiz-container {
+            width: 620px;
+            left: 44%; /* Geser kuis sedikit ke kiri */
+            padding: 20px;
+        }
+        #ch2_quiz .quiz-question {
+            font-size: 20px; /* Perkecil font pertanyaan */
+        }
+        #ch2_quiz .quiz-btn {
+            width: 85%;
+            font-size: 15px; /* Perkecil font opsi jawaban */
+            padding: 10px 15px;
+        }
+        #ch2_quiz .char-box-right {
+            transform: scale(0.75) !important; /* Mengecilkan karakter dan gelembung */
+            transform-origin: bottom right !important;
+        }
+        #ch2_quiz .bubble-container {
+            width: 280px !important; /* Memaksa lebar gelembung lebih kecil */
+            margin-bottom: 15px !important;
+        }
+        #ch2_quiz .portrait-huge {
+            height: 250px !important; /* Mengecilkan karakter Nakula */
+        }
 
         /* --- SLIDE CARA MAIN & RULES --- */
         .slide-white {
@@ -334,13 +358,13 @@
                 </div>
             </div>
 
-            <!-- Adegan 2: Pilihan Ganda -->
+            <!-- Adegan 2: Pilihan Ganda (Layout sudah diperbaiki agar tidak saling nutup) -->
             <div id="ch2_quiz" class="slide">
                 <img src="odf.png" class="bg-odf">
                 
                 <div class="char-box-right">
-                    <div class="bubble-container" style="width: 320px; margin-bottom: 50px;"><p class="bubble-txt" id="bubble2">Andi menunggu saran terbaikmu, Detektif!</p></div>
-                    <img src="nakula.png" class="portrait-huge" style="height: 280px; margin-right: 20px;">
+                    <div class="bubble-container"><p class="bubble-txt" id="bubble2">Andi menunggu saran terbaikmu, Detektif!</p></div>
+                    <img src="nakula.png" class="portrait-huge">
                 </div>
 
                 <div class="quiz-container">
