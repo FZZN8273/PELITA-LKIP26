@@ -111,9 +111,8 @@
         #ch1_lab .bubble-txt { font-size: 18px; line-height: 1.4; } 
         #ch1_lab .portrait-huge { height: 320px; width: auto; }
         
-        /* 🛠️ FIX VISUAL 1: MEJA LAB DINAIKKAN & OBAT DIBESARKAN */
         #ch1_lab .meja-lab-small {
-            position: absolute; bottom: 40px; /* Dinaikkan dari 20px ke 40px */
+            position: absolute; bottom: 40px;
             left: 50%; transform: translateX(-50%);
             width: 65%; height: 280px; 
             z-index: 300; 
@@ -124,8 +123,7 @@
             display: flex; justify-content: space-around; width: 100%;
         }
         #ch1_lab .obat-item { 
-            height: 110px; /* Diperbesar dari 95px menjadi 110px */
-            width: auto; object-fit: contain; 
+            height: 110px; width: auto; object-fit: contain; 
             cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); 
             pointer-events: auto;
         }
@@ -136,10 +134,10 @@
            ========================================================== */
         #ch2_adegan1 .bg-odf { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         
-        /* 🛠️ FIX VISUAL 2: ANDI DIGESER KE KIRI AGAR TIDAK SESAK */
+        /* 🛠️ FIX VISUAL: ANDI KEMBALI KE TENGAH */
         .andi-char { 
             position: absolute; 
-            left: 30%; /* Geser agak ke kiri dari 50% ke 30% */
+            left: 50%; /* Kembali ke posisi tengah layar */
             transform: translateX(-50%); 
             bottom: 40px; 
             height: 330px; 
@@ -168,18 +166,19 @@
         #ch2_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
         #ch2_quiz .portrait-huge { height: 250px !important; }
 
-        /* ✨ PANEL HASIL SKENARIO 2 (KOTAK PUTIH JELAS) */
+        /* ✨ PANEL HASIL SKENARIO 2 (DIPERKECIL & DIGESER KE KIRI) */
         #ch2_result .result-panel {
-            position: absolute; left: 15px; top: 50px; width: 420px; /* Dikecilkan sedikit agar tidak sesak */
+            position: absolute; left: 10px; top: 45px; width: 360px; /* Dipersempit agar tidak menimpa Andi */
             z-index: 150; display: flex; flex-direction: column; align-items: center;
         }
         #ch2_result #resTitle2 { align-self: center; }
         #ch2_result #resBox2 {
             background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px;
-            padding: 18px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            font-size: 14px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px;
+            padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px;
         }
-        #ch2_result .action-btns { margin-top: 20px; }
+        #ch2_result .action-btns { margin-top: 15px; }
+        #ch2_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; } /* Mengecilkan Nakula agar seimbang */
 
         /* --- SLIDE CARA MAIN & RULES --- */
         .slide-white { background-color: #f7f2e1; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 900; }
@@ -374,7 +373,7 @@
                 </div>
             </div>
 
-            <!-- Adegan 3: Hasil (Dengan Andi digeser & Panel diperkecil) -->
+            <!-- Adegan 3: Hasil (Andi di Tengah, Panel Penjelasan Dipersempit) -->
             <div id="ch2_result" class="slide">
                 <img src="odf.png" class="bg-img">
                 <img id="resAndi" src="andi bingung.png" class="andi-char">
