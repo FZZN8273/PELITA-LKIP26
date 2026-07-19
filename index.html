@@ -140,7 +140,7 @@
         #ch2_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           ✨ SKENARIO 3 (SITI & ANEMIA)
+           ✨ SKENARIO 3 (SITI & ANEMIA) - VISUAL DIPERBAIKI
            ========================================================== */
         #ch3_kelas .bg-upacara { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .siti-char { position: absolute; left: 40%; transform: translateX(-50%); bottom: 30px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
@@ -158,15 +158,20 @@
         #ch3_lab .bubble-txt { font-size: 18px; line-height: 1.4; }
         #ch3_lab .portrait-huge { height: 320px; width: auto; }
 
+        /* 🛠️ FIX VISUAL: MEJA DINAIKKAN & MAKANAN DIBESARIN */
         #ch3_lab .meja-makan-small {
-            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+            position: absolute; 
+            bottom: 60px; /* ★ Dinaikkan dari 30px ke 60px agar tidak menggantung */
+            left: 50%; transform: translateX(-50%);
             width: 70%; height: 280px; z-index: 300;
             display: flex; flex-direction: column; justify-content: flex-end;
-            align-items: center; padding-bottom: 30px; gap: 20px;
+            align-items: center; 
+            padding-bottom: 15px; /* ★ Dikurangi dari 30px ke 15px agar elemen mepet ke atas */
+            gap: 20px;
         }
         #ch3_lab .quiz-food-question {
             font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 18px; color: #4a2e1b;
-            text-align: center; background: rgba(255,255,255,0.85); padding: 15px 25px;
+            text-align: center; background: rgba(255,255,255,0.9); padding: 15px 25px;
             border-radius: 15px; border: 3px solid #4a2e1b; box-shadow: 0 5px 10px rgba(0,0,0,0.2);
             width: 100%;
         }
@@ -174,7 +179,8 @@
             display: flex; justify-content: space-around; width: 100%;
         }
         #ch3_lab .makanan-item {
-            height: 100px; width: auto; object-fit: contain;
+            height: 110px; /* ★ Dinaikkan dari 100px agar lebih kelihatan */
+            width: auto; object-fit: contain;
             cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6));
             border-radius: 15px; border: 4px solid transparent; padding: 5px;
             pointer-events: auto;
