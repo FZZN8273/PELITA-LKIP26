@@ -116,12 +116,10 @@
         #ch1_lab .obat-active { transform: scale(1.15) translateY(-10px); filter: drop-shadow(0 0 15px #4CAF50); }
 
         /* ==========================================================
-           🚀 SKENARIO 2 (ANDI & ODF) - PERBAIKAN VISUAL
+           🚀 SKENARIO 2 (ANDI & ODF)
            ========================================================== */
         #ch2_adegan1 .bg-odf { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .andi-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 40px; height: 330px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
-        
-        /* # Fix: Narasi Andi Gelembung diperlebar dan ukuran karakter diseimbangkan */
         #ch2_adegan1 .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
         #ch2_adegan1 .bubble-container { width: 340px !important; padding: 15px !important; }
         #ch2_adegan1 .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
@@ -147,39 +145,29 @@
         #ch2_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           ✨ SKENARIO 3 (SITI & ANEMIA) - ANALISIS VISUAL & PERBAIKAN LAYOUT
+           ✨ SKENARIO 3 (SITI & ANEMIA)
            ========================================================== */
         #ch3_kelas .bg-upacara { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .siti-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 30px; height: 340px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
-        
         #ch3_lab .bg-meja-lab {
             width: 100%; height: 100%;
             object-fit: contain; object-position: center bottom;
             position: absolute; top: 0; left: 0; z-index: 1;
         }
-        /* # Fix: Nakula di Slide Meja Dibesarkan dan Geser Posisi Agak Kiri Atas */
         #ch3_lab .char-box-right {
-            position: absolute; right: 10px; bottom: 10px; /* Geser ke bawah dan kekiri sedikit */
+            position: absolute; right: 10px; bottom: 10px;
             width: auto; height: auto;
-            transform: scale(0.8) !important; /* Dibesarkan agar keliatan */
+            transform: scale(0.8) !important;
             transform-origin: bottom right; z-index: 10;
         }
-        #ch3_lab .bubble-container { 
-            width: 290px !important; /* Diperlebar agar teks keliatan */
-            padding: 12px !important; margin-bottom: 10px !important; 
-        }
+        #ch3_lab .bubble-container { width: 290px !important; padding: 12px !important; margin-bottom: 10px !important; }
         #ch3_lab .bubble-txt { font-size: 15px !important; line-height: 1.4 !important; }
         #ch3_lab .portrait-huge { height: 250px !important; width: auto; }
-
-        /* # Fix: Meja Makan Dijarak & Obat Agak Diturunkan */
         #ch3_lab .meja-makan-small {
-            position: absolute; bottom: 20px;
-            left: 50%; transform: translateX(-50%);
-            width: 75%; height: auto;
-            z-index: 300;
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            width: 75%; height: auto; z-index: 300;
             display: flex; flex-direction: column; justify-content: flex-end;
-            align-items: center; 
-            padding-bottom: 250px; gap: 25px; /* Jarak antar elemen ditambah */
+            align-items: center; padding-bottom: 250px; gap: 25px;
         }
         #ch3_lab .quiz-food-question {
             font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 16px; color: #4a2e1b;
@@ -189,7 +177,7 @@
         }
         #ch3_lab .row-tiga-makanan {
             display: flex; justify-content: space-around; width: 100%; align-items: flex-end;
-            padding: 0 15px; margin-top: 15px; /* Diberi jarak agar tidak menumpuk dengan pertanyaan */
+            padding: 0 15px; margin-top: 15px;
         }
         #ch3_lab .food-wrapper { display: flex; flex-direction: column; align-items: center; gap: 6px; }
         #ch3_lab .makanan-item {
@@ -208,18 +196,35 @@
             text-align: center; font-weight: 900; font-size: 12px; color: #4a2e1b; 
             background: rgba(255, 255, 255, 0.9); padding: 5px 8px; border-radius: 6px;
         }
-        /* Tombol Jawab ditempatkan agar rapi */
         #ch3_lab .btn-action { margin-top: 10px; display: none; }
-
-        /* # Fix: Siti di Hasil Jangan Sampai Ketimpa Panel Kiri */
-        #ch3_result .result-panel { 
-            position: absolute; left: 5px; top: 45px; width: 380px; /* Lebar panel dikurangi agar Siti keliatan */
-            z-index: 150; display: flex; flex-direction: column; align-items: center; 
-        }
+        #ch3_result .result-panel { position: absolute; left: 5px; top: 45px; width: 380px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
         #ch3_result #resTitle3 { align-self: center; }
         #ch3_result #resBox3 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
         #ch3_result .action-btns { margin-top: 15px; }
         #ch3_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
+
+        /* ==========================================================
+           🆕 SKENARIO 4 (FAJAR & HOAKS KESEHATAN)
+           ========================================================== */
+        #ch4_adegan1 .bg-hp { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
+        .fajar-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 40px; height: 330px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
+        #ch4_adegan1 .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
+        #ch4_adegan1 .bubble-container { width: 340px !important; padding: 15px !important; }
+        #ch4_adegan1 .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
+        #ch4_adegan1 .portrait-huge { height: 320px !important; width: auto; }
+
+        #ch4_quiz .bg-hp { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
+        #ch4_quiz .quiz-container { width: 620px; left: 44%; padding: 20px; }
+        #ch4_quiz .quiz-question { font-size: 20px; }
+        #ch4_quiz .quiz-btn { width: 85%; font-size: 15px; padding: 10px 15px; }
+        #ch4_quiz .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
+        #ch4_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
+        #ch4_quiz .portrait-huge { height: 250px !important; }
+        #ch4_result .result-panel { position: absolute; left: 10px; top: 45px; width: 360px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
+        #ch4_result #resTitle4 { align-self: center; }
+        #ch4_result #resBox4 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
+        #ch4_result .action-btns { margin-top: 15px; }
+        #ch4_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* --- SLIDE CARA MAIN & RULES --- */
         .slide-white { background-color: #f7f2e1; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 900; }
@@ -487,6 +492,58 @@
                 </div>
             </div>
 
+            <!-- ==========================================================
+                 🆕 SKENARIO 4: FAJAR & HOAKS KESEHATAN (PANIK DI GRUP WHATSAPP)
+                 ========================================================== -->
+            <div id="ch4_adegan1" class="slide">
+                <img src="hp.png" class="bg-hp">
+                <img src="fajar kaget.png" class="fajar-char">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt">Fajar membaca pesan viral yang menyatakan bahwa vaksin DBD bisa menyebabkan kemandulan. Akibatnya, teman-temannya menjadi takut untuk divaksin. Namun, benarkah informasi itu? Ini masalah serius. Kita harus mencari tahu kebenarannya sekarang juga!</p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+                <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch4_quiz', 'klik')">LANJUTKAN ▶</button>
+                </div>
+            </div>
+
+            <div id="ch4_quiz" class="slide">
+                <img src="hp.png" class="bg-hp">
+                
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt" id="bubble4">Fajar menunggu saran terbaikmu, Detektif!</p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-question">Apa yang sebaiknya dilakukan Fajar?</div>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="selectAnswer4(0)">A. Memeriksa kebenarannya di situs resmi Kemenkes</button>
+                        <button class="quiz-btn" onclick="selectAnswer4(1)">B. Menyebarkan pesan itu ke grup lain</button>
+                        <button class="quiz-btn" onclick="selectAnswer4(2)">C. Diam saja dan tidak peduli</button>
+                    </div>
+                    <button class="btn-action btn-next" id="quizSubmitBtn4" onclick="submitAnswer4()" style="display:none;">JAWAB ▶</button>
+                </div>
+            </div>
+
+            <div id="ch4_result" class="slide">
+                <img src="hp.png" class="bg-img">
+                <img id="resFajar" src="fajar kaget.png" class="fajar-char">
+                
+                <div class="result-panel">
+                    <h2 id="resTitle4" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
+                    <div id="resBox4"></div>
+                    <div class="action-btns">
+                        <button id="resBtn4" class="btn-action btn-next"></button>
+                    </div>
+                </div>
+
+                <div class="char-box-right">
+                    <div class="bubble-container"><p id="resSadewa4" class="bubble-txt"></p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+            </div>
+
             <!-- HASIL SKENARIO 1 (Rina) -->
             <div id="chResult" class="slide">
                 <img src="kelas.png" class="bg-img">
@@ -589,7 +646,7 @@
                 btn.classList.remove('muted');
                 const activeSlide = document.querySelector('.slide[style*="display: block"]');
                 const activeId = activeSlide ? activeSlide.id : 'slide1';
-                if(activeId === 'ch1_kelas' || activeId === 'ch1_lab' || activeId === 'ch2_adegan1' || activeId === 'ch2_quiz' || activeId === 'ch3_kelas' || activeId === 'ch3_lab') {
+                if(activeId === 'ch1_kelas' || activeId === 'ch1_lab' || activeId === 'ch2_adegan1' || activeId === 'ch2_quiz' || activeId === 'ch3_kelas' || activeId === 'ch3_lab' || activeId === 'ch4_adegan1' || activeId === 'ch4_quiz') {
                     playBgMusic('tegang');
                 } else {
                     playBgMusic('gamelan');
@@ -623,7 +680,7 @@
 
             let durasi = 800; 
             if(id === 'slide2' && sound === 'selamat') { durasi = 4000; }
-            if(id === 'chResult' || id === 'ch2_result' || id === 'ch3_result') { durasi = 600; }
+            if(id === 'chResult' || id === 'ch2_result' || id === 'ch3_result' || id === 'ch4_result') { durasi = 600; }
 
             showLoading(() => {
                 const musicBtn = document.getElementById('btnMusic');
@@ -633,7 +690,7 @@
                     musicBtn.classList.remove('hidden');
                 }
 
-                if(id === 'ch1_kelas' || id === 'ch1_lab' || id === 'ch2_adegan1' || id === 'ch2_quiz' || id === 'ch3_kelas' || id === 'ch3_lab') {
+                if(id === 'ch1_kelas' || id === 'ch1_lab' || id === 'ch2_adegan1' || id === 'ch2_quiz' || id === 'ch3_kelas' || id === 'ch3_lab' || id === 'ch4_adegan1' || id === 'ch4_quiz') {
                     if(!(lastSlideId === 'ch1_kelas' && id === 'ch1_lab')) {
                         playBgMusic('tegang');
                     } else {
@@ -765,7 +822,7 @@
                 siti.src = "siti senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerHTML = "Sempurna! Nasi, bayam, dan tahu kaya akan zat besi sehingga Siti bisa terbebas dari anemia.<br><br><b>Data:</b> Sebanyak 38% remaja putri Indonesia menderita anemia.<br><br><b>Tips:</b> Makanlah yang berwarna 'pelangi' di piringmu karena semakin berwarna, semakin lengkap gizinya.";
                 dialog.innerText = "Siti berhasil bangkit! Kamu benar-benar detektif gizi ulung!";
-                btn.innerText = "LANJUT CHAPTER 4"; btn.onclick = () => { alert("Tunggu Update Skenario Berikutnya!"); changeSlide('slide2', 'klik'); };
+                btn.innerText = "LANJUT CHAPTER 4"; btn.onclick = () => { changeSlide('ch4_adegan1', 'klik'); };
             } else { // JAWABAN SALAH
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
@@ -775,6 +832,43 @@
                 btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn3').style.display = 'none'; selectedFood = -1; document.getElementById('food-0').classList.remove('makanan-active'); document.getElementById('food-1').classList.remove('makanan-active'); document.getElementById('food-2').classList.remove('makanan-active'); changeSlide('ch3_lab', 'klik'); };
             }
             changeSlide('ch3_result');
+        }
+
+        /* ==========================================================
+           🆕 LOGIKA SKENARIO 4 (FAJAR & HOAKS)
+           ========================================================== */
+        let selectedAnswer4 = -1;
+
+        function selectAnswer4(index) {
+            playSfx('klik');
+            selectedAnswer4 = index;
+            const btns = document.querySelectorAll('.quiz-btn');
+            btns.forEach((btn, i) => btn.classList.toggle('selected', i === index));
+            document.getElementById('quizSubmitBtn4').style.display = 'block';
+        }
+
+        function submitAnswer4() {
+            if(selectedAnswer4 === -1) return alert("Pilih jawaban dulu!");
+            stopAllBgMusic();
+
+            const fajar = document.getElementById('resFajar'), title = document.getElementById('resTitle4'), box = document.getElementById('resBox4'), dialog = document.getElementById('resSadewa4'), btn = document.getElementById('resBtn4');
+
+            if(selectedAnswer4 === 0) { // JAWABAN BENAR (A)
+                playSfx('correct'); 
+                setTimeout(() => playSfx('tepuk'), 500);
+                fajar.src = "fajar kaget.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
+                box.innerHTML = "Kamu detektif sejati! Vaksin DBD sudah terbukti aman oleh BPOM.<br><br><b>Data:</b> Sebanyak 60% remaja percaya informasi kesehatan dari media sosial tanpa memeriksa faktanya.<br><br><b>Tips:</b> Saring sebelum membagikan. Selalu cek ke sumber resmi seperti Kemenkes atau WHO.";
+                dialog.innerText = "Kamu hebat! Fajar jadi tenang dan teman-temannya selamat dari hoaks!";
+                btn.innerText = "LANJUT CHAPTER 5"; btn.onclick = () => { alert("Tunggu Update Skenario Berikutnya!"); changeSlide('slide2', 'klik'); };
+            } else { // JAWABAN SALAH (B atau C)
+                playSfx('wrong'); 
+                setTimeout(() => playSfx('sad'), 500);
+                fajar.src = "fajar kaget.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
+                box.innerHTML = "Jangan menyebarkan hoaks! Tindakan itu sangat berbahaya bagi orang lain.<br><br><b>Tips:</b> Selalu lakukan verifikasi sebelum memercayai sebuah informasi.";
+                dialog.innerText = "Aduh, hoaks makin menyebar dan Fajar makin panik! Ayo coba pilih yang benar lagi!";
+                btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn4').style.display = 'none'; selectedAnswer4 = -1; document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch4_quiz', 'klik'); };
+            }
+            changeSlide('ch4_result');
         }
     </script>
 </body>
