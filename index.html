@@ -116,10 +116,17 @@
         #ch1_lab .obat-active { transform: scale(1.15) translateY(-10px); filter: drop-shadow(0 0 15px #4CAF50); }
 
         /* ==========================================================
-           🚀 SKENARIO 2 (ANDI & ODF)
+           🚀 SKENARIO 2 (ANDI & ODF) - PERBAIKAN VISUAL
            ========================================================== */
         #ch2_adegan1 .bg-odf { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .andi-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 40px; height: 330px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
+        
+        /* # Fix: Narasi Andi Gelembung diperlebar dan ukuran karakter diseimbangkan */
+        #ch2_adegan1 .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
+        #ch2_adegan1 .bubble-container { width: 340px !important; padding: 15px !important; }
+        #ch2_adegan1 .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
+        #ch2_adegan1 .portrait-huge { height: 320px !important; width: auto; }
+
         #ch2_quiz .bg-odf { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .quiz-container { position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); z-index: 20; width: 700px; background: rgba(255,255,255,0.9); padding: 25px; border-radius: 20px; border: 4px solid #4a2e1b; text-align: center; }
         .quiz-question { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 22px; color: #4a2e1b; margin-bottom: 20px; }
@@ -140,71 +147,73 @@
         #ch2_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           ✨ SKENARIO 3 (SITI & ANEMIA) - LAYOUT DIPERBAIKI TOTAL
+           ✨ SKENARIO 3 (SITI & ANEMIA) - ANALISIS VISUAL & PERBAIKAN LAYOUT
            ========================================================== */
         #ch3_kelas .bg-upacara { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
-        .siti-char { position: absolute; left: 40%; transform: translateX(-50%); bottom: 30px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
+        .siti-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 30px; height: 340px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
         
         #ch3_lab .bg-meja-lab {
             width: 100%; height: 100%;
             object-fit: contain; object-position: center bottom;
             position: absolute; top: 0; left: 0; z-index: 1;
         }
+        /* # Fix: Nakula di Slide Meja Dibesarkan dan Geser Posisi Agak Kiri Atas */
         #ch3_lab .char-box-right {
-            position: absolute; right: 20px; bottom: 15px;
+            position: absolute; right: 10px; bottom: 10px; /* Geser ke bawah dan kekiri sedikit */
             width: auto; height: auto;
-            transform: scale(0.8) !important; /* Diperbesar dari 0.65 */
+            transform: scale(0.8) !important; /* Dibesarkan agar keliatan */
             transform-origin: bottom right; z-index: 10;
         }
         #ch3_lab .bubble-container { 
-            width: 280px !important; /* Lebih lebar */
-            padding: 10px !important; margin-bottom: 8px !important; 
+            width: 290px !important; /* Diperlebar agar teks keliatan */
+            padding: 12px !important; margin-bottom: 10px !important; 
         }
-        #ch3_lab .bubble-txt { font-size: 14px !important; line-height: 1.3 !important; }
-        #ch3_lab .portrait-huge { height: 250px !important; width: auto; } /* Lebih besar */
+        #ch3_lab .bubble-txt { font-size: 15px !important; line-height: 1.4 !important; }
+        #ch3_lab .portrait-huge { height: 250px !important; width: auto; }
 
+        /* # Fix: Meja Makan Dijarak & Obat Agak Diturunkan */
         #ch3_lab .meja-makan-small {
-            position: absolute; bottom: 40px; /* Dinaikkan posisinya tapi tidak terlalu jauh */
+            position: absolute; bottom: 20px;
             left: 50%; transform: translateX(-50%);
-            width: 70%; height: auto;
+            width: 75%; height: auto;
             z-index: 300;
             display: flex; flex-direction: column; justify-content: flex-end;
             align-items: center; 
-            padding-bottom: 180px; /* Dikurangi dari 280px menjadi 180px agar posisi makanan lebih seimbang dan tidak terlalu naik ke atas */
-            gap: 15px;
+            padding-bottom: 250px; gap: 25px; /* Jarak antar elemen ditambah */
         }
         #ch3_lab .quiz-food-question {
-            font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 14px; color: #4a2e1b;
-            text-align: center; background: rgba(255,255,255,0.9); padding: 12px 20px;
+            font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 16px; color: #4a2e1b;
+            text-align: center; background: rgba(255,255,255,0.95); padding: 12px 20px;
             border-radius: 12px; border: 3px solid #4a2e1b; box-shadow: 0 5px 10px rgba(0,0,0,0.2);
             width: 85%; margin-bottom: 5px;
         }
         #ch3_lab .row-tiga-makanan {
             display: flex; justify-content: space-around; width: 100%; align-items: flex-end;
-            padding: 0 10px;
+            padding: 0 15px; margin-top: 15px; /* Diberi jarak agar tidak menumpuk dengan pertanyaan */
         }
-        #ch3_lab .food-wrapper { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        #ch3_lab .food-wrapper { display: flex; flex-direction: column; align-items: center; gap: 6px; }
         #ch3_lab .makanan-item {
-            height: 75px; width: auto; object-fit: contain;
+            height: 80px; width: auto; object-fit: contain;
             cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6));
             border-radius: 10px; border: 3px solid transparent; padding: 3px;
             pointer-events: auto;
         }
         #ch3_lab .makanan-active {
-            transform: scale(1.15) translateY(-10px);
+            transform: scale(1.15) translateY(-5px);
             filter: drop-shadow(0 0 15px #4CAF50);
             background: #ffffff;
             border: 3px solid #4CAF50;
         }
         #ch3_lab .food-label {
-            text-align: center; font-weight: 900; font-size: 11px; color: #4a2e1b; 
-            background: rgba(255, 255, 255, 0.85); padding: 4px 8px; border-radius: 6px;
+            text-align: center; font-weight: 900; font-size: 12px; color: #4a2e1b; 
+            background: rgba(255, 255, 255, 0.9); padding: 5px 8px; border-radius: 6px;
         }
+        /* Tombol Jawab ditempatkan agar rapi */
+        #ch3_lab .btn-action { margin-top: 10px; display: none; }
 
-        /* 🛠️ FIX PANEL HASIL: DIPERSEMPIT & DIGESER AGAR MUKA SITI TIDAK TERTUTUP */
+        /* # Fix: Siti di Hasil Jangan Sampai Ketimpa Panel Kiri */
         #ch3_result .result-panel { 
-            position: absolute; left: 10px; top: 30px; /* Lebih ke atas dan ke kiri */ 
-            width: 340px; /* Dipersempit dari 400px menjadi 340px */
+            position: absolute; left: 5px; top: 45px; width: 380px; /* Lebar panel dikurangi agar Siti keliatan */
             z-index: 150; display: flex; flex-direction: column; align-items: center; 
         }
         #ch3_result #resTitle3 { align-self: center; }
@@ -370,7 +379,7 @@
             </div>
 
             <!-- ==========================================================
-                 SKENARIO 2: ANDI & ODF (NARASI SUDAH DIREVISI)
+                 SKENARIO 2: ANDI & ODF (NARASI DIREVISI, PERBAIKAN VISUAL)
                  ========================================================== -->
             <div id="ch2_adegan1" class="slide">
                 <img src="odf.png" class="bg-odf">
@@ -418,7 +427,7 @@
             </div>
 
             <!-- ==========================================================
-                 SKENARIO 3: SITI & ANEMIA (LAYOUT SUDAH DIPERBAIKI)
+                 SKENARIO 3: SITI & ANEMIA (NARASI & LAYOUT DIREVISI)
                  ========================================================== -->
             <div id="ch3_kelas" class="slide">
                 <img src="upacara.jpg" class="bg-upacara">
@@ -443,17 +452,14 @@
                 <div class="meja-makan-small">
                     <div class="quiz-food-question">Kombinasi makanan mana yang paling kaya zat besi untuk Siti?</div>
                     <div class="row-tiga-makanan">
-                        <!-- Kiri: btn.png -->
                         <div class="food-wrapper">
                             <img src="btn.png" id="food-0" class="makanan-item" onclick="selectFood(0)">
                             <div class="food-label">Bayam, nasi dan tahu</div>
                         </div>
-                        <!-- Tengah: nmt.png -->
                         <div class="food-wrapper">
                             <img src="nmt.png" id="food-1" class="makanan-item" onclick="selectFood(1)">
                             <div class="food-label">Nasi dan mie instan, telor</div>
                         </div>
-                        <!-- Kanan: smg.png -->
                         <div class="food-wrapper">
                             <img src="smg.png" id="food-2" class="makanan-item" onclick="selectFood(2)">
                             <div class="food-label">Seblak gorengan mie</div>
@@ -753,7 +759,7 @@
 
             const siti = document.getElementById('resSiti'), title = document.getElementById('resTitle3'), box = document.getElementById('resBox3'), dialog = document.getElementById('resNakula3'), btn = document.getElementById('resBtn3');
 
-            if(selectedFood === 0) { // JAWABAN BENAR (btn.png)
+            if(selectedFood === 0) { // JAWABAN BENAR (btn.png - Bayam, nasi dan tahu)
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
                 siti.src = "siti senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
