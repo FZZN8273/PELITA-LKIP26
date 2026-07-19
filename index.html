@@ -116,7 +116,7 @@
         #ch1_lab .obat-active { transform: scale(1.15) translateY(-10px); filter: drop-shadow(0 0 15px #4CAF50); }
 
         /* ==========================================================
-           🚀 SKENARIO 2 (ANDI & ODF)
+           🚀 SKENARIO 2 (ANDI & ODF) - NARASI DIREVISI
            ========================================================== */
         #ch2_adegan1 .bg-odf { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .andi-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 40px; height: 330px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
@@ -140,7 +140,7 @@
         #ch2_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           ✨ SKENARIO 3 (SITI & ANEMIA) - ANALISIS VISUAL & LAYOUT DIPERBAIKI
+           ✨ SKENARIO 3 (SITI & ANEMIA) - NARASI DIREVISI
            ========================================================== */
         #ch3_kelas .bg-upacara { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .siti-char { position: absolute; left: 40%; transform: translateX(-50%); bottom: 30px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
@@ -151,28 +151,23 @@
             position: absolute; top: 0; left: 0; z-index: 1;
         }
         #ch3_lab .char-box-right {
-            position: absolute; right: 20px; bottom: 15px; /* Geser Nakula sedikit ke bawah */
+            position: absolute; right: 20px; bottom: 15px;
             width: auto; height: auto;
-            transform: scale(0.65) !important; /* Dikecilkan lagi agar makin lega */
+            transform: scale(0.65) !important;
             transform-origin: bottom right; z-index: 10;
         }
-        #ch3_lab .bubble-container { 
-            width: 230px !important; /* Dipersempit gelembungnya */
-            padding: 8px !important; margin-bottom: 8px !important; 
-        }
+        #ch3_lab .bubble-container { width: 230px !important; padding: 8px !important; margin-bottom: 8px !important; }
         #ch3_lab .bubble-txt { font-size: 13px !important; line-height: 1.3 !important; }
         #ch3_lab .portrait-huge { height: 200px !important; width: auto; }
 
-        /* 🛠️ FIX LAYOUT: Wadah di bawah, isi dipaksa naik dengan padding */
         #ch3_lab .meja-makan-small {
-            position: absolute; bottom: 20px; /* Wadah menempel di kaki meja */
+            position: absolute; bottom: 20px;
             left: 50%; transform: translateX(-50%);
-            width: 70%; height: auto; /* Tinggi otomatis mengikuti konten */
+            width: 70%; height: auto;
             z-index: 300;
             display: flex; flex-direction: column; justify-content: flex-end;
             align-items: center; 
-            padding-bottom: 280px; /* ★★ KUNCI PERBAIKAN: Mendorong isi naik ke atas permukaan meja */
-            gap: 10px;
+            padding-bottom: 280px; gap: 10px;
         }
         #ch3_lab .quiz-food-question {
             font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 14px; color: #4a2e1b;
@@ -366,13 +361,13 @@
             </div>
 
             <!-- ==========================================================
-                 SKENARIO 2: ANDI & ODF
+                 SKENARIO 2: ANDI & ODF (NARASI SUDAH DIREVISI)
                  ========================================================== -->
             <div id="ch2_adegan1" class="slide">
                 <img src="odf.png" class="bg-odf">
                 <img src="andi bingung.png" class="andi-char">
                 <div class="char-box-right">
-                    <div class="bubble-container"><p class="bubble-txt">Andi resah. Sudah seminggu banyak temannya sakit perut. Ternyata, warga masih suka BAB di selokan belakang kantin. Ini serius. Penyakit menyebar dari sini. Apa yang harus dilakukan?</p></div>
+                    <div class="bubble-container"><p class="bubble-txt">Andi, seorang siswa OSIS, merasa resah karena sudah seminggu banyak temannya sakit perut. Setelah ia periksa, ternyata warga masih suka buang air besar di selokan belakang kantin. Masalah ini serius karena penyakit bisa menyebar dari sini. Apa yang harus kita lakukan untuk membantu Andi?</p></div>
                     <img src="nakula.png" class="portrait-huge">
                 </div>
                 <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
@@ -387,11 +382,11 @@
                     <img src="nakula.png" class="portrait-huge">
                 </div>
                 <div class="quiz-container">
-                    <div class="quiz-question">Apa tindakan terbaik untuk mengatasi masalah ini?</div>
+                    <div class="quiz-question">Apa tindakan terbaik untuk mengatasi masalah sanitasi ini?</div>
                     <div class="quiz-options">
-                        <button class="quiz-btn" onclick="selectAnswer2(0)">A. Bangun jamban + cuci tangan pakai sabun</button>
-                        <button class="quiz-btn" onclick="selectAnswer2(1)">B. Cuci tangan saja sudah cukup</button>
-                        <button class="quiz-btn" onclick="selectAnswer2(2)">C. Bangun jamban saja</button>
+                        <button class="quiz-btn" onclick="selectAnswer2(0)">A. Membangun jamban dan mencuci tangan pakai sabun</button>
+                        <button class="quiz-btn" onclick="selectAnswer2(1)">B. Cukup mencuci tangan saja</button>
+                        <button class="quiz-btn" onclick="selectAnswer2(2)">C. Membangun jamban saja</button>
                     </div>
                     <button class="btn-action btn-next" id="quizSubmitBtn2" onclick="submitAnswer2()" style="display:none;">JAWAB ▶</button>
                 </div>
@@ -414,14 +409,13 @@
             </div>
 
             <!-- ==========================================================
-                 SKENARIO 3: SITI & ANEMIA (LAYOUT SUDAH DINAJIKAN)
+                 SKENARIO 3: SITI & ANEMIA (NARASI SUDAH DIREVISI)
                  ========================================================== -->
-            <!-- Adegan 1: Pengenalan Masalah -->
             <div id="ch3_kelas" class="slide">
                 <img src="upacara.jpg" class="bg-upacara">
                 <img src="siti lemas.png" class="siti-char">
                 <div class="char-box-right">
-                    <div class="bubble-container"><p class="bubble-txt">Siti sering pingsan saat upacara. Makan siangnya cuma nasi dan mie instan. Siti butuh gizi seimbang. Makanan apa yang kaya zat besi?</p></div>
+                    <div class="bubble-container"><p class="bubble-txt">Siti sering pingsan saat mengikuti upacara. Makan siangnya hanya terdiri dari nasi dan mie instan. Siti membutuhkan gizi seimbang. Makanan apa yang kaya akan zat besi untuk membantunya?</p></div>
                     <img src="nakula.png" class="portrait-huge">
                 </div>
                 <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
@@ -429,7 +423,6 @@
                 </div>
             </div>
 
-            <!-- Adegan 2: Pilihan Makanan di Meja -->
             <div id="ch3_lab" class="slide">
                 <img src="meja 1.png" class="bg-meja-lab">
                 
@@ -441,27 +434,26 @@
                 <div class="meja-makan-small">
                     <div class="quiz-food-question">Kombinasi makanan mana yang paling kaya zat besi untuk Siti?</div>
                     <div class="row-tiga-makanan">
-                        <!-- Kiri: btn.png (Bayam Tahu Nasi) -->
+                        <!-- Kiri: btn.png -->
                         <div class="food-wrapper">
                             <img src="btn.png" id="food-0" class="makanan-item" onclick="selectFood(0)">
-                            <div class="food-label">Bayam Tahu Nasi</div>
+                            <div class="food-label">Bayam, nasi dan tahu</div>
                         </div>
-                        <!-- Tengah: nmt.png (Nasi Mie Telor) -->
+                        <!-- Tengah: nmt.png -->
                         <div class="food-wrapper">
                             <img src="nmt.png" id="food-1" class="makanan-item" onclick="selectFood(1)">
-                            <div class="food-label">Nasi Mie Telor</div>
+                            <div class="food-label">Nasi dan mie instan, telor</div>
                         </div>
-                        <!-- Kanan: smg.png (Seblak Mie Gorengan) -->
+                        <!-- Kanan: smg.png -->
                         <div class="food-wrapper">
                             <img src="smg.png" id="food-2" class="makanan-item" onclick="selectFood(2)">
-                            <div class="food-label">Seblak Mie Gorengan</div>
+                            <div class="food-label">Seblak gorengan mie</div>
                         </div>
                     </div>
                     <button class="btn-action btn-next" id="quizSubmitBtn3" onclick="submitFood()" style="display:none;">JAWAB ▶</button>
                 </div>
             </div>
 
-            <!-- Adegan 3: Hasil -->
             <div id="ch3_result" class="slide">
                 <img src="upacara.jpg" class="bg-img">
                 <img id="resSiti" src="siti lemas.png" class="siti-char">
@@ -695,7 +687,7 @@
         }
 
         /* ==========================================================
-           LOGIKA SKENARIO 2 (ANDI & ODF)
+           LOGIKA SKENARIO 2 (ANDI & ODF) - NARASI DIREVISI
            ========================================================== */
         let selectedAnswer2 = -1;
 
@@ -717,14 +709,14 @@
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
                 andi.src = "andi senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
-                box.innerHTML = "Tepat! Jamban menghentikan pencemaran, cuci tangan membunuh kuman. Ini namanya ODF!<br><br><b>Data:</b> Diare pembunuh nomor 2 anak dunia. Penyebab utama sanitasi buruk.<br><br><b>Tips:</b> Gunakan jamban sehat. Cuci tangan pakai sabun setelah BAB.";
+                box.innerHTML = "Tepat sekali! Jamban menghentikan pencemaran, sedangkan cuci tangan membunuh kuman. Inilah yang disebut ODF.<br><br><b>Data:</b> Diare merupakan pembunuh nomor dua pada anak di dunia. Penyebab utamanya adalah sanitasi yang buruk.<br><br><b>Tips:</b> Gunakan jamban sehat dan cuci tangan pakai sabun setelah buang air besar.";
                 dialog.innerText = "Kamu hebat! Pilihanmu menyelamatkan Andi dan teman-temannya dari penyakit!";
                 btn.innerText = "LANJUT CHAPTER 3"; btn.onclick = () => { changeSlide('ch3_kelas', 'klik'); };
             } else {
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
                 andi.src = "andi bingung.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
-                box.innerHTML = "Hanya cuci tangan atau hanya jamban tidak cukup. Harus keduanya!<br><br><b>Tips:</b> Sanitasi bersih butuh jamban layak dan cuci tangan.";
+                box.innerHTML = "Hanya mencuci tangan atau hanya membangun jamban tidak cukup. Keduanya harus dilakukan bersama-sama.<br><br><b>Tips:</b> Sanitasi yang bersih membutuhkan jamban yang layak dan kebiasaan cuci tangan.";
                 dialog.innerText = "Aduh, selokan tetap kotor dan Andi masih bingung. Ayo coba pilih dengan teliti lagi!";
                 btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn2').style.display = 'none'; selectedAnswer2 = -1; document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch2_quiz', 'klik'); };
             }
@@ -732,7 +724,7 @@
         }
 
         /* ==========================================================
-           LOGIKA SKENARIO 3 (SITI & ANEMIA)
+           LOGIKA SKENARIO 3 (SITI & ANEMIA) - NARASI DIREVISI
            ========================================================== */
         let selectedFood = -1;
 
@@ -752,18 +744,18 @@
 
             const siti = document.getElementById('resSiti'), title = document.getElementById('resTitle3'), box = document.getElementById('resBox3'), dialog = document.getElementById('resNakula3'), btn = document.getElementById('resBtn3');
 
-            if(selectedFood === 0) { // JAWABAN BENAR (btn.png - Bayam Tahu Nasi)
+            if(selectedFood === 0) { // JAWABAN BENAR (btn.png - Bayam, nasi dan tahu)
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
                 siti.src = "siti senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
-                box.innerHTML = "Sempurna! Bayam, tahu, nasi kaya zat besi. Siti bebas anemia!<br><br><b>Data:</b> 38% remaja putri Indonesia anemia.<br><br><b>Tips:</b> Makanlah 'pelangi' di piringmu.";
+                box.innerHTML = "Sempurna! Nasi, bayam, dan tahu kaya akan zat besi sehingga Siti bisa terbebas dari anemia.<br><br><b>Data:</b> Sebanyak 38% remaja putri Indonesia menderita anemia.<br><br><b>Tips:</b> Makanlah yang berwarna 'pelangi' di piringmu karena semakin berwarna, semakin lengkap gizinya.";
                 dialog.innerText = "Siti berhasil bangkit! Kamu benar-benar detektif gizi ulung!";
                 btn.innerText = "LANJUT CHAPTER 4"; btn.onclick = () => { alert("Tunggu Update Skenario Berikutnya!"); changeSlide('slide2', 'klik'); };
             } else { // JAWABAN SALAH
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
                 siti.src = "siti lemas.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
-                box.innerHTML = "Ini kurang protein dan zat besi.<br><br><b>Tips:</b> Tambahkan lauk protein seperti tahu, tempe, telur.";
+                box.innerHTML = "Kombinasi tersebut masih kurang protein dan zat besi yang dibutuhkan tubuh.<br><br><b>Tips:</b> Tambahkan lauk berprotein seperti tahu, tempe, atau telur karena murah dan bikin bertenaga.";
                 dialog.innerText = "Siti masih lemas. Makanan ini belum bisa memenuhi kebutuhan gizinya. Ayo pilih lagi!";
                 btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn3').style.display = 'none'; selectedFood = -1; document.getElementById('food-0').classList.remove('makanan-active'); document.getElementById('food-1').classList.remove('makanan-active'); document.getElementById('food-2').classList.remove('makanan-active'); changeSlide('ch3_lab', 'klik'); };
             }
