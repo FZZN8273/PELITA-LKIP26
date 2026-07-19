@@ -124,7 +124,6 @@
         #ch2_adegan1 .bubble-container { width: 340px !important; padding: 15px !important; }
         #ch2_adegan1 .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
         #ch2_adegan1 .portrait-huge { height: 320px !important; width: auto; }
-
         #ch2_quiz .bg-odf { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .quiz-container { position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); z-index: 20; width: 700px; background: rgba(255,255,255,0.9); padding: 25px; border-radius: 20px; border: 4px solid #4a2e1b; text-align: center; }
         .quiz-question { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 22px; color: #4a2e1b; margin-bottom: 20px; }
@@ -154,12 +153,7 @@
             object-fit: contain; object-position: center bottom;
             position: absolute; top: 0; left: 0; z-index: 1;
         }
-        #ch3_lab .char-box-right {
-            position: absolute; right: 10px; bottom: 10px;
-            width: auto; height: auto;
-            transform: scale(0.8) !important;
-            transform-origin: bottom right; z-index: 10;
-        }
+        #ch3_lab .char-box-right { position: absolute; right: 10px; bottom: 10px; width: auto; height: auto; transform: scale(0.8) !important; transform-origin: bottom right; z-index: 10; }
         #ch3_lab .bubble-container { width: 290px !important; padding: 12px !important; margin-bottom: 10px !important; }
         #ch3_lab .bubble-txt { font-size: 15px !important; line-height: 1.4 !important; }
         #ch3_lab .portrait-huge { height: 250px !important; width: auto; }
@@ -175,27 +169,11 @@
             border-radius: 12px; border: 3px solid #4a2e1b; box-shadow: 0 5px 10px rgba(0,0,0,0.2);
             width: 85%; margin-bottom: 5px;
         }
-        #ch3_lab .row-tiga-makanan {
-            display: flex; justify-content: space-around; width: 100%; align-items: flex-end;
-            padding: 0 15px; margin-top: 15px;
-        }
+        #ch3_lab .row-tiga-makanan { display: flex; justify-content: space-around; width: 100%; align-items: flex-end; padding: 0 15px; margin-top: 15px; }
         #ch3_lab .food-wrapper { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-        #ch3_lab .makanan-item {
-            height: 80px; width: auto; object-fit: contain;
-            cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6));
-            border-radius: 10px; border: 3px solid transparent; padding: 3px;
-            pointer-events: auto;
-        }
-        #ch3_lab .makanan-active {
-            transform: scale(1.15) translateY(-5px);
-            filter: drop-shadow(0 0 15px #4CAF50);
-            background: #ffffff;
-            border: 3px solid #4CAF50;
-        }
-        #ch3_lab .food-label {
-            text-align: center; font-weight: 900; font-size: 12px; color: #4a2e1b; 
-            background: rgba(255, 255, 255, 0.9); padding: 5px 8px; border-radius: 6px;
-        }
+        #ch3_lab .makanan-item { height: 80px; width: auto; object-fit: contain; cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); border-radius: 10px; border: 3px solid transparent; padding: 3px; pointer-events: auto; }
+        #ch3_lab .makanan-active { transform: scale(1.15) translateY(-5px); filter: drop-shadow(0 0 15px #4CAF50); background: #ffffff; border: 3px solid #4CAF50; }
+        #ch3_lab .food-label { text-align: center; font-weight: 900; font-size: 12px; color: #4a2e1b; background: rgba(255, 255, 255, 0.9); padding: 5px 8px; border-radius: 6px; }
         #ch3_lab .btn-action { margin-top: 10px; display: none; }
         #ch3_result .result-panel { position: absolute; left: 5px; top: 45px; width: 380px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
         #ch3_result #resTitle3 { align-self: center; }
@@ -204,23 +182,19 @@
         #ch3_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           🆕 SKENARIO 4 (FAJAR & HOAKS KESEHATAN)
+           🆕 SKENARIO 4 (FAJAR & HOAKS) - DITAMBAHKAN TANPA MENGUBAH KODE LAMA
            ========================================================== */
-        #ch4_adegan1 .bg-hp { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
-        .fajar-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 40px; height: 330px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
-        #ch4_adegan1 .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
-        #ch4_adegan1 .bubble-container { width: 340px !important; padding: 15px !important; }
-        #ch4_adegan1 .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
-        #ch4_adegan1 .portrait-huge { height: 320px !important; width: auto; }
-
-        #ch4_quiz .bg-hp { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
-        #ch4_quiz .quiz-container { width: 620px; left: 44%; padding: 20px; }
-        #ch4_quiz .quiz-question { font-size: 20px; }
-        #ch4_quiz .quiz-btn { width: 85%; font-size: 15px; padding: 10px 15px; }
+        .fajar-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
+        #ch4_kelas .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
+        #ch4_kelas .bubble-container { width: 340px !important; padding: 15px !important; }
+        #ch4_kelas .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
+        #ch4_kelas .portrait-huge { height: 320px !important; width: auto; }
+        
         #ch4_quiz .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
         #ch4_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
         #ch4_quiz .portrait-huge { height: 250px !important; }
-        #ch4_result .result-panel { position: absolute; left: 10px; top: 45px; width: 360px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
+
+        #ch4_result .result-panel { position: absolute; left: 5px; top: 45px; width: 380px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
         #ch4_result #resTitle4 { align-self: center; }
         #ch4_result #resBox4 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
         #ch4_result .action-btns { margin-top: 15px; }
@@ -384,7 +358,7 @@
             </div>
 
             <!-- ==========================================================
-                 SKENARIO 2: ANDI & ODF (NARASI DIREVISI, PERBAIKAN VISUAL)
+                 SKENARIO 2: ANDI & ODF
                  ========================================================== -->
             <div id="ch2_adegan1" class="slide">
                 <img src="odf.png" class="bg-odf">
@@ -432,7 +406,7 @@
             </div>
 
             <!-- ==========================================================
-                 SKENARIO 3: SITI & ANEMIA (NARASI & LAYOUT DIREVISI)
+                 SKENARIO 3: SITI & ANEMIA
                  ========================================================== -->
             <div id="ch3_kelas" class="slide">
                 <img src="upacara.jpg" class="bg-upacara">
@@ -493,13 +467,14 @@
             </div>
 
             <!-- ==========================================================
-                 🆕 SKENARIO 4: FAJAR & HOAKS KESEHATAN (PANIK DI GRUP WHATSAPP)
+                 🆕 SKENARIO 4: FAJAR & HOAKS
                  ========================================================== -->
-            <div id="ch4_adegan1" class="slide">
-                <img src="hp.png" class="bg-hp">
+            <!-- Adegan 1: Pengenalan Masalah -->
+            <div id="ch4_kelas" class="slide">
+                <img src="hp.png" class="bg-img bg-dim">
                 <img src="fajar kaget.png" class="fajar-char">
                 <div class="char-box-right">
-                    <div class="bubble-container"><p class="bubble-txt">Fajar membaca pesan viral yang menyatakan bahwa vaksin DBD bisa menyebabkan kemandulan. Akibatnya, teman-temannya menjadi takut untuk divaksin. Namun, benarkah informasi itu? Ini masalah serius. Kita harus mencari tahu kebenarannya sekarang juga!</p></div>
+                    <div class="bubble-container"><p class="bubble-txt">Fajar membaca pesan viral yang menyatakan bahwa vaksin DBD bisa menyebabkan kemandulan. Akibatnya, teman-temannya menjadi takut untuk divaksin. Namun, benarkah informasi itu? Ini masalah serius. Kita harus mencari tahu kebenarannya sekarang juga.</p></div>
                     <img src="sadewa.png" class="portrait-huge">
                 </div>
                 <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
@@ -507,14 +482,13 @@
                 </div>
             </div>
 
+            <!-- Adegan 2: Pilihan -->
             <div id="ch4_quiz" class="slide">
-                <img src="hp.png" class="bg-hp">
-                
+                <img src="hp.png" class="bg-img bg-dim">
                 <div class="char-box-right">
                     <div class="bubble-container"><p class="bubble-txt" id="bubble4">Fajar menunggu saran terbaikmu, Detektif!</p></div>
                     <img src="sadewa.png" class="portrait-huge">
                 </div>
-
                 <div class="quiz-container">
                     <div class="quiz-question">Apa yang sebaiknya dilakukan Fajar?</div>
                     <div class="quiz-options">
@@ -526,6 +500,7 @@
                 </div>
             </div>
 
+            <!-- Adegan 3: Hasil -->
             <div id="ch4_result" class="slide">
                 <img src="hp.png" class="bg-img">
                 <img id="resFajar" src="fajar kaget.png" class="fajar-char">
@@ -646,7 +621,7 @@
                 btn.classList.remove('muted');
                 const activeSlide = document.querySelector('.slide[style*="display: block"]');
                 const activeId = activeSlide ? activeSlide.id : 'slide1';
-                if(activeId === 'ch1_kelas' || activeId === 'ch1_lab' || activeId === 'ch2_adegan1' || activeId === 'ch2_quiz' || activeId === 'ch3_kelas' || activeId === 'ch3_lab' || activeId === 'ch4_adegan1' || activeId === 'ch4_quiz') {
+                if(activeId === 'ch1_kelas' || activeId === 'ch1_lab' || activeId === 'ch2_adegan1' || activeId === 'ch2_quiz' || activeId === 'ch3_kelas' || activeId === 'ch3_lab' || activeId === 'ch4_kelas' || activeId === 'ch4_quiz') {
                     playBgMusic('tegang');
                 } else {
                     playBgMusic('gamelan');
@@ -690,7 +665,7 @@
                     musicBtn.classList.remove('hidden');
                 }
 
-                if(id === 'ch1_kelas' || id === 'ch1_lab' || id === 'ch2_adegan1' || id === 'ch2_quiz' || id === 'ch3_kelas' || id === 'ch3_lab' || id === 'ch4_adegan1' || id === 'ch4_quiz') {
+                if(id === 'ch1_kelas' || id === 'ch1_lab' || id === 'ch2_adegan1' || id === 'ch2_quiz' || id === 'ch3_kelas' || id === 'ch3_lab' || id === 'ch4_kelas' || id === 'ch4_quiz') {
                     if(!(lastSlideId === 'ch1_kelas' && id === 'ch1_lab')) {
                         playBgMusic('tegang');
                     } else {
@@ -822,7 +797,7 @@
                 siti.src = "siti senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerHTML = "Sempurna! Nasi, bayam, dan tahu kaya akan zat besi sehingga Siti bisa terbebas dari anemia.<br><br><b>Data:</b> Sebanyak 38% remaja putri Indonesia menderita anemia.<br><br><b>Tips:</b> Makanlah yang berwarna 'pelangi' di piringmu karena semakin berwarna, semakin lengkap gizinya.";
                 dialog.innerText = "Siti berhasil bangkit! Kamu benar-benar detektif gizi ulung!";
-                btn.innerText = "LANJUT CHAPTER 4"; btn.onclick = () => { changeSlide('ch4_adegan1', 'klik'); };
+                btn.innerText = "LANJUT CHAPTER 4"; btn.onclick = () => { changeSlide('ch4_kelas', 'klik'); };
             } else { // JAWABAN SALAH
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
@@ -856,16 +831,16 @@
             if(selectedAnswer4 === 0) { // JAWABAN BENAR (A)
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
-                fajar.src = "fajar kaget.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
+                fajar.src = "fajar lengah.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerHTML = "Kamu detektif sejati! Vaksin DBD sudah terbukti aman oleh BPOM.<br><br><b>Data:</b> Sebanyak 60% remaja percaya informasi kesehatan dari media sosial tanpa memeriksa faktanya.<br><br><b>Tips:</b> Saring sebelum membagikan. Selalu cek ke sumber resmi seperti Kemenkes atau WHO.";
-                dialog.innerText = "Kamu hebat! Fajar jadi tenang dan teman-temannya selamat dari hoaks!";
+                dialog.innerText = "Fajar sudah lega. Terima kasih sudah menyelamatkan banyak orang dari hoaks berbahaya!";
                 btn.innerText = "LANJUT CHAPTER 5"; btn.onclick = () => { alert("Tunggu Update Skenario Berikutnya!"); changeSlide('slide2', 'klik'); };
             } else { // JAWABAN SALAH (B atau C)
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
                 fajar.src = "fajar kaget.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
-                box.innerHTML = "Jangan menyebarkan hoaks! Tindakan itu sangat berbahaya bagi orang lain.<br><br><b>Tips:</b> Selalu lakukan verifikasi sebelum memercayai sebuah informasi.";
-                dialog.innerText = "Aduh, hoaks makin menyebar dan Fajar makin panik! Ayo coba pilih yang benar lagi!";
+                box.innerHTML = "Jangan menyebarkan hoaks karena tindakan itu sangat berbahaya bagi orang lain.<br><br><b>Tips:</b> Selalu lakukan verifikasi sebelum memercayai sebuah informasi.";
+                dialog.innerText = "Aduh, hoaks terus menyebar dan Fajar makin panik. Ayo pilih dengan bijak lagi!";
                 btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn4').style.display = 'none'; selectedAnswer4 = -1; document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch4_quiz', 'klik'); };
             }
             changeSlide('ch4_result');
