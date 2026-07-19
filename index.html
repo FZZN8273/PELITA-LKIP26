@@ -140,7 +140,7 @@
         #ch2_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           ✨ SKENARIO 3 (SITI & ANEMIA) - VISUAL DIPERBAIKI
+           ✨ SKENARIO 3 (SITI & ANEMIA) - Layout Dinaikkan
            ========================================================== */
         #ch3_kelas .bg-upacara { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .siti-char { position: absolute; left: 40%; transform: translateX(-50%); bottom: 30px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
@@ -158,29 +158,30 @@
         #ch3_lab .bubble-txt { font-size: 18px; line-height: 1.4; }
         #ch3_lab .portrait-huge { height: 320px; width: auto; }
 
-        /* 🛠️ FIX VISUAL: MEJA DINAIKKAN & MAKANAN DIBESARIN */
+        /* 🛠️ FIX LAYOUT: Dinaikkan agar tidak menimpa Nakula */
         #ch3_lab .meja-makan-small {
-            position: absolute; 
-            bottom: 60px; /* ★ Dinaikkan dari 30px ke 60px agar tidak menggantung */
+            position: absolute; bottom: 50px; /* Dinaikkan dari 30px ke 50px */
             left: 50%; transform: translateX(-50%);
-            width: 70%; height: 280px; z-index: 300;
+            width: 70%; height: 320px; /* Ditambah tinggi wadahnya */
+            z-index: 300;
             display: flex; flex-direction: column; justify-content: flex-end;
-            align-items: center; 
-            padding-bottom: 15px; /* ★ Dikurangi dari 30px ke 15px agar elemen mepet ke atas */
-            gap: 20px;
+            align-items: center; padding-bottom: 20px; gap: 20px;
         }
         #ch3_lab .quiz-food-question {
-            font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 18px; color: #4a2e1b;
-            text-align: center; background: rgba(255,255,255,0.9); padding: 15px 25px;
+            font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 16px; color: #4a2e1b;
+            text-align: center; background: rgba(255,255,255,0.9); padding: 12px 20px;
             border-radius: 15px; border: 3px solid #4a2e1b; box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-            width: 100%;
+            width: 100%; margin-bottom: 15px;
         }
         #ch3_lab .row-tiga-makanan {
-            display: flex; justify-content: space-around; width: 100%;
+            display: flex; justify-content: space-around; width: 100%; align-items: flex-end;
+        }
+        /* Wadah per item makanan (gambar + label di bawahnya) */
+        #ch3_lab .food-wrapper {
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
         }
         #ch3_lab .makanan-item {
-            height: 110px; /* ★ Dinaikkan dari 100px agar lebih kelihatan */
-            width: auto; object-fit: contain;
+            height: 85px; width: auto; object-fit: contain;
             cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6));
             border-radius: 15px; border: 4px solid transparent; padding: 5px;
             pointer-events: auto;
@@ -190,6 +191,10 @@
             filter: drop-shadow(0 0 15px #4CAF50);
             background: #ffffff;
             border: 4px solid #4CAF50;
+        }
+        #ch3_lab .food-label {
+            text-align: center; font-weight: 900; font-size: 12px; color: #4a2e1b; 
+            background: rgba(255, 255, 255, 0.85); padding: 4px 8px; border-radius: 8px;
         }
 
         #ch3_result .result-panel { position: absolute; left: 10px; top: 45px; width: 400px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
@@ -404,7 +409,7 @@
             </div>
 
             <!-- ==========================================================
-                 SKENARIO 3: SITI & ANEMIA (Gizi & Anemia)
+                 SKENARIO 3: SITI & ANEMIA (LAYOUT SUDAH DINAJIKAN)
                  ========================================================== -->
             <!-- Adegan 1: Pengenalan Masalah -->
             <div id="ch3_kelas" class="slide">
@@ -431,9 +436,21 @@
                 <div class="meja-makan-small">
                     <div class="quiz-food-question">Kombinasi makanan mana yang paling kaya zat besi untuk Siti?</div>
                     <div class="row-tiga-makanan">
-                        <img src="btn.png" id="food-0" class="makanan-item" onclick="selectFood(0)">
-                        <img src="nmt.png" id="food-1" class="makanan-item" onclick="selectFood(1)">
-                        <img src="smg.png" id="food-2" class="makanan-item" onclick="selectFood(2)">
+                        <!-- Kiri: btn.png (Bayam Tahu Nasi) -->
+                        <div class="food-wrapper">
+                            <img src="btn.png" id="food-0" class="makanan-item" onclick="selectFood(0)">
+                            <div class="food-label">Bayam Tahu Nasi</div>
+                        </div>
+                        <!-- Tengah: nmt.png (Nasi Mie Telor) -->
+                        <div class="food-wrapper">
+                            <img src="nmt.png" id="food-1" class="makanan-item" onclick="selectFood(1)">
+                            <div class="food-label">Nasi Mie Telor</div>
+                        </div>
+                        <!-- Kanan: smg.png (Seblak Mie Gorengan) -->
+                        <div class="food-wrapper">
+                            <img src="smg.png" id="food-2" class="makanan-item" onclick="selectFood(2)">
+                            <div class="food-label">Seblak Mie Gorengan</div>
+                        </div>
                     </div>
                     <button class="btn-action btn-next" id="quizSubmitBtn3" onclick="submitFood()" style="display:none;">JAWAB ▶</button>
                 </div>
@@ -730,11 +747,11 @@
 
             const siti = document.getElementById('resSiti'), title = document.getElementById('resTitle3'), box = document.getElementById('resBox3'), dialog = document.getElementById('resNakula3'), btn = document.getElementById('resBtn3');
 
-            if(selectedFood === 0) { // JAWABAN BENAR (btn.png)
+            if(selectedFood === 0) { // JAWABAN BENAR (btn.png - Bayam Tahu Nasi)
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
                 siti.src = "siti senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
-                box.innerHTML = "Sempurna! Bayam, hati ayam, tahu kaya zat besi. Siti bebas anemia!<br><br><b>Data:</b> 38% remaja putri Indonesia anemia.<br><br><b>Tips:</b> Makanlah 'pelangi' di piringmu.";
+                box.innerHTML = "Sempurna! Bayam, tahu, nasi kaya zat besi. Siti bebas anemia!<br><br><b>Data:</b> 38% remaja putri Indonesia anemia.<br><br><b>Tips:</b> Makanlah 'pelangi' di piringmu.";
                 dialog.innerText = "Siti berhasil bangkit! Kamu benar-benar detektif gizi ulung!";
                 btn.innerText = "LANJUT CHAPTER 4"; btn.onclick = () => { alert("Tunggu Update Skenario Berikutnya!"); changeSlide('slide2', 'klik'); };
             } else { // JAWABAN SALAH
