@@ -182,36 +182,34 @@
         #ch3_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           🆕 SKENARIO 4 (FAJAR & HOAKS) - ANALISIS VISUAL MENDALAM
+           🆕 SKENARIO 4 (FAJAR & HOAKS) - FIX VISUAL & POSISI TENGAH
            ========================================================== */
-        .fajar-char { position: absolute; left: 25px; bottom: 20px; height: 300px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
+        /* Fajar ditempatkan di tengah dengan transform: translateX(-50%) */
+        .fajar-char { 
+            position: absolute; 
+            left: 50%; transform: translateX(-50%); 
+            bottom: 20px; height: 320px; 
+            z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); 
+        }
         
-        /* Slide Awal (ch4_kelas): Perkecil Sadewa & Gelembung agar tidak menekan Fajar */
-        #ch4_kelas .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
-        #ch4_kelas .bubble-container { width: 330px !important; padding: 12px !important; }
+        #ch4_kelas .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
+        #ch4_kelas .bubble-container { width: 340px !important; padding: 15px !important; }
         #ch4_kelas .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
         #ch4_kelas .portrait-huge { height: 320px !important; width: auto; }
         
-        /* Slide Kuis (ch4_quiz) */
-        #ch4_quiz .char-box-right { transform: scale(0.7) !important; transform-origin: bottom right !important; }
+        #ch4_quiz .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
         #ch4_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
         #ch4_quiz .portrait-huge { height: 250px !important; }
 
-        /* Slide Hasil (ch4_result) - FIX: Jangan ada yang saling menutupi */
+        /* Panel Hasil di kiri, dipersempit agar tidak menutupi Fajar di tengah */
         #ch4_result .result-panel { 
-            position: absolute; left: 10px; top: 35px; width: 340px; /* Panel dinaikkan & diperkecil agar Fajar keliatan */
+            position: absolute; left: 15px; top: 45px; width: 350px; /* Dipersempit jadi 350px */
             z-index: 150; display: flex; flex-direction: column; align-items: center; 
         }
         #ch4_result #resTitle4 { align-self: center; }
         #ch4_result #resBox4 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
         #ch4_result .action-btns { margin-top: 15px; }
-        
-        #ch4_result .fajar-char { position: absolute; left: 25px; bottom: 15px; height: 290px; } /* Fajar di kiri bawah, aman dari panel */
-        
-        #ch4_result .char-box-right { transform: scale(0.6) !important; transform-origin: bottom right !important; } /* Sadewa dikecilkan */
-        #ch4_result .bubble-container { width: 240px !important; padding: 8px !important; margin-bottom: 5px !important; }
-        #ch4_result .bubble-txt { font-size: 14px !important; line-height: 1.4 !important; }
-        #ch4_result .portrait-huge { height: 200px !important; width: auto; }
+        #ch4_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* --- SLIDE CARA MAIN & RULES --- */
         .slide-white { background-color: #f7f2e1; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 900; }
@@ -480,7 +478,7 @@
             </div>
 
             <!-- ==========================================================
-                 🆕 SKENARIO 4: FAJAR & HOAKS (LAYOUT SUDAH DIPERBAIKI 100%)
+                 🆕 SKENARIO 4: FAJAR & HOAKS (Fajar di Tengah, UI Disesuaikan)
                  ========================================================== -->
             <!-- Adegan 1: Pengenalan Masalah -->
             <div id="ch4_kelas" class="slide">
@@ -498,6 +496,7 @@
             <!-- Adegan 2: Pilihan -->
             <div id="ch4_quiz" class="slide">
                 <img src="hp.png" class="bg-img bg-dim">
+                <img src="fajar kaget.png" class="fajar-char">
                 <div class="char-box-right">
                     <div class="bubble-container"><p class="bubble-txt" id="bubble4">Fajar menunggu saran terbaikmu, Detektif!</p></div>
                     <img src="sadewa.png" class="portrait-huge">
@@ -513,7 +512,7 @@
                 </div>
             </div>
 
-            <!-- Adegan 3: Hasil (Desain diperbaiki agar Fajar 100% tidak tertutup) -->
+            <!-- Adegan 3: Hasil -->
             <div id="ch4_result" class="slide">
                 <img src="hp.png" class="bg-img">
                 <img id="resFajar" src="fajar kaget.png" class="fajar-char">
