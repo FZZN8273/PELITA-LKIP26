@@ -182,34 +182,44 @@
         #ch3_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           🆕 SKENARIO 4 (FAJAR & HOAKS) - FIX VISUAL & POSISI TENGAH
+           🆕 SKENARIO 4 (FAJAR & HOAKS)
            ========================================================== */
-        /* Fajar ditempatkan di tengah dengan transform: translateX(-50%) */
-        .fajar-char { 
-            position: absolute; 
-            left: 50%; transform: translateX(-50%); 
-            bottom: 20px; height: 320px; 
-            z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); 
-        }
-        
+        .fajar-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
         #ch4_kelas .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
         #ch4_kelas .bubble-container { width: 340px !important; padding: 15px !important; }
         #ch4_kelas .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
         #ch4_kelas .portrait-huge { height: 320px !important; width: auto; }
-        
         #ch4_quiz .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
         #ch4_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
         #ch4_quiz .portrait-huge { height: 250px !important; }
-
-        /* Panel Hasil di kiri, dipersempit agar tidak menutupi Fajar di tengah */
-        #ch4_result .result-panel { 
-            position: absolute; left: 15px; top: 45px; width: 350px; /* Dipersempit jadi 350px */
-            z-index: 150; display: flex; flex-direction: column; align-items: center; 
-        }
+        #ch4_result .result-panel { position: absolute; left: 15px; top: 45px; width: 350px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
         #ch4_result #resTitle4 { align-self: center; }
         #ch4_result #resBox4 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
         #ch4_result .action-btns { margin-top: 15px; }
         #ch4_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
+
+        /* ==========================================================
+           🎯 SKENARIO 5 (DIMAS & KESEHATAN MENTAL)
+           ========================================================== */
+        #ch5_kelas .bg-sekolah { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
+        
+        /* Posisi Dimas di kiri, Nakula di kanan */
+        .dimas-char { position: absolute; left: 35%; transform: translateX(-50%); bottom: 25px; height: 340px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
+        
+        #ch5_kelas .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
+        #ch5_kelas .bubble-container { width: 340px !important; padding: 15px !important; }
+        #ch5_kelas .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
+        #ch5_kelas .portrait-huge { height: 320px !important; width: auto; }
+        
+        #ch5_quiz .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
+        #ch5_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
+        #ch5_quiz .portrait-huge { height: 250px !important; }
+
+        #ch5_result .result-panel { position: absolute; left: 15px; top: 45px; width: 360px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
+        #ch5_result #resTitle5 { align-self: center; }
+        #ch5_result #resBox5 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
+        #ch5_result .action-btns { margin-top: 15px; }
+        #ch5_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* --- SLIDE CARA MAIN & RULES --- */
         .slide-white { background-color: #f7f2e1; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 900; }
@@ -478,9 +488,8 @@
             </div>
 
             <!-- ==========================================================
-                 🆕 SKENARIO 4: FAJAR & HOAKS (Fajar di Tengah, UI Disesuaikan)
+                 SKENARIO 4: FAJAR & HOAKS
                  ========================================================== -->
-            <!-- Adegan 1: Pengenalan Masalah -->
             <div id="ch4_kelas" class="slide">
                 <img src="hp.png" class="bg-img bg-dim">
                 <img src="fajar kaget.png" class="fajar-char">
@@ -493,7 +502,6 @@
                 </div>
             </div>
 
-            <!-- Adegan 2: Pilihan -->
             <div id="ch4_quiz" class="slide">
                 <img src="hp.png" class="bg-img bg-dim">
                 <img src="fajar kaget.png" class="fajar-char">
@@ -512,7 +520,6 @@
                 </div>
             </div>
 
-            <!-- Adegan 3: Hasil -->
             <div id="ch4_result" class="slide">
                 <img src="hp.png" class="bg-img">
                 <img id="resFajar" src="fajar kaget.png" class="fajar-char">
@@ -528,6 +535,60 @@
                 <div class="char-box-right">
                     <div class="bubble-container"><p id="resSadewa4" class="bubble-txt"></p></div>
                     <img src="sadewa.png" class="portrait-huge">
+                </div>
+            </div>
+
+            <!-- ==========================================================
+                 🆕 SKENARIO 5: DIMAS & KESEHATAN MENTAL (Taman Sekolah)
+                 ========================================================== -->
+            <!-- Adegan 1: Pengenalan Masalah -->
+            <div id="ch5_kelas" class="slide">
+                <img src="taman sekolah.png" class="bg-sekolah">
+                <img src="dimas sedih.png" class="dimas-char">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt">Dimas sering menyendiri dan nilainya turun drastis. Tidak ada yang bertanya tentang keadaannya. Dimas sedang tidak baik-baik saja. Apa yang harus kita lakukan untuk membantu?</p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
+                <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch5_quiz', 'klik')">LANJUTKAN ▶</button>
+                </div>
+            </div>
+
+            <!-- Adegan 2: Pilihan -->
+            <div id="ch5_quiz" class="slide">
+                <img src="taman sekolah.png" class="bg-img bg-dim">
+                <img src="dimas sedih.png" class="dimas-char">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt" id="bubble5">Dimas menunggu saran terbaikmu, Detektif!</p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
+                <div class="quiz-container">
+                    <div class="quiz-question">Apa tindakan terbaik untuk membantu Dimas?</div>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="selectAnswer5(0)">A. Menghampiri dan bertanya dengan lembut</button>
+                        <button class="quiz-btn" onclick="selectAnswer5(1)">B. Membiarkannya karena dia hanya butuh waktu sendiri</button>
+                        <button class="quiz-btn" onclick="selectAnswer5(2)">C. Menertawakannya karena lemah</button>
+                    </div>
+                    <button class="btn-action btn-next" id="quizSubmitBtn5" onclick="submitAnswer5()" style="display:none;">JAWAB ▶</button>
+                </div>
+            </div>
+
+            <!-- Adegan 3: Hasil -->
+            <div id="ch5_result" class="slide">
+                <img src="taman sekolah.png" class="bg-img">
+                <img id="resDimas" src="dimas sedih.png" class="dimas-char">
+                
+                <div class="result-panel">
+                    <h2 id="resTitle5" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
+                    <div id="resBox5"></div>
+                    <div class="action-btns">
+                        <button id="resBtn5" class="btn-action btn-next"></button>
+                    </div>
+                </div>
+
+                <div class="char-box-right">
+                    <div class="bubble-container"><p id="resNakula5" class="bubble-txt"></p></div>
+                    <img src="nakula.png" class="portrait-huge">
                 </div>
             </div>
 
@@ -633,7 +694,7 @@
                 btn.classList.remove('muted');
                 const activeSlide = document.querySelector('.slide[style*="display: block"]');
                 const activeId = activeSlide ? activeSlide.id : 'slide1';
-                if(activeId === 'ch1_kelas' || activeId === 'ch1_lab' || activeId === 'ch2_adegan1' || activeId === 'ch2_quiz' || activeId === 'ch3_kelas' || activeId === 'ch3_lab' || activeId === 'ch4_kelas' || activeId === 'ch4_quiz') {
+                if(activeId === 'ch1_kelas' || activeId === 'ch1_lab' || activeId === 'ch2_adegan1' || activeId === 'ch2_quiz' || activeId === 'ch3_kelas' || activeId === 'ch3_lab' || activeId === 'ch4_kelas' || activeId === 'ch4_quiz' || activeId === 'ch5_kelas' || activeId === 'ch5_quiz') {
                     playBgMusic('tegang');
                 } else {
                     playBgMusic('gamelan');
@@ -667,7 +728,7 @@
 
             let durasi = 800; 
             if(id === 'slide2' && sound === 'selamat') { durasi = 4000; }
-            if(id === 'chResult' || id === 'ch2_result' || id === 'ch3_result' || id === 'ch4_result') { durasi = 600; }
+            if(id === 'chResult' || id === 'ch2_result' || id === 'ch3_result' || id === 'ch4_result' || id === 'ch5_result') { durasi = 600; }
 
             showLoading(() => {
                 const musicBtn = document.getElementById('btnMusic');
@@ -677,7 +738,7 @@
                     musicBtn.classList.remove('hidden');
                 }
 
-                if(id === 'ch1_kelas' || id === 'ch1_lab' || id === 'ch2_adegan1' || id === 'ch2_quiz' || id === 'ch3_kelas' || id === 'ch3_lab' || id === 'ch4_kelas' || id === 'ch4_quiz') {
+                if(id === 'ch1_kelas' || id === 'ch1_lab' || id === 'ch2_adegan1' || id === 'ch2_quiz' || id === 'ch3_kelas' || id === 'ch3_lab' || id === 'ch4_kelas' || id === 'ch4_quiz' || id === 'ch5_kelas' || id === 'ch5_quiz') {
                     if(!(lastSlideId === 'ch1_kelas' && id === 'ch1_lab')) {
                         playBgMusic('tegang');
                     } else {
@@ -822,7 +883,7 @@
         }
 
         /* ==========================================================
-           🆕 LOGIKA SKENARIO 4 (FAJAR & HOAKS)
+           LOGIKA SKENARIO 4 (FAJAR & HOAKS)
            ========================================================== */
         let selectedAnswer4 = -1;
 
@@ -846,7 +907,7 @@
                 fajar.src = "fajar lengah.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerHTML = "Kamu detektif sejati! Vaksin DBD sudah terbukti aman oleh BPOM.<br><br><b>Data:</b> Sebanyak 60% remaja percaya informasi kesehatan dari media sosial tanpa memeriksa faktanya.<br><br><b>Tips:</b> Saring sebelum membagikan. Selalu cek ke sumber resmi seperti Kemenkes atau WHO.";
                 dialog.innerText = "Fajar sudah lega. Terima kasih sudah menyelamatkan banyak orang dari hoaks berbahaya!";
-                btn.innerText = "LANJUT CHAPTER 5"; btn.onclick = () => { alert("Tunggu Update Skenario Berikutnya!"); changeSlide('slide2', 'klik'); };
+                btn.innerText = "LANJUT CHAPTER 5"; btn.onclick = () => { changeSlide('ch5_kelas', 'klik'); };
             } else { // JAWABAN SALAH (B atau C)
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
@@ -856,6 +917,43 @@
                 btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn4').style.display = 'none'; selectedAnswer4 = -1; document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch4_quiz', 'klik'); };
             }
             changeSlide('ch4_result');
+        }
+
+        /* ==========================================================
+           🆕 LOGIKA SKENARIO 5 (DIMAS & KESEHATAN MENTAL)
+           ========================================================== */
+        let selectedAnswer5 = -1;
+
+        function selectAnswer5(index) {
+            playSfx('klik');
+            selectedAnswer5 = index;
+            const btns = document.querySelectorAll('.quiz-btn');
+            btns.forEach((btn, i) => btn.classList.toggle('selected', i === index));
+            document.getElementById('quizSubmitBtn5').style.display = 'block';
+        }
+
+        function submitAnswer5() {
+            if(selectedAnswer5 === -1) return alert("Pilih jawaban dulu!");
+            stopAllBgMusic();
+
+            const dimas = document.getElementById('resDimas'), title = document.getElementById('resTitle5'), box = document.getElementById('resBox5'), dialog = document.getElementById('resNakula5'), btn = document.getElementById('resBtn5');
+
+            if(selectedAnswer5 === 0) { // JAWABAN BENAR (A)
+                playSfx('correct'); 
+                setTimeout(() => playSfx('tepuk'), 500);
+                dimas.src = "dimas senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
+                box.innerHTML = "Terkadang, seorang teman hanya butuh didengarkan. Kamu sudah melakukan hal yang benar.<br><br><b>Data:</b> Satu dari tiga remaja mengalami masalah kesehatan mental, dan 80% di antaranya tidak berani bercerita.<br><br><b>Tips:</b> Jangan takut untuk bertanya, 'Apa kabar?' karena satu pertanyaan bisa menyelamatkan.";
+                dialog.innerText = "Dimas kini tersenyum. Kamu telah menjadi teman yang luar biasa!";
+                btn.innerText = "LANJUT CHAPTER 6"; btn.onclick = () => { alert("Tunggu Update Skenario Berikutnya!"); changeSlide('slide2', 'klik'); };
+            } else { // JAWABAN SALAH (B atau C)
+                playSfx('wrong'); 
+                setTimeout(() => playSfx('sad'), 500);
+                dimas.src = "dimas sedih.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
+                box.innerHTML = "Membiarkannya hanya akan menambah beban. Kita harus peduli.<br><br><b>Tips:</b> Jika kamu merasa sedih berkepanjangan, segera cerita kepada guru BK atau orang tua.";
+                dialog.innerText = "Dimas semakin sendirian. Ayo pilih cara terbaik untuknya!";
+                btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn5').style.display = 'none'; selectedAnswer5 = -1; document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch5_quiz', 'klik'); };
+            }
+            changeSlide('ch5_result');
         }
     </script>
 </body>
