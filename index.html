@@ -199,13 +199,9 @@
         #ch4_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           🎯 SKENARIO 5 (DIMAS & KESEHATAN MENTAL)
+           🆕 SKENARIO 5 (DIMAS & KESEHATAN MENTAL) - BERBASIS BACKGROUND
            ========================================================== */
         #ch5_kelas .bg-sekolah { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
-        
-        /* Posisi Dimas di kiri, Nakula di kanan */
-        .dimas-char { position: absolute; left: 35%; transform: translateX(-50%); bottom: 25px; height: 340px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
-        
         #ch5_kelas .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
         #ch5_kelas .bubble-container { width: 340px !important; padding: 15px !important; }
         #ch5_kelas .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
@@ -539,12 +535,11 @@
             </div>
 
             <!-- ==========================================================
-                 🆕 SKENARIO 5: DIMAS & KESEHATAN MENTAL (Taman Sekolah)
+                 🆕 SKENARIO 5: DIMAS & KESEHATAN MENTAL (FULL BACKGROUND)
                  ========================================================== -->
-            <!-- Adegan 1: Pengenalan Masalah -->
+            <!-- Adegan 1: Pengenalan Masalah (taman sekolah.png) -->
             <div id="ch5_kelas" class="slide">
                 <img src="taman sekolah.png" class="bg-sekolah">
-                <img src="dimas sedih.png" class="dimas-char">
                 <div class="char-box-right">
                     <div class="bubble-container"><p class="bubble-txt">Dimas sering menyendiri dan nilainya turun drastis. Tidak ada yang bertanya tentang keadaannya. Dimas sedang tidak baik-baik saja. Apa yang harus kita lakukan untuk membantu?</p></div>
                     <img src="nakula.png" class="portrait-huge">
@@ -554,10 +549,9 @@
                 </div>
             </div>
 
-            <!-- Adegan 2: Pilihan -->
+            <!-- Adegan 2: Pilihan (taman sekolah.png) -->
             <div id="ch5_quiz" class="slide">
                 <img src="taman sekolah.png" class="bg-img bg-dim">
-                <img src="dimas sedih.png" class="dimas-char">
                 <div class="char-box-right">
                     <div class="bubble-container"><p class="bubble-txt" id="bubble5">Dimas menunggu saran terbaikmu, Detektif!</p></div>
                     <img src="nakula.png" class="portrait-huge">
@@ -573,10 +567,9 @@
                 </div>
             </div>
 
-            <!-- Adegan 3: Hasil -->
+            <!-- Adegan 3: Hasil (Ganti background sesuai jawaban) -->
             <div id="ch5_result" class="slide">
-                <img src="taman sekolah.png" class="bg-img">
-                <img id="resDimas" src="dimas sedih.png" class="dimas-char">
+                <img src="taman sekolah.png" id="resDimasBg" class="bg-img">
                 
                 <div class="result-panel">
                     <h2 id="resTitle5" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
@@ -920,7 +913,7 @@
         }
 
         /* ==========================================================
-           🆕 LOGIKA SKENARIO 5 (DIMAS & KESEHATAN MENTAL)
+           🆕 LOGIKA SKENARIO 5 (DIMAS & KESEHATAN MENTAL) - FULL BACKGROUND
            ========================================================== */
         let selectedAnswer5 = -1;
 
@@ -936,19 +929,25 @@
             if(selectedAnswer5 === -1) return alert("Pilih jawaban dulu!");
             stopAllBgMusic();
 
-            const dimas = document.getElementById('resDimas'), title = document.getElementById('resTitle5'), box = document.getElementById('resBox5'), dialog = document.getElementById('resNakula5'), btn = document.getElementById('resBtn5');
+            const bg = document.getElementById('resDimasBg');
+            const title = document.getElementById('resTitle5');
+            const box = document.getElementById('resBox5');
+            const dialog = document.getElementById('resNakula5');
+            const btn = document.getElementById('resBtn5');
 
             if(selectedAnswer5 === 0) { // JAWABAN BENAR (A)
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
-                dimas.src = "dimas senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
+                bg.src = "taman sekolah1.png"; // Berganti ke taman yang cerah
+                title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerHTML = "Terkadang, seorang teman hanya butuh didengarkan. Kamu sudah melakukan hal yang benar.<br><br><b>Data:</b> Satu dari tiga remaja mengalami masalah kesehatan mental, dan 80% di antaranya tidak berani bercerita.<br><br><b>Tips:</b> Jangan takut untuk bertanya, 'Apa kabar?' karena satu pertanyaan bisa menyelamatkan.";
                 dialog.innerText = "Dimas kini tersenyum. Kamu telah menjadi teman yang luar biasa!";
                 btn.innerText = "LANJUT CHAPTER 6"; btn.onclick = () => { alert("Tunggu Update Skenario Berikutnya!"); changeSlide('slide2', 'klik'); };
             } else { // JAWABAN SALAH (B atau C)
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
-                dimas.src = "dimas sedih.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
+                bg.src = "taman sekolah2.png"; // Berganti ke taman yang gelap dan sendu
+                title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
                 box.innerHTML = "Membiarkannya hanya akan menambah beban. Kita harus peduli.<br><br><b>Tips:</b> Jika kamu merasa sedih berkepanjangan, segera cerita kepada guru BK atau orang tua.";
                 dialog.innerText = "Dimas semakin sendirian. Ayo pilih cara terbaik untuknya!";
                 btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn5').style.display = 'none'; selectedAnswer5 = -1; document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch5_quiz', 'klik'); };
