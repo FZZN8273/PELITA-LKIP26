@@ -199,7 +199,7 @@
         #ch4_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           🆕 SKENARIO 5 (DIMAS & KESEHATAN MENTAL) - TOMBOL DI TENGAH BAWAH
+           🆕 SKENARIO 5 (DIMAS & KESEHATAN MENTAL) - PANEL KIRI & TOMBOL BAWAH PROPORSIONAL
            ========================================================== */
         #ch5_kelas .bg-sekolah { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         #ch5_kelas .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
@@ -211,14 +211,13 @@
         #ch5_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
         #ch5_quiz .portrait-huge { height: 250px !important; }
 
-        /* Panel Penjelasan di Kanan Atas */
+        /* ✨ FIX: Panel Hasil di KIRI ATAS (Ukuran dan Posisi Normal) */
         #ch5_result .result-panel { 
             position: absolute; 
-            right: 20px; 
-            top: 50px; 
-            left: auto; 
-            transform: none; 
-            width: 370px; 
+            left: 10px; /* Pindah ke kiri */
+            top: 45px; 
+            right: auto; 
+            width: 380px; 
             z-index: 150; 
             display: flex; 
             flex-direction: column; 
@@ -227,43 +226,44 @@
         #ch5_result #resTitle5 { align-self: center; }
         #ch5_result #resBox5 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
         
-        /* ✨ FIX: Tombol Navigasi di Tengah Bawah (Panel Khusus) */
-        #ch5_result .bottom-action-panel {
+        /* ✨ FIX: Tombol Kuning di Tengah Bawah (Tanpa background panel coklat) */
+        #ch5_result .btn-bottom-simple {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 110px;
-            background: linear-gradient(to top, #4a2e1b, #6b442a);
-            border-top: 5px solid #dca658;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            bottom: 35px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 160;
-        }
-        #ch5_result .btn-action-mid {
             padding: 12px 30px;
             border-radius: 50px;
             background: #dca658;
             color: #fff;
-            border: 4px solid #fff;
+            border: none;
             font-family: 'Poppins', sans-serif;
             font-weight: 900;
-            font-size: 18px;
-            cursor: pointer;
+            font-size: 16px;
             box-shadow: 0 4px 0 #7c5333;
+            cursor: pointer;
             text-transform: uppercase;
-            transition: 0.1s;
+            white-space: nowrap;
         }
-        #ch5_result .btn-action-mid:active {
-            transform: translateY(4px);
+        #ch5_result .btn-bottom-simple:active {
+            transform: translateX(-50%) translateY(4px);
             box-shadow: none;
         }
 
-        /* Nakula di Skenario 5 Hasil dikecilkan */
-        #ch5_result .char-box-right { transform: scale(0.65) !important; transform-origin: bottom right !important; }
-        #ch5_result .bubble-container { width: 280px !important; margin-bottom: 10px !important; }
-        #ch5_result .portrait-huge { height: 240px !important; }
+        /* ✨ FIX: Nakula Ukuran Proporsional (0.8 agar tidak terlalu besar) */
+        #ch5_result .char-box-right {
+            transform: scale(0.8) !important; 
+            transform-origin: bottom right !important;
+        }
+        #ch5_result .bubble-container {
+            width: auto !important; 
+            margin-bottom: 20px !important;
+        }
+        #ch5_result .portrait-huge {
+            height: auto !important; 
+            width: auto !important;
+        }
 
         /* --- SLIDE CARA MAIN & RULES --- */
         .slide-white { background-color: #f7f2e1; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 900; }
@@ -583,7 +583,7 @@
             </div>
 
             <!-- ==========================================================
-                 🆕 SKENARIO 5: DIMAS & KESEHATAN MENTAL (TOMBOL BAWAH TERPISAH)
+                 🆕 SKENARIO 5: DIMAS & KESEHATAN MENTAL (PANEL KIRI, TOMBOL BAWAH PROPORSIONAL)
                  ========================================================== -->
             <!-- Adegan 1: Pengenalan Masalah (taman sekolah.png) -->
             <div id="ch5_kelas" class="slide">
@@ -615,7 +615,7 @@
                 </div>
             </div>
 
-            <!-- Adegan 3: Hasil (Panel di Kanan Atas, Tombol di Panel Bawah) -->
+            <!-- Adegan 3: Hasil (Panel di KIRI ATAS, Tombol Kuning di Tengah Bawah, Nakula Proporsional) -->
             <div id="ch5_result" class="slide">
                 <img src="taman sekolah.png" id="resDimasBg" class="bg-img">
                 
@@ -625,12 +625,10 @@
                     <div id="resBox5"></div>
                 </div>
 
-                <!-- Tombol Navigasi di Panel Bawah (Persis seperti tombol MULAI PETUALANGAN) -->
-                <div class="bottom-action-panel">
-                    <button id="resBtn5" class="btn-action-mid"></button>
-                </div>
+                <!-- Tombol Navigasi di Tengah Bawah (Kuning Polos, tidak menempel di panel) -->
+                <button id="resBtn5" class="btn-bottom-simple"></button>
 
-                <!-- Karakter di Kanan Bawah -->
+                <!-- Karakter Nakula Ukuran Proporsional di Kanan Bawah -->
                 <div class="char-box-right">
                     <div class="bubble-container"><p id="resNakula5" class="bubble-txt"></p></div>
                     <img src="nakula.png" class="portrait-huge">
@@ -985,7 +983,7 @@
             const title = document.getElementById('resTitle5');
             const box = document.getElementById('resBox5');
             const dialog = document.getElementById('resNakula5');
-            const btn = document.getElementById('resBtn5'); // Tombol sekarang berada di panel bawah
+            const btn = document.getElementById('resBtn5'); // Tombol kini di tengah bawah
 
             if(selectedAnswer5 === 0) { // JAWABAN BENAR (A)
                 playSfx('correct'); 
