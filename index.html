@@ -199,7 +199,7 @@
         #ch4_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           🆕 SKENARIO 5 (DIMAS & KESEHATAN MENTAL) - PANEL DINAJIKAN & NAKULA MEDIUM
+           🆕 SKENARIO 5 (DIMAS & KESEHATAN MENTAL) - PERBAIKAN UKURAN NAKULA (MEDIUM)
            ========================================================== */
         #ch5_kelas .bg-sekolah { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         #ch5_kelas .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
@@ -211,114 +211,71 @@
         #ch5_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
         #ch5_quiz .portrait-huge { height: 250px !important; }
 
-        /* ✨ FIX: Panel Hasil di KIRI ATAS (Dinaikkan sampai ujung gambar) */
+        /* Panel Hasil di KIRI ATAS */
         #ch5_result .result-panel { 
-            position: absolute; 
-            left: 10px; /* Pindah ke kiri */
-            top: 0px; /* Dinaikkan sampai ujung gambar (sebelumnya 15px) */
-            right: auto; 
-            width: 380px; 
-            z-index: 150; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
+            position: absolute; left: 10px; top: 0px; right: auto; width: 380px; z-index: 150; display: flex; flex-direction: column; align-items: center; 
         }
         #ch5_result #resTitle5 { align-self: center; }
         #ch5_result #resBox5 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
         
-        /* ✨ FIX: Tombol Kuning di Tengah Bawah (Tanpa background panel coklat) */
+        /* Tombol Kuning di Tengah Bawah */
         #ch5_result .btn-bottom-simple {
-            position: absolute;
-            bottom: 35px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 160;
-            padding: 12px 30px;
-            border-radius: 50px;
-            background: #dca658;
-            color: #fff;
-            border: none;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 900;
-            font-size: 16px;
-            box-shadow: 0 4px 0 #7c5333;
-            cursor: pointer;
-            text-transform: uppercase;
-            white-space: nowrap;
+            position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%); z-index: 160;
+            padding: 12px 30px; border-radius: 50px; background: #dca658; color: #fff; border: none;
+            font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 16px; box-shadow: 0 4px 0 #7c5333;
+            cursor: pointer; text-transform: uppercase; white-space: nowrap;
         }
-        #ch5_result .btn-bottom-simple:active {
-            transform: translateX(-50%) translateY(4px);
-            box-shadow: none;
-        }
+        #ch5_result .btn-bottom-simple:active { transform: translateX(-50%) translateY(4px); box-shadow: none; }
 
-        /* ✨ FIX: Nakula Ukuran Medium (0.85 agar tidak terlalu besar dan tidak terlalu kecil) */
+        /* ✨ FIX: Nakula Ukuran Medium (Dari 0.85 diturunkan ke 0.75) */
         #ch5_result .char-box-right {
-            transform: scale(0.85) !important; 
+            transform: scale(0.75) !important; 
             transform-origin: bottom right !important;
         }
-        #ch5_result .bubble-container {
-            width: auto !important; 
-            margin-bottom: 20px !important;
-        }
-        #ch5_result .portrait-huge {
-            height: auto !important; 
-            width: auto !important;
-        }
+        #ch5_result .bubble-container { width: auto !important; margin-bottom: 20px !important; }
+        #ch5_result .portrait-huge { height: auto !important; width: auto !important; }
 
         /* ==========================================================
-           🆕 SKENARIO 6 (GEMPA & KESIAPSIAGAAN) - EFEK SHAKE OTOMATIS
+           🆕 SKENARIO 6 (GEMPA DI SEKOLAH) - ANIMASI GEMPA OTOMATIS
            ========================================================== */
-        #ch6_kelas .shake-container {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
+        @keyframes shake {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            20% { transform: translate(-10px, -5px) rotate(-1deg); }
+            40% { transform: translate(10px, 5px) rotate(1deg); }
+            60% { transform: translate(-10px, 5px) rotate(-1deg); }
+            80% { transform: translate(10px, -5px) rotate(1deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
         }
-        #ch6_kelas .bg-sekolah { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
-        #ch6_kelas .warga-panic { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2; }
+        .shake-wrapper {
+            width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1;
+            transform-origin: center center;
+        }
+        .gempa-shake {
+            animation: shake 0.1s linear infinite;
+        }
+        .warga-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 40px; height: 330px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
+
         #ch6_kelas .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
         #ch6_kelas .bubble-container { width: 340px !important; padding: 15px !important; }
         #ch6_kelas .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
         #ch6_kelas .portrait-huge { height: 320px !important; width: auto; }
 
-        /* ✨ ANIMASI GEMPA (BERGUNCANG 2 DETIK) */
-        @keyframes shake {
-            0% { transform: translate(0px, 0px) rotate(0deg); }
-            10% { transform: translate(-4px, -4px) rotate(-1deg); }
-            20% { transform: translate(4px, -4px) rotate(1deg); }
-            30% { transform: translate(-4px, 4px) rotate(0deg); }
-            40% { transform: translate(4px, 4px) rotate(1deg); }
-            50% { transform: translate(-4px, -4px) rotate(-1deg); }
-            60% { transform: translate(4px, -4px) rotate(0deg); }
-            70% { transform: translate(-4px, 4px) rotate(-1deg); }
-            80% { transform: translate(-2px, -2px) rotate(1deg); }
-            90% { transform: translate(2px, 2px) rotate(0deg); }
-            100% { transform: translate(0px, 0px) rotate(0deg); }
-        }
-        .shake-active {
-            animation: shake 0.1s infinite;
-        }
-
-        #ch6_quiz .bg-sekolah { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         #ch6_quiz .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
         #ch6_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
         #ch6_quiz .portrait-huge { height: 250px !important; }
-
+        
         #ch6_result .result-panel { position: absolute; left: 10px; top: 0px; width: 380px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
         #ch6_result #resTitle6 { align-self: center; }
         #ch6_result #resBox6 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
         #ch6_result .btn-bottom-simple { position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%); z-index: 160; padding: 12px 30px; border-radius: 50px; background: #dca658; color: #fff; border: none; font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 16px; box-shadow: 0 4px 0 #7c5333; cursor: pointer; text-transform: uppercase; white-space: nowrap; }
         #ch6_result .btn-bottom-simple:active { transform: translateX(-50%) translateY(4px); box-shadow: none; }
-        #ch6_result .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
+        #ch6_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
+        #ch6_result .bubble-container { width: auto !important; margin-bottom: 20px !important; }
+        #ch6_result .portrait-huge { height: auto !important; width: auto !important; }
 
         /* --- SLIDE CARA MAIN & RULES --- */
         .slide-white { background-color: #f7f2e1; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 900; }
         .cara-rules-content { position: absolute; left: 40px; top: 60px; width: 420px; z-index: 80; color: #3e2717; }
-
-        /* --- PANEL HASIL UMUM --- */
-        .result-panel { position: absolute; left: 40px; top: 40px; width: 400px; z-index: 150; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        #resBox { background: rgba(255,255,255,0.98); padding: 15px; border: 4px solid #dca658; border-radius: 15px; font-weight: bold; font-size: 14px; line-height: 1.4; box-shadow: 0 10px 20px rgba(0,0,0,0.3); width: 100%; }
-        .action-btns { display: flex; gap: 15px; margin-top: 15px; }
-        .btn-action { padding: 12px 25px; border-radius: 50px; border: none; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 14px; box-shadow: 0 4px 0 #2c1e12; text-transform: uppercase; }
-        .btn-back { background: #6b442a; color: #fff; }
-        .btn-next { background: #dca658; color: #fff; }
 
         /* --- LOADING SCREEN NUSANTARA --- */
         #loading-screen {
@@ -626,7 +583,7 @@
             </div>
 
             <!-- ==========================================================
-                 SKENARIO 5: DIMAS & KESEHATAN MENTAL (PANEL DINAJIKAN, TOMBOL BAWAH, NAKULA MEDIUM)
+                 SKENARIO 5: DIMAS & KESEHATAN MENTAL (NAKULA MEDIUM)
                  ========================================================== -->
             <div id="ch5_kelas" class="slide">
                 <img src="taman sekolah.png" class="bg-sekolah">
@@ -673,34 +630,32 @@
             </div>
 
             <!-- ==========================================================
-                 🆕 SKENARIO 6: GEMPA DI SEKOLAH (KESIAPSIAGAAN BENCANA) - EFEK SHAKE OTOMATIS
+                 🆕 SKENARIO 6: GEMPA DI SEKOLAH (KESIAPSIAGAAN BENCANA)
                  ========================================================== -->
-            <!-- Adegan 1: Gempa & Otomatis Goyang -->
+            <!-- Adegan 1: Gempa Terjadi (Auto Shake 1.5 detik) -->
             <div id="ch6_kelas" class="slide">
-                <div id="ch6_shake_container" class="shake-container">
-                    <img src="sekolah gempa.png" class="bg-sekolah">
-                    <img src="warga panik.png" class="warga-panic">
+                <img src="sekolah gempa.png" class="bg-img bg-dim">
+                <div class="shake-wrapper" id="shakeWrapper">
+                    <img src="warga panik.png" class="warga-char">
                 </div>
-                
-                <div class="char-box-right" id="ch6_nakula_container" style="display: none;">
-                    <div class="bubble-container"><p class="bubble-txt">Selamatkan dirimu!!!! Kita harus evakuasi. Apa yang perlu kamu lakukan untuk tindakan pertama?</p></div>
+                <div class="char-box-right" id="ch6Nakula">
+                    <div class="bubble-container"><p class="bubble-txt">Selamatkan dirimu!!!! Kita harus evakuasi! Apa yang perlu kamu lakukan untuk tindakan pertama?</p></div>
                     <img src="nakula.png" class="portrait-huge">
                 </div>
-                
-                <div class="bottom-panel" style="background:none; border:none; display:none; justify-content:center; align-items:flex-end; padding-bottom: 30px;" id="ch6_button_container">
-                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch6_quiz', 'klik')">LANJUTKAN ▶</button>
+                <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50; display:none;" id="ch6NextBtn" onclick="changeSlide('ch6_quiz', 'klik')">LANJUTKAN ▶</button>
                 </div>
             </div>
 
-            <!-- Adegan 2: Pilihan -->
+            <!-- Adegan 2: Pilihan (Warga panik hilang, Nakula kecil di kanan) -->
             <div id="ch6_quiz" class="slide">
-                <img src="sekolah gempa.png" class="bg-sekolah">
+                <img src="sekolah gempa.png" class="bg-img bg-dim">
                 <div class="char-box-right">
-                    <div class="bubble-container"><p class="bubble-txt" id="bubble6">Apa tindakan pertama yang harus dilakukan? Pilih dengan sigap!</p></div>
+                    <div class="bubble-container"><p class="bubble-txt" id="bubble6">Apa tindakan terbaik saat gempa?</p></div>
                     <img src="nakula.png" class="portrait-huge">
                 </div>
                 <div class="quiz-container">
-                    <div class="quiz-question">Apa tindakan terbaik saat terjadi gempa?</div>
+                    <div class="quiz-question">Apa tindakan terbaik saat gempa?</div>
                     <div class="quiz-options">
                         <button class="quiz-btn" onclick="selectAnswer6(0)">A. Ambil TSB, lalu ikuti jalur evakuasi</button>
                         <button class="quiz-btn" onclick="selectAnswer6(1)">B. Lari sekencang mungkin tanpa bawa apa-apa</button>
@@ -710,17 +665,15 @@
                 </div>
             </div>
 
-            <!-- Adegan 3: Hasil -->
+            <!-- Adegan 3: Hasil (Panel di Kiri Atas, Tombol di Bawah) -->
             <div id="ch6_result" class="slide">
                 <img src="sekolah gempa.png" class="bg-img">
-                
+                <img id="resWarga" src="warga panik.png" class="warga-char">
                 <div class="result-panel">
                     <h2 id="resTitle6" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
                     <div id="resBox6"></div>
                 </div>
-
                 <button id="resBtn6" class="btn-bottom-simple"></button>
-
                 <div class="char-box-right">
                     <div class="bubble-container"><p id="resNakula6" class="bubble-txt"></p></div>
                     <img src="nakula.png" class="portrait-huge">
@@ -873,7 +826,10 @@
                     musicBtn.classList.remove('hidden');
                 }
 
-                // 🎵 Logika Background Musik
+                // Reset efek gempa untuk keamanan
+                const shakeWrapper = document.getElementById('shakeWrapper');
+                if(shakeWrapper) { shakeWrapper.classList.remove('gempa-shake'); }
+
                 if(id === 'ch1_kelas' || id === 'ch1_lab' || id === 'ch2_adegan1' || id === 'ch2_quiz' || id === 'ch3_kelas' || id === 'ch3_lab' || id === 'ch4_kelas' || id === 'ch4_quiz' || id === 'ch5_kelas' || id === 'ch5_quiz' || id === 'ch6_kelas' || id === 'ch6_quiz') {
                     if(!(lastSlideId === 'ch1_kelas' && id === 'ch1_lab')) {
                         playBgMusic('tegang');
@@ -898,28 +854,25 @@
 
                 document.querySelectorAll('.slide').forEach(s => s.style.display = 'none');
                 document.getElementById(id).style.display = 'block';
-                lastSlideId = id; 
-
-                // 🎬 FITUR GEMPA OTOMATIS (SHAKE 2 DETIK)
+                
+                // --- 🚀 LOGIKA SKENARIO GEMPA (AUTO SHAKE 1.5 DETIK) ---
                 if(id === 'ch6_kelas') {
-                    const shakeCont = document.getElementById('ch6_shake_container');
-                    const nakulaCont = document.getElementById('ch6_nakula_container');
-                    const btnCont = document.getElementById('ch6_button_container');
-                    
-                    // Sembunyikan dulu Nakula & Tombol
-                    nakulaCont.style.display = 'none';
-                    btnCont.style.display = 'none';
-                    
-                    // Mulai getaran gempa
-                    shakeCont.classList.add('shake-active');
-                    
-                    // Setelah 2 detik, hentikan getaran & tampilkan elemen
-                    setTimeout(() => {
-                        shakeCont.classList.remove('shake-active');
-                        nakulaCont.style.display = 'flex';
-                        btnCont.style.display = 'flex';
-                    }, 2000);
+                    const shakeEl = document.getElementById('shakeWrapper');
+                    const ch6Nakula = document.getElementById('ch6Nakula');
+                    const ch6NextBtn = document.getElementById('ch6NextBtn');
+                    if(shakeEl) {
+                        shakeEl.classList.add('gempa-shake');
+                        ch6Nakula.style.display = 'none';
+                        ch6NextBtn.style.display = 'none';
+                        setTimeout(() => {
+                            shakeEl.classList.remove('gempa-shake');
+                            ch6Nakula.style.display = 'flex';
+                            ch6NextBtn.style.display = 'flex';
+                        }, 1500); // 1.5 detik efek gempa
+                    }
                 }
+
+                lastSlideId = id; 
             }, durasi);
         }
 
@@ -1097,12 +1050,12 @@
             const title = document.getElementById('resTitle5');
             const box = document.getElementById('resBox5');
             const dialog = document.getElementById('resNakula5');
-            const btn = document.getElementById('resBtn5'); 
+            const btn = document.getElementById('resBtn5');
 
             if(selectedAnswer5 === 0) { // JAWABAN BENAR (A)
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
-                bg.src = "taman sekolah1.png"; 
+                bg.src = "taman sekolah1.png"; // Berganti ke taman yang cerah
                 title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerHTML = "Terkadang, seorang teman hanya butuh didengarkan. Kamu sudah melakukan hal yang benar.<br><br><b>Data:</b> Satu dari tiga remaja mengalami masalah kesehatan mental, dan 80% di antaranya tidak berani bercerita.<br><br><b>Tips:</b> Jangan takut untuk bertanya, 'Apa kabar?' karena satu pertanyaan bisa menyelamatkan.";
                 dialog.innerText = "Dimas kini tersenyum. Kamu telah menjadi teman yang luar biasa!";
@@ -1110,7 +1063,7 @@
             } else { // JAWABAN SALAH (B atau C)
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
-                bg.src = "taman sekolah2.png"; 
+                bg.src = "taman sekolah2.png"; // Berganti ke taman yang gelap dan sendu
                 title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
                 box.innerHTML = "Membiarkannya hanya akan menambah beban. Kita harus peduli.<br><br><b>Tips:</b> Jika kamu merasa sedih berkepanjangan, segera cerita kepada guru BK atau orang tua.";
                 dialog.innerText = "Dimas semakin sendirian. Ayo pilih cara terbaik untuknya!";
@@ -1127,7 +1080,7 @@
         function selectAnswer6(index) {
             playSfx('klik');
             selectedAnswer6 = index;
-            const btns = document.querySelectorAll('.quiz-btn');
+            const btns = document.querySelectorAll('#ch6_quiz .quiz-btn');
             btns.forEach((btn, i) => btn.classList.toggle('selected', i === index));
             document.getElementById('quizSubmitBtn6').style.display = 'block';
         }
@@ -1136,6 +1089,7 @@
             if(selectedAnswer6 === -1) return alert("Pilih jawaban dulu!");
             stopAllBgMusic();
 
+            const bgWarga = document.getElementById('resWarga');
             const title = document.getElementById('resTitle6');
             const box = document.getElementById('resBox6');
             const dialog = document.getElementById('resNakula6');
@@ -1144,17 +1098,19 @@
             if(selectedAnswer6 === 0) { // JAWABAN BENAR (A)
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
+                bgWarga.style.display = 'none'; // Hilangkan warga panik (seolah selamat)
                 title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
-                box.innerHTML = "TSB (Tas Siaga Bencana) menyelamatkan nyawa! Kamu sangat siap siaga!<br><br><b>Data:</b> Indonesia berada di Cincin Api Pasifik sehingga ribuan gempa terjadi setiap tahun.<br><br><b>Tips:</b> Siapkan TSB yang berisi air minum, makanan siap saji, P3K, senter, radio, dan dokumen penting.";
-                dialog.innerText = "Langkah pertama yang brilian! Selamat, kamu sudah siap menghadapi bencana!";
+                box.innerHTML = "Tepat! TSB menyelamatkan nyawa!<br><br><b>Data:</b> Indonesia di Cincin Api Pasifik.<br><br><b>Tips:</b> Siapkan TSB: air, makanan, P3K, senter, dokumen.";
+                dialog.innerText = "Hebat! Kamu sudah siap menghadapi bencana!";
                 btn.innerText = "LANJUT CHAPTER 7"; btn.onclick = () => { alert("Tunggu Update Skenario Berikutnya!"); changeSlide('slide2', 'klik'); };
             } else { // JAWABAN SALAH (B atau C)
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
+                bgWarga.style.display = 'block'; // Munculkan warga panik kembali
                 title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
-                box.innerHTML = "Tanpa persiapan, tindakan panik justru membahayakan diri sendiri.<br><br><b>Tips:</b> Lakukan latihan evakuasi secara rutin minimal setahun sekali dan selalu siapkan TSB.";
-                dialog.innerText = "Keputusan ini bisa berbahaya! Ayo pilih tindakan yang tepat dan terencana!";
-                btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn6').style.display = 'none'; selectedAnswer6 = -1; document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch6_quiz', 'klik'); };
+                box.innerHTML = "Tanpa TSB, kita tidak punya bekal.<br><br><b>Tips:</b> Latihan evakuasi rutin minimal setahun sekali.";
+                dialog.innerText = "Aduh, warga masih panik dan cedera. Ayo pilih jalur evakuasi yang benar!";
+                btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn6').style.display = 'none'; selectedAnswer6 = -1; document.querySelectorAll('#ch6_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch6_quiz', 'klik'); };
             }
             changeSlide('ch6_result');
         }
