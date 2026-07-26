@@ -200,17 +200,19 @@
         #ch4_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           🆕 SKENARIO 5 (DIMAS & KESEHATAN MENTAL) - NAKULA MEDIUM
+           🆕 SKENARIO 5 (DIMAS & KESEHATAN MENTAL) - NAKULA KONSISTEN MEDIUM
            ========================================================== */
         #ch5_kelas .bg-sekolah { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
-        #ch5_kelas .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
+        /* Konsisten scale 0.8 di semua slide Skenario 5 */
+        #ch5_kelas .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
         #ch5_kelas .bubble-container { width: 340px !important; padding: 15px !important; }
         #ch5_kelas .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
         #ch5_kelas .portrait-huge { height: 320px !important; width: auto; }
         
-        #ch5_quiz .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
-        #ch5_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
-        #ch5_quiz .portrait-huge { height: 250px !important; }
+        #ch5_quiz .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
+        #ch5_quiz .bubble-container { width: 320px !important; margin-bottom: 15px !important; }
+        #ch5_quiz .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
+        #ch5_quiz .portrait-huge { height: 280px !important; width: auto; }
 
         /* Panel Hasil di KIRI ATAS */
         #ch5_result .result-panel { 
@@ -252,17 +254,20 @@
             box-shadow: none;
         }
 
-        /* ✨ FIX: Nakula Ukuran Medium (0.75) dan Gelembung Proporsional */
+        /* ✨ FIX: Nakula Ukuran Konsisten Medium di semua slide Skenario 5 */
         #ch5_result .char-box-right {
-            transform: scale(0.75) !important; 
+            transform: scale(0.8) !important; 
             transform-origin: bottom right !important;
         }
         #ch5_result .bubble-container {
-            width: auto !important; 
+            width: 320px !important; 
             margin-bottom: 20px !important;
         }
+        #ch5_result .bubble-txt {
+            font-size: 16px !important; line-height: 1.4 !important;
+        }
         #ch5_result .portrait-huge {
-            height: auto !important; 
+            height: 280px !important; 
             width: auto !important;
         }
 
@@ -289,10 +294,7 @@
         }
 
         #ch6_intro .bg-gempa { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
-        .warga-char { 
-            position: absolute; left: 50%; transform: translateX(-50%); bottom: 20px; height: 340px; z-index: 5; 
-            filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); 
-        }
+        /* Warga panik dihapus */
         #ch6_intro .char-box-right, #ch6_intro .bottom-panel { display: none; } /* Disembunyikan dulu saat gempa */
 
         #ch6_quiz .bg-gempa { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
@@ -624,7 +626,7 @@
             </div>
 
             <!-- ==========================================================
-                 SKENARIO 5: DIMAS & KESEHATAN MENTAL (NAKULA MEDIUM)
+                 SKENARIO 5: DIMAS & KESEHATAN MENTAL (NAKULA KONSISTEN MEDIUM)
                  ========================================================== -->
             <div id="ch5_kelas" class="slide">
                 <img src="taman sekolah.png" class="bg-sekolah">
@@ -668,12 +670,12 @@
             </div>
 
             <!-- ==========================================================
-                 🆕 SKENARIO 6: GEMPA & KESIAPSIAGAAN BENCANA (OTOMATIS GEMPA 1.5 DETIK)
+                 🆕 SKENARIO 6: GEMPA & KESIAPSIAGAAN BENCANA (WARGA PANIK DIHAPUS)
                  ========================================================== -->
             <!-- Adegan 1: Intro Gempa -->
             <div id="ch6_intro" class="slide">
                 <img src="sekolah gempa.png" class="bg-gempa">
-                <img src="warga panik.png" class="warga-char">
+                <!-- Warga Panik dihapus -->
                 
                 <div class="char-box-right" style="display:none;">
                     <div class="bubble-container"><p class="bubble-txt">Selamatkan dirimu!!!! Kita harus evakuasi apa yang perlu kamu lakukan untuk tindakan pertama?</p></div>
@@ -686,7 +688,7 @@
                 </div>
             </div>
 
-            <!-- Adegan 2: Pilihan (Warga panik hilang) -->
+            <!-- Adegan 2: Pilihan -->
             <div id="ch6_quiz" class="slide">
                 <img src="sekolah gempa.png" class="bg-gempa">
                 
@@ -706,7 +708,7 @@
                 </div>
             </div>
 
-            <!-- Adegan 3: Hasil -->
+            <!-- Adegan 3: Hasil (Pakai ruang aman.png jika benar) -->
             <div id="ch6_result" class="slide">
                 <img src="sekolah gempa.png" id="resWargaBg" class="bg-img">
                 
@@ -1132,7 +1134,7 @@
             if(selectedAnswer6 === 0) { // JAWABAN BENAR (A)
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
-                bg.src = "sekolah gempa.png"; // Tetap background yang sama, atau ganti ke yang lebih tenang jika ada asset
+                bg.src = "ruang aman.png"; // Berganti ke ruang aman yang aman
                 title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerHTML = "TSB menyelamatkan nyawa! Siapkan selalu di rumahmu.<br><br><b>Data:</b> Indonesia berada di Cincin Api Pasifik sehingga ribuan gempa terjadi setiap tahun.<br><br><b>Tips:</b> Siapkan TSB yang berisi air minum, makanan siap saji, P3K, senter, radio, dan dokumen penting.";
                 dialog.innerText = "Pilihanmu sangat tepat! Selamat karena sudah tahu cara menyelamatkan diri!";
@@ -1140,7 +1142,7 @@
             } else { // JAWABAN SALAH (B atau C)
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
-                bg.src = "sekolah gempa.png";
+                bg.src = "sekolah gempa.png"; // Tetap di sekolah gempa yang hancur
                 title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
                 box.innerHTML = "Tanpa TSB, kita tidak punya bekal dan itu sangat berbahaya.<br><br><b>Tips:</b> Lakukan latihan evakuasi secara rutin minimal setahun sekali.";
                 dialog.innerText = "Aduh, warga masih kebingungan. Ayo pilih dengan benar lagi!";
