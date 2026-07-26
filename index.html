@@ -324,7 +324,7 @@
         #ch6_result .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           🆕 SKENARIO 7 (RAKA & ISOLASI TBC) - FIX TAG GAMBAR & EFEK PUSING
+           🆕 SKENARIO 7 (RAKA & TBC) - CSS DIPERKUAT AGAR GAMBAR 100% LOAD
            ========================================================== */
         @keyframes dizzy {
             0% { transform: translate(0, 0) rotate(0deg); }
@@ -339,10 +339,13 @@
             transform-origin: center center;
         }
 
-        #ch7_intro .bg-raka { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
-        #ch7_intro .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
+        /* 🔥 CSS WAJIB: Mengunci background Raka 100% */
+        #ch7_intro .bg-raka, #ch7_quiz .bg-raka, #ch7_result .bg-raka {
+            width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;
+            display: block; pointer-events: none;
+        }
 
-        #ch7_quiz .bg-raka { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
+        #ch7_intro .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
         #ch7_quiz .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
         #ch7_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
         #ch7_quiz .portrait-huge { height: 280px !important; }
@@ -763,9 +766,9 @@
             </div>
 
             <!-- ==========================================================
-                 🆕 SKENARIO 7: RAKA & ISOLASI TBC (FIX TAG FILE GAMBAR, EFEK PUSING)
+                 🆕 SKENARIO 7: RAKA & ISOLASI TBC (FIX 100% TAG GAMBAR)
                  ========================================================== -->
-            <!-- Adegan 1: Intro -->
+            <!-- Adegan 1: Intro (Memanggil raka sakit.png) -->
             <div id="ch7_intro" class="slide">
                 <img src="raka sakit.png" class="bg-raka">
                 <div class="char-box-right">
@@ -777,7 +780,7 @@
                 </div>
             </div>
 
-            <!-- Adegan 2: Pilihan -->
+            <!-- Adegan 2: Pilihan (Memanggil raka sakit.png) -->
             <div id="ch7_quiz" class="slide">
                 <img src="raka sakit.png" class="bg-raka">
                 <div class="char-box-right">
@@ -795,9 +798,9 @@
                 </div>
             </div>
 
-            <!-- Adegan 3: Hasil -->
+            <!-- Adegan 3: Hasil (Mengarah ke raka betul.png atau raka salah.png) -->
             <div id="ch7_result" class="slide">
-                <img src="raka sakit.png" id="resRakaBg" class="bg-img">
+                <img src="raka sakit.png" id="resRakaBg" class="bg-raka">
                 <div class="result-panel">
                     <h2 id="resTitle7" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
                     <div id="resBox7"></div>
@@ -1236,7 +1239,7 @@
         }
 
         /* ==========================================================
-           🆕 LOGIKA SKENARIO 7 (RAKA & TBC)
+           🆕 LOGIKA SKENARIO 7 (RAKA & TBC) - 100% FIX
            ========================================================== */
         let selectedAnswer7 = -1;
 
@@ -1261,7 +1264,7 @@
             if(selectedAnswer7 === 0) { // JAWABAN BENAR (A)
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
-                bg.src = "raka betul.png"; /* PERBAIKAN NAMA FILE */
+                bg.src = "raka betul.png"; /* PERBAIKAN NAMA FILE PASTI KE raka betul.png */
                 title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerHTML = "Isolasi yang benar akan melindungi orang lain. Kamu sudah bertanggung jawab!<br><br><b>Data:</b> Indonesia menempati peringkat ketiga dunia dengan beban TBC tertinggi.<br><br><b>Tips:</b> Jika batuk lebih dari tiga minggu, segera periksa ke puskesmas.";
                 dialog.innerText = "Keputusanmu sangat tepat! Raka dan keluarganya kini aman.";
@@ -1269,7 +1272,7 @@
             } else { // JAWABAN SALAH (B atau C)
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
-                bg.src = "raka salah.png"; /* PERBAIKAN NAMA FILE */
+                bg.src = "raka salah.png"; /* PERBAIKAN NAMA FILE PASTI KE raka salah.png */
                 title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
                 box.innerHTML = "Tanpa masker, TBC bisa menular kepada keluarga.<br><br><b>Tips:</b> Pakailah masker saat batuk dan tutup mulut dengan siku ketika bersin.";
 
