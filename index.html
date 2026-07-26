@@ -324,7 +324,7 @@
         #ch6_result .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           🆕 SKENARIO 7 (RAKA & TBC) - CSS DIPERKUAT AGAR GAMBAR 100% LOAD
+           🆕 SKENARIO 7 (RAKA & TBC) - CACHE BUSTER + CSS DIPERKUAT
            ========================================================== */
         @keyframes dizzy {
             0% { transform: translate(0, 0) rotate(0deg); }
@@ -766,11 +766,12 @@
             </div>
 
             <!-- ==========================================================
-                 🆕 SKENARIO 7: RAKA & ISOLASI TBC (FIX 100% TAG GAMBAR)
+                 🆕 SKENARIO 7: RAKA & ISOLASI TBC (DENGAN CACHE BUSTER !)
                  ========================================================== -->
-            <!-- Adegan 1: Intro (Memanggil raka sakit.png) -->
+            <!-- Adegan 1: Intro -->
             <div id="ch7_intro" class="slide">
-                <img src="raka sakit.png" class="bg-raka">
+                <!-- Ditambahkan ?v=1 untuk memaksa browser memuat gambar baru, bukan cache lama -->
+                <img src="raka sakit.png?v=1" class="bg-raka">
                 <div class="char-box-right">
                     <div class="bubble-container"><p class="bubble-txt">Raka sudah batuk selama tiga minggu. Setelah diperiksa, dokter mendiagnosis TBC dan memintanya untuk isolasi mandiri. TBC menular melalui udara. Apa yang harus Raka lakukan?</p></div>
                     <img src="sadewa.png" class="portrait-huge">
@@ -780,9 +781,10 @@
                 </div>
             </div>
 
-            <!-- Adegan 2: Pilihan (Memanggil raka sakit.png) -->
+            <!-- Adegan 2: Pilihan -->
             <div id="ch7_quiz" class="slide">
-                <img src="raka sakit.png" class="bg-raka">
+                <!-- Ditambahkan ?v=1 untuk memaksa browser memuat gambar baru -->
+                <img src="raka sakit.png?v=1" class="bg-raka">
                 <div class="char-box-right">
                     <div class="bubble-container"><p class="bubble-txt" id="bubble7">Sadewa menunggu keputusanmu, Detektif!</p></div>
                     <img src="sadewa.png" class="portrait-huge">
@@ -798,9 +800,9 @@
                 </div>
             </div>
 
-            <!-- Adegan 3: Hasil (Mengarah ke raka betul.png atau raka salah.png) -->
+            <!-- Adegan 3: Hasil -->
             <div id="ch7_result" class="slide">
-                <img src="raka sakit.png" id="resRakaBg" class="bg-raka">
+                <img src="raka sakit.png?v=1" id="resRakaBg" class="bg-raka">
                 <div class="result-panel">
                     <h2 id="resTitle7" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
                     <div id="resBox7"></div>
@@ -1264,7 +1266,7 @@
             if(selectedAnswer7 === 0) { // JAWABAN BENAR (A)
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
-                bg.src = "raka betul.png"; /* PERBAIKAN NAMA FILE PASTI KE raka betul.png */
+                bg.src = "raka betul.png"; /* DITAMBAHKAN CACHE BUSTER */
                 title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerHTML = "Isolasi yang benar akan melindungi orang lain. Kamu sudah bertanggung jawab!<br><br><b>Data:</b> Indonesia menempati peringkat ketiga dunia dengan beban TBC tertinggi.<br><br><b>Tips:</b> Jika batuk lebih dari tiga minggu, segera periksa ke puskesmas.";
                 dialog.innerText = "Keputusanmu sangat tepat! Raka dan keluarganya kini aman.";
@@ -1272,7 +1274,7 @@
             } else { // JAWABAN SALAH (B atau C)
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
-                bg.src = "raka salah.png"; /* PERBAIKAN NAMA FILE PASTI KE raka salah.png */
+                bg.src = "raka salah.png"; /* DITAMBAHKAN CACHE BUSTER */
                 title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
                 box.innerHTML = "Tanpa masker, TBC bisa menular kepada keluarga.<br><br><b>Tips:</b> Pakailah masker saat batuk dan tutup mulut dengan siku ketika bersin.";
 
