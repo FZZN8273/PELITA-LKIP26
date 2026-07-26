@@ -1266,7 +1266,7 @@
             if(selectedAnswer7 === 0) { // JAWABAN BENAR (A)
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
-                bg.src = "raka betul.png"; /* DITAMBAHKAN CACHE BUSTER */
+                bg.src = "raka betul.png?v=1"; /* DITAMBAHKAN CACHE BUSTER */
                 title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerHTML = "Isolasi yang benar akan melindungi orang lain. Kamu sudah bertanggung jawab!<br><br><b>Data:</b> Indonesia menempati peringkat ketiga dunia dengan beban TBC tertinggi.<br><br><b>Tips:</b> Jika batuk lebih dari tiga minggu, segera periksa ke puskesmas.";
                 dialog.innerText = "Keputusanmu sangat tepat! Raka dan keluarganya kini aman.";
@@ -1274,7 +1274,7 @@
             } else { // JAWABAN SALAH (B atau C)
                 playSfx('wrong'); 
                 setTimeout(() => playSfx('sad'), 500);
-                bg.src = "raka salah.png"; /* DITAMBAHKAN CACHE BUSTER */
+                bg.src = "raka salah.png?v=1"; /* DITAMBAHKAN CACHE BUSTER */
                 title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
                 box.innerHTML = "Tanpa masker, TBC bisa menular kepada keluarga.<br><br><b>Tips:</b> Pakailah masker saat batuk dan tutup mulut dengan siku ketika bersin.";
 
