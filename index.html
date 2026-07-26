@@ -267,7 +267,7 @@
         }
 
         /* ==========================================================
-           🆕 SKENARIO 6 (GEMPA & KESIAPSIAGAAN BENCANA) - DURASI DIPERLAMA
+           🆕 SKENARIO 6 (GEMPA & KESIAPSIAGAAN BENCANA) - KARAKTER DISAMAKAN
            ========================================================== */
         @keyframes shake {
             0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -289,10 +289,12 @@
 
         #ch6_intro .bg-gempa { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         #ch6_intro .char-box-right, #ch6_intro .bottom-panel { display: none; }
-        #ch6_intro .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; } /* Disamakan ukuran */
+        /* Karakter Sadewa disamakan skalanya 0.8 */
+        #ch6_intro .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
+        #ch6_quiz .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
+        #ch6_result .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
 
         #ch6_quiz .bg-gempa { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
-        #ch6_quiz .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
         #ch6_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
         #ch6_quiz .portrait-huge { height: 280px !important; }
 
@@ -300,16 +302,16 @@
         #ch6_result #resTitle6 { align-self: center; }
         #ch6_result #resBox6 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
         #ch6_result .action-btns { margin-top: 15px; }
-        #ch6_result .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           🆕 SKENARIO 7 (RAKA & TBC) - EFEK PUSING (DIZZY) & KARAKTER KONSISTEN
+           🆕 SKENARIO 7 (RAKA & ISOLASI TBC) - EFEK PUSING & KARAKTER KONSISTEN
            ========================================================== */
         @keyframes dizzy {
             0% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(-5px, 5px) rotate(-3deg); }
-            50% { transform: translate(5px, -5px) rotate(3deg); }
-            75% { transform: translate(-5px, -5px) rotate(-3deg); }
+            20% { transform: translate(-6px, 6px) rotate(-3deg); }
+            40% { transform: translate(6px, -6px) rotate(3deg); }
+            60% { transform: translate(-4px, -4px) rotate(-3deg); }
+            80% { transform: translate(4px, 4px) rotate(3deg); }
             100% { transform: translate(0, 0) rotate(0deg); }
         }
         .dizzy-active {
@@ -693,7 +695,7 @@
             </div>
 
             <!-- ==========================================================
-                 🆕 SKENARIO 6: GEMPA (DURASI DIPERLAMA 2.5 DETIK)
+                 🆕 SKENARIO 6: GEMPA (DURASI 3 DETIK)
                  ========================================================== -->
             <div id="ch6_intro" class="slide">
                 <img src="sekolah gempa.png" class="bg-gempa">
@@ -739,7 +741,7 @@
             </div>
 
             <!-- ==========================================================
-                 🆕 SKENARIO 7: RAKA & ISOLASI TBC (HAFALAN BACKGROUND, EFEK PUSING)
+                 🆕 SKENARIO 7: RAKA & ISOLASI TBC (EFEK PUSING, UKURAN KONSISTEN)
                  ========================================================== -->
             <!-- Adegan 1: Intro -->
             <div id="ch7_intro" class="slide">
@@ -959,7 +961,7 @@
                 document.getElementById(id).style.display = 'block';
                 lastSlideId = id; 
 
-                // 🎯 AUTO GEMPA 2.5 DETIK UNTUK SKENARIO 6
+                // 🎯 AUTO GEMPA 3 DETIK UNTUK SKENARIO 6
                 if(id === 'ch6_intro') {
                     const container = document.getElementById('game-container');
                     container.classList.add('shake-active');
@@ -967,7 +969,7 @@
                         container.classList.remove('shake-active');
                         document.querySelector('#ch6_intro .char-box-right').style.display = 'flex';
                         document.querySelector('#ch6_intro .bottom-panel').style.display = 'flex';
-                    }, 2500); // Durasi diperpanjang menjadi 2.5 detik
+                    }, 3000); // Durasi diperpanjang menjadi 3 detik
                 }
             }, durasi);
         }
@@ -1237,7 +1239,7 @@
             if(selectedAnswer7 === 0) { // JAWABAN BENAR (A)
                 playSfx('correct'); 
                 setTimeout(() => playSfx('tepuk'), 500);
-                bg.src = "raka benar.png"; 
+                bg.src = "raka betul.png"; 
                 title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerHTML = "Isolasi yang benar akan melindungi orang lain. Kamu sudah bertanggung jawab!<br><br><b>Data:</b> Indonesia menempati peringkat ketiga dunia dengan beban TBC tertinggi.<br><br><b>Tips:</b> Jika batuk lebih dari tiga minggu, segera periksa ke puskesmas.";
                 dialog.innerText = "Keputusanmu sangat tepat! Raka dan keluarganya kini aman.";
