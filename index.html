@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- TAG ANTI-CACHE (MEMAKSA BROWSER TIDAK MENYIMPAN CSS LAMA) -->
+    <!-- TAG PANGGILAN DARURAT ANTI-CACHE (MEMAKSA BROWSER TIDAK PAKAI CSS LAMA) -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -136,17 +136,16 @@
         .quiz-question { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 22px; color: #4a2e1b; margin-bottom: 20px; }
         .quiz-options { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-bottom: 20px; }
 
-        /* 🟡 PERBAIKAN CSS TOMBOL PILGAN TERAKHIR (BERLAKU UNTUK SEMUA BAB) */
+        /* ===================================================================
+           🔥 PERBAIKAN CSS PILGAN AGAR 100% KUNING SAAT DIKLIK DI SEMUA BAB
+           =================================================================== */
         .quiz-btn {
             width: 80%;
             padding: 12px;
             border-radius: 50px;
-            /* Border default saat belum dipilih: Coklat tua (#4a2e1b) */
-            border: 3px solid #4a2e1b !important; 
-            /* Background default saat belum dipilih: Putih */
-            background: #fff !important; 
-            /* Teks default saat belum dipilih: Coklat tua (#4a2e1b) */
-            color: #4a2e1b !important; 
+            border: 3px solid #4a2e1b !important; /* Border Awal Coklat Tua */
+            background: #ffffff !important; /* Background Awal Putih */
+            color: #4a2e1b !important; /* Teks Awal Coklat Tua */
             cursor: pointer;
             font-weight: 900;
             font-size: 16px;
@@ -156,13 +155,13 @@
         }
         .quiz-btn:active { transform: scale(0.95); }
         
-        /* ✅ EFEK SAAT TOMBOL DIPILIH / DIKLIK (BERUBAH MENJADI KUNING KECOKLATAN SEPERTI JAMBAN) */
+        /* ✅ EFEK KETIKA TOMBOL DIPILIH DI SEMUA BAB (JAMBAN, FAJAR, DIMAS, DLL) */
         .quiz-btn.selected {
-            background: #dca658 !important; /* Latar belakang Kuning Kecoklatan */
-            color: #fff !important;          /* Teks Putih */
-            border-color: #dca658 !important;/* Garis pinggir Kuning Kecoklatan */
+            background: #dca658 !important; /* Berubah menjadi Kuning Kecoklatan */
+            color: #ffffff !important;      /* Teks berubah menjadi Putih */
+            border-color: #dca658 !important; /* Border berubah menjadi Kuning Kecoklatan */
         }
-        /* 🔥 PERBAIKAN CSS TOMBOL PILGAN SELESAI */
+        /* =================================================================== */
 
         #ch2_quiz .quiz-container { width: 620px; left: 44%; padding: 20px; }
         #ch2_quiz .quiz-question { font-size: 20px; }
