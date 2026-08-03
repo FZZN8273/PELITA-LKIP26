@@ -129,9 +129,30 @@
         .quiz-container { position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); z-index: 20; width: 700px; background: rgba(255,255,255,0.9); padding: 25px; border-radius: 20px; border: 4px solid #4a2e1b; text-align: center; }
         .quiz-question { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 22px; color: #4a2e1b; margin-bottom: 20px; }
         .quiz-options { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-bottom: 20px; }
-        .quiz-btn { width: 80%; padding: 12px; border-radius: 50px; border: 3px solid #4a2e1b; background: #fff; cursor: pointer; font-weight: 900; font-size: 16px; transition: 0.2s; text-align: left; padding-left: 20px; }
+
+        /* 🟡 PERBAIKAN CSS TOMBOL PILIHAN GANDA (DIUBAH UNTUK KONSISTEN DI SEMUA BAB) */
+        .quiz-btn {
+            width: 80%;
+            padding: 12px;
+            border-radius: 50px;
+            border: 3px solid #dca658; /* Berubah dari #4a2e1b menjadi kuning kecoklatan agar sama dengan skenario Andi */
+            background: #fff;
+            color: #4a2e1b; /* Warna teks coklat */
+            cursor: pointer;
+            font-weight: 900;
+            font-size: 16px;
+            transition: 0.2s;
+            text-align: left;
+            padding-left: 20px;
+        }
         .quiz-btn:active { transform: scale(0.95); }
-        .quiz-btn.selected { background: #dca658; color: #fff; border-color: #dca658; }
+        .quiz-btn.selected {
+            background: #dca658; /* Latar belakang kuning kecoklatan saat dipilih */
+            color: #fff; /* Teks putih saat dipilih */
+            border-color: #dca658;
+        }
+        /* 🔥 PERBAIKAN CSS TOMBOL PILIHAN GANDA SELESAI */
+
         #ch2_quiz .quiz-container { width: 620px; left: 44%; padding: 20px; }
         #ch2_quiz .quiz-question { font-size: 20px; }
         #ch2_quiz .quiz-btn { width: 85%; font-size: 15px; padding: 10px 15px; }
@@ -200,7 +221,7 @@
         #ch4_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           🆕 SKENARIO 5 (DIMAS & KESEHATAN MENTAL) - NAKULA KONSISTEN MEDIUM
+           🆕 SKENARIO 5 (DIMAS & KESEHATAN MENTAL)
            ========================================================== */
         #ch5_kelas .bg-sekolah { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         #ch5_kelas .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
@@ -267,7 +288,7 @@
         }
 
         /* ==========================================================
-           🆕 SKENARIO 6 (GEMPA) - PERBAIKAN POSISI PANEL & KARAKTER
+           🆕 SKENARIO 6 (GEMPA)
            ========================================================== */
         @keyframes shake {
             0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -291,11 +312,10 @@
         #ch6_intro .char-box-right, #ch6_intro .bottom-panel { display: none; }
         #ch6_intro .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
 
-        /* FIX LAYOUT: Geser quiz ke kiri & perkecil Sadewa agar tidak nutup pilihan */
         #ch6_quiz .bg-gempa { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         #ch6_quiz .quiz-container { 
             width: 620px; 
-            left: 43%; /* Geser ke kiri biar Sadewa di kanan punya ruang */
+            left: 43%; 
             top: 45%; 
             transform: translate(-50%, -50%); 
             padding: 20px; 
@@ -308,7 +328,7 @@
         #ch6_quiz .quiz-btn { width: 85%; font-size: 15px; padding: 10px 15px; }
         
         #ch6_quiz .char-box-right { 
-            transform: scale(0.70) !important; /* Dikecilkan agar tidak nge-blok */
+            transform: scale(0.70) !important; 
             transform-origin: bottom right !important; 
             bottom: 0px !important; 
             right: 10px !important; 
@@ -324,7 +344,7 @@
         #ch6_result .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
 
         /* ==========================================================
-           🆕 SKENARIO 7 (RAKA & TBC) - FIX UKURAN PANEL & KARAKTER DISAMAKAN DENGAN SK5/6
+           🆕 SKENARIO 7 (RAKA & TBC)
            ========================================================== */
         @keyframes dizzy {
             0% { transform: translate(0, 0) rotate(0deg); }
@@ -339,7 +359,6 @@
             transform-origin: center center;
         }
 
-        /* 🔥 CSS WAJIB: Mengunci background Raka 100% */
         #ch7_intro .bg-raka, #ch7_quiz .bg-raka, #ch7_result .bg-raka {
             width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;
             display: block; pointer-events: none;
@@ -350,7 +369,6 @@
         #ch7_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
         #ch7_quiz .portrait-huge { height: 280px !important; }
 
-        /* ✨ FIX UKURAN DI SKENARIO 7 (Disamakan dengan Skenario 5 & 6 agar tidak menutupi wajah) */
         #ch7_result .result-panel { 
             position: absolute; left: 10px; top: 45px; width: 380px; z-index: 150; display: flex; flex-direction: column; align-items: center; 
         }
@@ -359,7 +377,7 @@
         #ch7_result .action-btns { margin-top: 15px; justify-content: center; }
 
         #ch7_result .char-box-right { 
-            transform: scale(0.8) !important; /* Disamakan dengan Skenario 5 & 6 */
+            transform: scale(0.8) !important; 
             transform-origin: bottom right !important; 
         }
         #ch7_result .bubble-container { width: 320px !important; padding: 12px !important; margin-bottom: 15px !important; }
@@ -401,7 +419,7 @@
     </style>
 </head>
 <body>
-
+    <!-- HTML DI BAWAH INI 100% SAMA PERSIS SEPERTI KODE YANG ANDA KIRIMKAN -->
     <div id="desktop-lock">
         <h1>⚠️ MODE DESKTOP DIWAJIBKAN ⚠️</h1>
         <p>Agar teks dan gambar pas pada tempatnya, aktifkan Mode Situs Desktop di browsermu.</p>
