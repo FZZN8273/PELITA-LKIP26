@@ -38,18 +38,20 @@
         .btn-music-toggle.muted { background: #7f5d46; border-color: #7f5d46; opacity: 0.8; }
         .btn-music-toggle.hidden { display: none !important; }
 
-        /* --- MENU --- */
+        /* ==========================================================
+           📌 SLIDE 2 MENU UTAMA
+           ========================================================== */
         .menu-hitbox-container { position: absolute; top: 167px; left: 538px; width: 320px; height: 100px; display: flex; justify-content: space-between; align-items: center; z-index: 60; }
         .menu-hitbox { width: 90px; height: 90px; background: transparent; border: none; cursor: pointer; display: block; pointer-events: auto; }
 
-        /* --- CHARACTERS (Default Position Bottom 0) --- */
+        /* --- CHARACTERS --- */
         .char-box-right { position: absolute; right: 20px; bottom: 0; width: 380px; height: 600px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; z-index: 100; }
         .bubble-container { background: #ffffff; border: 5px solid #4a2e1b; border-radius: 20px; padding: 15px; width: 360px; margin-bottom: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.4); position: relative; animation: popUp 0.3s ease-out; }
         .bubble-container::after { content: ''; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); border-width: 20px 15px 0 15px; border-style: solid; border-color: #4a2e1b transparent transparent transparent; }
         .bubble-txt { font-weight: 900; font-size: 18px; color: #4a2e1b; line-height: 1.4; text-align: left; text-shadow: 0px 0px 4px rgba(255,255,255,0.8); }
         .portrait-huge { height: 350px; width: auto; object-fit: contain; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6)); }
 
-        /* --- BAB 1 (RINA) --- */
+        /* --- SKENARIO 1 (RINA) --- */
         .rina-char { position: absolute; left: 30px; bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
         #ch1_lab .bg-meja-lab { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; position: absolute; top: 0; left: 0; z-index: 1; }
         #ch1_lab .char-box-right { position: absolute; right: 20px; bottom: 40px; width: auto; height: auto; transform: scale(0.85); transform-origin: bottom right; z-index: 10; }
@@ -61,7 +63,9 @@
         #ch1_lab .obat-item { height: 110px; width: auto; object-fit: contain; cursor: pointer; transition: 0.2s; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6)); pointer-events: auto; }
         #ch1_lab .obat-active { transform: scale(1.15) translateY(-10px); filter: drop-shadow(0 0 15px #4CAF50); }
 
-        /* --- BAB 2-7 (Struktur CSS Tetap) --- */
+        /* ==========================================================
+           🚀 SKENARIO 2 (ANDI & ODF)
+           ========================================================== */
         #ch2_adegan1 .bg-odf { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .andi-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 40px; height: 330px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
         #ch2_adegan1 .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
@@ -69,14 +73,14 @@
         #ch2_adegan1 .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
         #ch2_adegan1 .portrait-huge { height: 320px !important; width: auto; }
         #ch2_quiz .bg-odf { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
-        
         .quiz-container { position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); z-index: 20; width: 700px; background: rgba(255,255,255,0.9); padding: 25px; border-radius: 20px; border: 4px solid #4a2e1b; text-align: center; }
         .quiz-question { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 22px; color: #4a2e1b; margin-bottom: 20px; }
         .quiz-options { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-bottom: 20px; }
 
-        /* 🔥 TOMBOL KUNING SAAT DIKLIK (Semua Bab) */
+        /* 🔥 PERBAIKAN CSS FINAL: EFEK KUNING SAAT DIKLIK DI SEMUA BAB */
         .quiz-btn { width: 80%; padding: 12px; border-radius: 50px; border: 3px solid #4a2e1b !important; background: #ffffff !important; color: #4a2e1b !important; cursor: pointer; font-weight: 900; font-size: 16px; transition: 0.2s; text-align: left; padding-left: 20px; }
         .quiz-btn:active { transform: scale(0.95); }
+        /* ✅ EFEK KUNING KECOKLATAN SAAT TOMBOL DIPILIH */
         .quiz-btn.selected { background: #dca658 !important; color: #ffffff !important; border-color: #dca658 !important; }
 
         #ch2_quiz .quiz-container { width: 620px; left: 44%; padding: 20px; }
@@ -91,6 +95,9 @@
         #ch2_result .action-btns { margin-top: 15px; }
         #ch2_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
+        /* ==========================================================
+           ✨ SKENARIO 3 (SITI & ANEMIA)
+           ========================================================== */
         #ch3_kelas .bg-upacara { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         .siti-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 30px; height: 340px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
         #ch3_lab .bg-meja-lab { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; position: absolute; top: 0; left: 0; z-index: 1; }
@@ -112,8 +119,14 @@
         #ch3_result .action-btns { margin-top: 15px; }
         #ch3_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
+        /* ==========================================================
+           🆕 SKENARIO 4 (FAJAR & HOAKS)
+           ========================================================== */
         .fajar-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 20px; height: 320px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
-        #ch4_quiz .bg-img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
+        #ch4_kelas .char-box-right { transform: scale(0.85) !important; transform-origin: bottom right !important; }
+        #ch4_kelas .bubble-container { width: 340px !important; padding: 15px !important; }
+        #ch4_kelas .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
+        #ch4_kelas .portrait-huge { height: 320px !important; width: auto; }
         #ch4_quiz .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
         #ch4_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
         #ch4_quiz .portrait-huge { height: 250px !important; }
@@ -123,16 +136,34 @@
         #ch4_result .action-btns { margin-top: 15px; }
         #ch4_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
 
+        /* ==========================================================
+           🆕 SKENARIO 5 (DIMAS & KESEHATAN MENTAL)
+           ========================================================== */
         #ch5_kelas .bg-sekolah { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
         #ch5_kelas .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
         #ch5_kelas .bubble-container { width: 340px !important; padding: 15px !important; }
         #ch5_kelas .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
         #ch5_kelas .portrait-huge { height: 320px !important; width: auto; }
+        
         #ch5_quiz .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
         #ch5_quiz .bubble-container { width: 320px !important; margin-bottom: 15px !important; }
         #ch5_quiz .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
         #ch5_quiz .portrait-huge { height: 280px !important; width: auto; }
 
+        #ch5_result .result-panel { position: absolute; left: 10px; top: 0px; right: auto; width: 380px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
+        #ch5_result #resTitle5 { align-self: center; }
+        #ch5_result #resBox5 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
+        
+        #ch5_result .btn-bottom-simple { position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%); z-index: 160; padding: 12px 30px; border-radius: 50px; background: #dca658; color: #fff; border: none; font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 16px; box-shadow: 0 4px 0 #7c5333; cursor: pointer; text-transform: uppercase; white-space: nowrap; }
+        #ch5_result .btn-bottom-simple:active { transform: translateX(-50%) translateY(4px); box-shadow: none; }
+        #ch5_result .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
+        #ch5_result .bubble-container { width: 320px !important; margin-bottom: 20px !important; }
+        #ch5_result .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
+        #ch5_result .portrait-huge { height: 280px !important; width: auto !important; }
+
+        /* ==========================================================
+           🆕 SKENARIO 6 (GEMPA)
+           ========================================================== */
         @keyframes shake { 0% { transform: translate(1px, 1px) rotate(0deg); } 10% { transform: translate(-3px, -2px) rotate(-1deg); } 20% { transform: translate(-6px, 2px) rotate(1deg); } 30% { transform: translate(6px, 4px) rotate(0deg); } 40% { transform: translate(4px, -4px) rotate(1deg); } 50% { transform: translate(-4px, 2px) rotate(-1deg); } 60% { transform: translate(-2px, -4px) rotate(0deg); } 70% { transform: translate(8px, 2px) rotate(-1deg); } 80% { transform: translate(-6px, -2px) rotate(1deg); } 90% { transform: translate(2px, 6px) rotate(0deg); } 100% { transform: translate(1px, -2px) rotate(-1deg); } }
         .shake-active { animation: shake 0.15s infinite; transform-origin: center center; }
         #ch6_intro .bg-gempa { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
@@ -152,6 +183,9 @@
         #ch6_result .action-btns { margin-top: 15px; }
         #ch6_result .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
 
+        /* ==========================================================
+           🆕 SKENARIO 7 (RAKA & TBC)
+           ========================================================== */
         @keyframes dizzy { 0% { transform: translate(0, 0) rotate(0deg); } 20% { transform: translate(-6px, 6px) rotate(-3deg); } 40% { transform: translate(6px, -6px) rotate(3deg); } 60% { transform: translate(-4px, -4px) rotate(-3deg); } 80% { transform: translate(4px, 4px) rotate(3deg); } 100% { transform: translate(0, 0) rotate(0deg); } }
         .dizzy-active { animation: dizzy 0.2s infinite; transform-origin: center center; }
         #ch7_intro .bg-raka, #ch7_quiz .bg-raka, #ch7_result .bg-raka { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; display: block; pointer-events: none; }
@@ -160,22 +194,41 @@
         #ch7_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
         #ch7_quiz .portrait-huge { height: 280px !important; }
 
-        /* ⬆️ PERBAIKAN BAB 7: NAIKAN POSISI KARAKTER SADEWA AGAR TIDAK NUTUP GAMBAR */
-        #ch7_result .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; bottom: 140px !important; }
+        /* ✨ FIX: MENAIKKAN PANEL HASIL DI SKENARIO 7 AGAR TIDAK NUTUPI WAJAH RAKA */
+        #ch7_result .result-panel { 
+            position: absolute; 
+            left: 10px; 
+            top: 10px; /* Dinaikkan dari 45px menjadi 10px agar ga nutupin gambar background */
+            width: 380px; /* UKURAN TETAP SAMA */
+            z-index: 150; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        #ch7_result #resTitle7 { align-self: center; }
+        #ch7_result #resBox7 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
+        #ch7_result .action-btns { margin-top: 15px; justify-content: center; }
+        #ch7_result .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
         #ch7_result .bubble-container { width: 320px !important; padding: 12px !important; margin-bottom: 15px !important; }
         #ch7_result .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
         #ch7_result .portrait-huge { height: 280px !important; width: auto !important; }
 
-        /* --- BAB 8 (DINDA - 100% FULL BACKGROUND IMAGE) --- */
-        /* Karena menggunakan full image background, tidak ada class karakter overlay (dinda-char) */
-        #ch8_kelas .bg-img, #ch8_quiz .bg-img, #ch8_result .bg-img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
-        #ch8_kelas .char-box-right, #ch8_quiz .char-box-right, #ch8_result .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
-        #ch8_kelas .bubble-container, #ch8_quiz .bubble-container, #ch8_result .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
-        #ch8_kelas .portrait-huge, #ch8_quiz .portrait-huge, #ch8_result .portrait-huge { height: 250px !important; }
+        /* ==========================================================
+           📌 BAB 8 - 12 (Dengan ukuran Bubble & Karakter yang sama)
+           ========================================================== */
+        /* Karakter Khusus Bab 8 */
+        .dinda-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 30px; height: 340px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
+
+        /* Konfigurasi panel hasil Bab 8 (disamakan dengan Bab 5-7) */
         #ch8_result .result-panel { position: absolute; left: 10px; top: 45px; width: 380px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
         #ch8_result #resTitle8 { align-self: center; }
         #ch8_result #resBox8 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
         #ch8_result .action-btns { margin-top: 15px; justify-content: center; }
+
+        /* Ukuran Karakter & Bubble di Quiz dan Result bab 8 */
+        #ch8_quiz .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
+        #ch8_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
+        #ch8_quiz .portrait-huge { height: 250px !important; }
         #ch8_result .char-box-right { transform: scale(0.8) !important; transform-origin: bottom right !important; }
         #ch8_result .bubble-container { width: 320px !important; padding: 12px !important; margin-bottom: 15px !important; }
         #ch8_result .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
@@ -215,11 +268,14 @@
     <div id="game-wrapper">
         <div id="game-container">
             
+            <!-- AUDIO UTAMA -->
             <audio id="a-klik" src="slide 1 mulai.mp3" preload="auto"></audio>
             <audio id="a-welcome" src="welcoming.mp3" preload="auto"></audio>
             <audio id="a-correct" src="correct.mp3" preload="auto"></audio>
             <audio id="a-wrong" src="wrong.mp3" preload="auto"></audio>
             <audio id="a-selamat" src="selamat-datang.mp3" preload="auto"></audio>
+            
+            <!-- AUDIO SPESIAL & BACKGROUND -->
             <audio id="a-tegang" src="tegang.mp3" preload="auto" loop></audio>
             <audio id="a-gamelan" src="gamelan.mp3" preload="auto" loop></audio>
             <audio id="a-tepuk" src="tepuk.mp3" preload="auto"></audio>
@@ -233,40 +289,379 @@
                 <p>Jangan kemana-mana, bentar lagi wayangnya main!</p>
             </div>
 
+            <!-- SLIDE 1: AWALAN -->
+            <div id="slide1" class="slide" style="display: block;">
+                <img src="slide 1.png" class="bg-img">
+                <div class="bottom-panel">
+                    <button class="btn-start" onclick="changeSlide('slide2', 'selamat')">MULAI PETUALANGAN</button>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: MENU UTAMA -->
+            <div id="slide2" class="slide">
+                <img src="slide 2.png" class="bg-img">
+                <div class="menu-hitbox-container">
+                    <div class="menu-hitbox" onclick="changeSlide('slideCara', 'klik')"></div>
+                    <div class="menu-hitbox" onclick="changeSlide('slideRules', 'klik')"></div>
+                    <div class="menu-hitbox" onclick="changeSlide('ch1_kelas', 'welcome')"></div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: CARA MAIN -->
+            <div id="slideCara" class="slide slide-white">
+                <div class="cara-rules-content">
+                    <h2 style="font-family:'Poppins'; font-size:32px; margin-bottom:20px;">🧩 CARA MAIN</h2>
+                    <ul style="list-style:none; font-weight:700; font-size:18px; line-height:2.2;">
+                        <li>1. Selesaikan 12 Tantangan Kesehatan.</li>
+                        <li>2. Gunakan logika medis memilih obat.</li>
+                        <li>3. Dapatkan bintang di setiap misi!</li>
+                    </ul>
+                    <div class="action-btns" style="margin-top: 30px;">
+                        <button class="btn-action btn-back" onclick="changeSlide('slide2', 'klik')">KEMBALI</button>
+                    </div>
+                </div>
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt">Baca panduan ini agar misimu lancar, Detektif!</p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
+            </div>
+
+            <!-- SLIDE 4: RULES -->
+            <div id="slideRules" class="slide slide-white">
+                <div class="cara-rules-content">
+                    <h2 style="font-family:'Poppins'; font-size:32px; margin-bottom:20px;">⚖️ RULES</h2>
+                    <ul style="list-style:none; font-weight:700; font-size:18px; line-height:2.2;">
+                        <li>1. Benar = +1 Bintang Sehat.</li>
+                        <li>2. Salah = 0 (Tanpa pengurangan poin).</li>
+                        <li>3. Selalu baca fakta medis di akhir!</li>
+                    </ul>
+                    <div class="action-btns" style="margin-top: 30px;">
+                        <button class="btn-action btn-back" onclick="changeSlide('slide2', 'klik')">KEMBALI</button>
+                        <button class="btn-action btn-next" onclick="changeSlide('ch1_kelas', 'welcome')">MULAI!</button>
+                    </div>
+                </div>
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt">Detektif, pahami aturan mainnya agar tak tersesat!</p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+            </div>
+
             <!-- ==========================================================
-                 BAB 1 - 7 (STRUKTUR ASLI)
+                 SKENARIO 1: RINA & OBAT-OBATAN
                  ========================================================== -->
-            <div id="slide1" class="slide" style="display: block;"><img src="slide 1.png" class="bg-img"><div class="bottom-panel"><button class="btn-start" onclick="changeSlide('slide2', 'selamat')">MULAI PETUALANGAN</button></div></div>
-            <div id="slide2" class="slide"><img src="slide 2.png" class="bg-img"><div class="menu-hitbox-container"><div class="menu-hitbox" onclick="changeSlide('slideCara', 'klik')"></div><div class="menu-hitbox" onclick="changeSlide('slideRules', 'klik')"></div><div class="menu-hitbox" onclick="changeSlide('ch1_kelas', 'welcome')"></div></div></div>
-            <div id="slideCara" class="slide slide-white"><div class="cara-rules-content"><h2 style="font-family:'Poppins'; font-size:32px; margin-bottom:20px;">🧩 CARA MAIN</h2><ul style="list-style:none; font-weight:700; font-size:18px; line-height:2.2;"><li>1. Selesaikan 12 Tantangan Kesehatan.</li><li>2. Gunakan logika medis memilih obat.</li><li>3. Dapatkan bintang di setiap misi!</li></ul><div class="action-btns" style="margin-top: 30px;"><button class="btn-action btn-back" onclick="changeSlide('slide2', 'klik')">KEMBALI</button></div></div><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt">Baca panduan ini agar misimu lancar, Detektif!</p></div><img src="nakula.png" class="portrait-huge"></div></div>
-            <div id="slideRules" class="slide slide-white"><div class="cara-rules-content"><h2 style="font-family:'Poppins'; font-size:32px; margin-bottom:20px;">⚖️ RULES</h2><ul style="list-style:none; font-weight:700; font-size:18px; line-height:2.2;"><li>1. Benar = +1 Bintang Sehat.</li><li>2. Salah = 0 (Tanpa pengurangan poin).</li><li>3. Selalu baca fakta medis di akhir!</li></ul><div class="action-btns" style="margin-top: 30px;"><button class="btn-action btn-back" onclick="changeSlide('slide2', 'klik')">KEMBALI</button><button class="btn-action btn-next" onclick="changeSlide('ch1_kelas', 'welcome')">MULAI!</button></div></div><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt">Detektif, pahami aturan mainnya agar tak tersesat!</p></div><img src="sadewa.png" class="portrait-huge"></div></div>
+            <div id="ch1_kelas" class="slide">
+                <img src="kelas.png" class="bg-img bg-dim">
+                <img src="rina pusing.png" class="rina-char">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt">Siang itu di kelas, Rina tiba-tiba merasa pusing hebat! Kita harus bantu dia memilih obat yang benar, Detektif!</p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+                <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch1_lab', 'klik')">LANJUTKAN ▶</button>
+                </div>
+            </div>
 
-            <div id="ch1_kelas" class="slide"><img src="kelas.png" class="bg-img bg-dim"><img src="rina pusing.png" class="rina-char"><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt">Siang itu di kelas, Rina tiba-tiba merasa pusing hebat! Kita harus bantu dia memilih obat yang benar, Detektif!</p></div><img src="sadewa.png" class="portrait-huge"></div><div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;"><button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch1_lab', 'klik')">LANJUTKAN ▶</button></div></div>
-            <div id="ch1_lab" class="slide"><img src="meja 1.png" class="bg-meja-lab"><div class="meja-lab-small"><div class="row-atas"><img src="paracetamol.png" id="item-p" class="obat-item" onclick="selectObat('p')"><img src="amoxicillin.png" id="item-a" class="obat-item" onclick="selectObat('a')"></div><div class="row-bawah"><img src="antasida.png" id="item-t" class="obat-item" onclick="selectObat('t')"><img src="water.png" class="obat-item" onclick="runMix()" style="filter:drop-shadow(0 0 15px cyan);"></div></div><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt">Pilih satu obat di meja lab, lalu klik Gelas Air untuk memberikannya kepada Rina. Jangan sampai salah!</p></div><img src="sadewa.png" class="portrait-huge"></div></div>
-            <div id="chResult" class="slide"><img src="kelas.png" class="bg-img"><img id="resRina" src="rina senyum.png" class="rina-char"><div class="result-panel"><h2 id="resTitle" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2><div id="resBox"></div><div class="action-btns"><button id="resBtn" class="btn-action btn-next"></button></div></div><div class="char-box-right"><div class="bubble-container"><p id="resSadewa" class="bubble-txt"></p></div><img src="sadewa.png" class="portrait-huge"></div></div>
+            <div id="ch1_lab" class="slide">
+                <img src="meja 1.png" class="bg-meja-lab">
+                <div class="meja-lab-small">
+                    <div class="row-atas">
+                        <img src="paracetamol.png" id="item-p" class="obat-item" onclick="selectObat('p')">
+                        <img src="amoxicillin.png" id="item-a" class="obat-item" onclick="selectObat('a')">
+                    </div>
+                    <div class="row-bawah">
+                        <img src="antasida.png" id="item-t" class="obat-item" onclick="selectObat('t')">
+                        <img src="water.png" class="obat-item" onclick="runMix()" style="filter:drop-shadow(0 0 15px cyan);">
+                    </div>
+                </div>
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt">Pilih satu obat di meja lab, lalu klik Gelas Air untuk memberikannya kepada Rina. Jangan sampai salah!</p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+            </div>
 
-            <div id="ch2_adegan1" class="slide"><img src="odf.png" class="bg-odf"><img src="andi bingung.png" class="andi-char"><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt">Andi, seorang siswa OSIS, merasa resah karena sudah seminggu banyak temannya sakit perut. Setelah ia periksa, ternyata warga masih suka buang air besar di selokan belakang kantin. Masalah ini serius karena penyakit bisa menyebar dari sini. Apa yang harus kita lakukan untuk membantu Andi?</p></div><img src="nakula.png" class="portrait-huge"></div><div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;"><button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch2_quiz', 'klik')">LANJUTKAN ▶</button></div></div>
-            <div id="ch2_quiz" class="slide"><img src="odf.png" class="bg-odf"><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt" id="bubble2">Andi menunggu saran terbaikmu, Detektif!</p></div><img src="nakula.png" class="portrait-huge"></div><div class="quiz-container"><div class="quiz-question">Apa tindakan terbaik untuk mengatasi masalah sanitasi ini?</div><div class="quiz-options"><button class="quiz-btn" onclick="selectAnswer2(0)">A. Membangun jamban dan mencuci tangan pakai sabun</button><button class="quiz-btn" onclick="selectAnswer2(1)">B. Cukup mencuci tangan saja</button><button class="quiz-btn" onclick="selectAnswer2(2)">C. Membangun jamban saja</button></div><button class="btn-action btn-next" id="quizSubmitBtn2" onclick="submitAnswer2()" style="display:none;">JAWAB ▶</button></div></div>
-            <div id="ch2_result" class="slide"><img src="odf.png" class="bg-img"><img id="resAndi" src="andi bingung.png" class="andi-char"><div class="result-panel"><h2 id="resTitle2" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2><div id="resBox2"></div><div class="action-btns"><button id="resBtn2" class="btn-action btn-next"></button></div></div><div class="char-box-right"><div class="bubble-container"><p id="resNakula2" class="bubble-txt"></p></div><img src="nakula.png" class="portrait-huge"></div></div>
+            <!-- ==========================================================
+                 SKENARIO 2: ANDI & ODF
+                 ========================================================== -->
+            <div id="ch2_adegan1" class="slide">
+                <img src="odf.png" class="bg-odf">
+                <img src="andi bingung.png" class="andi-char">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt">Andi, seorang siswa OSIS, merasa resah karena sudah seminggu banyak temannya sakit perut. Setelah ia periksa, ternyata warga masih suka buang air besar di selokan belakang kantin. Masalah ini serius karena penyakit bisa menyebar dari sini. Apa yang harus kita lakukan untuk membantu Andi?</p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
+                <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch2_quiz', 'klik')">LANJUTKAN ▶</button>
+                </div>
+            </div>
 
-            <div id="ch3_kelas" class="slide"><img src="upacara.jpg" class="bg-upacara"><img src="siti lemas.png" class="siti-char"><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt">Siti sering pingsan saat mengikuti upacara. Makan siangnya hanya terdiri dari nasi dan mie instan. Siti membutuhkan gizi seimbang. Makanan apa yang kaya akan zat besi untuk membantunya?</p></div><img src="nakula.png" class="portrait-huge"></div><div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;"><button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch3_lab', 'klik')">LANJUTKAN ▶</button></div></div>
-            <div id="ch3_lab" class="slide"><img src="meja 1.png" class="bg-meja-lab"><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt" id="bubble3">Pilih kombinasi makanan yang paling bergizi untuk Siti!</p></div><img src="nakula.png" class="portrait-huge"></div><div class="meja-makan-small"><div class="quiz-food-question">Kombinasi makanan mana yang paling kaya zat besi untuk Siti?</div><div class="row-tiga-makanan"><div class="food-wrapper"><img src="btn.png" id="food-0" class="makanan-item" onclick="selectFood(0)"><div class="food-label">Bayam, nasi dan tahu</div></div><div class="food-wrapper"><img src="nmt.png" id="food-1" class="makanan-item" onclick="selectFood(1)"><div class="food-label">Nasi dan mie instan, telor</div></div><div class="food-wrapper"><img src="smg.png" id="food-2" class="makanan-item" onclick="selectFood(2)"><div class="food-label">Seblak gorengan mie</div></div></div><button class="btn-action btn-next" id="quizSubmitBtn3" onclick="submitFood()" style="display:none;">JAWAB ▶</button></div></div>
-            <div id="ch3_result" class="slide"><img src="upacara.jpg" class="bg-img"><img id="resSiti" src="siti lemas.png" class="siti-char"><div class="result-panel"><h2 id="resTitle3" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2><div id="resBox3"></div><div class="action-btns"><button id="resBtn3" class="btn-action btn-next"></button></div></div><div class="char-box-right"><div class="bubble-container"><p id="resNakula3" class="bubble-txt"></p></div><img src="nakula.png" class="portrait-huge"></div></div>
+            <div id="ch2_quiz" class="slide">
+                <img src="odf.png" class="bg-odf">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt" id="bubble2">Andi menunggu saran terbaikmu, Detektif!</p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
+                <div class="quiz-container">
+                    <div class="quiz-question">Apa tindakan terbaik untuk mengatasi masalah sanitasi ini?</div>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="selectAnswer2(0)">A. Membangun jamban dan mencuci tangan pakai sabun</button>
+                        <button class="quiz-btn" onclick="selectAnswer2(1)">B. Cukup mencuci tangan saja</button>
+                        <button class="quiz-btn" onclick="selectAnswer2(2)">C. Membangun jamban saja</button>
+                    </div>
+                    <button class="btn-action btn-next" id="quizSubmitBtn2" onclick="submitAnswer2()" style="display:none;">JAWAB ▶</button>
+                </div>
+            </div>
 
-            <div id="ch4_kelas" class="slide"><img src="hp.png" class="bg-img bg-dim"><img src="fajar kaget.png" class="fajar-char"><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt">Fajar membaca pesan viral yang menyatakan bahwa vaksin DBD bisa menyebabkan kemandulan. Akibatnya, teman-temannya menjadi takut untuk divaksin. Namun, benarkah informasi itu? Ini masalah serius. Kita harus mencari tahu kebenarannya sekarang juga.</p></div><img src="sadewa.png" class="portrait-huge"></div><div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;"><button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch4_quiz', 'klik')">LANJUTKAN ▶</button></div></div>
-            <div id="ch4_quiz" class="slide"><img src="hp.png" class="bg-img bg-dim"><img src="fajar kaget.png" class="fajar-char"><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt" id="bubble4">Fajar menunggu saran terbaikmu, Detektif!</p></div><img src="sadewa.png" class="portrait-huge"></div><div class="quiz-container"><div class="quiz-question">Apa yang sebaiknya dilakukan Fajar?</div><div class="quiz-options"><button class="quiz-btn" onclick="selectAnswer4(0)">A. Memeriksa kebenarannya di situs resmi Kemenkes</button><button class="quiz-btn" onclick="selectAnswer4(1)">B. Menyebarkan pesan itu ke grup lain</button><button class="quiz-btn" onclick="selectAnswer4(2)">C. Diam saja dan tidak peduli</button></div><button class="btn-action btn-next" id="quizSubmitBtn4" onclick="submitAnswer4()" style="display:none;">JAWAB ▶</button></div></div>
-            <div id="ch4_result" class="slide"><img src="hp.png" class="bg-img"><img id="resFajar" src="fajar kaget.png" class="fajar-char"><div class="result-panel"><h2 id="resTitle4" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2><div id="resBox4"></div><div class="action-btns"><button id="resBtn4" class="btn-action btn-next"></button></div></div><div class="char-box-right"><div class="bubble-container"><p id="resSadewa4" class="bubble-txt"></p></div><img src="sadewa.png" class="portrait-huge"></div></div>
+            <div id="ch2_result" class="slide">
+                <img src="odf.png" class="bg-img">
+                <img id="resAndi" src="andi bingung.png" class="andi-char">
+                <div class="result-panel">
+                    <h2 id="resTitle2" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
+                    <div id="resBox2"></div>
+                    <div class="action-btns">
+                        <button id="resBtn2" class="btn-action btn-next"></button>
+                    </div>
+                </div>
+                <div class="char-box-right">
+                    <div class="bubble-container"><p id="resNakula2" class="bubble-txt"></p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
+            </div>
 
-            <div id="ch5_kelas" class="slide"><img src="taman sekolah.png" class="bg-sekolah"><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt">Dimas sering menyendiri dan nilainya turun drastis. Tidak ada yang bertanya tentang keadaannya. Dimas sedang tidak baik-baik saja. Apa yang harus kita lakukan untuk membantu?</p></div><img src="nakula.png" class="portrait-huge"></div><div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;"><button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch5_quiz', 'klik')">LANJUTKAN ▶</button></div></div>
-            <div id="ch5_quiz" class="slide"><img src="taman sekolah.png" class="bg-img bg-dim"><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt" id="bubble5">Dimas menunggu saran terbaikmu, Detektif!</p></div><img src="nakula.png" class="portrait-huge"></div><div class="quiz-container"><div class="quiz-question">Apa tindakan terbaik untuk membantu Dimas?</div><div class="quiz-options"><button class="quiz-btn" onclick="selectAnswer5(0)">A. Menghampiri dan bertanya dengan lembut</button><button class="quiz-btn" onclick="selectAnswer5(1)">B. Membiarkannya karena dia hanya butuh waktu sendiri</button><button class="quiz-btn" onclick="selectAnswer5(2)">C. Menertawakannya karena lemah</button></div><button class="btn-action btn-next" id="quizSubmitBtn5" onclick="submitAnswer5()" style="display:none;">JAWAB ▶</button></div></div>
-            <div id="ch5_result" class="slide"><img src="taman sekolah.png" id="resDimasBg" class="bg-img"><div class="result-panel"><h2 id="resTitle5" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2><div id="resBox5"></div></div><button id="resBtn5" class="btn-bottom-simple"></button><div class="char-box-right"><div class="bubble-container"><p id="resNakula5" class="bubble-txt"></p></div><img src="nakula.png" class="portrait-huge"></div></div>
+            <!-- ==========================================================
+                 SKENARIO 3: SITI & ANEMIA
+                 ========================================================== -->
+            <div id="ch3_kelas" class="slide">
+                <img src="upacara.jpg" class="bg-upacara">
+                <img src="siti lemas.png" class="siti-char">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt">Siti sering pingsan saat mengikuti upacara. Makan siangnya hanya terdiri dari nasi dan mie instan. Siti membutuhkan gizi seimbang. Makanan apa yang kaya akan zat besi untuk membantunya?</p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
+                <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch3_lab', 'klik')">LANJUTKAN ▶</button>
+                </div>
+            </div>
 
-            <div id="ch6_intro" class="slide"><img src="sekolah gempa.png" class="bg-gempa"><div class="char-box-right" style="display:none;"><div class="bubble-container"><p class="bubble-txt">Selamatkan dirimu!!!! Kita harus evakuasi apa yang perlu kamu lakukan untuk tindakan pertama?</p></div><img src="sadewa.png" class="portrait-huge"></div><div class="bottom-panel" style="background:none; border:none; display:none; padding-bottom: 30px;"><button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch6_quiz', 'klik')">LANJUTKAN ▶</button></div></div>
-            <div id="ch6_quiz" class="slide"><img src="sekolah gempa.png" class="bg-gempa"><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt" id="bubble6">Apa tindakan terbaik saat gempa? Pilihlah dengan bijak, Detektif!</p></div><img src="sadewa.png" class="portrait-huge"></div><div class="quiz-container"><div class="quiz-question">Apa tindakan terbaik saat gempa?</div><div class="quiz-options"><button class="quiz-btn" onclick="selectAnswer6(0)">A. Ambil TSB, lalu ikuti jalur evakuasi</button><button class="quiz-btn" onclick="selectAnswer6(1)">B. Lari sekencang mungkin tanpa bawa apa-apa</button><button class="quiz-btn" onclick="selectAnswer6(2)">C. Sembunyi di kolong meja dan tunggu</button></div><button class="btn-action btn-next" id="quizSubmitBtn6" onclick="submitAnswer6()" style="display:none;">JAWAB ▶</button></div></div>
-            <div id="ch6_result" class="slide"><img src="sekolah gempa.png" id="resWargaBg" class="bg-img"><div class="result-panel"><h2 id="resTitle6" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2><div id="resBox6"></div><div class="action-btns"><button id="resBtn6" class="btn-action btn-next"></button></div></div><div class="char-box-right"><div class="bubble-container"><p id="resSadewa6" class="bubble-txt"></p></div><img src="sadewa.png" class="portrait-huge"></div></div>
+            <div id="ch3_lab" class="slide">
+                <img src="meja 1.png" class="bg-meja-lab">
+                
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt" id="bubble3">Pilih kombinasi makanan yang paling bergizi untuk Siti!</p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
 
-            <div id="ch7_intro" class="slide"><img src="raka sakit.png" class="bg-raka"><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt">Raka sudah batuk selama tiga minggu. Setelah diperiksa, dokter mendiagnosis TBC dan memintanya untuk isolasi mandiri. TBC menular melalui udara. Apa yang harus Raka lakukan?</p></div><img src="sadewa.png" class="portrait-huge"></div><div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;"><button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch7_quiz', 'klik')">LANJUTKAN ▶</button></div></div>
-            <div id="ch7_quiz" class="slide"><img src="raka sakit.png" class="bg-raka"><div class="char-box-right"><div class="bubble-container"><p class="bubble-txt" id="bubble7">Sadewa menunggu keputusanmu, Detektif!</p></div><img src="sadewa.png" class="portrait-huge"></div><div class="quiz-container"><div class="quiz-question">Apa tindakan terbaik untuk Raka?</div><div class="quiz-options"><button class="quiz-btn" onclick="selectAnswer7(0)">A. Memakai masker, istirahat di rumah, dan minum obat secara teratur</button><button class="quiz-btn" onclick="selectAnswer7(1)">B. Tetap pergi ke sekolah seperti biasa</button><button class="quiz-btn" onclick="selectAnswer7(2)">C. Istirahat tanpa menggunakan masker</button></div><button class="btn-action btn-next" id="quizSubmitBtn7" onclick="submitAnswer7()" style="display:none;">JAWAB ▶</button></div></div>
+                <div class="meja-makan-small">
+                    <div class="quiz-food-question">Kombinasi makanan mana yang paling kaya zat besi untuk Siti?</div>
+                    <div class="row-tiga-makanan">
+                        <div class="food-wrapper">
+                            <img src="btn.png" id="food-0" class="makanan-item" onclick="selectFood(0)">
+                            <div class="food-label">Bayam, nasi dan tahu</div>
+                        </div>
+                        <div class="food-wrapper">
+                            <img src="nmt.png" id="food-1" class="makanan-item" onclick="selectFood(1)">
+                            <div class="food-label">Nasi dan mie instan, telor</div>
+                        </div>
+                        <div class="food-wrapper">
+                            <img src="smg.png" id="food-2" class="makanan-item" onclick="selectFood(2)">
+                            <div class="food-label">Seblak gorengan mie</div>
+                        </div>
+                    </div>
+                    <button class="btn-action btn-next" id="quizSubmitBtn3" onclick="submitFood()" style="display:none;">JAWAB ▶</button>
+                </div>
+            </div>
+
+            <div id="ch3_result" class="slide">
+                <img src="upacara.jpg" class="bg-img">
+                <img id="resSiti" src="siti lemas.png" class="siti-char">
+                
+                <div class="result-panel">
+                    <h2 id="resTitle3" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
+                    <div id="resBox3"></div>
+                    <div class="action-btns">
+                        <button id="resBtn3" class="btn-action btn-next"></button>
+                    </div>
+                </div>
+
+                <div class="char-box-right">
+                    <div class="bubble-container"><p id="resNakula3" class="bubble-txt"></p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
+            </div>
+
+            <!-- ==========================================================
+                 SKENARIO 4: FAJAR & HOAKS
+                 ========================================================== -->
+            <div id="ch4_kelas" class="slide">
+                <img src="hp.png" class="bg-img bg-dim">
+                <img src="fajar kaget.png" class="fajar-char">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt">Fajar membaca pesan viral yang menyatakan bahwa vaksin DBD bisa menyebabkan kemandulan. Akibatnya, teman-temannya menjadi takut untuk divaksin. Namun, benarkah informasi itu? Ini masalah serius. Kita harus mencari tahu kebenarannya sekarang juga.</p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+                <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch4_quiz', 'klik')">LANJUTKAN ▶</button>
+                </div>
+            </div>
+
+            <div id="ch4_quiz" class="slide">
+                <img src="hp.png" class="bg-img bg-dim">
+                <img src="fajar kaget.png" class="fajar-char">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt" id="bubble4">Fajar menunggu saran terbaikmu, Detektif!</p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+                <div class="quiz-container">
+                    <div class="quiz-question">Apa yang sebaiknya dilakukan Fajar?</div>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="selectAnswer4(0)">A. Memeriksa kebenarannya di situs resmi Kemenkes</button>
+                        <button class="quiz-btn" onclick="selectAnswer4(1)">B. Menyebarkan pesan itu ke grup lain</button>
+                        <button class="quiz-btn" onclick="selectAnswer4(2)">C. Diam saja dan tidak peduli</button>
+                    </div>
+                    <button class="btn-action btn-next" id="quizSubmitBtn4" onclick="submitAnswer4()" style="display:none;">JAWAB ▶</button>
+                </div>
+            </div>
+
+            <div id="ch4_result" class="slide">
+                <img src="hp.png" class="bg-img">
+                <img id="resFajar" src="fajar kaget.png" class="fajar-char">
+                
+                <div class="result-panel">
+                    <h2 id="resTitle4" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
+                    <div id="resBox4"></div>
+                    <div class="action-btns">
+                        <button id="resBtn4" class="btn-action btn-next"></button>
+                    </div>
+                </div>
+
+                <div class="char-box-right">
+                    <div class="bubble-container"><p id="resSadewa4" class="bubble-txt"></p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+            </div>
+
+            <!-- ==========================================================
+                 SKENARIO 5: DIMAS & KESEHATAN MENTAL (NAKULA KONSISTEN MEDIUM)
+                 ========================================================== -->
+            <div id="ch5_kelas" class="slide">
+                <img src="taman sekolah.png" class="bg-sekolah">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt">Dimas sering menyendiri dan nilainya turun drastis. Tidak ada yang bertanya tentang keadaannya. Dimas sedang tidak baik-baik saja. Apa yang harus kita lakukan untuk membantu?</p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
+                <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch5_quiz', 'klik')">LANJUTKAN ▶</button>
+                </div>
+            </div>
+
+            <div id="ch5_quiz" class="slide">
+                <img src="taman sekolah.png" class="bg-img bg-dim">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt" id="bubble5">Dimas menunggu saran terbaikmu, Detektif!</p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
+                <div class="quiz-container">
+                    <div class="quiz-question">Apa tindakan terbaik untuk membantu Dimas?</div>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="selectAnswer5(0)">A. Menghampiri dan bertanya dengan lembut</button>
+                        <button class="quiz-btn" onclick="selectAnswer5(1)">B. Membiarkannya karena dia hanya butuh waktu sendiri</button>
+                        <button class="quiz-btn" onclick="selectAnswer5(2)">C. Menertawakannya karena lemah</button>
+                    </div>
+                    <button class="btn-action btn-next" id="quizSubmitBtn5" onclick="submitAnswer5()" style="display:none;">JAWAB ▶</button>
+                </div>
+            </div>
+
+            <div id="ch5_result" class="slide">
+                <img src="taman sekolah.png" id="resDimasBg" class="bg-img">
+                <div class="result-panel">
+                    <h2 id="resTitle5" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
+                    <div id="resBox5"></div>
+                </div>
+                <button id="resBtn5" class="btn-bottom-simple"></button>
+                <div class="char-box-right">
+                    <div class="bubble-container"><p id="resNakula5" class="bubble-txt"></p></div>
+                    <img src="nakula.png" class="portrait-huge">
+                </div>
+            </div>
+
+            <!-- ==========================================================
+                 🆕 SKENARIO 6: GEMPA (DURASI 3 DETIK, POSISI FIX ANTI-NUMPUK)
+                 ========================================================== -->
+            <div id="ch6_intro" class="slide">
+                <img src="sekolah gempa.png" class="bg-gempa">
+                <div class="char-box-right" style="display:none;">
+                    <div class="bubble-container"><p class="bubble-txt">Selamatkan dirimu!!!! Kita harus evakuasi apa yang perlu kamu lakukan untuk tindakan pertama?</p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+                <div class="bottom-panel" style="background:none; border:none; display:none; padding-bottom: 30px;">
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch6_quiz', 'klik')">LANJUTKAN ▶</button>
+                </div>
+            </div>
+
+            <div id="ch6_quiz" class="slide">
+                <img src="sekolah gempa.png" class="bg-gempa">
+                
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt" id="bubble6">Apa tindakan terbaik saat gempa? Pilihlah dengan bijak, Detektif!</p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-question">Apa tindakan terbaik saat gempa?</div>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="selectAnswer6(0)">A. Ambil TSB, lalu ikuti jalur evakuasi</button>
+                        <button class="quiz-btn" onclick="selectAnswer6(1)">B. Lari sekencang mungkin tanpa bawa apa-apa</button>
+                        <button class="quiz-btn" onclick="selectAnswer6(2)">C. Sembunyi di kolong meja dan tunggu</button>
+                    </div>
+                    <button class="btn-action btn-next" id="quizSubmitBtn6" onclick="submitAnswer6()" style="display:none;">JAWAB ▶</button>
+                </div>
+            </div>
+
+            <div id="ch6_result" class="slide">
+                <img src="sekolah gempa.png" id="resWargaBg" class="bg-img">
+                <div class="result-panel">
+                    <h2 id="resTitle6" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
+                    <div id="resBox6"></div>
+                    <div class="action-btns">
+                        <button id="resBtn6" class="btn-action btn-next"></button>
+                    </div>
+                </div>
+                <div class="char-box-right">
+                    <div class="bubble-container"><p id="resSadewa6" class="bubble-txt"></p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+            </div>
+
+            <!-- ==========================================================
+                 🆕 SKENARIO 7: RAKA & ISOLASI TBC (PANEL SUDAH DIPINDAHKAN KE ATAS)
+                 ========================================================== -->
+            <div id="ch7_intro" class="slide">
+                <img src="raka sakit.png" class="bg-raka">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt">Raka sudah batuk selama tiga minggu. Setelah diperiksa, dokter mendiagnosis TBC dan memintanya untuk isolasi mandiri. TBC menular melalui udara. Apa yang harus Raka lakukan?</p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+                <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch7_quiz', 'klik')">LANJUTKAN ▶</button>
+                </div>
+            </div>
+
+            <div id="ch7_quiz" class="slide">
+                <img src="raka sakit.png" class="bg-raka">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt" id="bubble7">Sadewa menunggu keputusanmu, Detektif!</p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+                <div class="quiz-container">
+                    <div class="quiz-question">Apa tindakan terbaik untuk Raka?</div>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="selectAnswer7(0)">A. Memakai masker, istirahat di rumah, dan minum obat secara teratur</button>
+                        <button class="quiz-btn" onclick="selectAnswer7(1)">B. Tetap pergi ke sekolah seperti biasa</button>
+                        <button class="quiz-btn" onclick="selectAnswer7(2)">C. Istirahat tanpa menggunakan masker</button>
+                    </div>
+                    <button class="btn-action btn-next" id="quizSubmitBtn7" onclick="submitAnswer7()" style="display:none;">JAWAB ▶</button>
+                </div>
+            </div>
+
             <div id="ch7_result" class="slide">
                 <img src="raka sakit.png" id="resRakaBg" class="bg-raka">
                 <div class="result-panel">
@@ -282,14 +677,12 @@
                 </div>
             </div>
 
-            <!-- HASIL SKENARIO 1 (Rina) -->
-            <div id="chResult" class="slide"><img src="kelas.png" class="bg-img"><img id="resRina" src="rina senyum.png" class="rina-char"><div class="result-panel"><h2 id="resTitle" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2><div id="resBox"></div><div class="action-btns"><button id="resBtn" class="btn-action btn-next"></button></div></div><div class="char-box-right"><div class="bubble-container"><p id="resSadewa" class="bubble-txt"></p></div><img src="sadewa.png" class="portrait-huge"></div></div>
-
             <!-- ==========================================================
-                 📖 BAB 8: Mimpi Jadi Dokter (FULL ASSET DINDA, TANPA OVERLAY KARAKTER)
+                 📖 BAB 8: Mimpi Jadi Dokter (HANYA MENGGUNAKAN 2 ASET DINDA)
                  ========================================================== -->
             <div id="ch8_kelas" class="slide">
-                <img src="dinda bingung.png" class="bg-img bg-dim">
+                <img src="kelas.png" class="bg-img bg-dim">
+                <img src="dinda bingung.png" class="dinda-char">
                 <div class="char-box-right">
                     <div class="bubble-container"><p class="bubble-txt">Dinda bercita-cita menjadi dokter, tetapi nilainya biasa saja sehingga ia ragu.</p></div>
                     <img src="nakula.png" class="portrait-huge">
@@ -299,7 +692,8 @@
                 </div>
             </div>
             <div id="ch8_quiz" class="slide">
-                <img src="dinda bingung.png" class="bg-img bg-dim">
+                <img src="kelas.png" class="bg-img bg-dim">
+                <img src="dinda bingung.png" class="dinda-char">
                 <div class="char-box-right">
                     <div class="bubble-container"><p class="bubble-txt" id="bubble8">Nakula: Setiap profesi kesehatan itu mulia. Apa tugas utama seorang dokter?</p></div>
                     <img src="nakula.png" class="portrait-huge">
@@ -315,7 +709,8 @@
                 </div>
             </div>
             <div id="ch8_result" class="slide">
-                <img src="dinda bingung.png" id="resDindaBg" class="bg-img">
+                <img src="kelas.png" class="bg-img">
+                <img id="resDinda" src="dinda bingung.png" class="dinda-char">
                 <div class="result-panel">
                     <h2 id="resTitle8" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
                     <div id="resBox8"></div>
@@ -324,6 +719,25 @@
                 <div class="char-box-right">
                     <div class="bubble-container"><p id="resNakula8" class="bubble-txt"></p></div>
                     <img src="nakula.png" class="portrait-huge">
+                </div>
+            </div>
+
+            <!-- HASIL SKENARIO 1 (Rina) -->
+            <div id="chResult" class="slide">
+                <img src="kelas.png" class="bg-img">
+                <img id="resRina" src="rina senyum.png" class="rina-char">
+                
+                <div class="result-panel">
+                    <h2 id="resTitle" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
+                    <div id="resBox"></div>
+                    <div class="action-btns">
+                        <button id="resBtn" class="btn-action btn-next"></button>
+                    </div>
+                </div>
+
+                <div class="char-box-right">
+                    <div class="bubble-container"><p id="resSadewa" class="bubble-txt"></p></div>
+                    <img src="sadewa.png" class="portrait-huge">
                 </div>
             </div>
 
@@ -355,43 +769,254 @@
         window.onresize = cekLayar;
         function cekDesktopManual() { document.getElementById('desktop-lock').style.display = 'none'; document.getElementById('game-wrapper').style.display = 'flex'; resizeGame(); }
 
-        const sfx = { klik: document.getElementById('a-klik'), welcome: document.getElementById('a-welcome'), correct: document.getElementById('a-correct'), wrong: document.getElementById('a-wrong'), selamat: document.getElementById('a-selamat'), tepuk: document.getElementById('a-tepuk'), sad: document.getElementById('a-sad') };
-        let isMusicOn = true; let isLoading = false; let lastSlideId = "slide1";
-        function playSfx(type) { if(sfx[type]) { sfx[type].currentTime = 0; sfx[type].play().catch(e=>e); } }
-        function stopAllBgMusic() { document.getElementById('a-gamelan').pause(); document.getElementById('a-tegang').pause(); }
-        function playBgMusic(type) { const gamelan = document.getElementById('a-gamelan'); const tegang = document.getElementById('a-tegang'); gamelan.pause(); tegang.pause(); if (!isMusicOn) return; if (type === 'tegang') { tegang.currentTime = 0; tegang.loop = true; tegang.play().catch(e=>e); } else { gamelan.currentTime = 0; gamelan.loop = true; gamelan.play().catch(e=>e); } }
-        function toggleMusic() { const btn = document.getElementById('btnMusic'); isMusicOn = !isMusicOn; if(isMusicOn) { btn.innerText = "🎵 ON"; btn.classList.remove('muted'); const activeSlide = document.querySelector('.slide[style*="display: block"]'); const activeId = activeSlide ? activeSlide.id : 'slide1'; if(activeId === 'ch1_kelas' || activeId === 'ch1_lab' || activeId === 'ch2_adegan1' || activeId === 'ch2_quiz' || activeId === 'ch3_kelas' || activeId === 'ch3_lab' || activeId === 'ch4_kelas' || activeId === 'ch4_quiz' || activeId === 'ch5_kelas' || activeId === 'ch5_quiz' || activeId === 'ch6_intro' || activeId === 'ch6_quiz' || activeId === 'ch7_intro' || activeId === 'ch7_quiz' || activeId === 'ch8_kelas' || activeId === 'ch8_quiz') { playBgMusic('tegang'); } else { playBgMusic('gamelan'); } } else { btn.innerText = "🔇 OFF"; btn.classList.add('muted'); stopAllBgMusic(); } }
+        const sfx = { 
+            klik: document.getElementById('a-klik'), 
+            welcome: document.getElementById('a-welcome'), 
+            correct: document.getElementById('a-correct'), 
+            wrong: document.getElementById('a-wrong'),
+            selamat: document.getElementById('a-selamat'),
+            tepuk: document.getElementById('a-tepuk'),
+            sad: document.getElementById('a-sad')
+        };
+        
+        /* --- STATE UMUM --- */
+        let isMusicOn = true;
+        let isLoading = false;
+        let lastSlideId = "slide1";
 
-        function showLoading(callback, duration = 800) { if(isLoading) return; isLoading = true; const loader = document.getElementById('loading-screen'); loader.style.display = 'flex'; setTimeout(() => { loader.style.display = 'none'; isLoading = false; if (typeof callback === 'function') { callback(); } }, duration); }
-        function changeSlide(id, sound) { const tepuk = document.getElementById('a-tepuk'); const sad = document.getElementById('a-sad'); tepuk.pause(); sad.pause(); tepuk.currentTime = 0; sad.currentTime = 0; let durasi = 800; if(id === 'slide2' && sound === 'selamat') { durasi = 4000; } if(id === 'chResult' || id === 'ch2_result' || id === 'ch3_result' || id === 'ch4_result' || id === 'ch5_result' || id === 'ch6_result' || id === 'ch7_result' || id === 'ch8_result') { durasi = 600; } showLoading(() => { const musicBtn = document.getElementById('btnMusic'); if(id === 'slideCara' || id === 'slideRules') { musicBtn.classList.add('hidden'); } else { musicBtn.classList.remove('hidden'); } if(id === 'ch1_kelas' || id === 'ch1_lab' || id === 'ch2_adegan1' || id === 'ch2_quiz' || id === 'ch3_kelas' || id === 'ch3_lab' || id === 'ch4_kelas' || id === 'ch4_quiz' || id === 'ch5_kelas' || id === 'ch5_quiz' || id === 'ch6_intro' || id === 'ch6_quiz' || id === 'ch7_intro' || id === 'ch7_quiz' || id === 'ch8_kelas' || id === 'ch8_quiz') { if(!(lastSlideId === 'ch1_kelas' && id === 'ch1_lab')) { playBgMusic('tegang'); } else { if(isMusicOn && document.getElementById('a-tegang').paused) { playBgMusic('tegang'); } } } else if (id === 'slide2') { playBgMusic('gamelan'); } else { stopAllBgMusic(); } if(sound) { if(sound === 'selamat') { playSfx('selamat'); } else { playSfx(sound); } } document.querySelectorAll('.slide').forEach(s => s.style.display = 'none'); document.getElementById(id).style.display = 'block'; lastSlideId = id; if(id === 'ch6_intro') { const container = document.getElementById('game-container'); container.classList.add('shake-active'); setTimeout(() => { container.classList.remove('shake-active'); document.querySelector('#ch6_intro .char-box-right').style.display = 'flex'; document.querySelector('#ch6_intro .bottom-panel').style.display = 'flex'; }, 3000); } }, durasi); }
+        function playSfx(type) { 
+            if(sfx[type]) { 
+                sfx[type].currentTime = 0; 
+                sfx[type].play().catch(e=>e); 
+            } 
+        }
+
+        function stopAllBgMusic() {
+            document.getElementById('a-gamelan').pause();
+            document.getElementById('a-tegang').pause();
+        }
+
+        function playBgMusic(type) {
+            const gamelan = document.getElementById('a-gamelan');
+            const tegang = document.getElementById('a-tegang');
+            gamelan.pause();
+            tegang.pause();
+
+            if (!isMusicOn) return;
+
+            if (type === 'tegang') {
+                tegang.currentTime = 0;
+                tegang.loop = true;
+                tegang.play().catch(e=>e);
+            } else {
+                gamelan.currentTime = 0;
+                gamelan.loop = true;
+                gamelan.play().catch(e=>e);
+            }
+        }
+
+        function toggleMusic() {
+            const btn = document.getElementById('btnMusic');
+            isMusicOn = !isMusicOn;
+            
+            if(isMusicOn) {
+                btn.innerText = "🎵 ON";
+                btn.classList.remove('muted');
+                const activeSlide = document.querySelector('.slide[style*="display: block"]');
+                const activeId = activeSlide ? activeSlide.id : 'slide1';
+                if(activeId === 'ch1_kelas' || activeId === 'ch1_lab' || activeId === 'ch2_adegan1' || activeId === 'ch2_quiz' || activeId === 'ch3_kelas' || activeId === 'ch3_lab' || activeId === 'ch4_kelas' || activeId === 'ch4_quiz' || activeId === 'ch5_kelas' || activeId === 'ch5_quiz' || activeId === 'ch6_intro' || activeId === 'ch6_quiz' || activeId === 'ch7_intro' || activeId === 'ch7_quiz' || activeId === 'ch8_kelas' || activeId === 'ch8_quiz') {
+                    playBgMusic('tegang');
+                } else {
+                    playBgMusic('gamelan');
+                }
+            } else {
+                btn.innerText = "🔇 OFF";
+                btn.classList.add('muted');
+                stopAllBgMusic();
+            }
+        }
+
+        function showLoading(callback, duration = 800) {
+            if(isLoading) return;
+            isLoading = true;
+            const loader = document.getElementById('loading-screen');
+            loader.style.display = 'flex';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                isLoading = false;
+                if (typeof callback === 'function') {
+                    callback();
+                }
+            }, duration);
+        }
+
+        function changeSlide(id, sound) {
+            const tepuk = document.getElementById('a-tepuk');
+            const sad = document.getElementById('a-sad');
+            tepuk.pause(); sad.pause();
+            tepuk.currentTime = 0; sad.currentTime = 0;
+
+            let durasi = 800; 
+            if(id === 'slide2' && sound === 'selamat') { durasi = 4000; }
+            if(id === 'chResult' || id === 'ch2_result' || id === 'ch3_result' || id === 'ch4_result' || id === 'ch5_result' || id === 'ch6_result' || id === 'ch7_result' || id === 'ch8_result') { durasi = 600; }
+
+            showLoading(() => {
+                const musicBtn = document.getElementById('btnMusic');
+                if(id === 'slideCara' || id === 'slideRules') {
+                    musicBtn.classList.add('hidden');
+                } else {
+                    musicBtn.classList.remove('hidden');
+                }
+
+                if(id === 'ch1_kelas' || id === 'ch1_lab' || id === 'ch2_adegan1' || id === 'ch2_quiz' || id === 'ch3_kelas' || id === 'ch3_lab' || id === 'ch4_kelas' || id === 'ch4_quiz' || id === 'ch5_kelas' || id === 'ch5_quiz' || id === 'ch6_intro' || id === 'ch6_quiz' || id === 'ch7_intro' || id === 'ch7_quiz' || id === 'ch8_kelas' || id === 'ch8_quiz') {
+                    if(!(lastSlideId === 'ch1_kelas' && id === 'ch1_lab')) {
+                        playBgMusic('tegang');
+                    } else {
+                        if(isMusicOn && document.getElementById('a-tegang').paused) {
+                            playBgMusic('tegang');
+                        }
+                    }
+                } else if (id === 'slide2') {
+                    playBgMusic('gamelan');
+                } else {
+                    stopAllBgMusic();
+                }
+
+                if(sound) {
+                    if(sound === 'selamat') {
+                        playSfx('selamat');
+                    } else {
+                        playSfx(sound);
+                    }
+                }
+
+                document.querySelectorAll('.slide').forEach(s => s.style.display = 'none');
+                document.getElementById(id).style.display = 'block';
+                lastSlideId = id; 
+
+                // 🎯 AUTO GEMPA 3 DETIK UNTUK SKENARIO 6
+                if(id === 'ch6_intro') {
+                    const container = document.getElementById('game-container');
+                    container.classList.add('shake-active');
+                    setTimeout(() => {
+                        container.classList.remove('shake-active');
+                        document.querySelector('#ch6_intro .char-box-right').style.display = 'flex';
+                        document.querySelector('#ch6_intro .bottom-panel').style.display = 'flex';
+                    }, 3000);
+                }
+            }, durasi);
+        }
 
         /* ==========================================================
-           LOGIKA BAB 1 - 7
+           LOGIKA SKENARIO 1 (RINA)
            ========================================================== */
-        let selectedObat = ""; function selectObat(val) { playSfx('klik'); selectedObat = val; document.getElementById('item-p').classList.remove('obat-active'); document.getElementById('item-a').classList.remove('obat-active'); document.getElementById('item-t').classList.remove('obat-active'); if(val === 'p') document.getElementById('item-p').classList.add('obat-active'); if(val === 'a') document.getElementById('item-a').classList.add('obat-active'); if(val === 't') document.getElementById('item-t').classList.add('obat-active'); }
-        function runMix() { if(!selectedObat) { alert("Pilih obat di atas meja dulu!"); return; } stopAllBgMusic(); const rina = document.getElementById('resRina'), title = document.getElementById('resTitle'), box = document.getElementById('resBox'), dialog = document.getElementById('resSadewa'), btn = document.getElementById('resBtn'); if(selectedObat === 'p') { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); rina.src = "rina senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerText = "Paracetamol adalah analgesik yang tepat dan aman untuk sakit kepala Rina. Hebat!"; dialog.innerText = "Luar biasa! Rina sudah kembali ceria. Kamu memang detektif medis yang teliti!"; btn.innerText = "LANJUT CHAPTER 2"; btn.onclick = () => { changeSlide('ch2_adegan1', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); rina.src = "rina mual.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerText = selectedObat === 'a' ? "Amoxicillin itu antibiotik, bukan pereda pusing! Rina malah mual." : "Antasida itu obat lambung, tidak bisa menyembuhkan pusing Rina!"; dialog.innerText = "Aduh, racikannya salah! Rina jadi makin mual. Ayo coba teliti lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => changeSlide('ch1_lab', 'klik'); } changeSlide('chResult'); }
+        let selectedObat = "";
 
-        let selectedAnswer2 = -1; function selectAnswer2(index) { playSfx('klik'); selectedAnswer2 = index; const btns = document.querySelectorAll('#ch2_quiz .quiz-btn'); btns.forEach(btn => btn.classList.remove('selected')); btns[index].classList.add('selected'); document.getElementById('quizSubmitBtn2').style.display = 'block'; }
+        function selectObat(val) {
+            playSfx('klik');
+            selectedObat = val;
+            document.getElementById('item-p').classList.remove('obat-active');
+            document.getElementById('item-a').classList.remove('obat-active');
+            document.getElementById('item-t').classList.remove('obat-active');
+            if(val === 'p') document.getElementById('item-p').classList.add('obat-active');
+            if(val === 'a') document.getElementById('item-a').classList.add('obat-active');
+            if(val === 't') document.getElementById('item-t').classList.add('obat-active');
+        }
+
+        function runMix() {
+            if(!selectedObat) { alert("Pilih obat di atas meja dulu!"); return; }
+            stopAllBgMusic();
+
+            const rina = document.getElementById('resRina'), title = document.getElementById('resTitle'), box = document.getElementById('resBox'), dialog = document.getElementById('resSadewa'), btn = document.getElementById('resBtn');
+            
+            if(selectedObat === 'p') {
+                playSfx('correct'); 
+                setTimeout(() => playSfx('tepuk'), 500);
+                rina.src = "rina senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
+                box.innerText = "Paracetamol adalah analgesik yang tepat dan aman untuk sakit kepala Rina. Hebat!";
+                dialog.innerText = "Luar biasa! Rina sudah kembali ceria. Kamu memang detektif medis yang teliti!";
+                btn.innerText = "LANJUT CHAPTER 2"; btn.onclick = () => { changeSlide('ch2_adegan1', 'klik'); };
+            } else {
+                playSfx('wrong'); 
+                setTimeout(() => playSfx('sad'), 500);
+                rina.src = "rina mual.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
+                box.innerText = selectedObat === 'a' ? "Amoxicillin itu antibiotik, bukan pereda pusing! Rina malah mual." : "Antasida itu obat lambung, tidak bisa menyembuhkan pusing Rina!";
+                dialog.innerText = "Aduh, racikannya salah! Rina jadi makin mual. Ayo coba teliti lagi!";
+                btn.innerText = "COBA LAGI"; btn.onclick = () => changeSlide('ch1_lab', 'klik');
+            }
+            changeSlide('chResult');
+        }
+
+        /* ==========================================================
+           🔥 PERBAIKAN LOGIKA PILIHAN GANDA (DENGAN SCOPE SLIDE YANG BENAR)
+           ========================================================== */
+        
+        // SKENARIO 2 (ANDI)
+        let selectedAnswer2 = -1;
+        function selectAnswer2(index) {
+            playSfx('klik');
+            selectedAnswer2 = index;
+            const btns = document.querySelectorAll('#ch2_quiz .quiz-btn'); // Hanya ambil di slide ch2
+            btns.forEach(btn => btn.classList.remove('selected'));
+            btns[index].classList.add('selected');
+            document.getElementById('quizSubmitBtn2').style.display = 'block';
+        }
         function submitAnswer2() { if(selectedAnswer2 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const andi = document.getElementById('resAndi'), title = document.getElementById('resTitle2'), box = document.getElementById('resBox2'), dialog = document.getElementById('resNakula2'), btn = document.getElementById('resBtn2'); if(selectedAnswer2 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); andi.src = "andi senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Tepat sekali! Jamban menghentikan pencemaran, sedangkan cuci tangan membunuh kuman. Inilah yang disebut ODF.<br><br><b>Data:</b> Diare merupakan pembunuh nomor dua pada anak di dunia. Penyebab utamanya adalah sanitasi yang buruk.<br><br><b>Tips:</b> Gunakan jamban sehat dan cuci tangan pakai sabun setelah buang air besar."; dialog.innerText = "Kamu hebat! Pilihanmu menyelamatkan Andi dan teman-temannya dari penyakit!"; btn.innerText = "LANJUT CHAPTER 3"; btn.onclick = () => { changeSlide('ch3_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); andi.src = "andi bingung.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Hanya mencuci tangan atau hanya membangun jamban tidak cukup. Keduanya harus dilakukan bersama-sama.<br><br><b>Tips:</b> Sanitasi yang bersih membutuhkan jamban yang layak dan kebiasaan cuci tangan."; dialog.innerText = "Aduh, selokan tetap kotor dan Andi masih bingung. Ayo coba pilih dengan teliti lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn2').style.display = 'none'; selectedAnswer2 = -1; document.querySelectorAll('#ch2_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch2_quiz', 'klik'); }; } changeSlide('ch2_result'); }
-        
-        let selectedAnswer4 = -1; function selectAnswer4(index) { playSfx('klik'); selectedAnswer4 = index; const btns = document.querySelectorAll('#ch4_quiz .quiz-btn'); btns.forEach(btn => btn.classList.remove('selected')); btns[index].classList.add('selected'); document.getElementById('quizSubmitBtn4').style.display = 'block'; }
+
+        // SKENARIO 4 (FAJAR)
+        let selectedAnswer4 = -1;
+        function selectAnswer4(index) {
+            playSfx('klik');
+            selectedAnswer4 = index;
+            const btns = document.querySelectorAll('#ch4_quiz .quiz-btn'); // Hanya ambil di slide ch4
+            btns.forEach(btn => btn.classList.remove('selected'));
+            btns[index].classList.add('selected');
+            document.getElementById('quizSubmitBtn4').style.display = 'block';
+        }
         function submitAnswer4() { if(selectedAnswer4 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const fajar = document.getElementById('resFajar'), title = document.getElementById('resTitle4'), box = document.getElementById('resBox4'), dialog = document.getElementById('resSadewa4'), btn = document.getElementById('resBtn4'); if(selectedAnswer4 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); fajar.src = "fajar lengah.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Kamu detektif sejati! Vaksin DBD sudah terbukti aman oleh BPOM.<br><br><b>Data:</b> Sebanyak 60% remaja percaya informasi kesehatan dari media sosial tanpa memeriksa faktanya.<br><br><b>Tips:</b> Saring sebelum membagikan. Selalu cek ke sumber resmi seperti Kemenkes atau WHO."; dialog.innerText = "Fajar sudah lega. Terima kasih sudah menyelamatkan banyak orang dari hoaks berbahaya!"; btn.innerText = "LANJUT CHAPTER 5"; btn.onclick = () => { changeSlide('ch5_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); fajar.src = "fajar kaget.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Jangan menyebarkan hoaks karena tindakan itu sangat berbahaya bagi orang lain.<br><br><b>Tips:</b> Selalu lakukan verifikasi sebelum memercayai sebuah informasi."; dialog.innerText = "Aduh, hoaks terus menyebar dan Fajar makin panik. Ayo pilih dengan bijak lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn4').style.display = 'none'; selectedAnswer4 = -1; document.querySelectorAll('#ch4_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch4_quiz', 'klik'); }; } changeSlide('ch4_result'); }
+
+        // SKENARIO 5 (DIMAS)
+        let selectedAnswer5 = -1;
+        function selectAnswer5(index) {
+            playSfx('klik');
+            selectedAnswer5 = index;
+            const btns = document.querySelectorAll('#ch5_quiz .quiz-btn'); // Hanya ambil di slide ch5
+            btns.forEach(btn => btn.classList.remove('selected'));
+            btns[index].classList.add('selected');
+            document.getElementById('quizSubmitBtn5').style.display = 'block';
+        }
+        function submitAnswer5() { if(selectedAnswer5 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const bg = document.getElementById('resDimasBg'); const title = document.getElementById('resTitle5'); const box = document.getElementById('resBox5'); const dialog = document.getElementById('resNakula5'); const btn = document.getElementById('resBtn5'); if(selectedAnswer5 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); bg.src = "taman sekolah1.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Terkadang, seorang teman hanya butuh didengarkan. Kamu sudah melakukan hal yang benar.<br><br><b>Data:</b> Satu dari tiga remaja mengalami masalah kesehatan mental, dan 80% di antaranya tidak berani bercerita.<br><br><b>Tips:</b> Jangan takut untuk bertanya, 'Apa kabar?' karena satu pertanyaan bisa menyelamatkan."; dialog.innerText = "Dimas kini tersenyum. Kamu telah menjadi teman yang luar biasa!"; btn.innerText = "LANJUT CHAPTER 6"; btn.onclick = () => { changeSlide('ch6_intro', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); bg.src = "taman sekolah2.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Membiarkannya hanya akan menambah beban. Kita harus peduli.<br><br><b>Tips:</b> Jika kamu merasa sedih berkepanjangan, segera cerita kepada guru BK atau orang tua."; dialog.innerText = "Dimas semakin sendirian. Ayo pilih cara terbaik untuknya!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn5').style.display = 'none'; selectedAnswer5 = -1; document.querySelectorAll('#ch5_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch5_quiz', 'klik'); }; } changeSlide('ch5_result'); }
+
+        // SKENARIO 6 (GEMPA)
+        let selectedAnswer6 = -1;
+        function selectAnswer6(index) {
+            playSfx('klik');
+            selectedAnswer6 = index;
+            const btns = document.querySelectorAll('#ch6_quiz .quiz-btn'); // Hanya ambil di slide ch6
+            btns.forEach(btn => btn.classList.remove('selected'));
+            btns[index].classList.add('selected');
+            document.getElementById('quizSubmitBtn6').style.display = 'block';
+        }
+        function submitAnswer6() { if(selectedAnswer6 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const bg = document.getElementById('resWargaBg'); const title = document.getElementById('resTitle6'); const box = document.getElementById('resBox6'); const dialog = document.getElementById('resSadewa6'); const btn = document.getElementById('resBtn6'); if(selectedAnswer6 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); bg.src = "ruang aman.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "TSB menyelamatkan nyawa! Siapkan selalu di rumahmu.<br><br><b>Data:</b> Indonesia berada di Cincin Api Pasifik sehingga ribuan gempa terjadi setiap tahun.<br><br><b>Tips:</b> Siapkan TSB yang berisi air minum, makanan siap saji, P3K, senter, radio, dan dokumen penting."; dialog.innerText = "Pilihanmu sangat tepat! Selamat karena sudah tahu cara menyelamatkan diri!"; btn.innerText = "LANJUT CHAPTER 7"; btn.onclick = () => { changeSlide('ch7_intro', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); bg.src = "sekolah gempa.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Tanpa TSB, kita tidak punya bekal dan itu sangat berbahaya.<br><br><b>Tips:</b> Lakukan latihan evakuasi secara rutin minimal setahun sekali."; dialog.innerText = "Aduh, warga masih kebingungan. Ayo pilih dengan benar lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn6').style.display = 'none'; selectedAnswer6 = -1; document.querySelectorAll('#ch6_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch6_quiz', 'klik'); }; } changeSlide('ch6_result'); }
+
+        // SKENARIO 7 (RAKA)
+        let selectedAnswer7 = -1;
+        function selectAnswer7(index) {
+            playSfx('klik');
+            selectedAnswer7 = index;
+            const btns = document.querySelectorAll('#ch7_quiz .quiz-btn'); // Hanya ambil di slide ch7
+            btns.forEach(btn => btn.classList.remove('selected'));
+            btns[index].classList.add('selected');
+            document.getElementById('quizSubmitBtn7').style.display = 'block';
+        }
+        function submitAnswer7() { if(selectedAnswer7 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const bg = document.getElementById('resRakaBg'); const title = document.getElementById('resTitle7'); const box = document.getElementById('resBox7'); const dialog = document.getElementById('resSadewa7'); const btn = document.getElementById('resBtn7'); if(selectedAnswer7 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); bg.src = "raka betul.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Isolasi yang benar akan melindungi orang lain. Kamu sudah bertanggung jawab!<br><br><b>Data:</b> Indonesia menempati peringkat ketiga dunia dengan beban TBC tertinggi.<br><br><b>Tips:</b> Jika batuk lebih dari tiga minggu, segera periksa ke puskesmas."; dialog.innerText = "Keputusanmu sangat tepat! Raka dan keluarganya kini aman."; btn.innerText = "LANJUT CHAPTER 8"; btn.onclick = () => { changeSlide('ch8_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); bg.src = "raka salah.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Tanpa masker, TBC bisa menular kepada keluarga.<br><br><b>Tips:</b> Pakailah masker saat batuk dan tutup mulut dengan siku ketika bersin."; const container = document.getElementById('game-container'); container.classList.add('dizzy-active'); setTimeout(() => { container.classList.remove('dizzy-active'); }, 2000); dialog.innerText = "Aduh, Raka belum paham. Keluarganya jadi ikut batuk. Ayo pilih yang benar lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn7').style.display = 'none'; selectedAnswer7 = -1; document.querySelectorAll('#ch7_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch7_quiz', 'klik'); }; } changeSlide('ch7_result'); }
         
-        let selectedAnswer5 = -1; function selectAnswer5(index) { playSfx('klik'); selectedAnswer5 = index; const btns = document.querySelectorAll('#ch5_quiz .quiz-btn'); btns.forEach(btn => btn.classList.remove('selected')); btns[index].classList.add('selected'); document.getElementById('quizSubmitBtn5').style.display = 'block'; }
-        function submitAnswer5() { if(selectedAnswer5 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const bg = document.getElementById('resDimasBg'), title = document.getElementById('resTitle5'), box = document.getElementById('resBox5'), dialog = document.getElementById('resNakula5'), btn = document.getElementById('resBtn5'); if(selectedAnswer5 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); bg.src = "taman sekolah1.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Terkadang, seorang teman hanya butuh didengarkan. Kamu sudah melakukan hal yang benar.<br><br><b>Data:</b> Satu dari tiga remaja mengalami masalah kesehatan mental, dan 80% di antaranya tidak berani bercerita.<br><br><b>Tips:</b> Jangan takut untuk bertanya, 'Apa kabar?' karena satu pertanyaan bisa menyelamatkan."; dialog.innerText = "Dimas kini tersenyum. Kamu telah menjadi teman yang luar biasa!"; btn.innerText = "LANJUT CHAPTER 6"; btn.onclick = () => { changeSlide('ch6_intro', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); bg.src = "taman sekolah2.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Membiarkannya hanya akan menambah beban. Kita harus peduli.<br><br><b>Tips:</b> Jika kamu merasa sedih berkepanjangan, segera cerita kepada guru BK atau orang tua."; dialog.innerText = "Dimas semakin sendirian. Ayo pilih cara terbaik untuknya!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn5').style.display = 'none'; selectedAnswer5 = -1; document.querySelectorAll('#ch5_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch5_quiz', 'klik'); }; } changeSlide('ch5_result'); }
-
-        let selectedAnswer6 = -1; function selectAnswer6(index) { playSfx('klik'); selectedAnswer6 = index; const btns = document.querySelectorAll('#ch6_quiz .quiz-btn'); btns.forEach(btn => btn.classList.remove('selected')); btns[index].classList.add('selected'); document.getElementById('quizSubmitBtn6').style.display = 'block'; }
-        function submitAnswer6() { if(selectedAnswer6 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const bg = document.getElementById('resWargaBg'), title = document.getElementById('resTitle6'), box = document.getElementById('resBox6'), dialog = document.getElementById('resSadewa6'), btn = document.getElementById('resBtn6'); if(selectedAnswer6 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); bg.src = "ruang aman.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "TSB menyelamatkan nyawa! Siapkan selalu di rumahmu.<br><br><b>Data:</b> Indonesia berada di Cincin Api Pasifik sehingga ribuan gempa terjadi setiap tahun.<br><br><b>Tips:</b> Siapkan TSB yang berisi air minum, makanan siap saji, P3K, senter, radio, dan dokumen penting."; dialog.innerText = "Pilihanmu sangat tepat! Selamat karena sudah tahu cara menyelamatkan diri!"; btn.innerText = "LANJUT CHAPTER 7"; btn.onclick = () => { changeSlide('ch7_intro', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); bg.src = "sekolah gempa.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Tanpa TSB, kita tidak punya bekal dan itu sangat berbahaya.<br><br><b>Tips:</b> Lakukan latihan evakuasi secara rutin minimal setahun sekali."; dialog.innerText = "Aduh, warga masih kebingungan. Ayo pilih dengan benar lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn6').style.display = 'none'; selectedAnswer6 = -1; document.querySelectorAll('#ch6_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch6_quiz', 'klik'); }; } changeSlide('ch6_result'); }
-
-        let selectedAnswer7 = -1; function selectAnswer7(index) { playSfx('klik'); selectedAnswer7 = index; const btns = document.querySelectorAll('#ch7_quiz .quiz-btn'); btns.forEach(btn => btn.classList.remove('selected')); btns[index].classList.add('selected'); document.getElementById('quizSubmitBtn7').style.display = 'block'; }
-        function submitAnswer7() { if(selectedAnswer7 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const bg = document.getElementById('resRakaBg'), title = document.getElementById('resTitle7'), box = document.getElementById('resBox7'), dialog = document.getElementById('resSadewa7'), btn = document.getElementById('resBtn7'); if(selectedAnswer7 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); bg.src = "raka betul.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Isolasi yang benar akan melindungi orang lain. Kamu sudah bertanggung jawab!<br><br><b>Data:</b> Indonesia menempati peringkat ketiga dunia dengan beban TBC tertinggi.<br><br><b>Tips:</b> Jika batuk lebih dari tiga minggu, segera periksa ke puskesmas."; dialog.innerText = "Keputusanmu sangat tepat! Raka dan keluarganya kini aman."; btn.innerText = "LANJUT CHAPTER 8"; btn.onclick = () => { changeSlide('ch8_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); bg.src = "raka salah.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Tanpa masker, TBC bisa menular kepada keluarga.<br><br><b>Tips:</b> Pakailah masker saat batuk dan tutup mulut dengan siku ketika bersin."; const container = document.getElementById('game-container'); container.classList.add('dizzy-active'); setTimeout(() => { container.classList.remove('dizzy-active'); }, 2000); dialog.innerText = "Aduh, Raka belum paham. Keluarganya jadi ikut batuk. Ayo pilih yang benar lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn7').style.display = 'none'; selectedAnswer7 = -1; document.querySelectorAll('#ch7_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch7_quiz', 'klik'); }; } changeSlide('ch7_result'); }
-
-        let selectedFood = -1; function selectFood(index) { playSfx('klik'); selectedFood = index; document.getElementById('food-0').classList.remove('makanan-active'); document.getElementById('food-1').classList.remove('makanan-active'); document.getElementById('food-2').classList.remove('makanan-active'); document.getElementById('food-' + index).classList.add('makanan-active'); document.getElementById('quizSubmitBtn3').style.display = 'block'; }
+        // --- LOGIKA SITI (MAKANAN) ---
+        let selectedFood = -1;
+        function selectFood(index) { playSfx('klik'); selectedFood = index; document.getElementById('food-0').classList.remove('makanan-active'); document.getElementById('food-1').classList.remove('makanan-active'); document.getElementById('food-2').classList.remove('makanan-active'); document.getElementById('food-' + index).classList.add('makanan-active'); document.getElementById('quizSubmitBtn3').style.display = 'block'; }
         function submitFood() { if(selectedFood === -1) return alert("Pilih makanan dulu!"); stopAllBgMusic(); const siti = document.getElementById('resSiti'), title = document.getElementById('resTitle3'), box = document.getElementById('resBox3'), dialog = document.getElementById('resNakula3'), btn = document.getElementById('resBtn3'); if(selectedFood === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); siti.src = "siti senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Sempurna! Nasi, bayam, dan tahu kaya akan zat besi sehingga Siti bisa terbebas dari anemia.<br><br><b>Data:</b> Sebanyak 38% remaja putri Indonesia menderita anemia.<br><br><b>Tips:</b> Makanlah yang berwarna 'pelangi' di piringmu karena semakin berwarna, semakin lengkap gizinya."; dialog.innerText = "Siti berhasil bangkit! Kamu benar-benar detektif gizi ulung!"; btn.innerText = "LANJUT CHAPTER 4"; btn.onclick = () => { changeSlide('ch4_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); siti.src = "siti lemas.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Kombinasi tersebut masih kurang protein dan zat besi yang dibutuhkan tubuh.<br><br><b>Tips:</b> Tambahkan lauk berprotein seperti tahu, tempe, atau telur karena murah dan bikin bertenaga."; dialog.innerText = "Siti masih lemas. Makanan ini belum bisa memenuhi kebutuhan gizinya. Ayo pilih lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn3').style.display = 'none'; selectedFood = -1; document.getElementById('food-0').classList.remove('makanan-active'); document.getElementById('food-1').classList.remove('makanan-active'); document.getElementById('food-2').classList.remove('makanan-active'); changeSlide('ch3_lab', 'klik'); }; } changeSlide('ch3_result'); }
-
-        /* ==========================================================
-           📌 LOGIKA BAB 8 (DINDA - SCOPED SLIDE)
-           ========================================================== */
+        
+        // --- LOGIKA BAB 8 (DINDA) ---
         let selectedAnswer8 = -1;
         function selectAnswer8(index) {
             playSfx('klik');
@@ -404,18 +1029,16 @@
         function submitAnswer8() {
             if(selectedAnswer8 === -1) return alert("Pilih jawaban dulu!");
             stopAllBgMusic();
-            const bg = document.getElementById('resDindaBg'), title = document.getElementById('resTitle8'), box = document.getElementById('resBox8'), dialog = document.getElementById('resNakula8'), btn = document.getElementById('resBtn8');
+            const char = document.getElementById('resDinda'), title = document.getElementById('resTitle8'), box = document.getElementById('resBox8'), dialog = document.getElementById('resNakula8'), btn = document.getElementById('resBtn8');
             if(selectedAnswer8 === 0) {
                 playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500);
-                bg.src = "dinda bangga.png"; // Full Asset Berhasil
-                title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
+                char.src = "dinda bangga.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerHTML = "Tepat! Dokter adalah garda terdepan pelayanan kesehatan.<br><br><b>Data:</b> Indonesia masih kekurangan 150.000 dokter.<br><br><b>Tips:</b> Hormati setiap profesi kesehatan karena mereka bekerja untuk kesembuhanmu.";
                 dialog.innerText = "Keputusanmu tepat sekali! Dinda percaya diri mengejar mimpinya.";
                 btn.innerText = "LANJUT CHAPTER 9"; btn.onclick = () => { changeSlide('ch9_kelas', 'klik'); };
             } else {
                 playSfx('wrong'); setTimeout(() => playSfx('sad'), 500);
-                bg.src = "dinda bingung.png"; // Full Asset Gagal
-                title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
+                char.src = "dinda bingung.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
                 box.innerHTML = "Itu bukan tugas utama dokter. Tugas utama dokter adalah memeriksa, mendiagnosis, dan merujuk pasien.<br><br><b>Tips:</b> Dokter umum di Rumah Sakit bertugas sebagai pemeriksa dan perujuk, bukan sebagai operator atau penjual obat.";
                 dialog.innerText = "Ayo pilih lagi, Dinda masih ragu mengejar mimpinya.";
                 btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn8').style.display = 'none'; selectedAnswer8 = -1; document.querySelectorAll('#ch8_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch8_quiz', 'klik'); };
