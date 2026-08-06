@@ -216,8 +216,17 @@
         /* ==========================================================
            📌 BAB 8 - 12 (Dengan ukuran Bubble & Karakter yang sama)
            ========================================================== */
-        /* Karakter Khusus Bab 8 */
-        .dinda-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 30px; height: 340px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
+        /* 🔥 PERBAIKAN BUG DINDA: Z-INDEX DINAIKKAN, POSISI DIATAS PANEL, OBJECT-FIT CONTAIN */
+        .dinda-char { 
+            position: absolute; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            bottom: 120px !important; /* Dinaikkan agar tidak tertutup panel bawah */
+            height: 340px; 
+            z-index: 60 !important;   /* Dinaikkan agar berada di atas panel (z-index 50) */
+            filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); 
+            object-fit: contain;      /* Memastikan gambar memenuhi area tanpa distorsi */
+        }
 
         /* Konfigurasi panel hasil Bab 8 (disamakan dengan Bab 5-7) */
         #ch8_result .result-panel { position: absolute; left: 10px; top: 45px; width: 380px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
