@@ -216,17 +216,7 @@
         /* ==========================================================
            📌 BAB 8 - 12 (Dengan ukuran Bubble & Karakter yang sama)
            ========================================================== */
-        /* 🔥 PERBAIKAN BUG DINDA: Z-INDEX DINAIKKAN, POSISI DIATAS PANEL, OBJECT-FIT CONTAIN */
-        .dinda-char { 
-            position: absolute; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            bottom: 120px !important; /* Dinaikkan agar tidak tertutup panel bawah */
-            height: 340px; 
-            z-index: 60 !important;   /* Dinaikkan agar berada di atas panel (z-index 50) */
-            filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); 
-            object-fit: contain;      /* Memastikan gambar memenuhi area tanpa distorsi */
-        }
+        /* PERBAIKAN: Class dinda-char dihapus karena tidak lagi digunakan sebagai overlay */
 
         /* Konfigurasi panel hasil Bab 8 (disamakan dengan Bab 5-7) */
         #ch8_result .result-panel { position: absolute; left: 10px; top: 45px; width: 380px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
@@ -242,6 +232,12 @@
         #ch8_result .bubble-container { width: 320px !important; padding: 12px !important; margin-bottom: 15px !important; }
         #ch8_result .bubble-txt { font-size: 16px !important; line-height: 1.4 !important; }
         #ch8_result .portrait-huge { height: 280px !important; width: auto !important; }
+
+        /* Karakter Khusus Bab 9-12 */
+        .nenek-char, .toni-char, .warga-char { position: absolute; left: 50%; transform: translateX(-50%); bottom: 30px; height: 340px; z-index: 5; filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5)); }
+        #ch9_quiz .char-box-right, #ch10_quiz .char-box-right, #ch11_quiz .char-box-right, #ch12_quiz .char-box-right { transform: scale(0.75) !important; transform-origin: bottom right !important; }
+        #ch9_quiz .bubble-container, #ch10_quiz .bubble-container, #ch11_quiz .bubble-container, #ch12_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
+        #ch9_quiz .portrait-huge, #ch10_quiz .portrait-huge, #ch11_quiz .portrait-huge, #ch12_quiz .portrait-huge { height: 250px !important; }
 
         /* --- SLIDE CARA MAIN & RULES --- */
         .slide-white { background-color: #f7f2e1; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 900; }
@@ -687,11 +683,10 @@
             </div>
 
             <!-- ==========================================================
-                 📖 BAB 8: Mimpi Jadi Dokter (HANYA MENGGUNAKAN 2 ASET DINDA)
+                 📖 BAB 8: Mimpi Jadi Dokter (100% FULL ASSET DINDA)
                  ========================================================== -->
             <div id="ch8_kelas" class="slide">
-                <img src="kelas.png" class="bg-img bg-dim">
-                <img src="dinda bingung.png" class="dinda-char">
+                <img src="dinda bingung.png" class="bg-img bg-dim">
                 <div class="char-box-right">
                     <div class="bubble-container"><p class="bubble-txt">Dinda bercita-cita menjadi dokter, tetapi nilainya biasa saja sehingga ia ragu.</p></div>
                     <img src="nakula.png" class="portrait-huge">
@@ -701,8 +696,7 @@
                 </div>
             </div>
             <div id="ch8_quiz" class="slide">
-                <img src="kelas.png" class="bg-img bg-dim">
-                <img src="dinda bingung.png" class="dinda-char">
+                <img src="dinda bingung.png" class="bg-img bg-dim">
                 <div class="char-box-right">
                     <div class="bubble-container"><p class="bubble-txt" id="bubble8">Nakula: Setiap profesi kesehatan itu mulia. Apa tugas utama seorang dokter?</p></div>
                     <img src="nakula.png" class="portrait-huge">
@@ -718,8 +712,7 @@
                 </div>
             </div>
             <div id="ch8_result" class="slide">
-                <img src="kelas.png" class="bg-img">
-                <img id="resDinda" src="dinda bingung.png" class="dinda-char">
+                <img src="dinda bingung.png" id="resDindaBg" class="bg-img">
                 <div class="result-panel">
                     <h2 id="resTitle8" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
                     <div id="resBox8"></div>
@@ -833,7 +826,7 @@
                 btn.classList.remove('muted');
                 const activeSlide = document.querySelector('.slide[style*="display: block"]');
                 const activeId = activeSlide ? activeSlide.id : 'slide1';
-                if(activeId === 'ch1_kelas' || activeId === 'ch1_lab' || activeId === 'ch2_adegan1' || activeId === 'ch2_quiz' || activeId === 'ch3_kelas' || activeId === 'ch3_lab' || activeId === 'ch4_kelas' || activeId === 'ch4_quiz' || activeId === 'ch5_kelas' || activeId === 'ch5_quiz' || activeId === 'ch6_intro' || activeId === 'ch6_quiz' || activeId === 'ch7_intro' || activeId === 'ch7_quiz' || activeId === 'ch8_kelas' || activeId === 'ch8_quiz') {
+                if(activeId === 'ch1_kelas' || activeId === 'ch1_lab' || activeId === 'ch2_adegan1' || activeId === 'ch2_quiz' || activeId === 'ch3_kelas' || activeId === 'ch3_lab' || activeId === 'ch4_kelas' || activeId === 'ch4_quiz' || activeId === 'ch5_kelas' || activeId === 'ch5_quiz' || activeId === 'ch6_intro' || activeId === 'ch6_quiz' || activeId === 'ch7_intro' || activeId === 'ch7_quiz' || activeId === 'ch8_kelas' || activeId === 'ch8_quiz' || activeId === 'ch9_kelas' || activeId === 'ch9_quiz' || activeId === 'ch10_kelas' || activeId === 'ch10_quiz' || activeId === 'ch11_kelas' || activeId === 'ch11_quiz' || activeId === 'ch12_kelas' || activeId === 'ch12_quiz') {
                     playBgMusic('tegang');
                 } else {
                     playBgMusic('gamelan');
@@ -867,7 +860,7 @@
 
             let durasi = 800; 
             if(id === 'slide2' && sound === 'selamat') { durasi = 4000; }
-            if(id === 'chResult' || id === 'ch2_result' || id === 'ch3_result' || id === 'ch4_result' || id === 'ch5_result' || id === 'ch6_result' || id === 'ch7_result' || id === 'ch8_result') { durasi = 600; }
+            if(id === 'chResult' || id === 'ch2_result' || id === 'ch3_result' || id === 'ch4_result' || id === 'ch5_result' || id === 'ch6_result' || id === 'ch7_result' || id === 'ch8_result' || id === 'ch9_result' || id === 'ch10_result' || id === 'ch11_result' || id === 'ch12_result') { durasi = 600; }
 
             showLoading(() => {
                 const musicBtn = document.getElementById('btnMusic');
@@ -877,7 +870,7 @@
                     musicBtn.classList.remove('hidden');
                 }
 
-                if(id === 'ch1_kelas' || id === 'ch1_lab' || id === 'ch2_adegan1' || id === 'ch2_quiz' || id === 'ch3_kelas' || id === 'ch3_lab' || id === 'ch4_kelas' || id === 'ch4_quiz' || id === 'ch5_kelas' || id === 'ch5_quiz' || id === 'ch6_intro' || id === 'ch6_quiz' || id === 'ch7_intro' || id === 'ch7_quiz' || id === 'ch8_kelas' || id === 'ch8_quiz') {
+                if(id === 'ch1_kelas' || id === 'ch1_lab' || id === 'ch2_adegan1' || id === 'ch2_quiz' || id === 'ch3_kelas' || id === 'ch3_lab' || id === 'ch4_kelas' || id === 'ch4_quiz' || id === 'ch5_kelas' || id === 'ch5_quiz' || id === 'ch6_intro' || id === 'ch6_quiz' || id === 'ch7_intro' || id === 'ch7_quiz' || id === 'ch8_kelas' || id === 'ch8_quiz' || id === 'ch9_kelas' || id === 'ch9_quiz' || id === 'ch10_kelas' || id === 'ch10_quiz' || id === 'ch11_kelas' || id === 'ch11_quiz' || id === 'ch12_kelas' || id === 'ch12_quiz') {
                     if(!(lastSlideId === 'ch1_kelas' && id === 'ch1_lab')) {
                         playBgMusic('tegang');
                     } else {
@@ -1025,7 +1018,7 @@
         function selectFood(index) { playSfx('klik'); selectedFood = index; document.getElementById('food-0').classList.remove('makanan-active'); document.getElementById('food-1').classList.remove('makanan-active'); document.getElementById('food-2').classList.remove('makanan-active'); document.getElementById('food-' + index).classList.add('makanan-active'); document.getElementById('quizSubmitBtn3').style.display = 'block'; }
         function submitFood() { if(selectedFood === -1) return alert("Pilih makanan dulu!"); stopAllBgMusic(); const siti = document.getElementById('resSiti'), title = document.getElementById('resTitle3'), box = document.getElementById('resBox3'), dialog = document.getElementById('resNakula3'), btn = document.getElementById('resBtn3'); if(selectedFood === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); siti.src = "siti senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Sempurna! Nasi, bayam, dan tahu kaya akan zat besi sehingga Siti bisa terbebas dari anemia.<br><br><b>Data:</b> Sebanyak 38% remaja putri Indonesia menderita anemia.<br><br><b>Tips:</b> Makanlah yang berwarna 'pelangi' di piringmu karena semakin berwarna, semakin lengkap gizinya."; dialog.innerText = "Siti berhasil bangkit! Kamu benar-benar detektif gizi ulung!"; btn.innerText = "LANJUT CHAPTER 4"; btn.onclick = () => { changeSlide('ch4_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); siti.src = "siti lemas.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Kombinasi tersebut masih kurang protein dan zat besi yang dibutuhkan tubuh.<br><br><b>Tips:</b> Tambahkan lauk berprotein seperti tahu, tempe, atau telur karena murah dan bikin bertenaga."; dialog.innerText = "Siti masih lemas. Makanan ini belum bisa memenuhi kebutuhan gizinya. Ayo pilih lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn3').style.display = 'none'; selectedFood = -1; document.getElementById('food-0').classList.remove('makanan-active'); document.getElementById('food-1').classList.remove('makanan-active'); document.getElementById('food-2').classList.remove('makanan-active'); changeSlide('ch3_lab', 'klik'); }; } changeSlide('ch3_result'); }
         
-        // --- LOGIKA BAB 8 (DINDA) ---
+        // --- LOGIKA BAB 8 (DINDA) - PERBAIKAN BACKGROUND FULL ---
         let selectedAnswer8 = -1;
         function selectAnswer8(index) {
             playSfx('klik');
@@ -1038,22 +1031,44 @@
         function submitAnswer8() {
             if(selectedAnswer8 === -1) return alert("Pilih jawaban dulu!");
             stopAllBgMusic();
-            const char = document.getElementById('resDinda'), title = document.getElementById('resTitle8'), box = document.getElementById('resBox8'), dialog = document.getElementById('resNakula8'), btn = document.getElementById('resBtn8');
+            const bg = document.getElementById('resDindaBg'), title = document.getElementById('resTitle8'), box = document.getElementById('resBox8'), dialog = document.getElementById('resNakula8'), btn = document.getElementById('resBtn8');
             if(selectedAnswer8 === 0) {
                 playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500);
-                char.src = "dinda bangga.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
+                bg.src = "dinda bangga.png";
+                title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
                 box.innerHTML = "Tepat! Dokter adalah garda terdepan pelayanan kesehatan.<br><br><b>Data:</b> Indonesia masih kekurangan 150.000 dokter.<br><br><b>Tips:</b> Hormati setiap profesi kesehatan karena mereka bekerja untuk kesembuhanmu.";
                 dialog.innerText = "Keputusanmu tepat sekali! Dinda percaya diri mengejar mimpinya.";
                 btn.innerText = "LANJUT CHAPTER 9"; btn.onclick = () => { changeSlide('ch9_kelas', 'klik'); };
             } else {
                 playSfx('wrong'); setTimeout(() => playSfx('sad'), 500);
-                char.src = "dinda bingung.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
+                bg.src = "dinda bingung.png";
+                title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
                 box.innerHTML = "Itu bukan tugas utama dokter. Tugas utama dokter adalah memeriksa, mendiagnosis, dan merujuk pasien.<br><br><b>Tips:</b> Dokter umum di Rumah Sakit bertugas sebagai pemeriksa dan perujuk, bukan sebagai operator atau penjual obat.";
                 dialog.innerText = "Ayo pilih lagi, Dinda masih ragu mengejar mimpinya.";
                 btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn8').style.display = 'none'; selectedAnswer8 = -1; document.querySelectorAll('#ch8_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch8_quiz', 'klik'); };
             }
             changeSlide('ch8_result');
         }
+
+        // --- LOGIKA BAB 9 (NENEK BAYU) ---
+        let selectedAnswer9 = -1;
+        function selectAnswer9(index) { playSfx('klik'); selectedAnswer9 = index; const btns = document.querySelectorAll('#ch9_quiz .quiz-btn'); btns.forEach(btn => btn.classList.remove('selected')); btns[index].classList.add('selected'); document.getElementById('quizSubmitBtn9').style.display = 'block'; }
+        function submitAnswer9() { if(selectedAnswer9 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const char = document.getElementById('resNenek'), title = document.getElementById('resTitle9'), box = document.getElementById('resBox9'), dialog = document.getElementById('resSadewa9'), btn = document.getElementById('resBtn9'); if(selectedAnswer9 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); char.src = "nenek senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Benar! Dengan melalui Rumah Sakit terlebih dahulu, biaya menjadi lebih ringan dan perawatan lebih terarah.<br><br><b>Data:</b> Sistem rujukan membuat biaya kesehatan lebih merata dan terjangkau.<br><br><b>Tips:</b> Selalu bawa kartu BPJS atau asuransi saat akan berobat."; dialog.innerText = "Keputusanmu sangat bijaksana! Nenek Bayu mendapatkan perawatan yang tepat."; btn.innerText = "LANJUT CHAPTER 10"; btn.onclick = () => { changeSlide('ch10_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); char.src = "tagihan bengkak.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Langsung ke rumah sakit tanpa rujukan bisa membuat biaya lima kali lebih mahal.<br><br><b>Tips:</b> Kunjungi Rumah Sakit terlebih dahulu untuk mendapatkan rujukan, kecuali dalam kondisi darurat."; dialog.innerText = "Aduh, tagihan menjadi bengkak. Ayo pilih lagi agar Nenek Bayu tenang."; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn9').style.display = 'none'; selectedAnswer9 = -1; document.querySelectorAll('#ch9_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch9_quiz', 'klik'); }; } changeSlide('ch9_result'); }
+
+        // --- LOGIKA BAB 10 (TONI) ---
+        let selectedAnswer10 = -1;
+        function selectAnswer10(index) { playSfx('klik'); selectedAnswer10 = index; const btns = document.querySelectorAll('#ch10_quiz .quiz-btn'); btns.forEach(btn => btn.classList.remove('selected')); btns[index].classList.add('selected'); document.getElementById('quizSubmitBtn10').style.display = 'block'; }
+        function submitAnswer10() { if(selectedAnswer10 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const char = document.getElementById('resToni'), title = document.getElementById('resTitle10'), box = document.getElementById('resBox10'), dialog = document.getElementById('resNakula10'), btn = document.getElementById('resBtn10'); if(selectedAnswer10 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); char.src = "toni bugar.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Tepat! Konsistensi jauh lebih penting daripada intensitas.<br><br><b>Data:</b> Remaja membutuhkan minimal 60 menit aktivitas fisik per hari.<br><br><b>Tips:</b> Mulailah dari yang ringan, misalnya berjalan kaki 30 menit setiap hari."; dialog.innerText = "Toni kini percaya diri dan bugar. Kamu hebat!"; btn.innerText = "LANJUT CHAPTER 11"; btn.onclick = () => { changeSlide('ch11_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); char.src = "toni lesu.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Olahraga yang berlebihan atau tidak sama sekali, keduanya tidak baik bagi tubuh.<br><br><b>Tips:</b> Konsistensi adalah kunci utama dalam membangun kebiasaan hidup sehat."; dialog.innerText = "Toni masih lesu. Ayo beri saran yang lebih tepat untuknya."; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn10').style.display = 'none'; selectedAnswer10 = -1; document.querySelectorAll('#ch10_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch10_quiz', 'klik'); }; } changeSlide('ch10_result'); }
+
+        // --- LOGIKA BAB 11 (WARGA ASRAMA) ---
+        let selectedAnswer11 = -1;
+        function selectAnswer11(index) { playSfx('klik'); selectedAnswer11 = index; const btns = document.querySelectorAll('#ch11_quiz .quiz-btn'); btns.forEach(btn => btn.classList.remove('selected')); btns[index].classList.add('selected'); document.getElementById('quizSubmitBtn11').style.display = 'block'; }
+        function submitAnswer11() { if(selectedAnswer11 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const char = document.getElementById('resWarga'), title = document.getElementById('resTitle11'), box = document.getElementById('resBox11'), dialog = document.getElementById('resNakula11'), btn = document.getElementById('resBtn11'); if(selectedAnswer11 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); char.src = "perisai herd.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Vaksin melindungi semua orang, termasuk mereka yang tidak bisa divaksinasi!<br><br><b>Data:</b> Herd immunity tercapai jika 95% populasi sudah divaksinasi.<br><br><b>Tips:</b> Pastikan imunisasi kamu lengkap. Cek kembali kartu vaksinmu."; dialog.innerText = "Herd immunity terbentuk! Semua penghuni asrama kini terlindungi."; btn.innerText = "LANJUT CHAPTER 12"; btn.onclick = () => { changeSlide('ch12_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); char.src = "wabah menyebar.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Tanpa vaksinasi, wabah akan terus menyebar dan membahayakan lebih banyak orang.<br><br><b>Tips:</b> Vaksinasi adalah hak dan kewajiban setiap warga negara."; dialog.innerText = "Wabah terus menyebar, asrama semakin panik. Ayo pilih lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn11').style.display = 'none'; selectedAnswer11 = -1; document.querySelectorAll('#ch11_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch11_quiz', 'klik'); }; } changeSlide('ch11_result'); }
+
+        // --- LOGIKA BAB 12 (AKHIR) ---
+        let selectedAnswer12 = -1;
+        function selectAnswer12(index) { playSfx('klik'); selectedAnswer12 = index; const btns = document.querySelectorAll('#ch12_quiz .quiz-btn'); btns.forEach(btn => btn.classList.remove('selected')); btns[index].classList.add('selected'); document.getElementById('quizSubmitBtn12').style.display = 'block'; }
+        function submitAnswer12() { if(selectedAnswer12 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const title = document.getElementById('resTitle12'), box = document.getElementById('resBox12'), dialog = document.getElementById('resSadewa12'), btn = document.getElementById('resBtn12'); if(selectedAnswer12 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); title.innerText = "🎉 SELAMAT!"; title.style.color = "#2e7d32"; box.innerHTML = "Kamu adalah penjaga kesehatan sejati!<br><br><b>Data:</b> Generasi Emas 2045 hanya mungkin terwujud jika remaja hari ini paham literasi kesehatan.<br><br><b>Tips:</b> Siapkan P3K di rumah yang berisi plester, perban, antiseptik, dan obat-obatan dasar."; dialog.innerText = "Gerbang emas terbuka! Selamat, kamu sudah menjadi KSATRIA SEHAT NUSANTARA!"; btn.innerText = "SELESAI 🏆"; btn.onclick = () => { changeSlide('slide2', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Uang tidak bisa menyelamatkan saat terjadi keadaan darurat. P3K-lah yang utama.<br><br><b>Tips:</b> P3K adalah bekal wajib yang harus ada di setiap rumah."; dialog.innerText = "Gerbang emas tertutup. Ayo pilih jawaban yang benar agar kamu lulus!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn12').style.display = 'none'; selectedAnswer12 = -1; document.querySelectorAll('#ch12_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch12_quiz', 'klik'); }; } changeSlide('ch12_result'); }
     </script>
 </body>
 </html>
