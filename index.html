@@ -724,6 +724,51 @@
                 </div>
             </div>
 
+            <!-- ==========================================================
+                 📖 BAB 9: Antre di Rumah Sakit (Sistem Rujukan)
+                 ========================================================== -->
+            <div id="ch9_kelas" class="slide">
+                <img src="sekolah gempa.png" class="bg-img bg-dim">
+                <img src="nenek sakit.png" class="nenek-char">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt">Nenek Bayu sakit parah. Bayu bingung apakah harus langsung ke rumah sakit besar atau ke Rumah Sakit terlebih dahulu.</p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+                <div class="bottom-panel" style="background:none; border:none; display:flex; justify-content:center; align-items:flex-end; padding-bottom: 30px;">
+                    <button class="btn-action btn-next" style="padding:15px 40px; font-size:16px; z-index: 50;" onclick="changeSlide('ch9_quiz', 'klik')">LANJUTKAN ▶</button>
+                </div>
+            </div>
+            <div id="ch9_quiz" class="slide">
+                <img src="sekolah gempa.png" class="bg-img bg-dim">
+                <img src="nenek sakit.png" class="nenek-char">
+                <div class="char-box-right">
+                    <div class="bubble-container"><p class="bubble-txt" id="bubble9">Sadewa: Sistem rujukan itu penting untuk menjaga biaya dan kualitas perawatan.</p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+                <div class="quiz-container">
+                    <div class="quiz-question">Apa langkah yang benar dalam situasi ini?</div>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="selectAnswer9(0)">A. Pergi ke Rumah Sakit terlebih dahulu untuk mendapatkan rujukan</button>
+                        <button class="quiz-btn" onclick="selectAnswer9(1)">B. Langsung menuju ke rumah sakit besar</button>
+                        <button class="quiz-btn" onclick="selectAnswer9(2)">C. Diam di rumah dan minum obat seadanya</button>
+                    </div>
+                    <button class="btn-action btn-next" id="quizSubmitBtn9" onclick="submitAnswer9()" style="display:none;">JAWAB ▶</button>
+                </div>
+            </div>
+            <div id="ch9_result" class="slide">
+                <img src="sekolah gempa.png" class="bg-img">
+                <img id="resNenek" src="nenek sakit.png" class="nenek-char">
+                <div class="result-panel">
+                    <h2 id="resTitle9" style="font-family:'Poppins'; font-size:26px; margin-bottom:5px; text-shadow:2px 2px 0 #fff;">HASIL</h2>
+                    <div id="resBox9"></div>
+                    <div class="action-btns"><button id="resBtn9" class="btn-action btn-next"></button></div>
+                </div>
+                <div class="char-box-right">
+                    <div class="bubble-container"><p id="resSadewa9" class="bubble-txt"></p></div>
+                    <img src="sadewa.png" class="portrait-huge">
+                </div>
+            </div>
+
             <!-- HASIL SKENARIO 1 (Rina) -->
             <div id="chResult" class="slide">
                 <img src="kelas.png" class="bg-img">
@@ -826,7 +871,7 @@
                 btn.classList.remove('muted');
                 const activeSlide = document.querySelector('.slide[style*="display: block"]');
                 const activeId = activeSlide ? activeSlide.id : 'slide1';
-                if(activeId === 'ch1_kelas' || activeId === 'ch1_lab' || activeId === 'ch2_adegan1' || activeId === 'ch2_quiz' || activeId === 'ch3_kelas' || activeId === 'ch3_lab' || activeId === 'ch4_kelas' || activeId === 'ch4_quiz' || activeId === 'ch5_kelas' || activeId === 'ch5_quiz' || activeId === 'ch6_intro' || activeId === 'ch6_quiz' || activeId === 'ch7_intro' || activeId === 'ch7_quiz' || activeId === 'ch8_kelas' || activeId === 'ch8_quiz' || activeId === 'ch9_kelas' || activeId === 'ch9_quiz' || activeId === 'ch10_kelas' || activeId === 'ch10_quiz' || activeId === 'ch11_kelas' || activeId === 'ch11_quiz' || activeId === 'ch12_kelas' || activeId === 'ch12_quiz') {
+                if(activeId === 'ch1_kelas' || activeId === 'ch1_lab' || activeId === 'ch2_adegan1' || activeId === 'ch2_quiz' || activeId === 'ch3_kelas' || activeId === 'ch3_lab' || activeId === 'ch4_kelas' || activeId === 'ch4_quiz' || activeId === 'ch5_kelas' || activeId === 'ch5_quiz' || activeId === 'ch6_intro' || activeId === 'ch6_quiz' || activeId === 'ch7_intro' || activeId === 'ch7_quiz' || activeId === 'ch8_kelas' || activeId === 'ch8_quiz' || activeId === 'ch9_kelas' || activeId === 'ch9_quiz') {
                     playBgMusic('tegang');
                 } else {
                     playBgMusic('gamelan');
@@ -860,7 +905,7 @@
 
             let durasi = 800; 
             if(id === 'slide2' && sound === 'selamat') { durasi = 4000; }
-            if(id === 'chResult' || id === 'ch2_result' || id === 'ch3_result' || id === 'ch4_result' || id === 'ch5_result' || id === 'ch6_result' || id === 'ch7_result' || id === 'ch8_result' || id === 'ch9_result' || id === 'ch10_result' || id === 'ch11_result' || id === 'ch12_result') { durasi = 600; }
+            if(id === 'chResult' || id === 'ch2_result' || id === 'ch3_result' || id === 'ch4_result' || id === 'ch5_result' || id === 'ch6_result' || id === 'ch7_result' || id === 'ch8_result' || id === 'ch9_result') { durasi = 600; }
 
             showLoading(() => {
                 const musicBtn = document.getElementById('btnMusic');
@@ -870,7 +915,7 @@
                     musicBtn.classList.remove('hidden');
                 }
 
-                if(id === 'ch1_kelas' || id === 'ch1_lab' || id === 'ch2_adegan1' || id === 'ch2_quiz' || id === 'ch3_kelas' || id === 'ch3_lab' || id === 'ch4_kelas' || id === 'ch4_quiz' || id === 'ch5_kelas' || id === 'ch5_quiz' || id === 'ch6_intro' || id === 'ch6_quiz' || id === 'ch7_intro' || id === 'ch7_quiz' || id === 'ch8_kelas' || id === 'ch8_quiz' || id === 'ch9_kelas' || id === 'ch9_quiz' || id === 'ch10_kelas' || id === 'ch10_quiz' || id === 'ch11_kelas' || id === 'ch11_quiz' || id === 'ch12_kelas' || id === 'ch12_quiz') {
+                if(id === 'ch1_kelas' || id === 'ch1_lab' || id === 'ch2_adegan1' || id === 'ch2_quiz' || id === 'ch3_kelas' || id === 'ch3_lab' || id === 'ch4_kelas' || id === 'ch4_quiz' || id === 'ch5_kelas' || id === 'ch5_quiz' || id === 'ch6_intro' || id === 'ch6_quiz' || id === 'ch7_intro' || id === 'ch7_quiz' || id === 'ch8_kelas' || id === 'ch8_quiz' || id === 'ch9_kelas' || id === 'ch9_quiz') {
                     if(!(lastSlideId === 'ch1_kelas' && id === 'ch1_lab')) {
                         playBgMusic('tegang');
                     } else {
@@ -1052,8 +1097,35 @@
 
         // --- LOGIKA BAB 9 (NENEK BAYU) ---
         let selectedAnswer9 = -1;
-        function selectAnswer9(index) { playSfx('klik'); selectedAnswer9 = index; const btns = document.querySelectorAll('#ch9_quiz .quiz-btn'); btns.forEach(btn => btn.classList.remove('selected')); btns[index].classList.add('selected'); document.getElementById('quizSubmitBtn9').style.display = 'block'; }
-        function submitAnswer9() { if(selectedAnswer9 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const char = document.getElementById('resNenek'), title = document.getElementById('resTitle9'), box = document.getElementById('resBox9'), dialog = document.getElementById('resSadewa9'), btn = document.getElementById('resBtn9'); if(selectedAnswer9 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); char.src = "nenek senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Benar! Dengan melalui Rumah Sakit terlebih dahulu, biaya menjadi lebih ringan dan perawatan lebih terarah.<br><br><b>Data:</b> Sistem rujukan membuat biaya kesehatan lebih merata dan terjangkau.<br><br><b>Tips:</b> Selalu bawa kartu BPJS atau asuransi saat akan berobat."; dialog.innerText = "Keputusanmu sangat bijaksana! Nenek Bayu mendapatkan perawatan yang tepat."; btn.innerText = "LANJUT CHAPTER 10"; btn.onclick = () => { changeSlide('ch10_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); char.src = "tagihan bengkak.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Langsung ke rumah sakit tanpa rujukan bisa membuat biaya lima kali lebih mahal.<br><br><b>Tips:</b> Kunjungi Rumah Sakit terlebih dahulu untuk mendapatkan rujukan, kecuali dalam kondisi darurat."; dialog.innerText = "Aduh, tagihan menjadi bengkak. Ayo pilih lagi agar Nenek Bayu tenang."; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn9').style.display = 'none'; selectedAnswer9 = -1; document.querySelectorAll('#ch9_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch9_quiz', 'klik'); }; } changeSlide('ch9_result'); }
+        function selectAnswer9(index) {
+            playSfx('klik');
+            selectedAnswer9 = index;
+            const btns = document.querySelectorAll('#ch9_quiz .quiz-btn');
+            btns.forEach(btn => btn.classList.remove('selected'));
+            btns[index].classList.add('selected');
+            document.getElementById('quizSubmitBtn9').style.display = 'block';
+        }
+        function submitAnswer9() {
+            if(selectedAnswer9 === -1) return alert("Pilih jawaban dulu!");
+            stopAllBgMusic();
+            const char = document.getElementById('resNenek'), title = document.getElementById('resTitle9'), box = document.getElementById('resBox9'), dialog = document.getElementById('resSadewa9'), btn = document.getElementById('resBtn9');
+            if(selectedAnswer9 === 0) {
+                playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500);
+                char.src = "nenek senyum.png";
+                title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
+                box.innerHTML = "Benar! Dengan melalui Rumah Sakit terlebih dahulu, biaya menjadi lebih ringan dan perawatan lebih terarah.<br><br><b>Data:</b> Sistem rujukan membuat biaya kesehatan lebih merata dan terjangkau.<br><br><b>Tips:</b> Selalu bawa kartu BPJS atau asuransi saat akan berobat.";
+                dialog.innerText = "Keputusanmu sangat bijaksana! Nenek Bayu mendapatkan perawatan yang tepat.";
+                btn.innerText = "LANJUT CHAPTER 10"; btn.onclick = () => { changeSlide('ch10_kelas', 'klik'); };
+            } else {
+                playSfx('wrong'); setTimeout(() => playSfx('sad'), 500);
+                char.src = "tagihan bengkak.png";
+                title.innerText = "❌ GAGAL!"; title.style.color = "#c62828";
+                box.innerHTML = "Langsung ke rumah sakit tanpa rujukan bisa membuat biaya lima kali lebih mahal.<br><br><b>Tips:</b> Kunjungi Rumah Sakit terlebih dahulu untuk mendapatkan rujukan, kecuali dalam kondisi darurat.";
+                dialog.innerText = "Aduh, tagihan menjadi bengkak. Ayo pilih lagi agar Nenek Bayu tenang.";
+                btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn9').style.display = 'none'; selectedAnswer9 = -1; document.querySelectorAll('#ch9_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch9_quiz', 'klik'); };
+            }
+            changeSlide('ch9_result');
+        }
 
         // --- LOGIKA BAB 10 (TONI) ---
         let selectedAnswer10 = -1;
