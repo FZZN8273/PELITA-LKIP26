@@ -231,7 +231,7 @@
         #ch8_result .portrait-huge { height: 280px !important; width: auto !important; }
 
         /* ==========================================================
-           📌 BAB 9 - 12 (FIX: FULL BACKGROUND ASSET KARAKTER)
+           📌 BAB 9 - 12 (FIX: FULL BACKGROUND ASSET KARAKTER & PANEL MENTOK ATAS)
            ========================================================== */
         #ch9_kelas .bg-img, #ch9_quiz .bg-img, #ch9_result .bg-img,
         #ch10_kelas .bg-img, #ch10_quiz .bg-img, #ch10_result .bg-img,
@@ -245,7 +245,17 @@
         #ch9_quiz .bubble-container, #ch10_quiz .bubble-container, #ch11_quiz .bubble-container, #ch12_quiz .bubble-container { width: 280px !important; margin-bottom: 15px !important; }
         #ch9_quiz .portrait-huge, #ch10_quiz .portrait-huge, #ch11_quiz .portrait-huge, #ch12_quiz .portrait-huge { height: 250px !important; }
 
-        #ch9_result .result-panel, #ch10_result .result-panel, #ch11_result .result-panel, #ch12_result .result-panel { position: absolute; left: 10px; top: 45px; width: 380px; z-index: 150; display: flex; flex-direction: column; align-items: center; }
+        /* ⬆️ PERBAIKAN POSISI PANEL HASIL 9-12 (TOP: 10px AGAR MENTOK ATAS DAN TIDAK NUTUP WAJAH) */
+        #ch9_result .result-panel, #ch10_result .result-panel, #ch11_result .result-panel, #ch12_result .result-panel { 
+            position: absolute; 
+            left: 10px; 
+            top: 10px; 
+            width: 380px; 
+            z-index: 150; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
         #ch9_result #resTitle9, #ch10_result #resTitle10, #ch11_result #resTitle11, #ch12_result #resTitle12 { align-self: center; }
         #ch9_result #resBox9, #ch10_result #resBox10, #ch11_result #resBox11, #ch12_result #resBox12 { background: #ffffff; border: 4px solid #4a2e1b; border-radius: 20px; padding: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.6; color: #3e2717; width: 100%; text-align: left; margin-top: 10px; }
         #ch9_result .action-btns, #ch10_result .action-btns, #ch11_result .action-btns, #ch12_result .action-btns { margin-top: 15px; justify-content: center; }
@@ -402,7 +412,7 @@
             </div>
 
             <!-- ==========================================================
-                 📖 BAB 9: Antre di Rumah Sakit (FIX: FULL NENEK SAKIT)
+                 📖 BAB 9: Antre di Rumah Sakit (FULL BG NENEK SAKIT & POSISI PANEL ATAS)
                  ========================================================== -->
             <div id="ch9_kelas" class="slide">
                 <img src="nenek sakit.png" class="bg-img bg-dim">
@@ -444,7 +454,7 @@
             </div>
 
             <!-- ==========================================================
-                 📖 BAB 10: Keringat di Lapangan (FIX: FULL TONI MALU)
+                 📖 BAB 10: Keringat di Lapangan (FULL BG TONI MALU)
                  ========================================================== -->
             <div id="ch10_kelas" class="slide">
                 <img src="toni malu.png" class="bg-img bg-dim">
@@ -486,7 +496,7 @@
             </div>
 
             <!-- ==========================================================
-                 📖 BAB 11: Wabah di Asrama (FIX: FULL WARGA SAKIT)
+                 📖 BAB 11: Wabah di Asrama (FULL BG WARGA SAKIT)
                  ========================================================== -->
             <div id="ch11_kelas" class="slide">
                 <img src="warga sakit.png" class="bg-img bg-dim">
@@ -528,7 +538,7 @@
             </div>
 
             <!-- ==========================================================
-                 📖 BAB 12: Surat untuk Masa Depan (FIX: FULL GERBANG EMAS)
+                 📖 BAB 12: Surat untuk Masa Depan (FULL BG GERBANG EMAS)
                  ========================================================== -->
             <div id="ch12_kelas" class="slide">
                 <img src="gerbang emas.png" class="bg-img bg-dim">
