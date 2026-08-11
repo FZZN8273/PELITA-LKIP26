@@ -696,6 +696,7 @@
 
             let durasi = 800; 
             if(id === 'slide2' && sound === 'selamat') { durasi = 4000; }
+            // Jika slide yang dituju adalah halaman hasil (result), beri durasi loading 600ms tetap
             if(id === 'chResult' || id === 'ch2_result' || id === 'ch3_result' || id === 'ch4_result' || id === 'ch5_result' || id === 'ch6_result' || id === 'ch7_result' || id === 'ch8_result' || id === 'ch9_result' || id === 'ch10_result' || id === 'ch11_result' || id === 'ch12_result') { durasi = 600; }
 
             showLoading(() => {
@@ -741,6 +742,37 @@
                         document.querySelector('#ch6_intro .char-box-right').style.display = 'flex';
                         document.querySelector('#ch6_intro .bottom-panel').style.display = 'flex';
                     }, 3000);
+                }
+
+                // ⏱️ PERBAIKAN: JEDA 10 DETIK PADA HALAMAN HASIL
+                if(id === 'chResult' || id === 'ch2_result' || id === 'ch3_result' || id === 'ch4_result' || id === 'ch5_result' || id === 'ch6_result' || id === 'ch7_result' || id === 'ch8_result' || id === 'ch9_result' || id === 'ch10_result' || id === 'ch11_result' || id === 'ch12_result') {
+                    const nextBtn = document.querySelector(`#${id} .action-btns .btn-action, #${id} .btn-bottom-simple, #${id} .action-btns button`);
+                    if (nextBtn) {
+                        // Simpan teks asli tombol
+                        const originalText = nextBtn.innerText;
+                        // Nonaktifkan tombol
+                        nextBtn.disabled = true;
+                        nextBtn.style.opacity = "0.6";
+                        nextBtn.style.cursor = "not-allowed";
+                        
+                        // Mulai hitung mundur dari 10
+                        let countdown = 10;
+                        nextBtn.innerText = `Tunggu ${countdown} detik...`;
+                        
+                        const timer = setInterval(() => {
+                            countdown--;
+                            if (countdown > 0) {
+                                nextBtn.innerText = `Tunggu ${countdown} detik...`;
+                            } else {
+                                clearInterval(timer);
+                                // Aktifkan kembali tombol
+                                nextBtn.disabled = false;
+                                nextBtn.style.opacity = "1";
+                                nextBtn.style.cursor = "pointer";
+                                nextBtn.innerText = originalText;
+                            }
+                        }, 1000);
+                    }
                 }
             }, durasi);
         }
@@ -802,7 +834,7 @@
         }
 
         /* ==========================================================
-           🔥 LOGIKA BAB 9 - 12 (FULL BACKGROUND ASSET)
+           🔥 LOGIKA BAB 9 - 12 (FULL BACKGROUND ASSET & JAWABAN RANDOMIZED)
            ========================================================== */
 
         // --- LOGIKA BAB 9 (NENEK BAYU) ---
@@ -818,8 +850,14 @@
         function submitAnswer9() {
             if(selectedAnswer9 === -1) return alert("Pilih jawaban dulu!");
             stopAllBgMusic();
+            // Kunci jawaban yang benar secara logika adalah A (Pergi ke Rumah Sakit terlebih dahulu)
+            // Kita akan memetakan tombol yang diklik ke posisi acak
+            const correctIndex = 0; // Indeks jawaban benar (A)
+            const randomMap = [0, 1, 2].sort(() => Math.random() - 0.5);
+            const isCorrect = randomMap[selectedAnswer9] === correctIndex;
+
             const bg = document.getElementById('resNenekBg'), title = document.getElementById('resTitle9'), box = document.getElementById('resBox9'), dialog = document.getElementById('resSadewa9'), btn = document.getElementById('resBtn9');
-            if(selectedAnswer9 === 0) {
+            if(isCorrect) {
                 playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500);
                 bg.src = "nenek senyum.png";
                 title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
@@ -850,8 +888,13 @@
         function submitAnswer10() {
             if(selectedAnswer10 === -1) return alert("Pilih jawaban dulu!");
             stopAllBgMusic();
+            // Kunci jawaban yang benar secara logika adalah A (Mulai dari yang ringan dan lakukan secara rutin)
+            const correctIndex = 0;
+            const randomMap = [0, 1, 2].sort(() => Math.random() - 0.5);
+            const isCorrect = randomMap[selectedAnswer10] === correctIndex;
+
             const bg = document.getElementById('resToniBg'), title = document.getElementById('resTitle10'), box = document.getElementById('resBox10'), dialog = document.getElementById('resNakula10'), btn = document.getElementById('resBtn10');
-            if(selectedAnswer10 === 0) {
+            if(isCorrect) {
                 playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500);
                 bg.src = "toni bugar.png";
                 title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
@@ -882,8 +925,13 @@
         function submitAnswer11() {
             if(selectedAnswer11 === -1) return alert("Pilih jawaban dulu!");
             stopAllBgMusic();
+            // Kunci jawaban yang benar secara logika adalah A (Melakukan vaksinasi massal)
+            const correctIndex = 0;
+            const randomMap = [0, 1, 2].sort(() => Math.random() - 0.5);
+            const isCorrect = randomMap[selectedAnswer11] === correctIndex;
+
             const bg = document.getElementById('resWargaBg'), title = document.getElementById('resTitle11'), box = document.getElementById('resBox11'), dialog = document.getElementById('resNakula11'), btn = document.getElementById('resBtn11');
-            if(selectedAnswer11 === 0) {
+            if(isCorrect) {
                 playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500);
                 bg.src = "warga sehat.png";
                 title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
@@ -914,8 +962,13 @@
         function submitAnswer12() {
             if(selectedAnswer12 === -1) return alert("Pilih jawaban dulu!");
             stopAllBgMusic();
+            // Kunci jawaban yang benar secara logika adalah A (Kotak P3K dan pengetahuan kesehatan)
+            const correctIndex = 0;
+            const randomMap = [0, 1, 2].sort(() => Math.random() - 0.5);
+            const isCorrect = randomMap[selectedAnswer12] === correctIndex;
+
             const bg = document.getElementById('resFinalBg'), title = document.getElementById('resTitle12'), box = document.getElementById('resBox12'), dialog = document.getElementById('resSadewa12'), btn = document.getElementById('resBtn12');
-            if(selectedAnswer12 === 0) {
+            if(isCorrect) {
                 playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500);
                 bg.src = "kembang api.png";
                 title.innerText = "🎉 SELAMAT!"; title.style.color = "#2e7d32";
