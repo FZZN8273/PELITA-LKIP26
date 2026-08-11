@@ -786,7 +786,7 @@
         }
 
         /* ==========================================================
-           🔥 PERBAIKAN LOGIKA JAWABAN PILGAN SESUAI PERMINTAAN (RANDOM/ACAK)
+           🔥 PERBAIKAN LOGIKA JAWABAN PILGAN SESUAI DAFTAR FINAL
            ========================================================== */
 
         // SKENARIO 2 (ANDI) - BENAR: A (0)
@@ -801,7 +801,7 @@
         }
         function submitAnswer2() { if(selectedAnswer2 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const andi = document.getElementById('resAndi'), title = document.getElementById('resTitle2'), box = document.getElementById('resBox2'), dialog = document.getElementById('resNakula2'), btn = document.getElementById('resBtn2'); if(selectedAnswer2 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); andi.src = "andi senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Tepat sekali! Jamban menghentikan pencemaran, sedangkan cuci tangan membunuh kuman. Inilah yang disebut ODF.<br><br><b>Data:</b> Diare merupakan pembunuh nomor dua pada anak di dunia. Penyebab utamanya adalah sanitasi yang buruk.<br><br><b>Tips:</b> Gunakan jamban sehat dan cuci tangan pakai sabun setelah buang air besar."; dialog.innerText = "Kamu hebat! Pilihanmu menyelamatkan Andi dan teman-temannya dari penyakit!"; btn.innerText = "LANJUT CHAPTER 3"; btn.onclick = () => { changeSlide('ch3_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); andi.src = "andi bingung.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Hanya mencuci tangan atau hanya membangun jamban tidak cukup. Keduanya harus dilakukan bersama-sama.<br><br><b>Tips:</b> Sanitasi yang bersih membutuhkan jamban yang layak dan kebiasaan cuci tangan."; dialog.innerText = "Aduh, selokan tetap kotor dan Andi masih bingung. Ayo coba pilih dengan teliti lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn2').style.display = 'none'; selectedAnswer2 = -1; document.querySelectorAll('#ch2_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch2_quiz', 'klik'); }; } changeSlide('ch2_result'); }
 
-        // SKENARIO 4 (FAJAR) - BENAR: B (1)
+        // SKENARIO 4 (FAJAR) - BENAR: A (0)
         let selectedAnswer4 = -1;
         function selectAnswer4(index) {
             playSfx('klik');
@@ -811,9 +811,9 @@
             btns[index].classList.add('selected');
             document.getElementById('quizSubmitBtn4').style.display = 'block';
         }
-        function submitAnswer4() { if(selectedAnswer4 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const fajar = document.getElementById('resFajar'), title = document.getElementById('resTitle4'), box = document.getElementById('resBox4'), dialog = document.getElementById('resSadewa4'), btn = document.getElementById('resBtn4'); if(selectedAnswer4 === 1) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); fajar.src = "fajar lengah.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Kamu detektif sejati! Vaksin DBD sudah terbukti aman oleh BPOM.<br><br><b>Data:</b> Sebanyak 60% remaja percaya informasi kesehatan dari media sosial tanpa memeriksa faktanya.<br><br><b>Tips:</b> Saring sebelum membagikan. Selalu cek ke sumber resmi seperti Kemenkes atau WHO."; dialog.innerText = "Fajar sudah lega. Terima kasih sudah menyelamatkan banyak orang dari hoaks berbahaya!"; btn.innerText = "LANJUT CHAPTER 5"; btn.onclick = () => { changeSlide('ch5_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); fajar.src = "fajar kaget.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Jangan menyebarkan hoaks karena tindakan itu sangat berbahaya bagi orang lain.<br><br><b>Tips:</b> Selalu lakukan verifikasi sebelum memercayai sebuah informasi."; dialog.innerText = "Aduh, hoaks terus menyebar dan Fajar makin panik. Ayo pilih dengan bijak lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn4').style.display = 'none'; selectedAnswer4 = -1; document.querySelectorAll('#ch4_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch4_quiz', 'klik'); }; } changeSlide('ch4_result'); }
+        function submitAnswer4() { if(selectedAnswer4 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const fajar = document.getElementById('resFajar'), title = document.getElementById('resTitle4'), box = document.getElementById('resBox4'), dialog = document.getElementById('resSadewa4'), btn = document.getElementById('resBtn4'); if(selectedAnswer4 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); fajar.src = "fajar lengah.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Kamu detektif sejati! Vaksin DBD sudah terbukti aman oleh BPOM.<br><br><b>Data:</b> Sebanyak 60% remaja percaya informasi kesehatan dari media sosial tanpa memeriksa faktanya.<br><br><b>Tips:</b> Saring sebelum membagikan. Selalu cek ke sumber resmi seperti Kemenkes atau WHO."; dialog.innerText = "Fajar sudah lega. Terima kasih sudah menyelamatkan banyak orang dari hoaks berbahaya!"; btn.innerText = "LANJUT CHAPTER 5"; btn.onclick = () => { changeSlide('ch5_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); fajar.src = "fajar kaget.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Jangan menyebarkan hoaks karena tindakan itu sangat berbahaya bagi orang lain.<br><br><b>Tips:</b> Selalu lakukan verifikasi sebelum memercayai sebuah informasi."; dialog.innerText = "Aduh, hoaks terus menyebar dan Fajar makin panik. Ayo pilih dengan bijak lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn4').style.display = 'none'; selectedAnswer4 = -1; document.querySelectorAll('#ch4_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch4_quiz', 'klik'); }; } changeSlide('ch4_result'); }
 
-        // SKENARIO 5 (DIMAS) - BENAR: C (2)
+        // SKENARIO 5 (DIMAS) - BENAR: A (0)
         let selectedAnswer5 = -1;
         function selectAnswer5(index) {
             playSfx('klik');
@@ -823,9 +823,9 @@
             btns[index].classList.add('selected');
             document.getElementById('quizSubmitBtn5').style.display = 'block';
         }
-        function submitAnswer5() { if(selectedAnswer5 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const bg = document.getElementById('resDimasBg'), title = document.getElementById('resTitle5'), box = document.getElementById('resBox5'), dialog = document.getElementById('resNakula5'), btn = document.getElementById('resBtn5'); if(selectedAnswer5 === 2) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); bg.src = "taman sekolah1.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Terkadang, seorang teman hanya butuh didengarkan. Kamu sudah melakukan hal yang benar.<br><br><b>Data:</b> Satu dari tiga remaja mengalami masalah kesehatan mental, dan 80% di antaranya tidak berani bercerita.<br><br><b>Tips:</b> Jangan takut untuk bertanya, 'Apa kabar?' karena satu pertanyaan bisa menyelamatkan."; dialog.innerText = "Dimas kini tersenyum. Kamu telah menjadi teman yang luar biasa!"; btn.innerText = "LANJUT CHAPTER 6"; btn.onclick = () => { changeSlide('ch6_intro', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); bg.src = "taman sekolah2.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Membiarkannya hanya akan menambah beban. Kita harus peduli.<br><br><b>Tips:</b> Jika kamu merasa sedih berkepanjangan, segera cerita kepada guru BK atau orang tua."; dialog.innerText = "Dimas semakin sendirian. Ayo pilih cara terbaik untuknya!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn5').style.display = 'none'; selectedAnswer5 = -1; document.querySelectorAll('#ch5_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch5_quiz', 'klik'); }; } changeSlide('ch5_result'); }
+        function submitAnswer5() { if(selectedAnswer5 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const bg = document.getElementById('resDimasBg'), title = document.getElementById('resTitle5'), box = document.getElementById('resBox5'), dialog = document.getElementById('resNakula5'), btn = document.getElementById('resBtn5'); if(selectedAnswer5 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); bg.src = "taman sekolah1.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Terkadang, seorang teman hanya butuh didengarkan. Kamu sudah melakukan hal yang benar.<br><br><b>Data:</b> Satu dari tiga remaja mengalami masalah kesehatan mental, dan 80% di antaranya tidak berani bercerita.<br><br><b>Tips:</b> Jangan takut untuk bertanya, 'Apa kabar?' karena satu pertanyaan bisa menyelamatkan."; dialog.innerText = "Dimas kini tersenyum. Kamu telah menjadi teman yang luar biasa!"; btn.innerText = "LANJUT CHAPTER 6"; btn.onclick = () => { changeSlide('ch6_intro', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); bg.src = "taman sekolah2.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Membiarkannya hanya akan menambah beban. Kita harus peduli.<br><br><b>Tips:</b> Jika kamu merasa sedih berkepanjangan, segera cerita kepada guru BK atau orang tua."; dialog.innerText = "Dimas semakin sendirian. Ayo pilih cara terbaik untuknya!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn5').style.display = 'none'; selectedAnswer5 = -1; document.querySelectorAll('#ch5_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch5_quiz', 'klik'); }; } changeSlide('ch5_result'); }
 
-        // SKENARIO 6 (GEMPA) - BENAR: B (1)
+        // SKENARIO 6 (GEMPA) - BENAR: A (0)
         let selectedAnswer6 = -1;
         function selectAnswer6(index) {
             playSfx('klik');
@@ -835,7 +835,7 @@
             btns[index].classList.add('selected');
             document.getElementById('quizSubmitBtn6').style.display = 'block';
         }
-        function submitAnswer6() { if(selectedAnswer6 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const bg = document.getElementById('resWargaBg'), title = document.getElementById('resTitle6'), box = document.getElementById('resBox6'), dialog = document.getElementById('resSadewa6'), btn = document.getElementById('resBtn6'); if(selectedAnswer6 === 1) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); bg.src = "ruang aman.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "TSB menyelamatkan nyawa! Siapkan selalu di rumahmu.<br><br><b>Data:</b> Indonesia berada di Cincin Api Pasifik sehingga ribuan gempa terjadi setiap tahun.<br><br><b>Tips:</b> Siapkan TSB yang berisi air minum, makanan siap saji, P3K, senter, radio, dan dokumen penting."; dialog.innerText = "Pilihanmu sangat tepat! Selamat karena sudah tahu cara menyelamatkan diri!"; btn.innerText = "LANJUT CHAPTER 7"; btn.onclick = () => { changeSlide('ch7_intro', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); bg.src = "sekolah gempa.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Tanpa TSB, kita tidak punya bekal dan itu sangat berbahaya.<br><br><b>Tips:</b> Lakukan latihan evakuasi secara rutin minimal setahun sekali."; dialog.innerText = "Aduh, warga masih kebingungan. Ayo pilih dengan benar lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn6').style.display = 'none'; selectedAnswer6 = -1; document.querySelectorAll('#ch6_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch6_quiz', 'klik'); }; } changeSlide('ch6_result'); }
+        function submitAnswer6() { if(selectedAnswer6 === -1) return alert("Pilih jawaban dulu!"); stopAllBgMusic(); const bg = document.getElementById('resWargaBg'), title = document.getElementById('resTitle6'), box = document.getElementById('resBox6'), dialog = document.getElementById('resSadewa6'), btn = document.getElementById('resBtn6'); if(selectedAnswer6 === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); bg.src = "ruang aman.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "TSB menyelamatkan nyawa! Siapkan selalu di rumahmu.<br><br><b>Data:</b> Indonesia berada di Cincin Api Pasifik sehingga ribuan gempa terjadi setiap tahun.<br><br><b>Tips:</b> Siapkan TSB yang berisi air minum, makanan siap saji, P3K, senter, radio, dan dokumen penting."; dialog.innerText = "Pilihanmu sangat tepat! Selamat karena sudah tahu cara menyelamatkan diri!"; btn.innerText = "LANJUT CHAPTER 7"; btn.onclick = () => { changeSlide('ch7_intro', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); bg.src = "sekolah gempa.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Tanpa TSB, kita tidak punya bekal dan itu sangat berbahaya.<br><br><b>Tips:</b> Lakukan latihan evakuasi secara rutin minimal setahun sekali."; dialog.innerText = "Aduh, warga masih kebingungan. Ayo pilih dengan benar lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn6').style.display = 'none'; selectedAnswer6 = -1; document.querySelectorAll('#ch6_quiz .quiz-btn').forEach(b => b.classList.remove('selected')); changeSlide('ch6_quiz', 'klik'); }; } changeSlide('ch6_result'); }
 
         // SKENARIO 7 (RAKA) - BENAR: A (0)
         let selectedAnswer7 = -1;
@@ -854,7 +854,7 @@
         function selectFood(index) { playSfx('klik'); selectedFood = index; document.getElementById('food-0').classList.remove('makanan-active'); document.getElementById('food-1').classList.remove('makanan-active'); document.getElementById('food-2').classList.remove('makanan-active'); document.getElementById('food-' + index).classList.add('makanan-active'); document.getElementById('quizSubmitBtn3').style.display = 'block'; }
         function submitFood() { if(selectedFood === -1) return alert("Pilih makanan dulu!"); stopAllBgMusic(); const siti = document.getElementById('resSiti'), title = document.getElementById('resTitle3'), box = document.getElementById('resBox3'), dialog = document.getElementById('resNakula3'), btn = document.getElementById('resBtn3'); if(selectedFood === 0) { playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500); siti.src = "siti senyum.png"; title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32"; box.innerHTML = "Sempurna! Nasi, bayam, dan tahu kaya akan zat besi sehingga Siti bisa terbebas dari anemia.<br><br><b>Data:</b> Sebanyak 38% remaja putri Indonesia menderita anemia.<br><br><b>Tips:</b> Makanlah yang berwarna 'pelangi' di piringmu karena semakin berwarna, semakin lengkap gizinya."; dialog.innerText = "Siti berhasil bangkit! Kamu benar-benar detektif gizi ulung!"; btn.innerText = "LANJUT CHAPTER 4"; btn.onclick = () => { changeSlide('ch4_kelas', 'klik'); }; } else { playSfx('wrong'); setTimeout(() => playSfx('sad'), 500); siti.src = "siti lemas.png"; title.innerText = "❌ GAGAL!"; title.style.color = "#c62828"; box.innerHTML = "Kombinasi tersebut masih kurang protein dan zat besi yang dibutuhkan tubuh.<br><br><b>Tips:</b> Tambahkan lauk berprotein seperti tahu, tempe, atau telur karena murah dan bikin bertenaga."; dialog.innerText = "Siti masih lemas. Makanan ini belum bisa memenuhi kebutuhan gizinya. Ayo pilih lagi!"; btn.innerText = "COBA LAGI"; btn.onclick = () => { document.getElementById('quizSubmitBtn3').style.display = 'none'; selectedFood = -1; document.getElementById('food-0').classList.remove('makanan-active'); document.getElementById('food-1').classList.remove('makanan-active'); document.getElementById('food-2').classList.remove('makanan-active'); changeSlide('ch3_lab', 'klik'); }; } changeSlide('ch3_result'); }
         
-        // --- LOGIKA BAB 8 (DINDA) - BENAR: C (2) ---
+        // --- LOGIKA BAB 8 (DINDA) - BENAR: A (0) ---
         let selectedAnswer8 = -1;
         function selectAnswer8(index) {
             playSfx('klik');
@@ -868,7 +868,7 @@
             if(selectedAnswer8 === -1) return alert("Pilih jawaban dulu!");
             stopAllBgMusic();
             const bg = document.getElementById('resDindaBg'), title = document.getElementById('resTitle8'), box = document.getElementById('resBox8'), dialog = document.getElementById('resNakula8'), btn = document.getElementById('resBtn8');
-            if(selectedAnswer8 === 2) {
+            if(selectedAnswer8 === 0) {
                 playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500);
                 bg.src = "dinda bangga.png";
                 title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
@@ -887,10 +887,10 @@
         }
 
         /* ==========================================================
-           🔥 LOGIKA BAB 9 - 12 (FULL BACKGROUND ASSET & JAWABAN RANDOM)
+           🔥 LOGIKA BAB 9 - 12 (FULL BACKGROUND ASSET & JAWABAN SESUAI DAFTAR)
            ========================================================== */
 
-        // --- LOGIKA BAB 9 (NENEK BAYU) - BENAR: B (1) ---
+        // --- LOGIKA BAB 9 (NENEK BAYU) - BENAR: A (0) ---
         let selectedAnswer9 = -1;
         function selectAnswer9(index) {
             playSfx('klik');
@@ -904,7 +904,7 @@
             if(selectedAnswer9 === -1) return alert("Pilih jawaban dulu!");
             stopAllBgMusic();
             const bg = document.getElementById('resNenekBg'), title = document.getElementById('resTitle9'), box = document.getElementById('resBox9'), dialog = document.getElementById('resSadewa9'), btn = document.getElementById('resBtn9');
-            if(selectedAnswer9 === 1) {
+            if(selectedAnswer9 === 0) {
                 playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500);
                 bg.src = "nenek senyum.png";
                 title.innerText = "✅ BERHASIL!"; title.style.color = "#2e7d32";
@@ -986,7 +986,7 @@
             changeSlide('ch11_result');
         }
 
-        // --- LOGIKA BAB 12 (AKHIR) - BENAR: B (1) ---
+        // --- LOGIKA BAB 12 (AKHIR) - BENAR: A (0) ---
         let selectedAnswer12 = -1;
         function selectAnswer12(index) {
             playSfx('klik');
@@ -1000,7 +1000,7 @@
             if(selectedAnswer12 === -1) return alert("Pilih jawaban dulu!");
             stopAllBgMusic();
             const bg = document.getElementById('resFinalBg'), title = document.getElementById('resTitle12'), box = document.getElementById('resBox12'), dialog = document.getElementById('resSadewa12'), btn = document.getElementById('resBtn12');
-            if(selectedAnswer12 === 1) {
+            if(selectedAnswer12 === 0) {
                 playSfx('correct'); setTimeout(() => playSfx('tepuk'), 500);
                 bg.src = "kembang api.png";
                 title.innerText = "🎉 SELAMAT!"; title.style.color = "#2e7d32";
